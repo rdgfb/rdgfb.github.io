@@ -1,38 +1,17 @@
 <html>
 <head>
-  <title>no internet</title>
+  <title>no internet simulator</title>
 </head>
-<style>
-#mydiv {
-  position: absolute;
-  z-index: 9;
-  background-color: #888888;
-  border: 1px solid #000000;
-  text-align: left;
-}
-
-#mydivheader {
-  padding: 10px;
-  cursor: move;
-  z-index: 10;
-  background-color: #444444;
-  color: #ffffff;
-}
-</style>
 <body>
-  <div>the internet is down.</div>
-<div style="color:#FFFFFF;">enter</div>
-<input id='banana' placeholder="enter a title"><input form='apple' placeholder="enter a description"><input type="submit" value="GO!" onclick="error()">
+  <div>a silly site that doesn't need internet!!  </div>
+  <div>useful for bad connections too!</div>
+  <div> </div>
+<form id="2" onsubmit="return false;" style="border: 1px solid #000000; width: 325px; background-color: #000000; color: #FFFFFF;"> make an error!
+<a>                          </a>
+<input type="button" value="✖" class="buttonStyle" style="position: relative; background-color: #000000; border: 1px solid #FFFFFF; color: #FFFFFF; font-size:10px; top: -3px; right: -118px; height: 20px; width: 20px;" onclick="exit2()">
+<input id='banana' placeholder="enter a title" type="text" style="border: 1px solid #000000" required><input id='apple' placeholder="enter a description" style="border: 1px solid #000000" required><input id='1' type="submit" value="GO!" style="border: 1px solid #000000; width: 31px;" onclick="error()">
+</form>
 <script type="text/javascript">
-function error() {
-var bananaInput = document.getElementById("title");
-var appleInput = document.getElementById("title");
-let div = document.createElement('div');
-div.id = 'content';
-div.innerHTML = '<div id="dragon">Dragon</div>';
-document.body.appendChild(div);
-dragElement(document.getElementById("dragon"));
-
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   if (document.getElementById(elmnt.id + "header")) {
@@ -42,7 +21,6 @@ function dragElement(elmnt) {
     // otherwise, move the DIV from anywhere inside the DIV:
     elmnt.onmousedown = dragMouseDown;
   }
-
   function dragMouseDown(e) {
     e = e || window.event;
     e.preventDefault();
@@ -73,6 +51,42 @@ function dragElement(elmnt) {
     document.onmousemove = null;
   }
 }
+function error() {
+
+var banana = document.getElementById("banana").value;
+var apple = document.getElementById("apple").value;
+let div = document.createElement('div');
+if (banana == "" || apple == "") {
+} else {
+	div.id = 'content';
+	div.innerHTML = '<div id="dragon" style="top: 0px; left: 0px; position: absolute; z-index: 9; background-color: #888888; border: 1px solid #000000; text-align: left;"><div id="dragonheader" style="padding: 1px; cursor: move; z-index: 10; background-color: #444444; color: #ffffff;">title</div><div id="dragondescription">description</div><input type="button" value="ok" onclick="exit()" style="margin: 0 auto; display: block;"><input type="button" value="✖" style="position:absolute; font-size:10px; top:0; right:0; height: 20px; width: 20px;" onclick="exit()"></div>';
+	document.body.appendChild(div);
+	dragElement(document.getElementById("dragon"));
+	document.getElementById("dragonheader").innerHTML = "᠎᠎ "+banana+"᠎⠀ ⠀";
+	document.getElementById("dragondescription").innerText = "᠎ "+apple;
+  document.getElementById("1").disabled = true;
+  document.getElementById("banana").disabled = true;
+  document.getElementById("apple").disabled = true;
+  document.getElementById("banana").value = "";
+  document.getElementById("apple").value = "";
+  document.getElementById("banana").placeholder = "";
+  document.getElementById("apple").placeholder = "";
+  document.getElementById("1").value = " ";
+	}
+}
+function exit() {
+var x = document.getElementById("dragon");
+x.remove();
+document.getElementById("1").disabled = false;
+document.getElementById("banana").disabled = false;
+document.getElementById("apple").disabled = false;
+document.getElementById("banana").placeholder = "enter a title";
+document.getElementById("apple").placeholder = "enter a description";
+document.getElementById("1").value = "GO!";
+}
+function exit2() {
+var q = document.getElementById("2");
+q.remove();
 }
 </script>
 </body>
