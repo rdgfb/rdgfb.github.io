@@ -3,13 +3,13 @@
   <title>no internet simulator</title>
 </head>
 <body>
-<div id="dragonloadr" style="top: 0px; left: -1000px; position: absolute; z-index: 9; background-color: #888888; border: 1px solid #000000; text-align: left;"><div id="dragon2loadr" style="padding: 1px; cursor: move; z-index: 10; background-color: #444444; color: #ffffff;">Dragon⠀⠀⠀⠀⠀⠀⠀    </div><img src="https://github.com/rdgfb/rdgfb.github.io/blob/main/icon.png?raw=true" alt="A dragon" style="margin: 0 auto; display: block;"><input type="button" value="ok" onclick="exit3()" style="margin: 0 auto; display: block;"><input type="button" value="✖" style="position:absolute; font-size:10px; top:0; right:0; height: 20px; width: 20px;" onclick="exit3()"></div>
+<div id="dragonloadr" style="top: 0px; left: -1000px; position: absolute; z-index: 9; background-color: #888888; border: 1px solid #000000; text-align: left;"><div id="dragon2loadr" style="padding: 1px; cursor: move; z-index: 10; background-color: #444444; color: #ffffff;">Dragon⠀⠀⠀⠀⠀⠀⠀    </div><img src="https://github.com/rdgfb/rdgfb.github.io/blob/main/icon.png?raw=true" alt="A dragon" style="margin: 0 auto; display: block;"><input type="button" value="ok" onclick="exit3()" style="margin: 0 auto; display: block;"><input type="button" value="✖" style="position: absolute; font-size: 10px; top:0; right:0; height: 20px; width: 20px;" onclick="exit3()" hidden></div>
   <div>a silly site that doesn't need internet!!  </div>
   <div>useful for bad connections too!</div>
   <div> </div>
 <form id="2" onsubmit="return false;" style="border: 1px solid #000000; width: 325px; background-color: #000000; color: #FFFFFF;"> make an error!
 <a>                          </a>
-<input type="button" value="✖" class="buttonStyle" style="position: relative; background-color: #000000; border: 1px solid #FFFFFF; color: #FFFFFF; font-size:10px; top: -3px; right: -118px; height: 20px; width: 20px;" onclick="exit2()">
+<input type="button" value="✖" class="buttonStyle" style="position: relative; background-color: #000000; border: 1px solid #FFFFFF; color: #FFFFFF; font-size:10px; top: -3px; right: -118px; height: 20px; width: 20px;" onclick="exit2()" hidden>
 <input id='banana' placeholder="enter a title" type="text" style="border: 1px solid #000000" required><input id='apple' placeholder="enter a description" style="border: 1px solid #000000" required><input id='1' type="submit" value="GO!" style="border: 1px solid #000000; width: 31px;" onclick="error()">
 </form>
 <div> </div>
@@ -115,7 +115,7 @@ function enter() {
   	document.getElementById("console").value = "";
 	} else if (consoleID !== "") {
 		div.id = 'content';
-		div.innerHTML = '<div id="dragon" style="top: 100px; left: 145px; position: absolute; z-index: 9; background-color: #888888; border: 1px solid #000000; text-align: left;"><div id="dragonheader" style="padding: 1px; cursor: move; z-index: 10; background-color: #444444; color: #ffffff;">Error!</div> <div id="dragondescription">Invalid command.</div><input type="button" value="✖" style="position:absolute; font-size:10px; top:0; right:0; height: 20px; width: 20px;" onclick="exit3()"></div>';
+		div.innerHTML = '<div id="dragon" style="top: 100px; left: 145px; position: absolute; z-index: 9; background-color: #888888; border: 1px solid #000000; text-align: left;"><div id="dragonheader" style="padding: 1px; cursor: move; z-index: 10; background-color: #444444; color: #ffffff;">Error!</div> <div id="dragondescription">Invalid command.</div><input type="button" value="ok" onclick="exit3()" style="margin: 0 auto; display: block;"><input type="button" value="✖" style="position:absolute; font-size:10px; top:0; right:0; height: 20px; width: 20px;" onclick="exit3()"></div>';
 		document.body.appendChild(div);
 		dragElement(document.getElementById("dragon"));
     document.getElementById("4").disabled = true;
