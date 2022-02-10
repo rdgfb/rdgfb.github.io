@@ -1,5 +1,5 @@
 <html><head>
-  <title>Dragon</title>
+  <title>Dragon v0.2</title>
   <link rel="icon" type="image/x-icon" href="https://github.com/rdgfb/rdgfb.github.io/blob/main/icon.png?raw=true">
 </head>
 <body id="body">
@@ -126,7 +126,7 @@ var div = document.createElement('div');
 div.id = 'content';
 div.innerHTML = '<form id="3" onsubmit="return false;" style="position:fixed; bottom:0; border: 1px solid #000000; width: 327px; background-color: #000000; bottom: 0px; color: #FFFFFF;">cmd <input id="console" placeholder="Type any command!" type="text" style="position: relative; border: 1px solid #000000; width: 216px; right: 0px;" required=""> <input id="6" type="button" value="_" style="padding: 1px 6px 4px 3px; vertical-align: middle; text-align: center; position: relative; background-color: #000000; border: 2px solid #FFFFFF; color: #FFFFFF; font-size:8px; top: -1px; right: -18px; height: 18px; width: 18px;" onclick="minimize()"> <input id="5" type="button" value="⁇" style="padding: 2px 6px 4px 3px; vertical-align: middle; text-align: center; position: relative; background-color: #000000; border: 2px solid #FFFFFF; color: #FFFFFF; font-size:8px; top: -1px; right: -12px; height: 18px; width: 18px;" onclick="help()"> <input id="4" type="button" value="▶" style="padding: 1px 6px 4px 3px; vertical-align: middle; position: relative; background-color: #000000; border: 2px solid #FFFFFF; color: #FFFFFF; font-size:9px; top: -1px; right: -6px; height: 18px; width: 18px;" onclick="enter()"> </form>'
 document.body.appendChild(div);
-document.getElementById("3").innerHTML += '<form id="dragon" onsubmit="return false;" style="border: 1px solid #000000; width: 325px; background-color: #000000; color: #FFFFFF;"> ⠀ ⠀ ⠀⠀ ⠀⠀⠀⠀ ⠀⠀⠀ cmds<input type="button" value="X" class="buttonStyle" style="position: relative; background-color: #000000; border: 1px solid #FFFFFF; color: #FFFFFF; font-size:10px; top: -2px; right: -134px; height: 20px; width: 20px;" onclick="exit2()"><div>⠀</div><div>help: leads here, dummy!</div><div>about: displays some information, like version</div><div>background: change the background color!</div><div>⠀</div><div>some hidden debug/fun commands exist!</div><div>non-secret cmds errors with "invalid command"</div></form>';
+document.getElementById("3").innerHTML += '<form id="dragon" onsubmit="return false;" style="border: 1px solid #000000; width: 325px; background-color: #000000; color: #FFFFFF;"> ⠀ ⠀ ⠀⠀ ⠀⠀⠀⠀ ⠀⠀⠀ cmds<input type="button" value="X" class="buttonStyle" style="position: relative; background-color: #000000; border: 1px solid #FFFFFF; color: #FFFFFF; font-size:10px; top: -2px; right: -134px; height: 20px; width: 20px;" onclick="exit2()"><div>⠀</div><div>help: leads here, dummy!</div><div>about: displays some information, like version</div><div>background*: change the background color!</div><div>⠀</div><div>some hidden debug/fun commands exist!</div><div>non-secret cmds errors with "invalid command"</div></form>';
     document.getElementById("4").disabled = true;
     document.getElementById("5").disabled = true;
 document.getElementById("console").disabled = true;
@@ -237,7 +237,7 @@ document.getElementById("console").disabled = true;
 document.getElementById("console").placeholder = " ";
   document.getElementById("console").value = "";
   } else if (consoleID == "cmds") {
-document.getElementById("3").innerHTML += '<form id="dragon" onsubmit="return false;" style="border: 1px solid #000000; width: 325px; background-color: #000000; color: #FFFFFF;"> ⠀ ⠀ ⠀⠀ ⠀⠀⠀⠀ ⠀⠀⠀ cmds<input type="button" value="X" class="buttonStyle" style="position: relative; background-color: #000000; border: 1px solid #FFFFFF; color: #FFFFFF; font-size:10px; top: -2px; right: -134px; height: 20px; width: 20px;" onclick="exit2()"><div>⠀</div><div>help: leads here, dummy!</div><div>about: displays some information, like version</div><div>background: change the background color!</div><div>⠀</div><div>some hidden debug/fun commands exist!</div><div>non-secret cmds errors with "invalid command"</div></form>';
+document.getElementById("3").innerHTML += '<form id="dragon" onsubmit="return false;" style="border: 1px solid #000000; width: 325px; background-color: #000000; color: #FFFFFF;"> ⠀ ⠀ ⠀⠀ ⠀⠀⠀⠀ ⠀⠀⠀ cmds<input type="button" value="X" class="buttonStyle" style="position: relative; background-color: #000000; border: 1px solid #FFFFFF; color: #FFFFFF; font-size:10px; top: -2px; right: -134px; height: 20px; width: 20px;" onclick="exit2()"><div>⠀</div><div>help: leads here, dummy!</div><div>about: displays some information, like version</div><div>background*: change the background color!</div><div>⠀</div><div>some hidden debug/fun commands exist!</div><div>non-secret cmds errors with "invalid command"</div></form>';
 document.body.appendChild(div);
     document.getElementById("4").disabled = true;
     document.getElementById("5").disabled = true;
