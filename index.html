@@ -66,7 +66,6 @@
         <source src="/icons/summer.mp4" type="video/mp4">
     </video>
 </div>
-<img src="/main/icon.png" alt="A dragon" style="margin: 0 auto; display: none;">
 <img src="/icons/dragon2-light.png" alt="A dragon" style="margin: 0 auto; display: none;">
 <img src="/icons/winter-still.png" alt="A dragon" style="margin: 0 auto; display: none;">
 <img src="/icons/spring-still.png" alt="A dragon" style="margin: 0 auto; display: none;">
@@ -108,9 +107,9 @@ if (!link) {
     document.getElementsByTagName('head')[0].appendChild(link);
 }
 if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-	link.href = '/icons/dragon2-light.png';
-} else {
 	link.href = '/icons/dragon2-dark.png';
+} else {
+	link.href = '/icons/dragon2-light.png';
 }
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
