@@ -108,9 +108,9 @@ if (!link) {
     document.getElementsByTagName('head')[0].appendChild(link);
 }
 if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-	link.href = '/icons/dragon2-dark.png';
-} else {
 	link.href = '/icons/dragon2-light.png';
+} else {
+	link.href = '/icons/dragon2-dark.png';
 }
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -294,8 +294,14 @@ document.getElementById("winter").style="display: none;"
 document.getElementById("spring").style="display: none;"
 document.getElementById("summer").style="display: none;"
 }
-function seasonal(){
+function seasonal0(){
 document.cookie = "background=1; expires=31 Dec 2099 12:00:00 UTC path=/"; 
+still=0
+setseasonal()
+}
+function seasonal1(){
+document.cookie = "background=2; expires=31 Dec 2099 12:00:00 UTC path=/"; 
+still=1
 setseasonal()
 }
 function setseasonal(){
@@ -310,7 +316,7 @@ if (f < 4 || f == 12){
   } else {
   setseasonal2()
   }
-  } else if (f == 3){
+  } else if (f <= 3){
   if (g < 22){
   setwinter()
   } else {
@@ -324,6 +330,7 @@ setseasonal2()
 }
 }
 function setseasonal2(){
+console.log("oof")
 const d = new Date();
 f = d.getMonth() + 1;
 const e = new Date();
@@ -335,7 +342,7 @@ if (f => 3 && f < 7){
   } else {
   setseasonal3()
   }
-  } else if (f == 6){
+  } else if (f <= 6){
   if (g < 22){
   setspring()
   } else {
@@ -358,7 +365,7 @@ if (f => 6 && f < 10){
   if (g > 20){
   setsummer()
   }
-  } else if (f == 9){
+  } else if (f <= 9){
   if (g < 24){
   setsummer()
   }
@@ -367,25 +374,37 @@ if (f => 6 && f < 10){
 }
 function setwinter(){
 if (still == 0) {
-document.getElementById("winter").style="display: block;"
+document.getElementById("winter").style="-webkit-transform: scaleX(1); -moz-transform: scaleX(1); display: block;"
 document.body.style="background-color: transparent"
 } else {
+document.getElementById("winter").style="display: none;"
+document.getElementById("spring").style="display: none;"
+document.getElementById("summer").style="display: none;"
+document.body.style="background-color: #FFFFFF"
 document.body.style = ("background-image: url('/icons/winter-still.jpg'); background-attachment: fixed; background-size: cover;")
 }
 }
 function setspring(){
 if (still == 0) {
-document.getElementById("spring").style="display: block;"
+document.getElementById("spring").style="-webkit-transform: scaleX(1); -moz-transform: scaleX(1); display: block;"
 document.body.style="background-color: transparent"
 } else {
+document.getElementById("winter").style="display: none;"
+document.getElementById("spring").style="display: none;"
+document.getElementById("summer").style="display: none;"
+document.body.style="background-color: #FFFFFF"
 document.body.style = ("background-image: url('/icons/spring-still.jpg'); background-attachment: fixed; background-size: cover;")
 }
 }
 function setsummer(){
 if (still == 0) {
-document.getElementById("summer").style="display: block;"
+document.getElementById("summer").style="-webkit-transform: scaleX(1); -moz-transform: scaleX(1); display: block;"
 document.body.style="background-color: transparent"
 } else {
+document.getElementById("winter").style="display: none;"
+document.getElementById("spring").style="display: none;"
+document.getElementById("summer").style="display: none;"
+document.body.style="background-color: #FFFFFF"
 document.body.style = ("background-image: url('/icons/summer-still.jpg'); background-attachment: fixed; background-size: cover;")
 }
 }
@@ -545,7 +564,7 @@ document.getElementById("console").disabled = true;
 document.getElementById("console").placeholder = " ";
   document.getElementById("console").value = "";
 } else if (consoleID == "background" || consoleID == "backgrounds") {
-document.getElementById("3").innerHTML += '<form id="dragon" onsubmit="return false;" style="border: 1px solid #000000; width: 325px; background-color: #000000; color: #FFFFFF;"> ⠀ ⠀ ⠀⠀backgrounds (internet required)<input type="button" value="X" class="buttonStyle" style="position: relative; background-color: #000000; border: 1px solid #FFFFFF; color: #FFFFFF; font-size:10px; top: -2px; right: -50px; height: 20px; width: 20px;" onclick="exit2()"></div><div>⠀</div><input type="button" value="Seasonal" onclick="seasonal()" style="position: relative; right: 0px"><input type="button" value="White" onclick="white()" style="position: relative; right: 0px"><div></div><input type="button" value="Gray" onclick="gray()" style="position: relative; right: 0px"></form>';
+document.getElementById("3").innerHTML += '<form id="dragon" onsubmit="return false;" style="border: 1px solid #000000; width: 325px; background-color: #000000; color: #FFFFFF;"> ⠀ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀backgrounds<input type="button" value="X" class="buttonStyle" style="position: relative; background-color: #000000; border: 1px solid #FFFFFF; color: #FFFFFF; font-size:10px; top: -2px; right: -98px; height: 20px; width: 20px;" onclick="exit2()"></div><div>⠀</div><input type="button" value="Seasonal" onclick="seasonal0()" style="position: relative; right: 0px"><div></div><input type="button" value="Seasonal-still" onclick="seasonal1()" style="position: relative; right: 0px"><div></div><input type="button" value="White" onclick="white()" style="position: relative; right: 0px"><div></div><input type="button" value="Gray" onclick="gray()" style="position: relative; right: 0px"></form>';
 document.body.appendChild(div);
     document.getElementById("4").disabled = true;
     document.getElementById("5").disabled = true;
