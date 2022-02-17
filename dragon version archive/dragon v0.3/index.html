@@ -1,6 +1,6 @@
 <!DOCTYPE html><head>
-  <title>Dragon v0.4</title>
-  <link rel="icon" type="image/x-icon" style="detect" href="/icons/dragon1-light.png">
+  <title>Dragon v0.3</title>
+  <link rel="icon" type="image/x-icon" style="detect" href="https://raw.githubusercontent.com/rdgfb/rdgfb.github.io/main/icons/dragon1-light.png">
 </head>
 <body id="body">
 <style>
@@ -68,9 +68,6 @@
 </div>
 <img src="/main/icon.png" alt="A dragon" style="margin: 0 auto; display: none;">
 <img src="/icons/dragon2-light.png" alt="A dragon" style="margin: 0 auto; display: none;">
-<img src="/icons/winter-still.png" alt="A dragon" style="margin: 0 auto; display: none;">
-<img src="/icons/spring-still.png" alt="A dragon" style="margin: 0 auto; display: none;">
-<img src="/icons/summer-still.png" alt="A dragon" style="margin: 0 auto; display: none;">
 <img src="/icons/dragon2-dark.png" alt="A dragon" style="margin: 0 auto; display: none;">
 <div id="7" style="position:fixed; bottom:0; border: 1px solid #000000; width: 52px; background-color: #000000; color: #FFFFFF; display: none">cmd<input type="button" value="☐" style="padding: 0px 6px 4px 4px; vertical-align: middle; text-align: center; position: relative; background-color: #000000; border: 2px solid #FFFFFF; color: #FFFFFF; font-size:8px; top: -1px; right: -5px; height: 18px; width: 18px;" onclick="maximize()"></div>
 <form id="3" onsubmit="return false;" style="position:fixed; bottom:0; border: 1px solid #000000; width: 327px; background-color: #000000; bottom: 0px; color: #FFFFFF;">cmd
@@ -81,18 +78,6 @@
 </form>
     <div id="content"></div>
 <script type="text/javascript">
-let visit = getCookie("background");
-if (visit == 1) {
-still=0
-setseasonal()
-} else if (visit == 2) {
-still=1
-setseasonal()
-} else if (visit == 4) {
-gray()
-} else {
-white()
-}
 var a = document.getElementById("a"); 
 var b = document.getElementById("b");
 a.volume= "0";
@@ -107,10 +92,10 @@ if (!link) {
     link.rel = 'icon';
     document.getElementsByTagName('head')[0].appendChild(link);
 }
-if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-	link.href = '/icons/dragon2-dark.png';
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+	link.href = 'https://raw.githubusercontent.com/rdgfb/rdgfb.github.io/main/icons/dragon2-light.png';
 } else {
-	link.href = '/icons/dragon2-light.png';
+	link.href = 'https://raw.githubusercontent.com/rdgfb/rdgfb.github.io/main/icons/dragon2-dark.png';
 }
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -295,7 +280,7 @@ document.getElementById("spring").style="display: none;"
 document.getElementById("summer").style="display: none;"
 }
 function seasonal(){
-document.cookie = "background=1; expires=31 Dec 2099 12:00:00 UTC path=/"; 
+document.cookie = "background=0; expires=31 Dec 2099 12:00:00 UTC path=/"; 
 setseasonal()
 }
 function setseasonal(){
@@ -366,28 +351,16 @@ if (f => 6 && f < 10){
 }
 }
 function setwinter(){
-if (still == 0) {
 document.getElementById("winter").style="display: block;"
 document.body.style="background-color: transparent"
-} else {
-document.body.style = ("background-image: url('/icons/winter-still.jpg'); background-attachment: fixed; background-size: cover;")
-}
 }
 function setspring(){
-if (still == 0) {
 document.getElementById("spring").style="display: block;"
 document.body.style="background-color: transparent"
-} else {
-document.body.style = ("background-image: url('/icons/spring-still.jpg'); background-attachment: fixed; background-size: cover;")
-}
 }
 function setsummer(){
-if (still == 0) {
 document.getElementById("summer").style="display: block;"
 document.body.style="background-color: transparent"
-} else {
-document.body.style = ("background-image: url('/icons/summer-still.jpg'); background-attachment: fixed; background-size: cover;")
-}
 }
 function activate() {
 debug = 1
@@ -600,21 +573,6 @@ document.getElementById("console").placeholder = " ";
 } else {
 b.play();
   }
-}
-function getCookie(cname) {
-  let name = cname + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(';');
-  for(let i = 0; i <ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
 }
 </script>
 </body></html>
