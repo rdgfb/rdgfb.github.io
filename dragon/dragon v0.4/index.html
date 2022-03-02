@@ -1,0 +1,653 @@
+<!DOCTYPE html><head>
+  <title>Dragon v0.4</title>
+  <link rel="icon" type="image/x-icon" style="detect" href="/icons/dragon1-light.png">
+</head>
+<body id="body">
+<style>
+.fullscreen-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+}
+
+.fullscreen-bg__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    height: 300%;
+    top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    width: 300%;
+    left: -100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .fullscreen-bg {
+    background: url('../img/videoframe.jpg') center center / cover no-repeat;
+  }
+
+  .fullscreen-bg__video {
+    display: none;
+  }
+}</style>
+<audio id="a">
+  <source src="https://ia601000.us.archive.org/35/items/windowsxpstartup_201910/Windows%20XP%20Exclamation.mp3" type="audio/mp3">
+ </audio>
+ <audio id="b">
+  <source src="https://ia601000.us.archive.org/35/items/windowsxpstartup_201910/Windows%20Pop-up%20Blocked.mp3" type="audio/mp3">
+</audio>
+<div class="fullscreen-bg">
+    <video id="winter" width="100%" height="auto" loop muted autoplay class="fullscreen-bg__video" style="display: none">
+        <source src="/icons/winter.mp4" type="video/mp4">
+    </video>
+</div>
+<div class="fullscreen-bg">
+    <video id="spring" width="100%" height="auto" loop muted autoplay class="fullscreen-bg__video" style="display: none">
+        <source src="/icons/spring.mp4" type="video/mp4">
+    </video>
+</div>
+<div class="fullscreen-bg">
+    <video id="summer" width="100%" height="auto" loop muted autoplay class="fullscreen-bg__video" style="display: none">
+        <source src="/icons/summer.mp4" type="video/mp4">
+    </video>
+</div>
+<img src="/icons/dragon2-light.png" alt="A dragon" style="margin: 0 auto; display: none;">
+<img src="/icons/winter-still.png" alt="A dragon" style="margin: 0 auto; display: none;">
+<img src="/icons/spring-still.png" alt="A dragon" style="margin: 0 auto; display: none;">
+<img src="/icons/summer-still.png" alt="A dragon" style="margin: 0 auto; display: none;">
+<img src="/icons/dragon2-dark.png" alt="A dragon" style="margin: 0 auto; display: none;">
+<div id="7" style="position:fixed; bottom:0; border: 1px solid #000000; width: 52px; background-color: #000000; color: #FFFFFF; display: none">cmd<input type="button" value="☐" style="padding: 0px 6px 4px 4px; vertical-align: middle; text-align: center; position: relative; background-color: #000000; border: 2px solid #FFFFFF; color: #FFFFFF; font-size:8px; top: -1px; right: -5px; height: 18px; width: 18px;" onclick="maximize()"></div>
+<form id="3" onsubmit="return false;" style="position:fixed; bottom:0; border: 1px solid #000000; width: 327px; background-color: #000000; bottom: 0px; color: #FFFFFF;">cmd
+<input id="console" placeholder="Type any command!" type="text" style="position: relative; border: 1px solid #000000; width: 216px; right: 0px;" required="">
+<input id="6" type="button" value="_" style="padding: 1px 6px 4px 3px; vertical-align: middle; text-align: center; position: relative; background-color: #000000; border: 2px solid #FFFFFF; color: #FFFFFF; font-size:8px; top: -1px; right: -18px; height: 18px; width: 18px;" onclick="minimize()">
+<input id="5" type="button" value="⁇" style="padding: 2px 6px 4px 3px; vertical-align: middle; text-align: center; position: relative; background-color: #000000; border: 2px solid #FFFFFF; color: #FFFFFF; font-size:8px; top: -1px; right: -12px; height: 18px; width: 18px;" onclick="help()">
+<input id="4" type="button" value="▶" style="padding: 1px 6px 4px 3px; vertical-align: middle; position: relative; background-color: #000000; border: 2px solid #FFFFFF; color: #FFFFFF; font-size:9px; top: -1px; right: -6px; height: 18px; width: 18px;" onclick="enter()">
+</form>
+    <div id="content"></div>
+<script type="text/javascript">
+let visit = getCookie("background");
+let lastversion = getCookie("build");
+if (lastversion != 0.4) {
+let div = document.createElement('div');
+div.id = 'content';
+div.innerHTML = '<div id="dragon" style="top: 100px; left: 145px; position: absolute; z-index: 9; max-width: 250px; background-color: #888888; border: 1px solid #000000; text-align: left;"><div id="dragonheader" style="padding: 1px; cursor: move; z-index: 10; background-color: #444444; color: #ffffff;">new version bro</div> <div id="dragondescription">v0.4, background saves now!! backgrounds are FIXED! no more boring gray or white!!</div><input type="button" value="Close." onclick="exit3()" style="margin: 0 auto; display: block;"><input type="button" value="X" style="position:absolute; font-size:10px; top:0; right:0; height: 20px; width: 20px;" onclick="exit3()"></div>';
+document.body.appendChild(div);
+dragElement(document.getElementById("dragon"));
+document.getElementById("4").disabled = true;
+document.getElementById("5").disabled = true;
+document.getElementById("6").disabled = true;
+document.getElementById("console").disabled = true;
+document.getElementById("console").placeholder = " ";
+document.getElementById("console").value = "";
+document.cookie = "background="+visit+"; build=0.4; expires=31 Dec 2099 12:00:00 UTC path=/"; 
+}
+if (visit == 1) {
+still=0
+setseasonal()
+} else if (visit == 2) {
+still=1
+setseasonal()
+} else if (visit == 4) {
+gray()
+} else {
+white()
+}
+var a = document.getElementById("a"); 
+var b = document.getElementById("b");
+a.volume= "0";
+b.volume= "0";
+a.play()
+b.play()
+let debug = 0;
+let icon = 1;
+var link = document.querySelector("link[rel~='icon']");
+if (!link) {
+    link = document.createElement('link');
+    link.rel = 'icon';
+    document.getElementsByTagName('head')[0].appendChild(link);
+}
+if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+	link.href = '/icons/dragon2-dark.png';
+} else {
+	link.href = '/icons/dragon2-light.png';
+}
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    // if present, the header is where you move the DIV from:
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    // otherwise, move the DIV from anywhere inside the DIV:
+    elmnt.onmousedown = dragMouseDown;
+  }
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+function rapid() {
+while (true) {
+var color1a = Math.floor((Math.random() * 230) + 200);
+var color2a = Math.floor((Math.random() * 230) + 150);
+var color3a = Math.floor((Math.random() * 230) + 175);
+var color1b = color1a.toString(16);
+var color2b = color2a.toString(16);
+var color3b = color3a.toString(16);
+var color = "#"+color1b+""+color2b+""+color3b
+document.body.style.background = color;
+}
+}
+function error() {
+
+var banana = document.getElementById("banana").value;
+var apple = document.getElementById("apple").value;
+let div = document.createElement('div');
+if (banana == "" || apple == "") {
+} else {
+div.id = 'content';
+div.innerHTML = '<div id="dragon" style="top: 100px; left: 145px; position: absolute; z-index: 9; background-color: #888888; border: 1px solid #000000; text-align: left;"><div id="dragonheader" style="padding: 1px; cursor: move; z-index: 10; background-color: #444444; color: #ffffff;">title</div><div id="dragondescription">description</div><input type="button" value="OK" onclick="exit()" style="margin: 0 auto; display: block;"><input type="button" value="X" style="position:absolute; font-size:10px; top:0; right:0; height: 20px; width: 20px;" onclick="exit()"></div>';
+a.play();
+document.body.appendChild(div);
+dragElement(document.getElementById("dragon"));
+document.getElementById("dragonheader").innerHTML = "᠎᠎ "+banana+"᠎⠀ ⠀";
+document.getElementById("dragondescription").innerText = "᠎ "+apple;
+  document.getElementById("1").disabled = true;
+  document.getElementById("banana").disabled = true;
+  document.getElementById("apple").disabled = true;
+  document.getElementById("banana").value = "";
+  document.getElementById("apple").value = "";
+  document.getElementById("banana").placeholder = "";
+  document.getElementById("apple").placeholder = "";
+  document.getElementById("1").value = " ";
+}
+}
+function exit() {
+var x = document.getElementById("dragon");
+x.remove();
+document.getElementById("1").disabled = false;
+document.getElementById("banana").disabled = false;
+document.getElementById("apple").disabled = false;
+document.getElementById("banana").placeholder = "enter a title";
+document.getElementById("apple").placeholder = "enter a description";
+document.getElementById("1").value = "GO!";
+}
+function exit3() {
+var x = document.getElementById("dragon");
+x.remove();
+document.getElementById("4").disabled = false;
+document.getElementById("5").disabled = false;
+document.getElementById("6").disabled = false;
+document.getElementById("console").disabled = false;
+document.getElementById("console").placeholder = "Type any command!";
+}
+function exit2() {
+var x = document.getElementById("3");
+x.remove();
+var div = document.createElement('div');
+div.id = 'content';
+div.innerHTML = '<form id="3" onsubmit="return false;" style="position:fixed; bottom:0; border: 1px solid #000000; width: 327px; background-color: #000000; bottom: 0px; color: #FFFFFF;">cmd <input id="console" placeholder="Type any command!" type="text" style="position: relative; border: 1px solid #000000; width: 216px; right: 0px;" required=""> <input id="6" type="button" value="_" style="padding: 1px 6px 4px 3px; vertical-align: middle; text-align: center; position: relative; background-color: #000000; border: 2px solid #FFFFFF; color: #FFFFFF; font-size:8px; top: -1px; right: -18px; height: 18px; width: 18px;" onclick="minimize()"> <input id="5" type="button" value="⁇" style="padding: 2px 6px 4px 3px; vertical-align: middle; text-align: center; position: relative; background-color: #000000; border: 2px solid #FFFFFF; color: #FFFFFF; font-size:8px; top: -1px; right: -12px; height: 18px; width: 18px;" onclick="help()"> <input id="4" type="button" value="▶" style="padding: 1px 6px 4px 3px; vertical-align: middle; position: relative; background-color: #000000; border: 2px solid #FFFFFF; color: #FFFFFF; font-size:9px; top: -1px; right: -6px; height: 18px; width: 18px;" onclick="enter()"> </form>'
+document.body.appendChild(div);
+}
+function typehelp() {
+var x = document.getElementById("3");
+x.remove();
+var div = document.createElement('div');
+div.id = 'content';
+div.innerHTML = '<form id="3" onsubmit="return false;" style="position:fixed; bottom:0; border: 1px solid #000000; width: 327px; background-color: #000000; bottom: 0px; color: #FFFFFF;">cmd <input id="console" placeholder="Type any command!" type="text" style="position: relative; border: 1px solid #000000; width: 216px; right: 0px;" required=""> <input id="6" type="button" value="_" style="padding: 1px 6px 4px 3px; vertical-align: middle; text-align: center; position: relative; background-color: #000000; border: 2px solid #FFFFFF; color: #FFFFFF; font-size:8px; top: -1px; right: -18px; height: 18px; width: 18px;" onclick="minimize()"> <input id="5" type="button" value="⁇" style="padding: 2px 6px 4px 3px; vertical-align: middle; text-align: center; position: relative; background-color: #000000; border: 2px solid #FFFFFF; color: #FFFFFF; font-size:8px; top: -1px; right: -12px; height: 18px; width: 18px;" onclick="help()"> <input id="4" type="button" value="▶" style="padding: 1px 6px 4px 3px; vertical-align: middle; position: relative; background-color: #000000; border: 2px solid #FFFFFF; color: #FFFFFF; font-size:9px; top: -1px; right: -6px; height: 18px; width: 18px;" onclick="enter()"> </form>'
+document.body.appendChild(div);
+ if (debug == 1){
+document.getElementById("3").innerHTML += '<form id="dragon" onsubmit="return false;" style="border: 1px solid #000000; width: 325px; background-color: #000000; color: #FFFFFF;"> ⠀ ⠀ ⠀⠀ ⠀⠀⠀⠀ ⠀⠀⠀ cmds<input type="button" value="X" class="buttonStyle" style="position: relative; background-color: #000000; border: 1px solid #FFFFFF; color: #FFFFFF; font-size:10px; top: -2px; right: -134px; height: 20px; width: 20px;" onclick="exit2()"><div>⠀</div><div>cmds: leads here, dummy!</div><div>about: displays some information, like version</div><div>background: change the background!</div><div>error: make an error</div><div>variable: edit or return to default variables!</div><div>aboutold: self explainatory!</div><div>crash: literally crash lol</div><div>dragonicon: just a ice dragon picture</div><div>help: errors with "you can never get help..."</div><div>(nothing): plays a sound</div></form>';
+document.body.appendChild(div);
+    document.getElementById("4").disabled = true;
+    document.getElementById("5").disabled = true;
+document.getElementById("console").disabled = true;
+document.getElementById("console").placeholder = " ";
+  document.getElementById("console").value = "";
+} else {
+document.getElementById("3").innerHTML += '<form id="dragon" onsubmit="return false;" style="border: 1px solid #000000; width: 325px; background-color: #000000; color: #FFFFFF;"> ⠀ ⠀ ⠀⠀ ⠀⠀⠀⠀ ⠀⠀⠀ cmds<input type="button" value="X" class="buttonStyle" style="position: relative; background-color: #000000; border: 1px solid #FFFFFF; color: #FFFFFF; font-size:10px; top: -2px; right: -134px; height: 20px; width: 20px;" onclick="exit2()"><div>⠀</div><div>cmds: leads here, dummy!</div><div>about: displays some information, like version</div><div>background: change the background!</div><div>error: make an error</div><div>some hidden debug/fun commands exist!</div><div>non-secret cmds errors with "invalid command"</div></form>';
+document.body.appendChild(div);
+    document.getElementById("4").disabled = true;
+    document.getElementById("5").disabled = true;
+document.getElementById("console").disabled = true;
+document.getElementById("console").placeholder = " ";
+  document.getElementById("console").value = "";
+}
+}
+function minimize() {
+	document.getElementById("3").style.display = "none";
+  document.getElementById("7").style.display = "block";
+}
+function maximize() {
+	document.getElementById("3").style.display = "block";
+  document.getElementById("7").style.display = "none";
+}
+function help() {
+document.getElementById("3").innerHTML += '<div id="2" style="border: 1px solid #000000; width: 325px; background-color: #000000; color: #FFFFFF;">Help<input type="button" value="X" class="buttonStyle" style="position: relative; background-color: #000000; border: 2px solid #FFFFFF; color: #FFFFFF; font-size:10px; top: -21px; right: -260px; height: 18px; width: 18px;" onclick="exit2()"><div>&hairsp;</div><div style="color: #FFFFFF;">Type in commands in the box.</div><a style="color: #FFFFFF;">For the list of commands, type or click </a><input type="button" value="cmds" class="buttonStyle" style="position: relative; background-color: transparent; border: 0px solid #FFFFFF; color: #FFFFFF; font-size:14px; top: 0px; right: 2px; height: 20px; width: 37px;" onclick="typehelp()"><a>!</a></div>';
+    document.getElementById("4").disabled = true;
+    document.getElementById("5").disabled = true;
+document.getElementById("console").disabled = true;
+document.getElementById("console").placeholder = " ";
+  document.getElementById("console").value = "";
+}
+function resetdebug(){
+	console.log("unavaliable, set with cmds")
+}
+function resetsounda(){
+	document.getElementById("volume_sound_a").value="0"
+}
+function resetsoundb(){
+	document.getElementById("volume_sound_b").value="0"
+}
+function reseticon(){
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+	document.getElementById("titleicon").value="https://raw.githubusercontent.com/rdgfb/rdgfb.github.io/main/icons/dragon2-light.png"
+} else {
+	document.getElementById("titleicon").value="https://raw.githubusercontent.com/rdgfb/rdgfb.github.io/main/icons/dragon2-dark.png"
+}
+}
+function resettext(){
+	document.getElementById("titletext").value="Dragon v0.4"
+}
+function gray(){
+document.cookie = "background=4; build=0.4; expires=31 Dec 2099 12:00:00 UTC path=/"; 
+setgray()
+}
+function setgray(){
+document.body.style="background-color:#999999"
+document.getElementById("winter").style="display: none;"
+document.getElementById("spring").style="display: none;"
+document.getElementById("summer").style="display: none;"
+}
+function white(){
+document.cookie = "background=3; build=0.4; expires=31 Dec 2099 12:00:00 UTC path=/"; 
+setwhite()
+}
+function setwhite(){
+document.body.style="background-color:#FFFFFF"
+document.getElementById("winter").style="display: none;"
+document.getElementById("spring").style="display: none;"
+document.getElementById("summer").style="display: none;"
+}
+function seasonal0(){
+document.cookie = "background=1; build=0.4; expires=31 Dec 2099 12:00:00 UTC path=/"; 
+still=0
+setseasonal()
+}
+function seasonal1(){
+document.cookie = "background=2; build=0.4; expires=31 Dec 2099 12:00:00 UTC path=/"; 
+still=1
+setseasonal()
+}
+function setseasonal(){
+const d = new Date();
+f = d.getMonth() + 1;
+const e = new Date();
+g = e.getDate();
+if (f < 4 || f == 12){
+	if (f == 12) {
+  if (g > 21){
+  setwinter()
+  } else {
+  setseasonal2()
+  }
+  } else if (f <= 3){
+  if (g < 22){
+  setwinter()
+  } else {
+  setseasonal2()
+  }
+  } else {
+  setseasonal2()
+  }
+} else {
+setseasonal2()
+}
+}
+function setseasonal2(){
+console.log("oof")
+const d = new Date();
+f = d.getMonth() + 1;
+const e = new Date();
+g = e.getDate();
+if (f => 3 && f < 7){
+	if (f == 3) {
+  if (g > 20){
+  setspring()
+  } else {
+  setseasonal3()
+  }
+  } else if (f <= 6){
+  if (g < 22){
+  setspring()
+  } else {
+  setseasonal3()
+  }
+  } else {
+  setseasonal3()
+  }
+} else {
+setseasonal3()
+}
+}
+function setseasonal3(){
+const d = new Date();
+f = d.getMonth() + 1;
+const e = new Date();
+g = e.getDate();
+if (f => 6 && f < 10){
+	if (f == 6) {
+  if (g > 20){
+  setsummer()
+  }
+  } else if (f <= 9){
+  if (g < 24){
+  setsummer()
+  }
+  }
+}
+}
+function setwinter(){
+if (still == 0) {
+document.getElementById("winter").style="-webkit-transform: scaleX(1); -moz-transform: scaleX(1); display: block;"
+document.body.style="background-color: transparent"
+} else {
+document.getElementById("winter").style="display: none;"
+document.getElementById("spring").style="display: none;"
+document.getElementById("summer").style="display: none;"
+document.body.style="background-color: #FFFFFF"
+document.body.style = ("background-image: url('/icons/winter-still.jpg'); background-attachment: fixed; background-size: cover;")
+}
+}
+function setspring(){
+if (still == 0) {
+document.getElementById("spring").style="-webkit-transform: scaleX(1); -moz-transform: scaleX(1); display: block;"
+document.body.style="background-color: transparent"
+} else {
+document.getElementById("winter").style="display: none;"
+document.getElementById("spring").style="display: none;"
+document.getElementById("summer").style="display: none;"
+document.body.style="background-color: #FFFFFF"
+document.body.style = ("background-image: url('/icons/spring-still.jpg'); background-attachment: fixed; background-size: cover;")
+}
+}
+function setsummer(){
+if (still == 0) {
+document.getElementById("summer").style="-webkit-transform: scaleX(1); -moz-transform: scaleX(1); display: block;"
+document.body.style="background-color: transparent"
+} else {
+document.getElementById("winter").style="display: none;"
+document.getElementById("spring").style="display: none;"
+document.getElementById("summer").style="display: none;"
+document.body.style="background-color: #FFFFFF"
+document.body.style = ("background-image: url('/icons/summer-still.jpg'); background-attachment: fixed; background-size: cover;")
+}
+}
+function activate() {
+debug = 1
+var x = document.getElementById("dragon");
+x.remove();
+document.getElementById("4").disabled = false;
+document.getElementById("5").disabled = false;
+document.getElementById("6").disabled = false;
+document.getElementById("console").disabled = false;
+document.getElementById("console").placeholder = "Type any command!";
+}
+function deactivate() {
+debug = 0
+var x = document.getElementById("dragon");
+x.remove();
+document.getElementById("4").disabled = false;
+document.getElementById("5").disabled = false;
+document.getElementById("6").disabled = false;
+document.getElementById("console").disabled = false;
+document.getElementById("console").placeholder = "Type any command!";
+}
+function apply() {
+if (!link) {
+    link = document.createElement('link');
+    link.rel = 'icon';
+    document.getElementsByTagName('head')[0].appendChild(link);
+}
+link.href="'"+"'"
+link.href="'"+document.getElementById("titleicon").value+"'"
+document.title=document.getElementById("titletext").value;
+var c=document.getElementById("volume_sound_a").value;
+a.volume=c/100;
+var d=document.getElementById("volume_sound_b").value;
+b.volume=d/100
+}
+function enter() {
+let div = document.createElement('div');
+var consoleID = document.getElementById("console").value;
+if (consoleID == "dragonlogo") {
+if (debug == 1){
+div.id = 'content';
+div.innerHTML = '<div id="dragon" style="top: 100px; left: 145px; position: absolute; z-index: 9; background-color: #888888; border: 1px solid #000000; text-align: left;"><div id="dragonheader" style="padding: 1px; cursor: move; z-index: 10; background-color: #444444; color: #ffffff;">Dragon⠀⠀⠀⠀⠀⠀⠀&hairsp;&hairsp;&hairsp;&hairsp;</div><img src="https://github.com/rdgfb/rdgfb.github.io/blob/main/icon.png?raw=true" alt="A dragon" style="margin: 0 auto; display: block;"><input type="button" value="OK" onclick="exit3()" style="margin: 0 auto; display: block;"><input type="button" value="X" style="position:absolute; font-size:10px; top:0; right:0; height: 20px; width: 20px;" onclick="exit3()"></div>';
+document.body.appendChild(div);
+dragElement(document.getElementById("dragon"));
+    document.getElementById("4").disabled = true;
+    document.getElementById("5").disabled = true;
+    document.getElementById("6").disabled = true;
+document.getElementById("console").disabled = true;
+document.getElementById("console").placeholder = " ";
+  document.getElementById("console").value = "";
+  } else {
+  div.id = 'content';
+div.innerHTML = '<div id="dragon" style="top: 100px; left: 145px; position: absolute; z-index: 9; background-color: #888888; border: 1px solid #000000; text-align: left;"><div id="dragonheader" style="padding: 1px; cursor: move; z-index: 10; background-color: #444444; color: #ffffff;">Error!</div> <div id="dragondescription">Invalid command.</div><input type="button" value="OK" onclick="exit3()" style="margin: 0 auto; display: block;"><input type="button" value="X" style="position:absolute; font-size:10px; top:0; right:0; height: 20px; width: 20px;" onclick="exit3()"></div>';
+document.body.appendChild(div);
+dragElement(document.getElementById("dragon"));
+    document.getElementById("4").disabled = true;
+    document.getElementById("5").disabled = true;
+    document.getElementById("6").disabled = true;
+document.getElementById("console").disabled = true;
+document.getElementById("console").placeholder = " ";
+  document.getElementById("console").value = "";
+  }
+} else if (consoleID == "crash") {
+if (debug == 1){
+div.id = 'content';
+div.innerHTML = '<div id="dragon" style="top: 40%; left: 40%; position: absolute; z-index: 9; background-color: rgb(136, 136, 136); border: 1px solid rgb(0, 0, 0); text-align: left;"><div id="dragonheader" style="padding: 1px; cursor: move; z-index: 10; background-color: #444444; color: #ffffff;">Warning!</div> <div id="dragondescription" style="max-width: 325px; min-width: 325px;">You are trying to activate a secret that MAY trigger photosensitive people, if it works. If it does, it will be like a disco. If not, it will crash the page. Press "No!" to back out. Otherwise, have fun probably crashing! ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</div><input type="button" value="CRASH!" onclick="rapid()" style="position: relative; right: -100px"><input type="button" value="No!" onclick="exit3()" style="position: relative; right: -150px"><input type="button" value="X" style="position:absolute; font-size:10px; top:0; right:0; height: 20px; width: 20px;" onclick="exit3()"></div>';
+a.play();
+        document.body.appendChild(div);
+dragElement(document.getElementById("dragon"));
+    document.getElementById("4").disabled = true;
+    document.getElementById("5").disabled = true;
+    document.getElementById("6").disabled = true;
+document.getElementById("console").disabled = true;
+document.getElementById("console").placeholder = " ";
+  document.getElementById("console").value = "";
+  } else {
+  div.id = 'content';
+div.innerHTML = '<div id="dragon" style="top: 100px; left: 145px; position: absolute; z-index: 9; background-color: #888888; border: 1px solid #000000; text-align: left;"><div id="dragonheader" style="padding: 1px; cursor: move; z-index: 10; background-color: #444444; color: #ffffff;">Error!</div> <div id="dragondescription">Invalid command.</div><input type="button" value="OK" onclick="exit3()" style="margin: 0 auto; display: block;"><input type="button" value="X" style="position:absolute; font-size:10px; top:0; right:0; height: 20px; width: 20px;" onclick="exit3()"></div>';
+a.play();
+document.body.appendChild(div);
+dragElement(document.getElementById("dragon"));
+    document.getElementById("4").disabled = true;
+    document.getElementById("5").disabled = true;
+    document.getElementById("6").disabled = true;
+document.getElementById("console").disabled = true;
+document.getElementById("console").placeholder = " ";
+  document.getElementById("console").value = "";
+  }
+  } else if (consoleID == "about") {
+document.getElementById("3").innerHTML += '<form id="dragon" onsubmit="return false;" style="border: 1px solid #000000; width: 325px; background-color: #000000; color: #FFFFFF;"><img src="/icons/dragon2-light.png" alt="🐲" style="position: absolute; width: 20px; length: 20px; top: 22px"> ⠀&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;Dragon v0.4<input type="button" value="X" class="buttonStyle" style="position: relative; background-color: #000000; border: 1px solid #FFFFFF; color: #FFFFFF; font-size:10px; top: -2px; right: -205px; height: 20px; width: 20px;" onclick="exit2()"><div id="dragondescription">Developed by rdgfb.</div>⠀<div></div><div>a silly site that doesn\'t need internet!!</div><div>useful for bad connections too!</div></form>';
+document.body.appendChild(div);
+    document.getElementById("4").disabled = true;
+    document.getElementById("5").disabled = true;
+document.getElementById("console").disabled = true;
+document.getElementById("console").placeholder = " ";
+  document.getElementById("console").value = "";
+  } else if (consoleID == "error") {
+document.getElementById("3").innerHTML += '<form id="dragon" onsubmit="return false;" style="border: 1px solid #000000; width: 325px; background-color: #000000; color: #FFFFFF;"> ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀make an error!<input type="button" value="X" class="buttonStyle" style="position: relative; background-color: #000000; border: 1px solid #FFFFFF; color: #FFFFFF; font-size:10px; top: -2px; right: -103px; height: 20px; width: 20px;" onclick="exit2()"><input id="banana" placeholder="enter a title" type="text" style="border: 1px solid #000000" required=""><input id="apple" placeholder="enter a description" style="border: 1px solid #000000" required=""><input id="1" type="submit" value="GO!" style="border: 1px solid #000000; width: 31px;" onclick="error()"></form>';
+document.body.appendChild(div);
+    document.getElementById("4").disabled = true;
+    document.getElementById("5").disabled = true;
+document.getElementById("console").disabled = true;
+document.getElementById("console").placeholder = " ";
+  document.getElementById("console").value = "";
+  } else if (consoleID == "cmds") {
+  if (debug == 1){
+document.getElementById("3").innerHTML += '<form id="dragon" onsubmit="return false;" style="border: 1px solid #000000; width: 325px; background-color: #000000; color: #FFFFFF;"> ⠀ ⠀ ⠀⠀ ⠀⠀⠀⠀ ⠀⠀⠀ cmds<input type="button" value="X" class="buttonStyle" style="position: relative; background-color: #000000; border: 1px solid #FFFFFF; color: #FFFFFF; font-size:10px; top: -2px; right: -134px; height: 20px; width: 20px;" onclick="exit2()"><div>⠀</div><div>cmds: leads here, dummy!</div><div>about: displays some information, like version</div><div>background: change the background!</div><div>error: make an error</div><div>variable: edit or return to default variables!</div><div>aboutold: self explainatory!</div><div>crash: literally crash lol</div><div>dragonicon: just a ice dragon picture</div><div>help: errors with "you can never get help..."</div><div>(nothing): plays a sound</div></form>';
+document.body.appendChild(div);
+    document.getElementById("4").disabled = true;
+    document.getElementById("5").disabled = true;
+document.getElementById("console").disabled = true;
+document.getElementById("console").placeholder = " ";
+  document.getElementById("console").value = "";
+} else {
+document.getElementById("3").innerHTML += '<form id="dragon" onsubmit="return false;" style="border: 1px solid #000000; width: 325px; background-color: #000000; color: #FFFFFF;"> ⠀ ⠀ ⠀⠀ ⠀⠀⠀⠀ ⠀⠀⠀ cmds<input type="button" value="X" class="buttonStyle" style="position: relative; background-color: #000000; border: 1px solid #FFFFFF; color: #FFFFFF; font-size:10px; top: -2px; right: -134px; height: 20px; width: 20px;" onclick="exit2()"><div>⠀</div><div>cmds: leads here, dummy!</div><div>about: displays some information, like version</div><div>background: change the background!</div><div>error: make an error</div><div>some hidden debug/fun commands exist!</div><div>non-secret cmds errors with "invalid command"</div></form>';
+document.body.appendChild(div);
+    document.getElementById("4").disabled = true;
+    document.getElementById("5").disabled = true;
+document.getElementById("console").disabled = true;
+document.getElementById("console").placeholder = " ";
+  document.getElementById("console").value = "";
+}
+} else if (consoleID == "aboutold") {
+if (debug == 1){
+div.id = 'content';
+div.innerHTML = '<div id="dragon" style="top: 100px; left: 145px; position: absolute; z-index: 9; background-color: #888888; border: 1px solid #000000; text-align: left;"><div id="dragonheader" style="padding: 1px; cursor: move; z-index: 10; background-color: #444444; color: #ffffff;"><img src="https://github.com/rdgfb/rdgfb.github.io/blob/main/icon.png?raw=true" alt="🐲" style="position: absolute; width: 20px; length: 20px">⠀⠀Dragon⠀&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;</div><div id="dragondescription">Dragon. v0.1</div><input type="button" value="ok" onclick="exit3()" style="margin: 0 auto; display: block;"><input type="button" value="X" style="position:absolute; font-size:10px; top:0; right:0; height: 20px; width: 20px;" onclick="exit3()"></div>';
+document.body.appendChild(div);
+dragElement(document.getElementById("dragon"));
+    document.getElementById("4").disabled = true;
+document.getElementById("console").disabled = true;
+document.getElementById("console").placeholder = " ";
+  document.getElementById("console").value = "";
+  } else {
+  div.innerHTML = '<div id="dragon" style="top: 100px; left: 145px; position: absolute; z-index: 9; background-color: #888888; border: 1px solid #000000; text-align: left;"><div id="dragonheader" style="padding: 1px; cursor: move; z-index: 10; background-color: #444444; color: #ffffff;">Error!</div> <div id="dragondescription">Invalid command.</div><input type="button" value="OK" onclick="exit3()" style="margin: 0 auto; display: block;"><input type="button" value="X" style="position:absolute; font-size:10px; top:0; right:0; height: 20px; width: 20px;" onclick="exit3()"></div>';
+  a.play();
+document.body.appendChild(div);
+dragElement(document.getElementById("dragon"));
+    document.getElementById("4").disabled = true;
+    document.getElementById("5").disabled = true;
+    document.getElementById("6").disabled = true;
+document.getElementById("console").disabled = true;
+document.getElementById("console").placeholder = " ";
+  document.getElementById("console").value = "";
+  }
+} else if (consoleID == "debug") {
+div.id = 'content';
+div.innerHTML = '<div id="dragon" style="top: 100px; left: 145px; position: absolute; z-index: 9; background-color: #888888; border: 1px solid #000000; text-align: left;"><div id="dragonheader" style="padding: 1px; cursor: move; z-index: 10; background-color: #444444; color: #ffffff;">Debug</div> <div id="dragondescription">Would you like to use debug commands?</div><input type="button" value="YES!" onclick="activate()" style="position: relative; right: -73px"><input type="button" value="No!" onclick="deactivate()" style="position: relative; right: -125px"></div>';
+a.play();
+document.body.appendChild(div);
+dragElement(document.getElementById("dragon"));
+    document.getElementById("4").disabled = true;
+    document.getElementById("5").disabled = true;
+    document.getElementById("6").disabled = true;
+document.getElementById("console").disabled = true;
+document.getElementById("console").placeholder = " ";
+  document.getElementById("console").value = "";
+} else if (consoleID == "background" || consoleID == "backgrounds") {
+document.getElementById("3").innerHTML += '<form id="dragon" onsubmit="return false;" style="border: 1px solid #000000; width: 325px; background-color: #000000; color: #FFFFFF;"> ⠀ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀backgrounds<input type="button" value="X" class="buttonStyle" style="position: relative; background-color: #000000; border: 1px solid #FFFFFF; color: #FFFFFF; font-size:10px; top: -2px; right: -98px; height: 20px; width: 20px;" onclick="exit2()"></div><div>⠀</div><input type="button" value="Seasonal" onclick="seasonal0()" style="position: relative; right: 0px"><div></div><input type="button" value="Seasonal-still" onclick="seasonal1()" style="position: relative; right: 0px"><div></div><input type="button" value="White" onclick="white()" style="position: relative; right: 0px"><div></div><input type="button" value="Gray" onclick="gray()" style="position: relative; right: 0px"></form>';
+document.body.appendChild(div);
+    document.getElementById("4").disabled = true;
+    document.getElementById("5").disabled = true;
+document.getElementById("console").disabled = true;
+document.getElementById("console").placeholder = " ";
+  document.getElementById("console").value = "";
+} else if (consoleID == "variable") {
+div.id = 'content';
+if (debug == 1){
+div.innerHTML = '<div id="dragon" style="width: 350px; max-width: 350px; min-width: 350px; top: 100px; left: 145px; position: absolute; z-index: 9; background-color: #888888; border: 1px solid #000000; text-align: left;"><div id="dragonheader" style="width:400; padding: 1px; cursor: move; z-index: 10; background-color: #444444; color: #ffffff;">Value editor</div> <a id="dragondescription">Debug: access more commands. </a><input id="debug" type="text" min=0 max=1 value="1" style="width: 290px;" disabled><input type="button" value="RESET" onclick="resetdebug()" disabled><div></div><a id="dragondescription">volume_sound_a: error sound volume. </a><input id="volume_sound_a" min=0 max=100  type="range" value="100" style="width: 290px"><input type="button" value="RESET" onclick="resetsounda()"><div></div><a id="dragondescription">volume_sound_b: no input sound volume. </a><input id="volume_sound_b" min=0 max=100 type="range" value="100" style="width: 290px;"><input type="button" value="RESET" onclick="resetsoundb()"><div></div><a id="dragondescription">titleicon: icon for tab. (requires internet) </a><input id="titleicon" type="text" style="width: 290px;"><input type="button" value="RESET" onclick="reseticon()"><div></div><a id="dragondescription">titletext: the title of the tab. </a><input id="titletext" type="text" value="Dragon v0.4" style="width: 290px;"><input type="button" value="RESET" onclick="resettext()"><div>⠀</div><input type="button" value="APPLY!" onclick="apply()" style="width: 350px"><div></div><input type="button" value="X" style="position:absolute; font-size:10px; top:0; right:0; height: 20px; width: 20px;" onclick="exit3()"></div>';
+document.body.appendChild(div);
+dragElement(document.getElementById("dragon"));
+    document.getElementById("4").disabled = true;
+    document.getElementById("5").disabled = true;
+    document.getElementById("6").disabled = true;
+document.getElementById("console").disabled = true;
+document.getElementById("console").placeholder = " ";
+  document.getElementById("console").value = "";
+document.getElementById("volume_sound_a").value = a.volume*100;
+document.getElementById("volume_sound_b").value = b.volume*100;
+if (!link) {
+    link = document.createElement('link');
+    link.rel = 'icon';
+    document.getElementsByTagName('head')[0].appendChild(link);
+}
+document.getElementById("titleicon").value = link.href
+document.getElementById("titletext").value = text=document.title
+	} else {
+  div.innerHTML = '<div id="dragon" style="top: 100px; left: 145px; position: absolute; z-index: 9; background-color: #888888; border: 1px solid #000000; text-align: left;"><div id="dragonheader" style="padding: 1px; cursor: move; z-index: 10; background-color: #444444; color: #ffffff;">Error!</div> <div id="dragondescription">Invalid command.</div><input type="button" value="OK" onclick="exit3()" style="margin: 0 auto; display: block;"><input type="button" value="X" style="position:absolute; font-size:10px; top:0; right:0; height: 20px; width: 20px;" onclick="exit3()"></div>';
+a.play();
+document.body.appendChild(div);
+dragElement(document.getElementById("dragon"));
+    document.getElementById("4").disabled = true;
+    document.getElementById("5").disabled = true;
+    document.getElementById("6").disabled = true;
+document.getElementById("console").disabled = true;
+document.getElementById("console").placeholder = " ";
+  document.getElementById("console").value = "";
+  }
+} else if (consoleID !== "") {
+div.id = 'content';
+div.innerHTML = '<div id="dragon" style="top: 100px; left: 145px; position: absolute; z-index: 9; background-color: #888888; border: 1px solid #000000; text-align: left;"><div id="dragonheader" style="padding: 1px; cursor: move; z-index: 10; background-color: #444444; color: #ffffff;">Error!</div> <div id="dragondescription">Invalid command.</div><input type="button" value="OK" onclick="exit3()" style="margin: 0 auto; display: block;"><input type="button" value="X" style="position:absolute; font-size:10px; top:0; right:0; height: 20px; width: 20px;" onclick="exit3()"></div>';
+a.play();
+document.body.appendChild(div);
+dragElement(document.getElementById("dragon"));
+    document.getElementById("4").disabled = true;
+    document.getElementById("5").disabled = true;
+    document.getElementById("6").disabled = true;
+document.getElementById("console").disabled = true;
+document.getElementById("console").placeholder = " ";
+  document.getElementById("console").value = "";
+} else {
+b.play();
+  }
+}
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+</script>
+</body></html>
