@@ -1,0 +1,1476 @@
+  
+<html><head>
+    <title>not a cookie clicker ripoff</title>
+</head>
+<body>
+    <div style="position:fixed; bottom:0; border: 1px solid #000000; background-color: #000000; color: #FFFFFF; max-width: 435px;">
+        <a style="position: relative; bottom: 3px">Times button pressed: </a>
+        <input type="text" value="0" style="background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 90px;" id="i" disabled=""><input type="text" value="?" style="background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 20px; display: none;" id="k" disabled=""><a style="position: relative; bottom: 3px"> Press/sec: </a><a id="presssec" style="position: relative; bottom: 3px">0</a><a style="position: relative; bottom: 3px"> presses&hairsp;&hairsp;&hairsp;&hairsp;</a>
+    </div>
+    <div>press the button</div>
+    <div>and buy stuff</div>
+    <input id="button" type="button" value="button" onclick="minimize()"><a id="multiplier" style="position: relative; left: -69420px;"> x1</a><div></div>
+    <input id="shop3" type="button" value="shop to progress in the game" onclick="shop()"><div></div>
+    <input id="settings3" type="button" value="settings" onclick="settings()">
+<div id="shop2" style="position: absolute; left: -42069px;"> teh shop<div><input type="button" value="upgrade shop" onclick="testa()" style="position: absolute; right: 0px; top: 0px"><input id="cost1button" type="button" value="x1.125 click power" title="Makes your click power stronger, stacks with EVERYTHING!" onclick="clickpower()"><div></div> Cost: <a id="cost1">0</a> presses</div><input id="cost2button" type="button" value="cursor" onclick="cursor()"><a> x</a><a id="cursore">0</a><div></div> Cost: <a id="cost2">0</a> presses</div><div></div>
+<div id="upgradeshop2" style="position: absolute; left: -42069px"> teh upgrades&hairsp; &hairsp; &hairsp; &hairsp; &hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;<div><input id="shopshow" type="button" value="shop" onclick="testa()" style="position: absolute; right: 0px; top: 0px"><input id="cursor1" type="button" value="Cursor I" title="Upgrade your cursors to become STRONGER!" onclick="cursorupgrade()"><div></div> Cost: <a id="cucost">5k</a> presses<div></div><input id="buttonupgrade" type="button" title="Upgrade your button to give a chance of a power up, and 2.5% of your pps as click power!" value="Bronzify Button" onclick="buttonupgrade()"><div></div><a id="req1a">pps: <a id="req1b">?</a><a id="req1c">/100</a></a><div></div><a> Cost: <a id="goldifycost">1M</a><a> presses</a></a></div></div>
+<div id="settings2" style="position: absolute; left: -42069px;"> settings<div><a>auto saves in: </a><a id="savetimer">60</a><a>s.</a><div></div><input id="load" type="button" value="load" onclick="load()"><input id="save" type="button" value="save now" onclick="save()"><div></div><a>total pressed </a><a id="total1">0</a><a> times.</a>
+    <div></div>
+    <script>
+    //THAT'S A LOT OF variables
+    //upgrades
+    var buttonupgradee = 0
+    var costupgrade2 = 1000000
+    var costupgrade = 5000
+    var cursorupgradee = 0
+    var clickpowerr = 1
+    //building amounts
+    var cursorno = 0
+    //timers
+    var timer238u94 = 10000
+    var savetimer = 69 //nice
+    //prices
+    var e = 1000
+    var e1 = 15
+    //-beyond this is future prices, subject to change-
+    var e2 = 100
+    var e3 = 500
+    var e4 = 1100
+    var e5 = 10000
+    var e6 = 50000
+    var e7 = 123456
+    //presses per second
+    var pps = 0
+    var pps1 = 0
+    var pps2 = 0
+    var pps3 = 0.005
+    var pps4 = 0
+    var ppsa = 0
+    var ppsdec = 1
+    //menuing
+    var shop1 = 0
+    var upgradeshop1 = 0
+    var settings1 = 0
+    //times button pressed display and values
+    var cp = 0
+    var cp2 = 1
+    var cpm = 0
+    var i = 0
+    var ip = 0
+    var itotal = 0
+    var k = 0
+    var p = 0
+    var m = 0
+    var power = 0
+    var powercpm = 1
+    var power1 = 0
+    var f1 = 0
+    var f2 = 0
+    var f3 = 0
+    var f4 = 0
+    //power ups!
+    var powerupmultclick = 1
+    var powerupmultpps = 1
+    //power up timers, because they'll become too op!
+    var poweruptimerenable = 0
+    var poweruptimer = 0
+    //randomize
+    var rand = 0
+    var rand2 = 0
+    //save :D
+    var saveallvalues = 0
+    //end of variables. thank me later for organization
+        document.getElementById("multiplier").style = "position: relative;";
+        //probably the most called function, sets to fixed (instead of 239.234, makes it 239.)
+        function toFixed(num, fixed) {
+    var re = new RegExp('^-?\\d+(?:\.\\d{0,' + (fixed || -1) + '})?');
+    return num.toString().match(re)[0];
+}
+//an attempt
+function getCookie(cname) {
+  let name = cname + "=";
+  let ca = document.cookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+        //first function here, does the button pressing
+        function minimize() {
+            //click power add, it used to be x2 but was TOO OP!!!
+            cpm=1.125*(clickpowerr-1)
+            if (cpm == 0) {
+            cpm=1
+            }
+            //actual math for button upgrade click power. go figure
+        		power=((pps*ppsdec)/10)*(buttonupgradee*2.5)
+            //failsafe: if obtained early, do nothing
+            if (power == 0) {
+            powercpm=(1*cpm)
+            //failsafe: if obtained early, still do nothing
+            } else if (power < 1) {
+            powercpm=(power+cpm)
+            //ok actual function
+            } else {
+            powercpm=(power*cpm)
+            }
+            //actual adding
+            ip = ip+powercpm
+            //how much per click
+            document.getElementById("multiplier").innerText = " +"+powercpm;
+            document.getElementById("multiplier").style="position: relative;"
+            //power ups! :D (the better button upgrade, the easier)
+            rand = Math.floor((Math.random() * 1000) + 1);
+            if (buttonupgradee == 1 && rand == 1) {
+            powerup()
+            } else if (buttonupgradee == 2 && rand >= 1 && rand <= 5) {
+            powerup()
+            } else if (buttonupgradee == 3 && rand >= 1 && rand <= 10) {
+            powerup()
+            } else if (buttonupgradee == 4 && rand >= 1 && rand <= 25) {
+            powerup()
+            } else if (buttonupgradee == 5 && rand >= 1 && rand <= 50) {
+            powerup()
+            }
+            style()
+            }
+        function style() {
+        //styles the times button pressed thing, shortens numbers to:
+        //M, B, T, q, Q, s, S, O, N, d, ud, dd, td, qd, Qd, sd, Sd, Od, Nd, v. 
+        //beyond is unimplemented, but if it's possible to do, will add uv, dv, tv, qv, Qv, sv, Sv, Ov, Nv. good luck
+            if (i <= 999) {
+                document.getElementById("i").value = i;
+                document.getElementById("i").style = "background-color: #FFFFFF; border: 0px solid; border-width: 0px; color: #000000; font-size: 25px; min-width: 1px; max-width: 90px;"
+                document.getElementById("k").style = "background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 20px; display: none;"
+            } else if (999999 >= i && i > 999) {
+            p=i/1000
+            k = +p.toFixed(3);
+                document.getElementById("i").value = k;
+                document.getElementById("i").style = "background-color: #FFFFFF; border: 0px solid; border-width: 0px; color: #000000; font-size: 25px; min-width: 1px; max-width: 90px;"
+                document.getElementById("k").style = "background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 20px; display: a;"
+                document.getElementById("k").value = "k";
+            } else if (999999999 >= i && i > 999999) {
+            p=i/1000000
+            k = +p.toFixed(3);
+                document.getElementById("i").value = k;
+                document.getElementById("i").style = "background-color: #FFFFFF; border: 0px solid; border-width: 0px; color: #000000; font-size: 25px; min-width: 1px; max-width: 90px;"
+                document.getElementById("k").style = "background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 20px; display: a;"
+                document.getElementById("k").value = "M";
+            } else if (999999999999 >= i && i > 999999999) {
+            p=i/1000000000
+            k = +p.toFixed(3);
+                document.getElementById("i").value = k;
+                document.getElementById("i").style = "background-color: #FFFFFF; border: 0px solid; border-width: 0px; color: #000000; font-size: 25px; min-width: 1px; max-width: 90px;"
+                document.getElementById("k").style = "background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 20px; display: a;"
+                document.getElementById("k").value = "B";
+            } else if (999999999999999 >= i && i > 999999999999) {
+            p=i/1000000000000
+            k = +p.toFixed(3);
+                document.getElementById("i").value = k;
+                document.getElementById("i").style = "background-color: #FFFFFF; border: 0px solid; border-width: 0px; color: #000000; font-size: 25px; min-width: 1px; max-width: 90px;"
+                document.getElementById("k").style = "background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 20px; display: a;"
+                document.getElementById("k").value = "T";
+            } else if (999999999999999999 >= i && i > 999999999999999) {
+            p=i/1000000000000000
+            k = +p.toFixed(3);
+                document.getElementById("i").value = k;
+                document.getElementById("i").style = "background-color: #FFFFFF; border: 0px solid; border-width: 0px; color: #000000; font-size: 25px; min-width: 1px; max-width: 90px;"
+                document.getElementById("k").style = "background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 20px; display: a;"
+                document.getElementById("k").value = "q";
+            } else if (999999999999999999999 >= i && i > 999999999999999999) {
+            p=i/1000000000000000000
+            k = +p.toFixed(3);
+                document.getElementById("i").value = k;
+                document.getElementById("i").style = "background-color: #FFFFFF; border: 0px solid; border-width: 0px; color: #000000; font-size: 25px; min-width: 1px; max-width: 90px;"
+                document.getElementById("k").style = "background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 20px; display: a;"
+                document.getElementById("k").value = "Q";
+            } else if (999999999999999999999999 >= i && i > 999999999999999999999) {
+            p=i/1000000000000000000000
+            k = +p.toFixed(3);
+                document.getElementById("i").value = k;
+                document.getElementById("i").style = "background-color: #FFFFFF; border: 0px solid; border-width: 0px; color: #000000; font-size: 25px; min-width: 1px; max-width: 90px;"
+                document.getElementById("k").style = "background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 20px; display: a;"
+                document.getElementById("k").value = "s";
+            } else if (999999999999999999999999999 >= i && i > 999999999999999999999999) {
+            p=i/1000000000000000000000000
+            k = +p.toFixed(3);
+                document.getElementById("i").value = k;
+                document.getElementById("i").style = "background-color: #FFFFFF; border: 0px solid; border-width: 0px; color: #000000; font-size: 25px; min-width: 1px; max-width: 90px;"
+                document.getElementById("k").style = "background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 20px; display: a;"
+                document.getElementById("k").value = "S";
+            } else if (999999999999999999999999999999 >= i && i > 999999999999999999999999999) {
+            p=i/1000000000000000000000000000
+            k = +p.toFixed(3);
+                document.getElementById("i").value = k;
+                document.getElementById("i").style = "background-color: #FFFFFF; border: 0px solid; border-width: 0px; color: #000000; font-size: 25px; min-width: 1px; max-width: 90px;"
+                document.getElementById("k").style = "background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 20px; display: a;"
+                document.getElementById("k").value = "O";
+            } else if (999999999999999999999999999999999 >= i && i > 999999999999999999999999999999) {
+            p=i/1000000000000000000000000000000
+            k = +p.toFixed(3);
+                document.getElementById("i").value = k;
+                document.getElementById("i").style = "background-color: #FFFFFF; border: 0px solid; border-width: 0px; color: #000000; font-size: 25px; min-width: 1px; max-width: 90px;"
+                document.getElementById("k").style = "background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 20px; display: a;"
+                document.getElementById("k").value = "N";
+            } else if (999999999999999999999999999999999999 >= i && i > 999999999999999999999999999999999) {
+            p=i/1000000000000000000000000000000000
+            k = +p.toFixed(3);
+                document.getElementById("i").value = k;
+                document.getElementById("i").style = "background-color: #FFFFFF; border: 0px solid; border-width: 0px; color: #000000; font-size: 25px; min-width: 1px; max-width: 90px;"
+                document.getElementById("k").style = "background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 20px; display: a;"
+                document.getElementById("k").value = "d";
+            } else if (999999999999999999999999999999999999999 >= i && i > 999999999999999999999999999999999999) {
+            p=i/1000000000000000000000000000000000000
+            k = +p.toFixed(3);
+                document.getElementById("i").value = k;
+                document.getElementById("i").style = "background-color: #FFFFFF; border: 0px solid; border-width: 0px; color: #000000; font-size: 25px; min-width: 1px; max-width: 90px;"
+                document.getElementById("k").style = "background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 35px; display: a;"
+                document.getElementById("k").value = "ud";
+            } else if (999999999999999999999999999999999999999999 >= i && i > 999999999999999999999999999999999999999) {
+            p=i/1000000000000000000000000000000000000000
+            k = +p.toFixed(3);
+                document.getElementById("i").value = k;
+                document.getElementById("i").style = "background-color: #FFFFFF; border: 0px solid; border-width: 0px; color: #000000; font-size: 25px; min-width: 1px; max-width: 90px;"
+                document.getElementById("k").style = "background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 35px; display: a;"
+                document.getElementById("k").value = "Dd";
+            } else if (999999999999999999999999999999999999999999999 >= i && i > 999999999999999999999999999999999999999999) {
+            p=i/1000000000000000000000000000000000000000000
+            k = +p.toFixed(3);
+                document.getElementById("i").value = k;
+                document.getElementById("i").style = "background-color: #FFFFFF; border: 0px solid; border-width: 0px; color: #000000; font-size: 25px; min-width: 1px; max-width: 90px;"
+                document.getElementById("k").style = "background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 35px; display: a;"
+                document.getElementById("k").value = "td";
+            } else if (999999999999999999999999999999999999999999999999 >= i && i > 999999999999999999999999999999999999999999999) {
+            p=i/1000000000000000000000000000000000000000000000
+            k = +p.toFixed(3);
+                document.getElementById("i").value = k;
+                document.getElementById("i").style = "background-color: #FFFFFF; border: 0px solid; border-width: 0px; color: #000000; font-size: 25px; min-width: 1px; max-width: 90px;"
+                document.getElementById("k").style = "background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 35px; display: a;"
+                document.getElementById("k").value = "qd";
+            } else if (999999999999999999999999999999999999999999999999999 >= i && i > 999999999999999999999999999999999999999999999999) {
+            p=i/1000000000000000000000000000000000000000000000000
+            k = +p.toFixed(3);
+                document.getElementById("i").value = k;
+                document.getElementById("i").style = "background-color: #FFFFFF; border: 0px solid; border-width: 0px; color: #000000; font-size: 25px; min-width: 1px; max-width: 90px;"
+                document.getElementById("k").style = "background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 35px; display: a;"
+                document.getElementById("k").value = "Qd";
+            } else if (999999999999999999999999999999999999999999999999999999 >= i && i > 999999999999999999999999999999999999999999999999999) {
+            p=i/1000000000000000000000000000000000000000000000000000
+            k = +p.toFixed(3);
+                document.getElementById("i").value = k;
+                document.getElementById("i").style = "background-color: #FFFFFF; border: 0px solid; border-width: 0px; color: #000000; font-size: 25px; min-width: 1px; max-width: 90px;"
+                document.getElementById("k").style = "background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 35px; display: a;"
+                document.getElementById("k").value = "sd";
+            } else if (999999999999999999999999999999999999999999999999999999999 >= i && i > 999999999999999999999999999999999999999999999999999999) {
+            p=i/1000000000000000000000000000000000000000000000000000000
+            k = +p.toFixed(3);
+                document.getElementById("i").value = k;
+                document.getElementById("i").style = "background-color: #FFFFFF; border: 0px solid; border-width: 0px; color: #000000; font-size: 25px; min-width: 1px; max-width: 90px;"
+                document.getElementById("k").style = "background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 35px; display: a;"
+                document.getElementById("k").value = "Sd";
+            } else if (999999999999999999999999999999999999999999999999999999999999 >= i && i > 999999999999999999999999999999999999999999999999999999999) {
+            p=i/1000000000000000000000000000000000000000000000000000000000
+            k = +p.toFixed(3);
+                document.getElementById("i").value = k;
+                document.getElementById("i").style = "background-color: #FFFFFF; border: 0px solid; border-width: 0px; color: #000000; font-size: 25px; min-width: 1px; max-width: 90px;"
+                document.getElementById("k").style = "background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 35px; display: a;"
+                document.getElementById("k").value = "Od";
+            } else if (999999999999999999999999999999999999999999999999999999999999999 >= i && i > 999999999999999999999999999999999999999999999999999999999999) {
+            p=i/1000000000000000000000000000000000000000000000000000000000000
+            k = +p.toFixed(3);
+                document.getElementById("i").value = k;
+                document.getElementById("i").style = "background-color: #FFFFFF; border: 0px solid; border-width: 0px; color: #000000; font-size: 25px; min-width: 1px; max-width: 90px;"
+                document.getElementById("k").style = "background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 35px; display: a;"
+                document.getElementById("k").value = "Nd";
+            } else if (999999999999999999999999999999999999999999999999999999999999999999 >= i && i > 999999999999999999999999999999999999999999999999999999999999999) {
+            p=i/1000000000000000000000000000000000000000000000000000000000000000
+            k = +p.toFixed(3);
+                document.getElementById("i").value = k;
+                document.getElementById("i").style = "background-color: #FFFFFF; border: 0px solid; border-width: 0px; color: #000000; font-size: 25px; min-width: 1px; max-width: 90px;"
+                document.getElementById("k").style = "background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 20px; display: a;"
+                document.getElementById("k").value = "v";
+            } else {
+            i = 99999999999999999999999999999999999999999999999999999999999999999999
+                document.getElementById("i").value = "Limit reached";
+                document.getElementById("i").style = "background-color: #FFFFFF; border: 0px solid; border-width: 0px; color: #FF0000; font-size: 25px; min-width: 1px; max-width: 150px;"
+                document.getElementById("k").style = "background-color: rgb(255, 255, 255); border: 0px solid; color: rgb(0, 0, 0); font-size: 25px; min-width: 1px; max-width: 0px; display: a;"
+                document.getElementById("k").value = " ";
+            }
+        }
+    function clickpower(){
+        if (i > e-1) {
+        //pay up
+        i=i-e
+        //show you didn't steal
+        style()
+        //this one below is for doing maths
+        clickpowerr=clickpowerr+1
+        //price update
+        e01=(e*11.5)
+        e= +e01.toFixed(0);
+        document.getElementById("cost1").innerText=e
+        document.getElementById("multiplier").innerText = " +"+powercpm;
+        document.getElementById("multiplier").style = "position: relative;";
+        //reload shop
+        shop1=0
+        shop()
+        } else {
+        }
+               
+    }
+    function cursor(){
+    //failsafe check! see if it's enough
+        if (i > e1-1) {
+        //pay up
+        i=i-e1
+        //show that you didn't steal
+        style()
+        //cursor giving
+        cursorno=cursorno+1
+        //cost changing, can't be a cookie clicker ripoff without it
+        ppsd=pps*10
+        e11=(e1*1.15)
+        e1= +e11.toFixed(0);
+        document.getElementById("cost2").innerText=e1
+        document.getElementById("cursore").innerText=cursorno
+        //reload shop LOL
+        shop1=0
+        shop()
+        } else {
+        //does literally nothing, don't have to have here but here just in case i add error handling
+        }
+               
+    }
+    function shop(){
+    //to add: "old fart", more buildings, still more buildings
+    document.getElementById("cost1").innerText = e;
+    document.getElementById("cost2").innerText = e1;
+    x=document.getElementById("shop2")
+    if (shop1 == 0) {
+    if (e >= 1000 && e < 1000000){
+        f=e/1000
+        document.getElementById("cost1").innerText = f+"k";
+        } else if (e >= 1000000 && e < 1000000000){
+        f=e/1000000
+        document.getElementById("cost1").innerText = f+"M";
+        } else if (e >= 1000000000 && e < 1000000000000){
+        f=e/1000000000
+        document.getElementById("cost1").innerText = f+"B";
+        } else if (e >= 1000000000000 && e < 1000000000000000){
+        f=e/1000000000000
+        document.getElementById("cost1").innerText = f+"t";
+        } else if (e >= 1000000000000000 && e <    1000000000000000000){
+        f=e/1000000000000000
+        document.getElementById("cost1").innerText = f+"q";
+        } else if (e >= 1000000000000000000 && e < 1000000000000000000000){
+        f=e/1000000000000000000
+        document.getElementById("cost1").innerText = f+"Q";
+        } else if (e >= 1000000000000000000000 && e < 1000000000000000000000000){
+        f=e/1000000000000000000000
+        document.getElementById("cost1").innerText = f+"s";
+        } else if (e >= 1000000000000000000000000 && e < 1000000000000000000000000000){
+        f=e/1000000000000000000000000
+        document.getElementById("cost1").innerText = f+"S";
+        } else if (e >= 1000000000000000000000000000 && e < 1000000000000000000000000000000){
+        f=e/1000000000000000000000000000
+        document.getElementById("cost1").innerText = f+"O";
+        } else if (e >= 1000000000000000000000000000000 && e < 1000000000000000000000000000000000){
+        f=e/1000000000000000000000000000000
+        document.getElementById("cost1").innerText = f+"N";
+        } else if (e >= 1000000000000000000000000000000000 && e < 1000000000000000000000000000000000000){
+        f=e/1000000000000000000000000000000000
+        document.getElementById("cost1").innerText = f+"d";
+        } else if (e >= 1000000000000000000000000000000000000 && e < 1000000000000000000000000000000000000000){
+        f=e/1000000000000000000000000000000000000
+        document.getElementById("cost1").innerText = f+"ud";
+        } else if (e >= 1000000000000000000000000000000000000000 && e < 1000000000000000000000000000000000000000000){
+        f=e/1000000000000000000000000000000000000000
+        document.getElementById("cost1").innerText = f+"Dd";
+        } else if (e >= 1000000000000000000000000000000000000000 && e < 1000000000000000000000000000000000000000000){
+        f=e/1000000000000000000000000000000000000000
+        document.getElementById("cost1").innerText = f+"Td";
+        } else if (e >= 1000000000000000000000000000000000000000000 && e < 1000000000000000000000000000000000000000000000){
+        f=e/1000000000000000000000000000000000000000000
+        document.getElementById("cost1").innerText = f+"qd";
+        } else if (e >= 1000000000000000000000000000000000000000000000 && e < 1000000000000000000000000000000000000000000000000){
+        f=e/1000000000000000000000000000000000000000000000
+        document.getElementById("cost1").innerText = f+"Qd";
+        } else if (e >= 1000000000000000000000000000000000000000000000000 && e < 1000000000000000000000000000000000000000000000000000){
+        f=e/1000000000000000000000000000000000000000000000000
+        document.getElementById("cost1").innerText = f+"sd";
+        } else if (e >= 1000000000000000000000000000000000000000000000000000 && e < 1000000000000000000000000000000000000000000000000000000){
+        f=e/1000000000000000000000000000000000000000000000000000
+        document.getElementById("cost1").innerText = f+"Sd";
+        } else if (e >= 1000000000000000000000000000000000000000000000000000000 && e < 10000000000000000000000000000000000000000000000000000000000){
+        f=e/1000000000000000000000000000000000000000000000000000000
+        document.getElementById("cost1").innerText = f+"Od";
+        } else if (e >= 1000000000000000000000000000000000000000000000000000000000 && e < 10000000000000000000000000000000000000000000000000000000000000){
+        f=e/1000000000000000000000000000000000000000000000000000000000
+        document.getElementById("cost1").innerText = f+"Nd";
+        } else if (e >= 1000000000000000000000000000000000000000000000000000000000000 && e < 10000000000000000000000000000000000000000000000000000000000000000){
+        f=e/1000000000000000000000000000000000000000000000000000000000000
+        document.getElementById("cost1").innerText = f+"v";
+        } else if (e >= 10000000000000000000000000000000000000000000000000000000000000000000) {
+        document.getElementById("cost1").innerText = "TOO MUCH!";
+        }
+        x.style="position: absolute; left: 200px; top: -70px; max-width: 275px; background-color: #000000; color: #FFFFFF"
+        if (e > i && e < 10000000000000000000000000000000000000000000000000000000000000000000){
+        document.getElementById("cost1").style = "color: #FF0000";
+        document.getElementById("cost1button").disabled = true;
+        } else if (i > e-1) {
+        document.getElementById("cost1").style = "color: #FFFFFF";
+        document.getElementById("cost1button").disabled = false;
+        } else {
+        document.getElementById("cost1").style = "color: #FF0000";
+        document.getElementById("cost1button").disabled = true;
+        }
+        if (e1 >= 1000 && e1 < 1000000){
+        f1=e1/1000
+        document.getElementById("cost2").innerText = f1+"k";
+        } else if (e1 >= 1000000 && e1 < 1000000000){
+        f1=e1/1000000
+        document.getElementById("cost2").innerText = f1+"M";
+        } else if (e1 >= 1000000000 && e1 < 1000000000000){
+        f1=e1/1000000000
+        document.getElementById("cost2").innerText = f1+"B";
+        } else if (e1 >= 1000000000000 && e1 < 1000000000000000){
+        f1=e1/1000000000000
+        document.getElementById("cost2").innerText = f1+"t";
+        } else if (e1 >= 1000000000000000 && e1 <    1000000000000000000){
+        f1=e1/1000000000000000
+        document.getElementById("cost2").innerText = f1+"q";
+        } else if (e1 >= 1000000000000000000 && e1 < 1000000000000000000000){
+        f1=e1/1000000000000000000
+        document.getElementById("cost2").innerText = f1+"Q";
+        } else if (e1 >= 1000000000000000000000 && e1 < 1000000000000000000000000){
+        f1=e1/1000000000000000000000
+        document.getElementById("cost2").innerText = f1+"s";
+        } else if (e1 >= 1000000000000000000000000 && e1 < 1000000000000000000000000000){
+        f1=e1/1000000000000000000000000
+        document.getElementById("cost2").innerText = f1+"S";
+        } else if (e1 >= 1000000000000000000000000000 && e1 < 1000000000000000000000000000000){
+        f1=e1/1000000000000000000000000000
+        document.getElementById("cost2").innerText = f1+"O";
+        } else if (e1 >= 1000000000000000000000000000000 && e1 < 1000000000000000000000000000000000){
+        f1=e1/1000000000000000000000000000000
+        document.getElementById("cost2").innerText = f1+"N";
+        } else if (e1 >= 1000000000000000000000000000000000 && e1 < 1000000000000000000000000000000000000){
+        f1=e1/1000000000000000000000000000000000
+        document.getElementById("cost2").innerText = f1+"d";
+        } else if (e1 >= 1000000000000000000000000000000000000 && e1 < 1000000000000000000000000000000000000000){
+        f1=e1/1000000000000000000000000000000000000
+        document.getElementById("cost2").innerText = f1+"ud";
+        } else if (e1 >= 1000000000000000000000000000000000000000 && e1 < 1000000000000000000000000000000000000000000){
+        f1=e1/1000000000000000000000000000000000000000
+        document.getElementById("cost2").innerText = f1+"Dd";
+        } else if (e1 >= 1000000000000000000000000000000000000000 && e1 < 1000000000000000000000000000000000000000000){
+        f1=e1/1000000000000000000000000000000000000000
+        document.getElementById("cost2").innerText = f1+"Td";
+        } else if (e1 >= 1000000000000000000000000000000000000000000 && e1 < 1000000000000000000000000000000000000000000000){
+        f1=e1/1000000000000000000000000000000000000000000
+        document.getElementById("cost2").innerText = f1+"qd";
+        } else if (e1 >= 1000000000000000000000000000000000000000000000 && e1 < 1000000000000000000000000000000000000000000000000){
+        f1=e1/1000000000000000000000000000000000000000000000
+        document.getElementById("cost2").innerText = f1+"Qd";
+        } else if (e1 >= 1000000000000000000000000000000000000000000000000 && e1 < 1000000000000000000000000000000000000000000000000000){
+        f1=e1/1000000000000000000000000000000000000000000000000
+        document.getElementById("cost2").innerText = f1+"sd";
+        } else if (e1 >= 1000000000000000000000000000000000000000000000000000 && e1 < 1000000000000000000000000000000000000000000000000000000){
+        f1=e1/1000000000000000000000000000000000000000000000000000
+        document.getElementById("cost2").innerText = f1+"Sd";
+        } else if (e1 >= 1000000000000000000000000000000000000000000000000000000 && e1 < 10000000000000000000000000000000000000000000000000000000000){
+        f1=e1/1000000000000000000000000000000000000000000000000000000
+        document.getElementById("cost2").innerText = f1+"Od";
+        } else if (e1 >= 1000000000000000000000000000000000000000000000000000000000 && e1 < 10000000000000000000000000000000000000000000000000000000000000){
+        f1=e1/1000000000000000000000000000000000000000000000000000000000
+        document.getElementById("cost2").innerText = f1+"Nd";
+        } else if (e1 >= 1000000000000000000000000000000000000000000000000000000000000 && e1 < 10000000000000000000000000000000000000000000000000000000000000000){
+        f1=e1/1000000000000000000000000000000000000000000000000000000000000
+        document.getElementById("cost2").innerText = f1+"v";
+        } else if (e1 >= 10000000000000000000000000000000000000000000000000000000000000000000) {
+        document.getElementById("cost2").innerText = "TOO MUCH!";
+        }
+        x.style="position: relative; left: 200px; top: -70px; max-width: 275px; background-color: #000000; color: #FFFFFF"
+        if (e1 > i && e1 < 10000000000000000000000000000000000000000000000000000000000000000000){
+        document.getElementById("cost2").style = "color: #FF0000";
+        document.getElementById("cost2button").disabled = true;
+        } else if (i > e1-1) {
+        document.getElementById("cost2").style = "color: #FFFFFF";
+        document.getElementById("cost2button").disabled = false;
+        } else {
+        document.getElementById("cost2").style = "color: #FF0000";
+        document.getElementById("cost2button").disabled = true;
+        }
+        document.getElementById("button").disabled = true;
+        document.getElementById("settings3").disabled = true;
+shop1 = 1;
+        } else if (shop1 == 1) {
+        x.style="position: relative; left: -69420px;"
+        shop1 = 0;
+        document.getElementById("settings3").disabled = false;
+        document.getElementById("cost1").disabled = false;
+        document.getElementById("cost2").disabled = false;
+        document.getElementById("button").disabled = false;
+        }
+    }
+    function upgradeshop(){
+    //to add: auto clicker, multibuy, sell, and upgrades for new buildings
+    document.getElementById("cucost").innerText = "5k";
+    document.getElementById("buttonupgrade").innerText = "1M"
+    if (cursorupgradee == 0 && i < costupgrade){
+        document.getElementById("cursor1").value="Cursor I"
+        document.getElementById("cucost").innerText="5k"
+        document.getElementById("cucost").style = "color: #FF0000";
+        document.getElementById("cursor1").disabled = true;
+        } else if (cursorupgradee == 1 && i < costupgrade) {
+        document.getElementById("cursor1").value="Cursor II"
+        document.getElementById("cucost").innerText="10k"
+        document.getElementById("cucost").style = "color: #FF0000";
+        document.getElementById("cursor1").disabled = true;
+        } else if (cursorupgradee == 2 && i < costupgrade) {
+        document.getElementById("cursor1").value="Cursor III"
+        document.getElementById("cucost").innerText="25k"
+        document.getElementById("cucost").style = "color: #FF0000";
+        document.getElementById("cursor1").disabled = true;
+        } else if (cursorupgradee == 3 && i < costupgrade) {
+        document.getElementById("cursor1").value="Cursor IV"
+        document.getElementById("cucost").innerText="50k"
+        document.getElementById("cucost").style = "color: #FF0000";
+        document.getElementById("cursor1").disabled = true;
+        } else if (cursorupgradee == 4 && i < costupgrade) {
+        document.getElementById("cursor1").value="Cursor V"
+        document.getElementById("cucost").innerText="100k"
+        document.getElementById("cucost").style = "color: #FF0000";
+        document.getElementById("cursor1").disabled = true;
+        } else if (cursorupgradee == 0 && i >= costupgrade){
+        document.getElementById("cursor1").value="Cursor I"
+        document.getElementById("cucost").innerText="5k"
+        document.getElementById("cucost").style = "color: #FFFFFF";
+        document.getElementById("cursor1").disabled = false;
+        } else if (cursorupgradee == 1 && i >= costupgrade) {
+        document.getElementById("cursor1").value="Cursor II"
+        document.getElementById("cucost").innerText="10k"
+        document.getElementById("cucost").style = "color: #FFFFFF";
+        document.getElementById("cursor1").disabled = false;
+        } else if (cursorupgradee == 2 && i >= costupgrade) {
+        document.getElementById("cursor1").value="Cursor III"
+        document.getElementById("cucost").innerText="25k"
+        document.getElementById("cucost").style = "color: #FFFFFF";
+        document.getElementById("cursor1").disabled = false;
+        } else if (cursorupgradee == 3 && i >= costupgrade) {
+        document.getElementById("cursor1").value="Cursor IV"
+        document.getElementById("cucost").innerText="50k"
+        document.getElementById("cucost").style = "color: #FFFFFF";
+        document.getElementById("cursor1").disabled = false;
+        } else if (cursorupgradee == 4 && i >= costupgrade) {
+        document.getElementById("cursor1").value="Cursor V"
+        document.getElementById("cucost").innerText="100k"
+        document.getElementById("cucost").style = "color: #FFFFFF";
+        document.getElementById("cursor1").disabled = false;
+        } else if (costupgrade == 0) {
+        document.getElementById("cursor1").value="MAXED!"
+        document.getElementById("cucost").innerText="0"
+        document.getElementById("cucost").style = "color: #FF0000";
+        document.getElementById("cursor1").disabled = true;
+        }
+        if (buttonupgradee == 0 && i < costupgrade2){
+        document.getElementById("buttonupgrade").value="Bronzify Button"
+        document.getElementById("goldifycost").innerText="1M"
+        document.getElementById("goldifycost").style = "color: #FF0000";
+        document.getElementById("buttonupgrade").disabled = true;
+        } else if (buttonupgradee == 1 && i < costupgrade2) {
+        document.getElementById("buttonupgrade").value="Silverify Button"
+        document.getElementById("goldifycost").innerText="50M"
+        document.getElementById("goldifycost").style = "color: #FF0000";
+        document.getElementById("buttonupgrade").disabled = true;
+        } else if (buttonupgradee == 2 && i < costupgrade2) {
+        document.getElementById("buttonupgrade").value="Goldify Button"
+        document.getElementById("goldifycost").innerText="1B"
+        document.getElementById("goldifycost").style = "color: #FF0000";
+        document.getElementById("buttonupgrade").disabled = true;
+        } else if (buttonupgradee == 3 && i < costupgrade2) {
+        document.getElementById("buttonupgrade").value="Platinumify Button"
+        document.getElementById("goldifycost").innerText="50B"
+        document.getElementById("goldifycost").style = "color: #FF0000";
+        document.getElementById("buttonupgrade").disabled = true;
+        } else if (buttonupgradee == 4 && i < costupgrade2) {
+        document.getElementById("buttonupgrade").value="Add Diamonds to Button"
+        document.getElementById("goldifycost").innerText="1T"
+        document.getElementById("goldifycost").style = "color: #FF0000";
+        document.getElementById("buttonupgrade").disabled = true;
+        } else if (buttonupgradee == 0 && i >= costupgrade2){
+        document.getElementById("buttonupgrade").value="Bronzify Button"
+        document.getElementById("goldifycost").innerText="1M"
+        document.getElementById("goldifycost").style = "color: #FFFFFF";
+        document.getElementById("buttonupgrade").disabled = false;
+        } else if (buttonupgradee == 1 && i >= costupgrade2) {
+        document.getElementById("buttonupgrade").value="Silverify Button"
+        document.getElementById("goldifycost").innerText="50M"
+        document.getElementById("goldifycost").style = "color: #FFFFFF";
+        document.getElementById("buttonupgrade").disabled = false;
+        } else if (buttonupgradee == 2 && i >= costupgrade2) {
+        document.getElementById("buttonupgrade").value="Goldify Button"
+        document.getElementById("goldifycost").innerText="1B"
+        document.getElementById("goldifycost").style = "color: #FFFFFF";
+        document.getElementById("cursor1").disabled = false;
+        } else if (buttonupgradee == 3 && i >= costupgrade2) {
+        document.getElementById("buttonupgrade").value="Platinumify Button"
+        document.getElementById("goldifycost").innerText="50B"
+        document.getElementById("goldifycost").style = "color: #FFFFFF";
+        document.getElementById("buttonupgrade").disabled = false;
+        } else if (buttonupgradee == 4 && i >= costupgrade2) {
+        document.getElementById("buttonupgrade").value="Add Diamonds to Button"
+        document.getElementById("goldifycost").innerText="1T"
+        document.getElementById("goldifycost").style = "color: #FFFFFF";
+        document.getElementById("buttonupgrade").disabled = false;
+        } else if (costupgrade == 0) {
+        document.getElementById("buttonupgrade").value="MAXED!"
+        document.getElementById("goldifycost").innerText="0"
+        document.getElementById("goldifycost").style = "color: #FF0000";
+        document.getElementById("buttonupgrade").disabled = true;
+        }
+        document.getElementById("shop2").disabled = true;
+        if (pps < 100) {
+        document.getElementById("req1b").innerText=pps
+        document.getElementById("buttonupgrade").disabled = true;
+        document.getElementById("req1a").style = "display: inline;";
+        document.getElementById("req1b").style = "display: inline; color: #FF0000";
+        document.getElementById("req1c").style = "display: inline;";
+        } else {
+        document.getElementById("req1a").style = "display: none;";
+        document.getElementById("req1b").style = "display: none;";
+        document.getElementById("req1c").style = "display: none;";
+        }
+    }
+    function settings(){
+    //save, load, see total.
+    document.getElementById("total1").innerText = itotal;
+    x=document.getElementById("settings2")
+    if (settings1 == 0) {
+        if (itotal >= 1000 && itotal < 1000000){
+        f2=itotal/1000
+        f1 = +f2.toFixed(3);
+        document.getElementById("total1").innerText = f1+"k";
+        } else if (itotal >= 1000000 && itotal < 1000000000){
+        f2=itotal/1000000
+        f1 = +f2.toFixed(3);
+        document.getElementById("total1").innerText = f1+"M";
+        } else if (itotal >= 1000000000 && itotal < 1000000000000){
+        f2=itotal/1000000000
+        f1 = +f2.toFixed(3);
+        document.getElementById("total1").innerText = f1+"B";
+        } else if (itotal >= 1000000000000 && itotal < 1000000000000000){
+        f2=itotal/1000000000000
+        f1 = +f2.toFixed(3);
+        document.getElementById("total1").innerText = f1+"t";
+        } else if (itotal >= 1000000000000000 && itotal <    1000000000000000000){
+        f2=itotal/1000000000000000
+        f1 = +f2.toFixed(3);
+        document.getElementById("total1").innerText = f1+"q";
+        } else if (itotal >= 1000000000000000000 && itotal < 1000000000000000000000){
+        f2=itotal/1000000000000000000
+        f1 = +f2.toFixed(3);
+        document.getElementById("total1").innerText = f1+"Q";
+        } else if (itotal >= 1000000000000000000000 && itotal < 1000000000000000000000000){
+        f2=itotal/1000000000000000000000
+        f1 = +f2.toFixed(3);
+        document.getElementById("total1").innerText = f1+"s";
+        } else if (itotal >= 1000000000000000000000000 && itotal < 1000000000000000000000000000){
+        f2=itotal/1000000000000000000000000
+        f1 = +f2.toFixed(3);
+        document.getElementById("total1").innerText = f1+"S";
+        } else if (itotal >= 1000000000000000000000000000 && itotal < 1000000000000000000000000000000){
+        f2=itotal/1000000000000000000000000000
+        f1 = +f2.toFixed(3);
+        document.getElementById("total1").innerText = f1+"O";
+        } else if (itotal >= 1000000000000000000000000000000 && itotal < 1000000000000000000000000000000000){
+        f2=itotal/1000000000000000000000000000000
+        f1 = +f2.toFixed(3);
+        document.getElementById("total1").innerText = f1+"N";
+        } else if (itotal >= 1000000000000000000000000000000000 && itotal < 1000000000000000000000000000000000000){
+        f1=itotal/1000000000000000000000000000000000
+        f1 = +f2.toFixed(3);
+        document.getElementById("total1").innerText = f1+"d";
+        } else if (itotal >= 1000000000000000000000000000000000000 && itotal < 1000000000000000000000000000000000000){
+        f2=itotal/1000000000000000000000000000000000000
+        f1 = +f2.toFixed(3);
+        document.getElementById("total1").innerText = f1+"ud";
+        } else if (itotal >= 1000000000000000000000000000000000000000 && itotal < 1000000000000000000000000000000000000000000){
+        f2=itotal/1000000000000000000000000000000000000000
+        f1 = +f2.toFixed(3);
+        document.getElementById("total1").innerText = f1+"Dd";
+        } else if (itotal >= 1000000000000000000000000000000000000000000 && itotal < 1000000000000000000000000000000000000000000000){
+        f2=itotal/1000000000000000000000000000000000000000000
+        f1 = +f2.toFixed(3);
+        document.getElementById("total1").innerText = f1+"Td";
+        } else if (itotal >= 1000000000000000000000000000000000000000000000 && itotal < 1000000000000000000000000000000000000000000000000){
+        f2=itotal/1000000000000000000000000000000000000000000000
+        f1 = +f2.toFixed(3);
+        document.getElementById("total1").innerText = f1+"qd";
+        } else if (itotal >= 1000000000000000000000000000000000000000000000000 && itotal < 1000000000000000000000000000000000000000000000000000){
+        f2=itotal/1000000000000000000000000000000000000000000000000
+        f1 = +f2.toFixed(3);
+        document.getElementById("total1").innerText = f1+"Qd";
+        } else if (itotal >= 1000000000000000000000000000000000000000000000000000 && itotal < 1000000000000000000000000000000000000000000000000000000){
+        f2=itotal/1000000000000000000000000000000000000000000000000000
+        f1 = +f2.toFixed(3);
+        document.getElementById("total1").innerText = f1+"sd";
+        } else if (itotal >= 1000000000000000000000000000000000000000000000000000000 && itotal < 1000000000000000000000000000000000000000000000000000000000){
+        f2=itotal/1000000000000000000000000000000000000000000000000000000
+        f1 = +f2.toFixed(3);
+        document.getElementById("total1").innerText = f1+"Sd";
+        } else if (itotal >= 1000000000000000000000000000000000000000000000000000000000 && itotal < 10000000000000000000000000000000000000000000000000000000000000){
+        f2=itotal/1000000000000000000000000000000000000000000000000000000000
+        f1 = +f2.toFixed(3);
+        document.getElementById("total1").innerText = f1+"Od";
+        } else if (itotal >= 1000000000000000000000000000000000000000000000000000000000000 && itotal < 10000000000000000000000000000000000000000000000000000000000000000){
+        f2=itotal/1000000000000000000000000000000000000000000000000000000000000
+        f1 = +f2.toFixed(3);
+        document.getElementById("total1").innerText = f1+"Nd";
+        } else if (itotal >= 1000000000000000000000000000000000000000000000000000000000000000 && itotal < 10000000000000000000000000000000000000000000000000000000000000000000){
+        f2=itotal/1000000000000000000000000000000000000000000000000000000000000000
+        f1 = +f2.toFixed(3);
+        document.getElementById("total1").innerText = f1+"v";
+        } else if (itotal >= 10000000000000000000000000000000000000000000000000000000000000000000000) {
+        document.getElementById("total1").innerText = "TOO MUCH!";
+        }
+        x.style="position: absolute; left: 200px; top: 45px; max-width: 275px; background-color: #000000; color: #FFFFFF"
+        document.getElementById("button").disabled = true;
+        document.getElementById("shop3").disabled = true;
+settings1 = 1;
+        } else if (settings1 == 1) {
+        x.style="position: relative; left: -69420px;"
+        settings1 = 0;
+        document.getElementById("shop3").disabled = false;
+        document.getElementById("button").disabled = false;
+        }
+    }
+    function pad(val) {
+    return val;
+}
+//PRESSES PER SECOND!!
+var timer = setInterval(function () {
+    if (cursorupgradee == 0) {
+		ppsa=(cursorno*0.01)
+		} else if (cursorupgradee == 1) {
+		ppsa=(cursorno*0.05)
+		} else if (cursorupgradee == 2) {
+		ppsa=(cursorno*0.1)
+		} else if (cursorupgradee == 3) {
+		ppsa=(cursorno*0.25)
+		} else if (cursorupgradee == 4) {
+		ppsa=(cursorno*0.5)
+		} else if (cursorupgradee == 5) {
+		ppsa=(cursorno*1.0)
+		}
+    pps3=((ppsa)*powerupmultpps)-pps4
+    pps1=pps1+pps
+    ppsd=pps*10
+}, 100);
+//automatically shorten.
+var timer5 = setInterval(function () {
+pps2=pps*10
+				if (pps2 < 999) {
+        f4=pps2
+        f3 = +f4.toFixed(3);
+        document.getElementById("presssec").innerText = f3;
+        } else if (pps2 >= 1000 && pps2 < 1000000){
+        f4=pps2/1000
+        f3 = +f4.toFixed(3);
+        document.getElementById("presssec").innerText = f3+"k";
+        } else if (pps2 >= 1000000 && pps2 < 1000000000){
+        f4=pps2/1000000
+        f3 = +f4.toFixed(3);
+        document.getElementById("presssec").innerText = f3+"M";
+        } else if (pps2 >= 1000000000 && pps2 < 1000000000000){
+        f4=pps2/1000000000
+        f3 = +f4.toFixed(3);
+        document.getElementById("presssec").innerText = f3+"B";
+        } else if (pps2 >= 1000000000000 && pps2 < 1000000000000000){
+        f4=pps2/1000000000000
+        f3 = +f4.toFixed(3);
+        document.getElementById("presssec").innerText = f3+"t";
+        } else if (pps2 >= 1000000000000000 && pps2 < 1000000000000000000){
+        f4=pps2/1000000000000000
+        f3 = +f4.toFixed(3);
+        document.getElementById("presssec").innerText = f3+"q";
+        } else if (pps2 >= 1000000000000000000 && pps2 < 1000000000000000000000){
+        f4=pps2/1000000000000000000
+        f3 = +f4.toFixed(3);
+        document.getElementById("presssec").innerText = f3+"Q";
+        } else if (pps2 >= 1000000000000000000000 && pps2 < 1000000000000000000000000){
+        f4=pps2/1000000000000000000000
+        f3 = +f4.toFixed(3);
+        document.getElementById("presssec").innerText = f3+"s";
+        } else if (pps2 >= 1000000000000000000000000 && pps2 < 1000000000000000000000000000){
+        f4=pps2/1000000000000000000000000
+        f3 = +f4.toFixed(3);
+        document.getElementById("presssec").innerText = f3+"S";
+        } else if (pps2 >= 1000000000000000000000000000 && pps2 < 1000000000000000000000000000000){
+        f4=pps2/1000000000000000000000000000
+        f3 = +f4.toFixed(3);
+        document.getElementById("presssec").innerText = f3+"O";
+        } else if (pps2 >= 1000000000000000000000000000000 && pps2 < 1000000000000000000000000000000000){
+        f4=pps2/1000000000000000000000000000000
+        f3 = +f4.toFixed(3);
+        document.getElementById("presssec").innerText = f3+"N";
+        } else if (pps2 >= 1000000000000000000000000000000000 && pps2 < 1000000000000000000000000000000000000){
+        f4=pps2/1000000000000000000000000000000000
+        f3 = +f4.toFixed(3);
+        document.getElementById("presssec").innerText = f3+"d";
+        } else if (pps2 >= 1000000000000000000000000000000000000 && pps2 < 1000000000000000000000000000000000000){
+        f4=pps2/1000000000000000000000000000000000000
+        f3 = +f4.toFixed(3);
+        document.getElementById("presssec").innerText = f3+"ud";
+        } else if (pps2 >= 1000000000000000000000000000000000000000 && pps2 < 1000000000000000000000000000000000000000000){
+        f4=pps2/1000000000000000000000000000000000000000
+        f3 = +f4.toFixed(3);
+        document.getElementById("presssec").innerText = f3+"Dd";
+        } else if (pps2 >= 1000000000000000000000000000000000000000000 && pps2 < 1000000000000000000000000000000000000000000000){
+        f4=pps2/1000000000000000000000000000000000000000000
+        f3 = +f4.toFixed(3);
+        document.getElementById("presssec").innerText = f3+"Td";
+        } else if (pps2 >= 1000000000000000000000000000000000000000000000 && pps2 < 1000000000000000000000000000000000000000000000000){
+        f4=pps2/1000000000000000000000000000000000000000000000
+        f3 = +f4.toFixed(3);
+        document.getElementById("presssec").innerText = f3+"qd";
+        } else if (pps2 >= 1000000000000000000000000000000000000000000000000 && pps2 < 1000000000000000000000000000000000000000000000000000){
+        f4=pps2/1000000000000000000000000000000000000000000000000
+        f3 = +f4.toFixed(3);
+        document.getElementById("presssec").innerText = f3+"Qd";
+        } else if (pps2 >= 1000000000000000000000000000000000000000000000000000 && pps2 < 1000000000000000000000000000000000000000000000000000000){
+        f4=pps2/1000000000000000000000000000000000000000000000000000
+        f3 = +f4.toFixed(3);
+        document.getElementById("presssec").innerText = f3+"sd";
+        } else if (pps2 >= 1000000000000000000000000000000000000000000000000000000 && pps2 < 1000000000000000000000000000000000000000000000000000000000){
+        f4=pps2/1000000000000000000000000000000000000000000000000000000
+        f3 = +f4.toFixed(3);
+        document.getElementById("presssec").innerText = f3+"Sd";
+        } else if (pps2 >= 1000000000000000000000000000000000000000000000000000000000 && pps2 < 10000000000000000000000000000000000000000000000000000000000000){
+        f4=pps2/1000000000000000000000000000000000000000000000000000000000
+        f3 = +f4.toFixed(3);
+        document.getElementById("presssec").innerText = f3+"Od";
+        } else if (pps2 >= 1000000000000000000000000000000000000000000000000000000000000 && pps2 < 10000000000000000000000000000000000000000000000000000000000000000){
+        f4=pps2/1000000000000000000000000000000000000000000000000000000000000
+        f3 = +f4.toFixed(3);
+        document.getElementById("presssec").innerText = f3+"Nd";
+        } else if (pps2 >= 1000000000000000000000000000000000000000000000000000000000000000 && pps2 < 10000000000000000000000000000000000000000000000000000000000000000000){
+        f4=pps2/1000000000000000000000000000000000000000000000000000000000000000
+        f3 = +f4.toFixed(3);
+        document.getElementById("presssec").innerText = f3+"v";
+        } else if (pps2 >= 10000000000000000000000000000000000000000000000000000000000000000000000) {
+        document.getElementById("presssec").innerText = "TOO MUCH!";
+        }
+}, 1)
+//i hate small decimals, so solution's this
+var timer2 = setInterval(function () {
+//button pressing
+if (ip >= 1 && ip < 100) {
+    ip = ip-1
+    i=i+1
+    itotal=itotal+1
+    style()
+    } else if (ip >= 100 && ip < 1000) {
+    ip = ip-10
+    i=i+10
+    itotal=itotal+10
+    style()
+    } else if (ip >= 1000 && ip < 10000) {
+    ip = ip-100
+    i=i+100
+    itotal=itotal+100
+    style()
+    } else if (ip >= 10000 && ip < 100000) {
+    ip = ip-1000
+    i=i+1000
+    itotal=itotal+1000
+    style()
+    } else if (ip >= 100000 && ip < 1000000) {
+    ip = ip-10000
+    i=i+10000
+    itotal=itotal+10000
+    style()
+    } else if (ip >= 1000000 && ip < 10000000) {
+    ip = ip-100000
+    i=i+100000
+    itotal=itotal+100000
+    style()
+    } else if (ip >= 10000000 && ip < 100000000) {
+    ip = ip-1000000
+    i=i+1000000
+    itotal=itotal+1000000
+    style()
+    } else if (ip >= 100000000 && ip < 1000000000) {
+    ip = ip-10000000
+    i=i+10000000
+    itotal=itotal+10000000
+    style()
+    } else if (ip >= 1000000000 && ip < 10000000000) {
+    ip = ip-100000000
+    i=i+100000000
+    itotal=itotal+100000000
+    style()
+    } else if (ip >= 10000000000 && ip < 100000000000) {
+    ip = ip-1000000000
+    i=i+1000000000
+    itotal=itotal+1000000000
+    style()
+    } else if (ip >= 100000000000 && ip < 1000000000000) {
+    ip = ip-10000000000
+    i=i+10000000000
+    itotal=itotal+10000000000
+    style()
+    } else if (ip >= 1000000000000 && ip < 10000000000000) {
+    ip = ip-100000000000
+    i=i+100000000000
+    itotal=itotal+100000000000
+    style()
+    } else if (ip >= 10000000000000 && ip < 100000000000000) {
+    ip = ip-1000000000000
+    i=i+1000000000000
+    itotal=itotal+1000000000000
+    style()
+    } else if (ip >= 100000000000000 && ip < 1000000000000000) {
+    ip = ip-10000000000000
+    i=i+10000000000000
+    itotal=itotal+10000000000000
+    style()
+    } else if (ip >= 1000000000000000 && ip < 10000000000000000) {
+    ip = ip-100000000000000
+    i=i+100000000000000
+    itotal=itotal+100000000000000
+    style()
+    } else if (ip >= 10000000000000000 && ip < 100000000000000000) {
+    ip = ip-1000000000000000
+    i=i+1000000000000000
+    itotal=itotal+1000000000000000
+    style()
+    } else if (ip >= 100000000000000000 && ip < 1000000000000000000) {
+    ip = ip-10000000000000000
+    i=i+10000000000000000
+    itotal=itotal+10000000000000000
+    style()
+    }
+//pps output
+    if (pps1 <= -1) {
+    pps1 = pps1+1
+    i=i-1
+    itotal=itotal-1
+    style()
+    } else if (pps1 >= 1 && pps1 < 100) {
+    pps1 = pps1-1
+    i=i+1
+    itotal=itotal+1
+    style()
+    } else if (pps1 >= 100 && pps1 < 1000) {
+    pps1 = pps1-10
+    i=i+10
+    itotal=itotal+10
+    style()
+    } else if (pps1 >= 1000 && pps1 < 10000) {
+    pps1 = pps1-100
+    i=i+100
+    itotal=itotal+100
+    style()
+    } else if (pps1 >= 10000 && pps1 < 100000) {
+    pps1 = pps1-1000
+    i=i+1000
+    itotal=itotal+1000
+    style()
+    } else if (pps1 >= 100000 && pps1 < 1000000) {
+    pps1 = pps1-10000
+    i=i+10000
+    itotal=itotal+10000
+    style()
+    } else if (pps1 >= 1000000 && pps1 < 10000000) {
+    pps1 = pps1-100000
+    i=i+100000
+    itotal=itotal+100000
+    style()
+    } else if (pps1 >= 10000000 && pps1 < 100000000) {
+    pps1 = pps1-1000000
+    i=i+1000000
+    itotal=itotal+1000000
+    style()
+    } else if (pps1 >= 100000000 && pps1 < 1000000000) {
+    pps1 = pps1-10000000
+    i=i+10000000
+    itotal=itotal+10000000
+    style()
+    } else if (pps1 >= 1000000000 && pps1 < 10000000000) {
+    pps1 = pps1-100000000
+    i=i+100000000
+    itotal=itotal+100000000
+    style()
+    } else if (pps1 >= 10000000000 && pps1 < 100000000000) {
+    pps1 = pps1-1000000000
+    i=i+1000000000
+    itotal=itotal+1000000000
+    style()
+    } else if (pps1 >= 100000000000 && pps1 < 1000000000000) {
+    pps1 = pps1-10000000000
+    i=i+10000000000
+    itotal=itotal+10000000000
+    style()
+    } else if (pps1 >= 1000000000000 && pps1 < 10000000000000) {
+    pps1 = pps1-100000000000
+    i=i+100000000000
+    itotal=itotal+100000000000
+    style()
+    } else if (pps1 >= 10000000000000 && pps1 < 100000000000000) {
+    pps1 = pps1-1000000000000
+    i=i+1000000000000
+    itotal=itotal+1000000000000
+    style()
+    } else if (pps1 >= 100000000000000 && pps1 < 1000000000000000) {
+    pps1 = pps1-10000000000000
+    i=i+10000000000000
+    itotal=itotal+10000000000000
+    style()
+    } else if (pps1 >= 1000000000000000 && pps1 < 10000000000000000) {
+    pps1 = pps1-100000000000000
+    i=i+100000000000000
+    itotal=itotal+100000000000000
+    style()
+    } else if (pps1 >= 10000000000000000 && pps1 < 100000000000000000) {
+    pps1 = pps1-1000000000000000
+    i=i+1000000000000000
+    itotal=itotal+1000000000000000
+    style()
+    } else if (pps1 >= 100000000000000000 && pps1 < 1000000000000000000) {
+    pps1 = pps1-10000000000000000
+    i=i+10000000000000000
+    itotal=itotal+10000000000000000
+    style()
+    }
+//pps input
+		if (pps3 < -1000000 && pps3 >= -100000000) {
+    pps4 = pps4-1000000
+    pps3 = pps3+1000000
+    pps=pps-1000000
+    } else if (pps3 < -10000 && pps3 >= -1000000) {
+    pps4 = pps4-100000
+    pps3 = pps3+100000
+    pps=pps-10000
+    } else if (pps3 < -100 && pps3 >= -10000) {
+    pps4 = pps4-100
+    pps3 = pps3+100
+    pps=pps-100
+    } else if (pps3 < -1 && pps3 >= -100) {
+    pps4 = pps4-1
+    pps3 = pps3+1
+    pps=pps-1
+    } else if (pps3 < 0 && pps3 >= -1) {
+    pps4 = pps4-0.01
+    pps3 = pps3+0.01
+    pps=pps-0.01
+    } else if (pps3 >= 0.01 && pps3 < 1) {
+    pps4 = pps4+0.01
+    pps3 = pps3-0.01
+    pps=pps+0.01
+    } else if (pps3 >= 1 && pps3 < 100) {
+    pps4 = pps4+1
+    pps3 = pps3-1
+    pps=pps+1
+    } else if (pps3 >= 100 && pps3 < 1000) {
+    pps4 = pps4+10
+    pps3 = pps3-10
+    pps=pps+10
+    } else if (pps3 >= 1000 && pps3 < 10000) {
+    pps4 = pps4+100
+    pps3 = pps3-100
+    pps=pps+100
+    } else if (pps3 >= 10000 && pps3 < 100000) {
+    pps4 = pps4+1000
+    pps3 = pps3-1000
+    pps=pps+1000
+    } else if (pps3 >= 100000 && pps3 < 1000000) {
+    pps4 = pps4+10000
+    pps3 = pps3-10000
+    pps=pps+10000
+    } else if (pps3 >= 1000000 && pps3 < 10000000) {
+    pps4 = pps4+100000
+    pps3 = pps3-100000
+    pps=pps+100000
+    } else if (pps3 >= 10000000 && pps3 < 100000000) {
+    pps4 = pps4+1000000
+    pps3 = pps3-1000000
+    pps=pps+1000000
+    } else if (pps3 >= 100000000 && pps3 < 1000000000) {
+    pps4 = pps4+10000000
+    pps3 = pps3-10000000
+    pps=pps+10000000
+    } else if (pps3 >= 1000000000 && pps3 < 10000000000) {
+    pps4 = pps4+100000000
+    pps3 = pps3-100000000
+    pps=pps+100000000
+    } else if (pps3 >= 10000000000 && pps3 < 100000000000) {
+    pps4 = pps4+1000000000
+    pps3 = pps3-1000000000
+    pps=pps+1000000000
+    } else if (pps3 >= 100000000000 && pps3 < 1000000000000) {
+    pps4 = pps4+10000000000
+    pps3 = pps3-10000000000
+    pps=pps+10000000000
+    } else if (pps3 >= 1000000000000 && pps3 < 10000000000000) {
+    pps4 = pps4+100000000000
+    pps3 = pps3-100000000000
+    pps=pps+100000000000
+    } else if (pps3 >= 10000000000000 && pps3 < 100000000000000) {
+    pps4 = pps4+1000000000000
+    pps3 = pps3-1000000000000
+    pps=pps+1000000000000
+    } else if (pps3 >= 100000000000000 && pps3 < 1000000000000000) {
+    pps4 = pps4+10000000000000
+    pps3 = pps3-10000000000000
+    pps=pps+10000000000000
+    } else if (pps3 >= 1000000000000000 && pps3 < 10000000000000000) {
+    pps4 = pps4+100000000000000
+    pps3 = pps3-100000000000000
+    pps=pps+100000000000000
+    } else if (pps3 >= 10000000000000000 && pps3 < 100000000000000000) {
+    pps4 = pps4+1000000000000000
+    pps3 = pps3-1000000000000000
+    pps=pps+1000000000000000
+    } else if (pps3 >= 100000000000000000 && pps3 < 1000000000000000000) {
+    pps4 = pps4+10000000000000000
+    pps3 = pps3-10000000000000000
+    pps=pps+10000000000000000
+    }
+//cp
+		if (cp2 >= 1 && cp2 < 100) {
+    cp2 = cp2-1
+    cp=cp+1
+    } else if (cp2 >= 100 && cp2 < 1000) {
+    cp2 = cp2-10
+    cp=cp+10
+    } else if (cp2 >= 1000 && cp2 < 10000) {
+    cp2 = cp2-100
+    cp=cp+100
+    } else if (cp2 >= 10000 && cp2 < 100000) {
+    cp2 = cp2-1000
+    cp=cp+1000
+    } else if (cp2 >= 100000 && cp2 < 1000000) {
+    cp2 = cp2-10000
+    cp=cp+10000
+    } else if (cp2 >= 1000000 && cp2 < 10000000) {
+    cp2 = cp2-100000
+    cp=cp+100000
+    } else if (cp2 >= 10000000 && cp2 < 100000000) {
+    cp2 = cp2-1000000
+    cp=cp+1000000
+    } else if (cp2 >= 100000000 && cp2 < 1000000000) {
+    cp2 = cp2-10000000
+    cp=cp+10000000
+    } else if (cp2 >= 1000000000 && cp2 < 10000000000) {
+    cp2 = cp2-100000000
+    cp=cp+100000000
+    } else if (cp2 >= 10000000000 && cp2 < 100000000000) {
+    cp2 = cp2-1000000000
+    cp=cp+1000000000
+    } else if (cp2 >= 100000000000 && cp2 < 1000000000000) {
+    cp2 = cp2-10000000000
+    cp=cp+10000000000
+    } else if (cp2 >= 1000000000000 && cp2 < 10000000000000) {
+    cp2 = cp2-100000000000
+    cp=cp+100000000000
+    } else if (cp2 >= 10000000000000 && cp2 < 100000000000000) {
+    cp2 = cp2-1000000000000
+    cp=cp+1000000000000
+    } else if (cp2 >= 100000000000000 && cp2 < 1000000000000000) {
+    cp2 = cp2-10000000000000
+    cp=cp+10000000000000
+    } else if (cp2 >= 1000000000000000 && cp2 < 10000000000000000) {
+    cp2 = cp2-100000000000000
+    cp=cp+100000000000000
+    } else if (cp2 >= 10000000000000000 && cp2 < 100000000000000000) {
+    cp2 = cp2-1000000000000000
+    cp=cp+1000000000000000
+    } else if (cp2 >= 100000000000000000 && cp2 < 1000000000000000000) {
+    cp2 = cp2-10000000000000000
+    cp=cp+10000000000000000
+    }
+    document.getElementById("multiplier").innerText = " +"+powercpm;
+}, 1);
+//save timer, not working
+var timer3 = setInterval(function () {
+if (savetimer <= 0) {
+document.cookie = "i=" + i + "; itotal=" + itotal + "; cursorno=" + cursorno + "; clickpowerr=" + clickpowerr + "; buttonupgradee=" + buttonupgradee + "; path=/; expires=31 Dec 2099 12:00:00 UTC";
+savetimer = 60
+document.getElementById("savetimer").innerText = savetimer;
+} else if (savetimer <= 60) {
+savetimer = savetimer - 1
+document.getElementById("savetimer").innerText = savetimer;
+} else {
+document.getElementById("savetimer").innerText = "disabled";
+}
+}, 1000);
+//FIX!
+function save() {
+var separator = ":"
+var values = [i, itotal, cursorno, clickpowerr, buttonupgradee].join(separator);
+document.cookie = "myValues=" + values + "; path=/; expires=31 Dec 2099 12:00:00 UTC";
+savetimer = 60
+document.getElementById("savetimer").innerText = savetimer;
+}
+//broken, and want to do it all in 1 cookie
+function load() {
+savetimer = 60
+document.getElementById("savetimer").innerText = savetimer;
+// make these not commented out when fixed
+//i=getCookie("i");
+//itotal=getCookie("itotal");
+//cursorno=getCookie("cursorno");
+//clickpowerr=getCookie("clickpowerr");
+//cursorupgradee=getCookie("cursorupgradee");
+//buttonupgradee=getCookie("buttonupgradee");
+//eload1=(1.15*cursorno)
+//e1=(e1*eload1)
+//if (clickpowerr != 0){
+//e=(e*(11.5^(clickpowerr)))
+//}
+//if (cursorno != 0){
+//e1=(e1*(1.15^(cursorno+1)))
+//}
+//if (cursorupgradee == 1) {
+//pps=(cursorno*0.5)
+//costupgrade=10000
+//} else if (cursorupgradee == 2) {
+//pps=(cursorno*2.5)
+//costupgrade=25000
+//} else if (cursorupgradee == 3) {
+//pps=(cursorno*10)
+//costupgrade=50000
+//} else if (cursorupgradee == 4) {
+//pps=(cursorno*50)
+//costupgrade=100000
+//} else if (cursorupgradee == 5) {
+//pps=(cursorno*100)
+//costupgrade=0
+//} else {
+//pps=(cursorno*0.1)
+//costupgrade=5000
+//}
+}
+    //purchase cursor upgrade, max level 5
+    function cursorupgrade(){
+        if (i > 4999 && cursorupgradee==0) {
+        i=i-5000
+        style()
+        cursorupgradee=1
+        costupgrade=10000
+        document.getElementById("cursor1").value="Cursor II"
+        document.getElementById("cucost").innerText="10k"
+        if (i < 10000) {
+        document.getElementById("cursor1").disabled=true
+        document.getElementById("cucost").style = "color: #FF0000";
+        } else {
+        document.getElementById("cursor1").disabled=false
+        document.getElementById("cucost").style = "color: #FFFFFF";
+        }
+        } else if (i > 9999 && cursorupgradee==1) {
+        i=i-10000
+        style()
+        cursorupgradee=2
+        costupgrade=25000
+        document.getElementById("cursor1").value="Cursor III"
+        document.getElementById("cucost").innerText="25k"
+        if (i < 25000) {
+        document.getElementById("cursor1").disabled=true
+        document.getElementById("cucost").style = "color: #FF0000";
+        } else {
+        document.getElementById("cursor1").disabled=false
+        document.getElementById("cucost").style = "color: #FFFFFF";
+        }
+        } else if (i > 24999 && cursorupgradee==2) {
+        i=i-25000
+        style()
+        cursorupgradee=3
+        costupgrade=50000
+        document.getElementById("cursor1").value="Cursor IV"
+        document.getElementById("cucost").innerText="50k"
+        if (i < 50000) {
+        document.getElementById("cursor1").disabled=true
+        document.getElementById("cucost").style = "color: #FF0000";
+        } else {
+        document.getElementById("cursor1").disabled=false
+        document.getElementById("cucost").style = "color: #FFFFFF";
+        }
+        } else if (i > 49999 && cursorupgradee==3) {
+        i=i-50000
+        style()
+        cursorupgradee=4
+        costupgrade=100000
+        document.getElementById("cursor1").value="Cursor V"
+        document.getElementById("cucost").innerText="100k"
+        if (i < 100000) {
+        document.getElementById("cursor1").disabled=true
+        document.getElementById("cucost").style = "color: #FF0000";
+        } else {
+        document.getElementById("cursor1").disabled=false
+        document.getElementById("cucost").style = "color: #FFFFFF";
+        }
+        } else if (i > 99999 && cursorupgradee==4) {
+        i=i-100000
+        style()
+        cursorupgradee=5
+        costupgrade=0
+        document.getElementById("cursor1").value="MAXED!"
+        document.getElementById("cucost").innerText="0"
+        document.getElementById("cursor1").disabled=true
+        document.getElementById("cucost").style = "color: #FF0000";
+        } else if (cursorupgradee == 5) {
+        }
+        }
+        //make button fun fun fun!!!
+        function buttonupgrade(){
+        if (i > 999999 && buttonupgradee==0) {
+        i=i-1000000
+        style()
+        buttonupgradee=1
+        costupgrade2=50000000
+        document.getElementById("buttonupgrade").value="Silverify Button"
+        document.getElementById("buttonupgrade").title="boosts your chance up to 0.5%, and adds 2.5% to pps click bonus (total 5%)"
+        document.getElementById("goldifycost").innerText="50M"
+        if (i < 50000000) {
+        document.getElementById("buttonupgrade").disabled=true
+        document.getElementById("goldifycost").style = "color: #FF0000";
+        } else {
+        document.getElementById("buttonupgrade").disabled=false
+        document.getElementById("goldifycost").style = "color: #FFFFFF";
+        }
+        } else if (i > 49999999 && buttonupgradee==1) {
+        i=i-50000000
+        style()
+        buttonupgradee=2
+        costupgrade2=1000000000
+        document.getElementById("buttonupgrade").value="Goldify Button"
+        document.getElementById("buttonupgrade").title="boosts your chance up to 1%, plus it's shiny! also adds 2.5% to pps click bonus (total 7.5%)"
+        document.getElementById("goldifycost").innerText="1B"
+        if (i < 1000000000) {
+        document.getElementById("buttonupgrade").disabled=true
+        document.getElementById("goldifycost").style = "color: #FF0000";
+        } else {
+        document.getElementById("buttonupgrade").disabled=false
+        document.getElementById("goldifycost").style = "color: #FFFFFF";
+        }
+        } else if (i > 999999999 && buttonupgradee==2) {
+        i=i-1000000000
+        style()
+        buttonupgradee=3
+        costupgrade2=50000000000
+        document.getElementById("buttonupgrade").value="Platinumify Button"
+        document.getElementById("buttonupgrade").title="boosts your chance up to 2.5%, plus it's very shiny! also adds 2.5% to pps click bonus (total 10%)"
+        document.getElementById("goldifycost").innerText="50B"
+        if (i < 50000000000) {
+        document.getElementById("buttonupgrade").disabled=true
+        document.getElementById("goldifycost").style = "color: #FF0000";
+        } else {
+        document.getElementById("buttonupgrade").disabled=false
+        document.getElementById("goldifycost").style = "color: #FFFFFF";
+        }
+        } else if (i > 49999999999 && buttonupgradee==3) {
+        i=i-50000000000
+        style()
+        buttonupgradee=4
+        costupgrade2=1000000000000
+        document.getElementById("buttonupgrade").value="Add Diamonds to Button"
+        document.getElementById("buttonupgrade").title="boosts your chance up to 5%, plus it's glistering! also adds 2.5% to pps click bonus (total 12.5%)"
+        document.getElementById("goldifycost").innerText="1T"
+        if (i < 1000000000000) {
+        document.getElementById("buttonupgrade").disabled=true
+        document.getElementById("goldifycost").style = "color: #FF0000";
+        } else {
+        document.getElementById("buttonupgrade").disabled=false
+        document.getElementById("goldifycost").style = "color: #FFFFFF";
+        }
+        } else if (i > 999999999999 && buttonupgradee==4) {
+        i=i-1000000000000
+        style()
+        buttonupgradee=5
+        costupgrade2=0
+        document.getElementById("buttonupgrade").value="MAXED!"
+        document.getElementById("goldifycost").innerText="0"
+        document.getElementById("buttonupgrade").disabled=true
+        document.getElementById("goldifycost").style = "color: #FF0000";
+        document.getElementById("buttonupgrade").title="MAXED!"
+        } else if (cursorupgradee == 5) {
+        }
+        }
+        //upgrade shop switch, originally a test but it went so well
+        function testa(){
+        y=document.getElementById("shop2")
+        x=document.getElementById("upgradeshop2")
+        if (shop1 == 1 && upgradeshop1 == 0){
+        document.getElementById("shop3").disabled = true;
+        y.style="position: relative; left: -69420px;"
+        x.style="position: absolute; left: 200px; top: 45px; max-width: 275px; background-color: #000000; color: #FFFFFF"
+        shop1 = 0
+        upgradeshop1 = 1
+        upgradeshop()
+        } else if (shop1 == 0 && upgradeshop1 == 1) {
+        document.getElementById("shop3").disabled = false;
+        x.style="position: relative; left: -69420px;"
+        y.style="position: absolute; left: 200px; top: 45px; max-width: 275px; width: 275px; background-color: #000000; color: #FFFFFF"
+        upgradeshop1 = 0
+        shop()
+        }
+        }
+        //power up timer
+        var timer4 = setInterval(function () {
+				if (poweruptimer == 0 && poweruptimerenable == 1) {
+        powerupmultclick=1
+        powerupmultpps=1
+        poweruptimerenable=0
+        ppsdec=ppsdec*10
+				} else if (poweruptimerenable == 1) {
+        poweruptimer=poweruptimer-1
+        }
+        }, 1000);
+        //what powerup does the game give
+        function powerup() {
+        if (poweruptimerenable == 0) {
+        rand2 = Math.floor((Math.random() * 10001) + 1);
+        if (rand2 == 10001) {
+        //24 hours of pps, dang you would be lucky!! (~0.01% chance)
+        i=i+pps*86400
+        itotal=itotal+pps*86400
+        poweruptimer=60
+        poweruptimerenable=1
+        style()
+        } else if (rand2 >= 9901 && rand2 <= 10000) {
+        //1 hour of pps, pretty lucky! (~1% chance)
+        i=i+pps*3600
+        itotal=itotal+pps*3600
+        poweruptimer=60
+        poweruptimerenable=1
+        style()
+        } else if (rand2 >= 1 && rand2 <= 4900) {
+        //you like clicking? (~49% chance)
+        powerupmultclick=10
+        poweruptimer=60
+        poweruptimerenable=1
+        } else if (rand2 > 4901 && rand2 <= 9900) {
+        //you like pps? (~49% chance)
+        powerupmultpps=10
+        ppsdec=ppsdec/10
+        poweruptimer=60
+        poweruptimerenable=1
+        }
+        }
+        style()
+        }
+        //end of script
+    </script>
+
+
+</div></div></body></html>
+
+
+
