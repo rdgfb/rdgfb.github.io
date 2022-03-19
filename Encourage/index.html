@@ -1,0 +1,167 @@
+<head>
+<title>Get encouraged!</title>
+</head>
+<style>
+.container {
+  overflow: hidden;
+}
+
+.sliding-background {
+  background: url("/background.png") repeat-x;
+  height: 4096px;
+  width: 4096px;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  animation: slide 10s linear infinite;
+}
+
+@keyframes slide{
+  0% {
+    transform: translate3d(-256px, -512px, 0);
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0);
+  }
+}
+/* Container holding the image and the text */
+
+/* Bottom right text */
+.text-block {
+  position: absolute;
+  text-shadow: 0 0 20px #FFFFFF, 0 0 10px #FFFFFF;
+  color: black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 255, 255); 
+  mix-blend-mode: difference;
+  font-size: 20px;
+}
+</style>
+<body style="overflow: hidden">
+<div style="color: #000000; text-shadow: 0 0 3px #FFFFFF, 0 0 5px #FFFFFF; z-index: 100;">hi</div>
+<div class="container">
+<div class="sliding-background">
+</div>
+</div>
+<div class="containe">
+  <div class="text-block">
+    <a id="enc">Get Encouraged!!</a>
+  </div>
+</div>
+<script>
+var x = Math.floor((Math.random() * 25) + 1);
+function msgchg() {
+if (x==1){
+document.getElementById("enc").innerText = "Don't give up! Your goals will come!"
+} else if (x==2){
+document.getElementById("enc").innerText = "Keep going, no matter what is said!"
+} else if (x==3){
+document.getElementById("enc").innerText = "Don't let anyone take you down!"
+} else if (x==4){
+document.getElementById("enc").innerText = "Failure always happens, keep trying!"
+} else if (x==5){
+document.getElementById("enc").innerText = "Help is always fine, it's OK to ask!"
+} else if (x==6){
+document.getElementById("enc").innerText = "Don't let failure stop you!"
+} else if (x==7){
+document.getElementById("enc").innerText = "Success will always come!"
+} else if (x==8){
+document.getElementById("enc").innerText = "Success comes after failures!"
+} else if (x==9){
+document.getElementById("enc").innerText = "Nothing's stopping you from success!"
+} else if (x==10){
+document.getElementById("enc").innerText = "Don't worry about failing!"
+} else if (x==11){
+document.getElementById("enc").innerText = "Everyone is proud of your success!"
+} else if (x==12){
+document.getElementById("enc").innerText = "It's always fine to take breaks!"
+} else if (x==13){
+document.getElementById("enc").innerText = "Don't forget to take breaks!"
+} else if (x==14){
+document.getElementById("enc").innerText = "You're significant!"
+} else if (x==15){
+document.getElementById("enc").innerText = "You are an important person!"
+} else if (x==16){
+document.getElementById("enc").innerText = "Don't let anyone stop you!"
+} else if (x==17){
+document.getElementById("enc").innerText = "Success is in reach!"
+} else if (x==18){
+document.getElementById("enc").innerText = "Failure happens to everyone!"
+} else if (x==19){
+document.getElementById("enc").innerText = "Asking questions is OK!"
+} else if (x==20){
+document.getElementById("enc").innerText = "No matter what, don't give up!"
+} else if (x==21){
+document.getElementById("enc").innerText = "Everyone will be proud!"
+} else if (x==22){
+document.getElementById("enc").innerText = "Do not look only at your failures. Look at the success you will find!"
+} else if (x==23){
+document.getElementById("enc").innerText = "Success is coming! Keep going!"
+} else if (x==24){
+document.getElementById("enc").innerText = "You are always going to find success!"
+} else if (x==25){
+document.getElementById("enc").innerText = "Always make yourself happy!"
+} else if (x==26){
+document.getElementById("enc").innerText = ""
+} else if (x==27){
+document.getElementById("enc").innerText = ""
+} else if (x==28){
+document.getElementById("enc").innerText = ""
+} else if (x==29){
+document.getElementById("enc").innerText = ""
+} else if (x==30){
+document.getElementById("enc").innerText = ""
+} else if (x==31){
+document.getElementById("enc").innerText = ""
+} else if (x==32){
+document.getElementById("enc").innerText = ""
+} else if (x==33){
+document.getElementById("enc").innerText = ""
+} else if (x==34){
+document.getElementById("enc").innerText = ""
+} else if (x==35){
+document.getElementById("enc").innerText = ""
+} else if (x==36){
+document.getElementById("enc").innerText = ""
+} else if (x==37){
+document.getElementById("enc").innerText = ""
+} else if (x==38){
+document.getElementById("enc").innerText = ""
+} else if (x==39){
+document.getElementById("enc").innerText = ""
+} else if (x==40){
+document.getElementById("enc").innerText = ""
+} else if (x==41){
+document.getElementById("enc").innerText = ""
+} else if (x==42){
+document.getElementById("enc").innerText = ""
+} else if (x==43){
+document.getElementById("enc").innerText = ""
+} else if (x==44){
+document.getElementById("enc").innerText = ""
+} else if (x==45){
+document.getElementById("enc").innerText = ""
+} else if (x==46){
+document.getElementById("enc").innerText = ""
+} else if (x==47){
+document.getElementById("enc").innerText = ""
+} else if (x==48){
+document.getElementById("enc").innerText = ""
+} else if (x==49){
+document.getElementById("enc").innerText = ""
+} else if (x==50){
+document.getElementById("enc").innerText = ""
+}
+}
+msgchg()
+var message = setInterval(function() {
+x = Math.floor((Math.random() * 25) + 1);
+msgchg()
+}, 15000)
+</script>
+</body>
+
+
+
