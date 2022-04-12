@@ -1,0 +1,189 @@
+<head>
+<title>present</title>
+</head>
+<body>
+<div id="viewdimension" style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-color: #7F7F7F">
+<div id="unsupported" style="position: absolute; top: 0px; left: 0px; font-size: 100%;"></div>
+<a id="device" style="position: absolute; top: 0px; left: 0px; font-size: 5vw;">Your device: detecting...</a>
+</div>
+</body>
+<script>
+var firstdetect=1
+var deviceid=-5
+var height=0
+var width=0
+var repeat = setInterval(function(){
+height = document.getElementById("viewdimension").clientHeight;
+width = document.getElementById("viewdimension").clientWidth;
+detectdevice()
+if (height == 2532 && width == 1170 || height == 2340 && width == 1080 || height == 2278 && width == 1284 || height == 2688 && width == 1242 || height == 1334 && width == 750 || height == 2608 && width == 1242 || height == 2436 && width == 1125 || height == 1920 && width == 1080 || height == 1792 && width == 828 || height == 1136 && width == 640 || height == 960 && width == 640 || height == 480 && width == 320){
+document.getElementById("unsupported").innerText="Portrait mode is not supported. Sorry!"
+document.getElementById("unsupported").style="position: absolute; top: 0px; left: 0px; font-size: 10vw; width: 100%; height: 100%; background-color: #000000; color: #FFFFFF; z-index: 255; text-align: center;"
+} else {
+document.getElementById("unsupported").innerText=""
+document.getElementById("unsupported").style="position: absolute; top: 0px; left: 0px; font-size: 100%; width: 100%; height: 100%; z-index: 255;"
+}
+}, 10)
+var detectin = setInterval(function(){
+if (deviceid==11){
+document.getElementById("device").innerText="Your device: iPhone 12/13 Pro"
+document.getElementById("device").style="position: absolute; top: 122px; left: 0px; font-size: 5vw;"
+}
+if (deviceid==10){
+document.getElementById("device").innerText="Your device: iPhone 12/13 Mini"
+document.getElementById("device").style="position: absolute; top: 122px; left: 0px; font-size: 5vw;"
+}
+if (deviceid==9){
+document.getElementById("device").innerText="Your device: iPhone 12/13 Pro Max"
+document.getElementById("device").style="position: absolute; top: 122px; left: 0px; font-size: 5vw;"
+}
+if (deviceid==8){
+document.getElementById("device").innerText="Your device: iPhone 11 Pro Max or iPhone XS Max"
+document.getElementById("device").style="position: absolute; top: 122px; left: 0px; font-size: 5vw;"
+}
+if (deviceid==7){
+document.getElementById("device").innerText="Your device: iPhone SE 2nd/8/7/6s/6"
+}
+if (deviceid==6){
+document.getElementById("device").innerText="Your device: iPhone 7+/6s+/6+"
+}
+if (deviceid==5){
+document.getElementById("device").innerText="Your device: iPhone 11 Pro or XS"
+document.getElementById("device").style="position: absolute; top: 122px; left: 0px; font-size: 5vw;"
+}
+if (deviceid==4){
+document.getElementById("device").innerText="Your device: iPhone 8+"
+}
+if (deviceid==3){
+document.getElementById("device").innerText="Your device: iPhone 11 or XR"
+document.getElementById("device").style="position: absolute; top: 122px; left: 0px; font-size: 5vw;"
+}
+if (deviceid==2){
+document.getElementById("device").innerText="Your device: iPhone SE 1st, 5C, 5S, or 5"
+}
+if (deviceid==1){
+document.getElementById("device").innerText="Your device: iPhone 4s, or 4"
+}
+if (deviceid==0){
+document.getElementById("device").innerText="Your device: iPhone 3GS, or 1st"
+}
+if (deviceid==-1){
+document.getElementById("device").innerText="Your device: non-iPhone"
+}
+if (deviceid==-2){
+document.getElementById("device").innerText="Device unknown. Width unreadable."
+}
+if (deviceid==-3){
+document.getElementById("device").innerText="Device unknown. Height unreadable."
+}
+if (deviceid==-4){
+document.getElementById("device").innerText="Device unknown. Dimensions unreadable."
+}
+if (deviceid==-5){
+document.getElementById("device").innerText="Detecting device by dimensions..."
+}
+}, 10)
+function detectdevice(){
+if (height == 2532 && width == 1170 || height == 1170 && width == 2532){
+if (firstdetect==1){
+console.log("seems like this is an iPhone 12 Pro or 13 Pro")
+firstdetect=0
+}
+deviceid=11
+} else if (height == 2340 && width == 1080 || height == 1080 && width == 2340){
+if (firstdetect==1){
+console.log("seems like this is an iPhone 12 Mini or 13 Mini")
+firstdetect=0
+}
+deviceid=10
+} else if (height == 1284 && width == 2278 || height == 2278 && width == 1284){
+if (firstdetect==1){
+console.log("seems like this is either an iPhone 12 Pro Max or 13 Pro Max")
+firstdetect=0
+}
+deviceid=9
+} else if (height == 1242 && width == 2688 || height == 2688 && width == 1242){
+if (firstdetect==1){
+console.log("seems like this is either an iPhone 11 Pro Max or XS Max")
+firstdetect=0
+}
+deviceid=8
+} else if (height == 750 && width == 1334 || height == 1334 && width == 750){
+if (firstdetect==1){
+console.log("seems like this is either an iPhone SE 2nd, 8, 7, 6s, or 6")
+firstdetect=0
+}
+deviceid=7
+} else if (height == 1242 && width == 2608 || height == 2608 && width == 1242){
+if (firstdetect==1){
+console.log("seems like this is either an iPhone 7+, 6s+, or 6+")
+firstdetect=0
+}
+deviceid=6
+} else if (height == 1125 && width == 2436 || height == 2436 && width == 1125){
+if (firstdetect==1){
+console.log("seems like this is either an iPhone 11 Pro or XS")
+firstdetect=0
+}
+deviceid=5
+} else if (height == 1080 && width == 1920 || height == 1920 && width == 1080){
+if (firstdetect==1){
+console.log("seems like this is an iPhone 8+")
+firstdetect=0
+}
+deviceid=4
+} else if (height == 828 && width == 1792 || height == 1792 && width == 828){
+if (firstdetect==1){
+console.log("seems like this is either an iPhone 11 or XR")
+firstdetect=0
+}
+deviceid=3
+} else if (height == 640 && width == 1136 || height == 1136 && width == 640){
+if (firstdetect==1){
+console.log("seems like this is either an iPhone SE 1st, 5C, 5S, or 5.")
+firstdetect=0
+}
+deviceid=2
+} else if (height == 640 && width == 960 || height == 960 && width == 640){
+if (firstdetect==1){
+console.log("seems like this is either an iPhone 4S, or 4.")
+firstdetect=0
+}
+deviceid=1
+} else if (height == 480 && width == 320 || height == 320 && width == 480){
+if (firstdetect==1){
+console.log("seems like this is either an iPhone 3GS, or 1st.")
+firstdetect=0
+}
+deviceid=0
+} else if (height > 0 && width > 0){
+if (firstdetect==1){
+console.info("unknown device with dimensions "+height+"px by "+width+"px.")
+firstdetect=0
+}
+deviceid=-1
+} else if (height > 0 && width <= 0){
+if (firstdetect==1){
+console.info("unknown device with height "+height+"px.")
+tconsole.warn("width is unreadable.")
+firstdetect=0
+}
+deviceid=-2
+} else if (height <= 0 && width > 0){
+if (firstdetect==1){
+console.info("unknown device with width "+width+"px.")
+console.warn("height is unreadable.")
+firstdetect=0
+}
+deviceid=-3
+} else {
+if (firstdetect==1){
+console.info("unknown device.")
+console.warn("height is unreadable.")
+console.warn("width is unreadable.")
+firstdetect=0
+}
+deviceid=-4
+}
+}
+</script>
