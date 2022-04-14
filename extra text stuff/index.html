@@ -3,8 +3,9 @@
   <title>page info</title>
 </head>
 <body>
-  <a>This sub-domain is for fun scripts</a>
-  <button id=".js-copy-chrome-error">Fake Chrome Error</button>
+  <div style="text-align: center;">This sub-domain is for fun scripts</div>
+  <div id="button" style="text-align: center;"><button id=".js-copy-chrome-error">Fake Chrome Error</button></div>
+  <div id="success" style="text-align: center; color: transparent;">COPIED! Put to console to replace the entire HTML!</div>
   </body>
 <script>
 function copyTextToClipboard(text) {
@@ -69,14 +70,17 @@ async function loadncopy(url) {
   try {
     const response = await fetch(url);
     const data = await response.text();
-    console.log(data);
     copyTextToClipboard(data);
+    document.getElementById("button").remove()
+    document.getElementById("success").style="text-align: center; color: #000000;"
   } catch (err) {
     console.error(err);
+    document.getElementById('.js-copy-chrome-error').disabled=false
   }
 }
 
 function bob2(){
+document.getElementById('.js-copy-chrome-error').disabled=true
 loadncopy('https://rdgfb.github.io/extra%20text%20stuff/errorchrome.txt');
 }
 const bob = document.getElementById('.js-copy-chrome-error')
