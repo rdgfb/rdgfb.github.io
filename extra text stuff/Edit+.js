@@ -588,4 +588,9 @@ document.getElementById("texttoggl").style="border-radius: 0em; font-family: ini
 document.getElementById("texticon").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; pointer-events: none; z-index:65536; position:fixed;top: -2px;left: 65px; font-size: 19px;";
 }
 }
+function resize() {
+  w = canvas.width;
+  h = canvas.height;
+}
+window.onresize = resize;
 init();
