@@ -1,7 +1,6 @@
-var element = document.getElementsByTagName("aa"), index;
-
-for (index = element.length - 1; index >= 0; index--) {
-    element[index].parentNode.removeChild(element[index]);
-}
+const removal = document.querySelectorAll('.editPLUS');
+removal.forEach(existingelement => {
+  existingelement.remove();
+});
 document.getElementById("editPLUS").remove()
 document.getElementById("editPLUSremoval").remove()
