@@ -412,7 +412,7 @@ document.body.innerHTML+='<canvas contentEditable="false" id="can" style="pointe
       document.getElementById("drawtoggl").style = "border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; background-color:#00C800; z-index:65535;position:fixed;top: 0px; width: 20px;height: 20px;padding: 0px 0px 0px 0px;left: 40px; border-color:#CCCCCC";
     } else if (isdrawing == 1) {
       isdrawing = 0;
-      document.getElementById("can").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; z-index:-65534;background-color: transparent; position:absolute; top:0px;left:0px;width:100%;height:100%;"
+      document.getElementById("can").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; z-index:65534;background-color: transparent; position:absolute; top:0px;left:0px;width:100%;height:100%;"
       document.getElementById("texttoggl").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; background-color:#C80000;z-index:65535;position:fixed;top: 0px; width: 20px;height: 20px;padding: 0px 0px 0px 0px;left: 60px; border-color:#CCCCCC";
       document.getElementById("texticon").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; pointer-events: none; z-index:65536; position:fixed;top: -2px;left: 65px; font-size: 19px;";
       document.getElementById("recolor").style = "display: none;";
@@ -577,12 +577,14 @@ firstc=0;
 function texttoggle(){
 if (istyping==0){
 istyping=1;
+document.getElementById("can").style="pointer-events: none; border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; z-index:-65534;background-color: transparent; position:absolute; top:0px;left:0px;width:100%;height:100%;"
 document.body.contentEditable="true";
 document.getElementById("drawtoggl").style = "display:none;";
 document.getElementById("drawicon").style="display: none;";
 document.getElementById("texttoggl").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; background-color:#00C800;z-index:65535;position:fixed;top: 0px; width: 20px;height: 20px;padding: 0px 0px 0px 0px;left: 60px; border-color:#CCCCCC";
 document.getElementById("texticon").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; pointer-events: none; z-index:65536; position:fixed;top: -2px;left: 65px; font-size: 19px;";
 } else {
+document.getElementById("can").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; z-index:65534;background-color: transparent; position:absolute; top:0px;left:0px;width:100%;height:100%;"
 istyping=0;
 document.body.contentEditable="false";
 document.getElementById("drawtoggl").style = "border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; background-color:#C80000; z-index:65535;position:fixed;top: 0px; width: 20px;height: 20px;padding: 0px 0px 0px 0px;left: 40px; border-color:#CCCCCC";
