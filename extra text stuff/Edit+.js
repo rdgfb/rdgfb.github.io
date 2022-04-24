@@ -577,7 +577,7 @@ firstc=0;
 function texttoggle(){
 if (istyping==0){
 istyping=1;
-document.getElementById("can").style="pointer-events: none; border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; z-index:-65534;background-color: transparent; position:absolute; top:0px;left:0px;width:100%;height:100%;"
+document.getElementById("can").style="display: none; pointer-events: none; border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; z-index:-65534;background-color: transparent; position:absolute; top:0px;left:0px;width:100%;height:100%;"
 document.body.contentEditable="true";
 document.getElementById("drawtoggl").style = "display:none;";
 document.getElementById("drawicon").style="display: none;";
