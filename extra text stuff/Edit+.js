@@ -5,7 +5,8 @@ document.body.innerHTML+='<canvas contentEditable="false" id="can" style="pointe
   var isdrawing=0
   var iscoloring=1
   var istyping=0
-	var switchno=0
+  var isremoving=0
+  var switchno=0
   var firsttwo=0
   var secondtwo=0
   var lasttwo=0
@@ -89,6 +90,7 @@ document.body.innerHTML+='<canvas contentEditable="false" id="can" style="pointe
     }
   }
   hexcolor = setInterval(function(){
+  if (isremoving==0){
   x = "#"+hex1b+""+hex1a+""+hex2b+""+hex2a+""+hex3b+""+hex3a;
   if (switchno==0){
   if (firsta<=9){
@@ -388,6 +390,7 @@ document.body.innerHTML+='<canvas contentEditable="false" id="can" style="pointe
   hex3a="F";
   }
   document.getElementById("hexsix").innerText=hex3b+""+hex3a;
+  }
   }
   }, 10);
   function drawtoggle() {
