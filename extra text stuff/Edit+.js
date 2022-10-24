@@ -397,61 +397,61 @@ var canvas, ctx, flag = false, prevX = 0, currX = 0, prevY = 0, currY = 0, dot_f
   function drawtoggle() {
     if (isdrawing == 0) {
       isdrawing = 1;
-      document.getElementById("can").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; z-index:65534;background-color: transparent; position:absolute; top:0px;left:0px;width:100%;height:100%;"
+      document.getElementById("can").style="border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; z-index:65534;background-color: transparent; position:absolute; top:0px;left:0px;width:100%;height:100%;"
       document.getElementById("texttoggl").style="display:none;";
       document.getElementById("texticon").style="display:none;";
       document.getElementById("expandedit").innerHTML = "&nbspEdit+ --- Mode:";
-      document.getElementById("expandedit").style = "border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; pointer-events: none; z-index:65535; background-color: #FFFFFF;position:fixed;top:0px;left:0px;width: 107px;height:20px;";
+      document.getElementById("expandedit").style = "border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; pointer-events: none; z-index:65535; background-color: #FFFFFF;position:fixed;top:0px;left:0px;width: 107px;height:20px;";
       if (iscoloring == 0) {
         document.getElementById("modetype").innerText = "ERASE";
         document.getElementById("recolor").style = "display: none;";
       } else if (iscoloring == 1) {
         document.getElementById("modetype").innerText = "COLOR";
-        document.getElementById("recolor").style = "border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; ";
+        document.getElementById("recolor").style = "border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; ";
       }
-      document.getElementById("others").style = "border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset;";
-      document.getElementById("drawtoggl").style = "border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; background-color:#00C800; z-index:65535;position:fixed;top: 0px; width: 20px;height: 20px;padding: 0px 0px 0px 0px;left: 40px; border-color:#CCCCCC";
+      document.getElementById("others").style = "border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset;";
+      document.getElementById("drawtoggl").style = "border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; background-color:#00C800; z-index:65535;position:fixed;top: 0px; width: 20px;height: 20px;padding: 0px 0px 0px 0px;left: 40px; border-color:#CCCCCC";
     } else if (isdrawing == 1) {
       isdrawing = 0;
-      document.getElementById("can").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; z-index:65534;background-color: transparent; position:absolute; top:0px;left:0px;width:100%;height:100%;"
-      document.getElementById("texttoggl").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; background-color:#C80000;z-index:65535;position:fixed;top: 0px; width: 20px;height: 20px;padding: 0px 0px 0px 0px;left: 60px; border-color:#CCCCCC";
-      document.getElementById("texticon").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; pointer-events: none; z-index:65536; position:fixed;top: -2px;left: 65px; font-size: 19px;";
+      document.getElementById("can").style="border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; z-index:65534;background-color: transparent; position:absolute; top:0px;left:0px;width:100%;height:100%;"
+      document.getElementById("texttoggl").style="border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; background-color:#C80000;z-index:65535;position:fixed;top: 0px; width: 20px;height: 20px;padding: 0px 0px 0px 0px;left: 60px; border-color:#CCCCCC";
+      document.getElementById("texticon").style="border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; pointer-events: none; z-index:65536; position:fixed;top: -2px;left: 65px; font-size: 19px;";
       document.getElementById("recolor").style = "display: none;";
-      document.getElementById("expandedit").style = "border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; pointer-events: none; z-index:65535; background-color: #FFFFFF;position:fixed;top:0px;left:0px;width: 80px;height:20px;";
+      document.getElementById("expandedit").style = "border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; pointer-events: none; z-index:65535; background-color: #FFFFFF;position:fixed;top:0px;left:0px;width: 80px;height:20px;";
       document.getElementById("expandedit").innerHTML = "&nbspEdit+";
       document.getElementById("others").style = "display:none;";
       document.getElementById("modetype").innerText = "";
-      document.getElementById("drawtoggl").style = "border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; background-color:#C80000; z-index:65535;position:fixed;top: 0px; width: 20px;height: 20px;padding: 0px 0px 0px 0px;left: 40px; border-color:#CCCCCC";
+      document.getElementById("drawtoggl").style = "border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; background-color:#C80000; z-index:65535;position:fixed;top: 0px; width: 20px;height: 20px;padding: 0px 0px 0px 0px;left: 40px; border-color:#CCCCCC";
     }
   }
   function colortoggle() {
     if (iscoloring == 1) {
       iscoloring = 0;
-      document.getElementById("colortoggl").style = "border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; background-color:#C80000;z-index:65535;position:fixed;top: 0px; width: 63px;height: 20px;padding: 0px 0px 0px 0px;left: 105px; border-color:#CCCCCC";
+      document.getElementById("colortoggl").style = "border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; background-color:#C80000;z-index:65535;position:fixed;top: 0px; width: 63px;height: 20px;padding: 0px 0px 0px 0px;left: 105px; border-color:#CCCCCC";
       document.getElementById("modetype").innerText = "ERASE";
-      document.getElementById("modetype").style = "border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; pointer-events: none; z-index:65536; position:fixed;top: 2px;left: 114px;";
+      document.getElementById("modetype").style = "border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; pointer-events: none; z-index:65536; position:fixed;top: 2px;left: 114px;";
       document.getElementById("recolor").style = "display: none;";
     } else if (iscoloring == 0) {
       iscoloring = 1;
-      document.getElementById("colortoggl").style = "border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; background-color:#00C800;z-index:65535;position:fixed;top: 0px; width: 63px;height: 20px;padding: 0px 0px 0px 0px;left: 105px; border-color:#CCCCCC";
+      document.getElementById("colortoggl").style = "border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; background-color:#00C800;z-index:65535;position:fixed;top: 0px; width: 63px;height: 20px;padding: 0px 0px 0px 0px;left: 105px; border-color:#CCCCCC";
       document.getElementById("modetype").innerText = "COLOR";
-      document.getElementById("modetype").style = "border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; pointer-events: none; z-index:65536; position:fixed;top: 2px;left: 113px;";
-      document.getElementById("recolor").style = "border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset;";
+      document.getElementById("modetype").style = "border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; pointer-events: none; z-index:65536; position:fixed;top: 2px;left: 113px;";
+      document.getElementById("recolor").style = "border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset;";
     }
   }
 function switchleft(){
 if (switchno==2){
 switchno=1;
-document.getElementById("hextwo").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; ";
-document.getElementById("hexfour").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; color: #AAAA00;";
-document.getElementById("hexsix").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; ";
+document.getElementById("hextwo").style="border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; ";
+document.getElementById("hexfour").style="border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; color: #AAAA00;";
+document.getElementById("hexsix").style="border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; ";
 document.getElementById("switchright").disabled=false;
 document.getElementById("switchleft").disabled=false;
 } else if (switchno==1){
 switchno=0;
-document.getElementById("hextwo").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; color: #AAAA00;";
-document.getElementById("hexfour").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; ";
-document.getElementById("hexsix").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; ";
+document.getElementById("hextwo").style="border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; color: #AAAA00;";
+document.getElementById("hexfour").style="border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; ";
+document.getElementById("hexsix").style="border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; ";
 document.getElementById("switchright").disabled=false;
 document.getElementById("switchleft").disabled=true;
 }
@@ -459,16 +459,16 @@ document.getElementById("switchleft").disabled=true;
 function switchright(){
 if (switchno==0){
 switchno=1;
-document.getElementById("hextwo").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; ";
-document.getElementById("hexfour").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; color: #AAAA00;";
-document.getElementById("hexsix").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; ";
+document.getElementById("hextwo").style="border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; ";
+document.getElementById("hexfour").style="border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; color: #AAAA00;";
+document.getElementById("hexsix").style="border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; ";
 document.getElementById("switchright").disabled=false;
 document.getElementById("switchleft").disabled=false;
 } else if (switchno==1){
 switchno=2;
-document.getElementById("hextwo").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; ";
-document.getElementById("hexfour").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; ";
-document.getElementById("hexsix").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; color: #AAAA00;";
+document.getElementById("hextwo").style="border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; ";
+document.getElementById("hexfour").style="border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; ";
+document.getElementById("hexsix").style="border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; position: relative; left: -0px; color: #AAAA00;";
 document.getElementById("switchright").disabled=true;
 document.getElementById("switchleft").disabled=false;
 }
@@ -582,16 +582,16 @@ document.getElementById("can").style="display: none; pointer-events: none; borde
 document.body.contentEditable="true";
 document.getElementById("drawtoggl").style = "display:none;";
 document.getElementById("drawicon").style="display: none;";
-document.getElementById("texttoggl").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; background-color:#00C800;z-index:65535;position:fixed;top: 0px; width: 20px;height: 20px;padding: 0px 0px 0px 0px;left: 60px; border-color:#CCCCCC";
-document.getElementById("texticon").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; pointer-events: none; z-index:65536; position:fixed;top: -2px;left: 65px; font-size: 19px;";
+document.getElementById("texttoggl").style="border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; background-color:#00C800;z-index:65535;position:fixed;top: 0px; width: 20px;height: 20px;padding: 0px 0px 0px 0px;left: 60px; border-color:#CCCCCC";
+document.getElementById("texticon").style="border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; pointer-events: none; z-index:65536; position:fixed;top: -2px;left: 65px; font-size: 19px;";
 } else {
-document.getElementById("can").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; z-index:65534;background-color: transparent; position:absolute; top:0px;left:0px;width:100%;height:100%;"
+document.getElementById("can").style="border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; z-index:65534;background-color: transparent; position:absolute; top:0px;left:0px;width:100%;height:100%;"
 istyping=0;
 document.body.contentEditable="false";
-document.getElementById("drawtoggl").style = "border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; background-color:#C80000; z-index:65535;position:fixed;top: 0px; width: 20px;height: 20px;padding: 0px 0px 0px 0px;left: 40px; border-color:#CCCCCC";
-document.getElementById("drawicon").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; pointer-events: none; z-index:65536; position:fixed;top: -2px;left: 42px;";
-document.getElementById("texttoggl").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; background-color:#C80000;z-index:65535;position:fixed;top: 0px; width: 20px;height: 20px;padding: 0px 0px 0px 0px;left: 60px; border-color:#CCCCCC";
-document.getElementById("texticon").style="border-radius: 0em; font-family: initial; margin: unset; margin-inline: unset; margin-block: unset; pointer-events: none; z-index:65536; position:fixed;top: -2px;left: 65px; font-size: 19px;";
+document.getElementById("drawtoggl").style = "border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; background-color:#C80000; z-index:65535;position:fixed;top: 0px; width: 20px;height: 20px;padding: 0px 0px 0px 0px;left: 40px; border-color:#CCCCCC";
+document.getElementById("drawicon").style="border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; pointer-events: none; z-index:65536; position:fixed;top: -2px;left: 42px;";
+document.getElementById("texttoggl").style="border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; background-color:#C80000;z-index:65535;position:fixed;top: 0px; width: 20px;height: 20px;padding: 0px 0px 0px 0px;left: 60px; border-color:#CCCCCC";
+document.getElementById("texticon").style="border-radius: 0em; font-family: fantasy !important; color: #000000 !important; margin: unset; margin-inline: unset; margin-block: unset; pointer-events: none; z-index:65536; position:fixed;top: -2px;left: 65px; font-size: 19px;";
 }
 }
 function resize() {
