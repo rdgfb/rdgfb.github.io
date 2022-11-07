@@ -1425,6 +1425,10 @@ function updateBest(){
     if (goals5==10){
     buyAnti()
     }
+    if (presses>=100 && challenge==7){
+    goals0+=1
+    challenge=0
+    }
     if (mlevel>=(10*(goals1+1)) && challenge==1){
     goals1+=1
     challenge=0
@@ -1995,6 +1999,9 @@ function updateShop(){
 function updatePressing(){
     if (challenge==0){
     document.getElementById("chalid").innerText="No challenge."
+    }
+    if (challenge==7){
+    document.getElementById("chalid").innerText="Get 100 presses."
     }
     if (challenge==1){
     document.getElementById("chalid").innerText="No manual pressing. "+((10*(goals1+1))-mlevel)+" levels to go!"
@@ -3952,7 +3959,7 @@ document.getElementById("easyantichal").style="position: relative; opacity: 1; l
 }
 }
 function chal0(){
-challenge=0
+challenge=7
 prestige()
 shop()
 }
