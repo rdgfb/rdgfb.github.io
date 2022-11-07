@@ -174,7 +174,7 @@ var leclipse5 = 0
 var leclipse6 = 0
 var ascXP = 0;
 var asccost0 = 0;
-var planets = 0;
+var planets = 1;
 var loaded = 0;
 document.body.onload = function(){
     loadCookie();
@@ -630,6 +630,13 @@ document.body.onload = function(){
     }
     }
     loaded=1
+}
+function togglePlanets(){
+    if (planets==0){
+        planets=1
+    } else {
+        planets=0
+    }
 }
 function updatePlanets(){
     if (((timePlayed/3600000)%8) >= 0 && ((timePlayed/3600000)%8) < 2){
