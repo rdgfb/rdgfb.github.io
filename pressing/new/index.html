@@ -3403,6 +3403,47 @@ function rebuildchoose(){
 //}
 console.error("action not implemented. (Function ran was rebuildchoose)")
 }
+function prestigenogain(){
+presses = 0;
+pressesdec = 0;
+autocooldown = 0;
+astmax = 60;
+auto = 1;
+ppoweramt = 0;
+cursor = 0;
+cpoweramt = 0;
+mother = 0;
+ppower = 1;
+cpower = 1;
+mpower = 1;
+mpoweramt = 0;
+mlevel = 1;
+mxppts = 0;
+mxpnxt = 100;
+mxpmul = 1;
+cost1 = 15;
+costc1 = 15;
+calcc1 = 371;
+costnew1 = 371;
+cost2 = 100;
+costc2 = 100;
+calcc2 = 1219;
+costnew2 = 1219;
+cost0 = 1000;
+ppower = 1;
+cost3 = 10000;
+cost4 = 25000;
+ppoweramt = 0;
+apoweramt = 0;
+failsafe = 100;
+count = 0
+cpower = 1;
+mpower = 1;
+cpoweramt = 1;
+mpoweramt = 1;
+cost5 = 1000;
+cost6 = 4000;
+}
 function prestige(){
 lastprestige=Date.now()
 prestigeamt+=1
@@ -3936,22 +3977,22 @@ document.getElementById("easychal").style="position: relative; opacity: 0; left:
 } else {
 document.getElementById("easychal").style="position: relative; opacity: 1; left: 1px; width: 248px; text-align: center; background-color: inherit; color: inherit;"
 }
-if (goals0==0 || bestprestige==0){
+if (bestprestige==0){
 document.getElementById("medchal").style="position: relative; opacity: 0; left: -100%; width: 248px; height: 0px; text-align: center; background-color: transparent; color: transparent;"
 } else {
 document.getElementById("medchal").style="position: relative; opacity: 1; left: 1px; width: 248px; text-align: center; background-color: inherit; color: inherit;"
 }
-if (goals0==0 || bestprestige==0 || bestascend==0){
+if (bestascend==0){
 document.getElementById("hardchal").style="position: relative; position: absolute; opacity: 0; left: -100%; width: 248px; height: 0px; text-align: center; background-color: transparent; color: transparent;"
 } else {
 document.getElementById("hardchal").style="position: relative; opacity: 1; left: 1px; width: 248px; text-align: center; background-color: inherit; color: inherit;"
 }
-if (goals0==0 || totalantipresses==0 || bestascend==0 || bestprestige==0){
-document.getElementById("antichal").style="position: relative; position: absolute; opacity: 0; left: -100%; width: 248px; height: 0px; text-align: center; background-color: transparent; color: transparent;"
+if (totalantipresses==0){
+document.getElementById("antichal").style="position: relative; opacity: 0; left: -100%; width: 248px; height: 0px; text-align: center; background-color: transparent; color: transparent;"
 } else {
 document.getElementById("antichal").style="position: relative; opacity: 1; left: 0px; width: 248px; text-align: center; background-color: #F4FF75; color: #000000;"
 }
-if (goals0==0 || totalantipresses==0 || bestascend==0 || bestprestige==0){
+if (totalantipresses==0){
 document.getElementById("easyantichal").style="position: relative; opacity: 0; left: -100%; width: 248px; height: 0px; text-align: center; background-color: transparent; color: transparent;"
 } else {
 document.getElementById("easyantichal").style="position: relative; opacity: 1; left: 1px; width: 248px; text-align: center; background-color: inherit; color: inherit;"
@@ -3960,29 +4001,29 @@ document.getElementById("easyantichal").style="position: relative; opacity: 1; l
 }
 function chal0(){
 challenge=7
-prestige()
+prestigenogain()
 shop()
 }
 function chal1(){
 challenge=1
-prestige()
+prestigenogain()
 presses=15
 shop()
 }
 function chal2(){
 challenge=2
-prestige()
+prestigenogain()
 shop()
 }
 function chal3(){
 challenge=3
-prestige()
+prestigenogain()
 shop()
 updateXPmult()
 }
 function chal4(){
 failtimer=((Date.now())+(3600000-(goals4*150000)))
-prestige()
+prestigenogain()
 challenge=4
 shop()
 updateXPmult()
@@ -3990,7 +4031,7 @@ updateXPmult()
 function chal5(){
 failtimer=((Date.now())+(43200000-(goals5*4320000)))
 challenge=5
-prestige()
+prestigenogain()
 shop()
 updateXPmult()
 }
