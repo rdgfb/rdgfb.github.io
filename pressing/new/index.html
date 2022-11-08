@@ -2008,6 +2008,9 @@ function updatePressing(){
     if (challenge!==1 && challenge!== 6 && tutorialmode==0){
         document.getElementById("pressing").disabled=false;
     }
+    if (challenge!==3 && tutorialmode==0){
+        document.getElementById("shop").disabled=false;
+    }
     if (challenge==1){
     document.getElementById("chalid").innerText="No manual pressing. "+((10*(goals1+1))-mlevel)+" levels to go!"
     document.getElementById("pressing").disabled=true
