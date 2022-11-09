@@ -25,11 +25,11 @@
 <div id="debuggoeshereidiot"></div>
 <button id="pressing" onclick="buttonpress()" style="cursor: pointer;">Yes!</button><button id="shop" onclick="shop()" style="opacity: 0; cursor: default;">Shop</button><!----<button id="q1b2" style="opacity: 1; cursor: pointer;" onclick="q0102()">No!</button><button id="q2b2" style="opacity: 1; position: absolute; left: -50px; cursor: pointer;" onclick="q0102()">No!</button>--><div></div><button style="opacity: 1; cursor: pointer;" onclick="settings()">Settings</button><div></div><button style="opacity: 1; cursor: pointer;" id="prestige" onclick="prestigechoose()">?????????</button><a id="prestigegain"> Level 30 required.</a><div id="presinfo">What does this do?</div><button style="opacity: 1; cursor: pointer;" id="prestigeshop" onclick="prestigeshop()">???????? ????</button><div></div><button style="opacity: 1; cursor: pointer;" id="ascend" onclick="ascendchoose()">??????</button><a id="ascendgain"> Level 100 required.</a><div id="ascendinfo">This seems too powerful for now.</div><button style="opacity: 1; cursor: pointer;" id="ascendshop" onclick="ascendshop()">?????? ????</button><div></div><button style="opacity: 1; cursor: pointer;" id="dimension" onclick="changeDimension()">Dimension Hop</button><a id="dimenreq"> A certain upgrade required.</a><div id="dimeninfo">Hop to the next dimension.</div><button style="opacity: 1; cursor: pointer;" id="challenge" onclick="challenges()">??????????</button><div id="chalinfo">What does this do?</div>
 <div id="shopui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF; z-index: 1;"><div style="position: relative; text-align: left;">Teh Shop</div><div style="position: relative; top: 212px; text-align: center;" id="amt">You have 0 presses.</div><button onclick="upgradeshop()" style="position: absolute; top: 0px; right: 72px; cursor: pointer;">Upgrades</button><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit Shop</button><div style="overflow-y: scroll; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;"></div><a>Cursors</a><a id="item1count"> x0</a><div></div><button id="buyCursor" onclick="buyCursor()">+1</button><div id="shop1item1"> Cost: 15, short 15 presses.</div><button id="buyTenCursors" onclick="buyTenCursors()">+10</button><div id="shop10item1"> Cost: 371, short 371 presses.</div><a>Mothers</a><a id="item2count"> x0</a><div></div><button id="buyMother" onclick="buyMother()">+1</button><div id="shop1item2"> Cost: 100, short 100 presses.</div><button id="buyTenMothers" onclick="buyTenMothers()">+10</button><div id="shop10item2"> Cost: 1219, short 1219 presses.</div></div></div>
-<div id="antiui" style="position: absolute; height: 250px; left: -100%; width: 250px; background-color: #FFFFFF; border-color: #000000; border-width: 1px; color: #000000; z-index: 1;"><div style="position: relative; text-align: left;">Buy something or get out.</div><div style="position: relative; top: 212px; text-align: center;" id="antiamt">You have 0 anti-presses.</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Leave.</button><div style="overflow-y: scroll; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #000000; height: 300px; width: 11px;"></div><a> PLACEHOLDER</a><a id="antiitem1count"> x0</a><div></div><button id="buy" onclick="buy()">+1</button><div id="antiitem1"> Cost: 15, short 15 presses.</div></div></div>
+<div id="antiui" style="position: absolute; height: 250px; left: -100%; width: 250px; background-color: #FFFFFF; border-color: #000000; border-width: 1px; color: #000000; z-index: 1;"><div style="position: relative; text-align: left;">Buy something or get out.</div><div style="position: relative; top: 212px; text-align: center;" id="antiamt">You have 0 anti-presses.</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Leave.</button><div style="overflow-y: scroll; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #000000; height: 300px; width: 11px;"></div><a> Anti-Press Strength</a><a id="antiitem1count"> x0</a><div></div><button id="buyAntiStrength" onclick="buyAntiStrength()">+1</button><div id="antiitem1"> Cost: 15, short 15 anti-presses.</div><a> Anti-Press XP</a><a id="antiitem2count"> x0</a><div></div><button id="buyAntixP" onclick="buyAntiXP()">+1</button><div id="antiitem2"> Cost: 100, short 100 presses.</div></div></div>
 <div id="upgradeui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Teh Upgrades</div><div style="position: relative; top: 212px; text-align: center;" id="amt2">You have 0 presses.</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit Shop</button><button onclick="upgradeshop()" style="position: absolute; top: 0px; right: 72px; cursor: pointer;">Buildings</button><div style="overflow: scroll;  scrollbar-color: #FFFFFF; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;"></div><button id="buyAuto" onclick="buyAuto()">Auto Clicker</button><a id="item0count"> lvl 0</a><div id="shopitem0"> Cost: 1000, short 1000 presses.</div><button id="buyPower" onclick="buyPower()">Click Power</button><a id="item3count"> lvl 1</a><div id="shopitem3"> Cost: 10000, short 10000 presses.</div><button id="buyOffPower" onclick="buyOffPower()">Offline Power</button><a id="item4count"> lvl 1</a><div id="shopitem4"> Cost: 25000, short 25000 presses.</div><button id="buyCursorPower" onclick="buyCursorPower()">Better Cursors</button><a id="item5count"> lvl 1</a><div id="shopitem5"> Cost: 1000, short 1000 presses.</div><button id="buyMotherPower" onclick="buyMotherPower()">Stronger Hands</button><a id="item6count"> lvl 1</a><div id="shopitem6"> Cost: 4000, short 4000 presses.</div></div></div>
 <div id="prestigeui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Teh Prestige</div><div style="position: relative; top: 212px; text-align: center;" id="pamt">You have 0 prestige points.</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit Shop</button><div style="overflow: scroll;  scrollbar-color: #FFFFFF; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;"></div><div>THESE UPGRADES WON'T RESET ON PRESTIGE</div><button id="buyAutoBuy" onclick="buyAutoBuy()">Shop Auto Buyer</button><a id="pitem0count"> Locked</a><div id="pitem0"> Cost: 100, short 100 prestige points.</div><button id="buyAutoUpgrade" onclick="buyAutoUpgrade()">Auto Upgrader</button><a id="pitem1count"> Locked</a><div id="pitem1"> Cost: 10000, short 10000 prestige points.</div><button id="buyPCpower" onclick="buyPCpower()">Prestige Click Power</button><a id="pitem2count"> lvl 1</a><div id="pitem2">Cost: 1, short 1 prestige points.</div><button id="buyPXPmult" onclick="buyPXPmult()">Prestige XP Multiplier</button><a id="pitem3count"> lvl 1</a><div id="pitem3"> Cost: 100, short 100 presses. UNLOCKS NEW BUILDING!</div><button id="buyAnti" onclick="buyAnti()">Anti Dimension</button><a id="pitem4count"> Locked</a><div id="pitem4"> Cost: 1000000, short 1000000 prestige points. UNLOCKS A NEW FEATURE!</div><button id="buyCostLowerer" onclick="buyCostLowerer()">Lower Cost</button><a id="item5count"> lvl 1</a><div id="pitem5"> Cost: 1000, short 1000 presses. Lowers cost of all button shop items by 1%.</div></div></div>
 <div id="ascendui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Underground Shop</div><div style="position: relative; top: 212px; text-align: center;" id="ascamt">You have 0 ascend points.</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit Shop</button><div style="overflow: scroll;  scrollbar-color: #FFFFFF; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;"></div><div>THESE UPGRADES WON'T RESET ON ASCEND/PRESTIGE</div><button id="buyascXP" onclick="buyascXP()">XP multiplier</button><a id="ascitem0count"> x0</a><div id="ascitem0"> Cost: 1, short 1 ascend points.</div></div></div></div>
-<div id="anonymityui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Anonymous Tools</div><div style="position: relative; top: 212px; text-align: center;" id="pamt">You have 0 anonymity.</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit quietly.</button><div style="overflow: scroll;  scrollbar-color: #FFFFFF; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;"></div><div>THESE UPGRADES WON'T RESET ON ANONYMITY</div><button id="buyPpower" onclick="buyPpower()">Prestige Power</button><a id="aitem0count"> lvl 1</a><div id="aitem0">Cost: 1, short 1 anonymity.</div><button id="buyCharge" onclick="buyCharge()">Charger</button><a id="aitem1count"> Locked</a><div id="aitem1"> Cost: 1000, short 1000 anonymity. UNLOCKS NEW BUILDING!</div><button id="buyFreeBuy" onclick="buyFreeBuy()">Never Subtract Press</button><a id="aitem2count"> Locked</a><div id="aitem2"> Cost: 100000, short 10000 anonymity.</div><button id="buyAutoPrestige" onclick="buyAutoPrestige()">Auto Prestige Gain</button><a id="aitem3count"> Locked</a><div id="aitem3"> Cost: 1M, short 1M anonymity.</div></div></div>
+<div id="anonymityui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Anonymous Tools</div><div style="position: relative; top: 212px; text-align: center;" id="pamt">You have 0 anonymity points.</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit quietly.</button><div style="overflow: scroll;  scrollbar-color: #FFFFFF; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;"></div><div>THESE UPGRADES WON'T RESET ON ANONYMITY</div><button id="buyPpower" onclick="buyPpower()">Prestige Power</button><a id="aitem0count"> lvl 1</a><div id="aitem0">Cost: 1, short 1 anonymity.</div><button id="buyCharge" onclick="buyCharge()">Charger</button><a id="aitem1count"> 0/1</a><div id="aitem1"> Cost: 1000, short 1000 anonymity. UNLOCKS NEW BUILDING!</div><button id="buyFreeBuy" onclick="buyFreeBuy()">Never Subtract Press</button><a id="aitem2count"> 0/1</a><div id="aitem2"> Cost: 100000, short 10000 anonymity.</div><button id="buyAutoPrestige" onclick="buyAutoPrestige()">Auto Prestige Gain</button><a id="aitem3count"> Locked</a><div id="aitem3"> Cost: 1M, short 1M anonymity.</div></div></div>
 <div id="settingsui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Settings and Stats</div><button onclick="shop()" id="settingsshop" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Save</button><div style="background-color: inherit; overflow: scroll; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; background-color: #000000">Settings</div></div><div></div><button style="opacity: 1; cursor: pointer;" onclick="createCookie()">Save</button><a id="autosave" style="color: inherit; text-align: left;"> Auto save: 0s</a><div></div><input style="width: 50px;" type="number" min="0" max="3600" id="autosav"> min 10, max 3600</input><div></div><button style="opacity: 1; cursor: pointer;" onclick="resetwarning()">Wipe</button><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Auto</div></div><div id="Set1" style="color: inherit; text-align: left;">Save timer: <button onclick="toggleASDM()" id="toggleASDM">Style 1: (ones)</button></div><div id="Set2" style="color: inherit; text-align: left;">Automatic pressing per second: <button onclick="togglePPS()" id="togglePPS">true</button></div><div id="Set3" style="color: inherit; text-align: left;">Automatic pressing: <button onclick="toggleAuto()" id="toggleAuto">true</button></div><div id="Set4" style="color: inherit; text-align: left;">Automatic buying: <button onclick="toggleAutoBuy()" id="toggleAutoBuy">true</button></div><div id="Set5" style="color: inherit; text-align: left;">Automatic upgrading: <button onclick="toggleAutoUpgrade()" id="toggleAutoUpgrade">true</button><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Optimizations</div></div><div id="SetO0" style="color: inherit; text-align: left;">Planets visibility: <button onclick="togglePlanets()" id="togglePlanets">true</button></div></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Stats</div></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Time and Amounts</div></div><div id="statT0" style="color: inherit; text-align: left;"></div><div id="statR1" style="color: inherit; text-align: left;"></div><div id="statR2" style="color: inherit; text-align: left;"></div><div id="statR3" style="color: inherit; text-align: left;"></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Currently</div></div><div id="statC1" style="color: inherit; text-align: left;"></div><div id="statC2" style="color: inherit; text-align: left;"></div><div id="statC3" style="color: inherit; text-align: left;"></div><div id="statC4" style="color: inherit; text-align: left;"></div><div id="statC5" style="color: inherit; text-align: left;"></div><div id="statC6" style="color: inherit; text-align: left;"></div><div id="statC7" style="color: inherit; text-align: left;"></div><div id="statC8" style="color: inherit; text-align: left;"></div><div id="statC9" style="color: inherit; text-align: left;"></div><div id="statC10" style="color: inherit; text-align: left;"></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Records</div></div><div id="statB1" style="color: inherit; text-align: left;"></div><div id="statB2" style="color: inherit; text-align: left;"></div><div id="statB3" style="color: inherit; text-align: left;"></div><div id="statB4" style="color: inherit; text-align: left;"></div><div id="statB5" style="color: inherit; text-align: left;"></div><div id="statB6" style="color: inherit; text-align: left;"></div></div></div>
 <div id="challengeui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Challenges</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit</button><div style="background-color: inherit; overflow: scroll; position: absolute; bottom: 1px; height: 227px; width: 250px;"><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div id="regchal" style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Regular Challenges</div></div><div id="vezchal" style="position: absolute; left: 1px; width: 248px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Very Easy</div><div></div><div style="position: relative; color: inherit; text-align: left;">No pps automation from shop. <button onclick="chal0()" id="chalno0">Challenge!</button><div>Goal: <a id="Goal0lvl">100</a> presses. <div></div><a id="Goal0don">0/1</a>. Reward: Unlock easy challenges.</div></div></div><div id="easychal" style="position: absolute; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Easy (no pressing perks apply)</div><div></div><div style="position: relative; color: inherit; text-align: left;">No pressing. <button onclick="chal1()" id="chalno1">Challenge!</button><div><div>Goal: Level <a id="Goal1lvl">10</a>. </div><div><a id="Goal1don">0/50</a>. Reward: +<a id="Goal1rew">100</a>% ppower added to pps.</div></div></div><div></div><div style="position: relative; color: inherit; text-align: left;">No automation. <button onclick="chal2()" id="chalno2">Challenge!</button><div>Goal: Level <a id="Goal2lvl">10</a>. </div><div><a id="Goal2don">0/50</a>. Reward: +<a id="Goal2rew">100</a>% pps</div></div></div><div id="medchal" style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Medium (no prestige perks or below)</div><div style="position: relative; color: inherit; text-align: left;">No Shop. <button onclick="chal3()" id="chalno3">Challenge!</button><div>Goal: Level <a id="Goal3lvl">10</a>. </div><div><a id="Goal3don">0/50</a>. Reward: +<a id="Goal3rew">100</a>% xp</div></div><div style="position: relative; color: inherit; text-align: left;">Prestige speedrun. <button onclick="chal4()" id="chalno4">Challenge!</button><div>Goal: Prestige in <a id="Goal4lvl">60</a> minutes. </div><div><a id="Goal4don">0/23</a>. Reward: +<a id="Goal4rew">25</a>% Prestige Points</div></div></div><div id="hardchal" style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Hard (no ascend perks or below)</div><div style="position: relative; color: inherit; text-align: left;">Sacrifice Speedrun. <button onclick="chal5()" id="chalno5">Challenge!</button><div>Goal: Dimension hop in <a id="Goal5lvl">720</a> minutes. <div></div><a id="Goal5don">0/10</a>. Reward: <a id="Goal5rew">+0% Sacrifice Points</a><div></div><a id="Goal5rew2">Dimension cost: 1M Prestige Points</a></div></div></div><div id="antichal" style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Anti Challenges</div></div><div id="easyantichal" style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Easy (no antipressing perks or below)</div><div style="position: relative; color: inherit; text-align: left;">No Anti-pressing. <button onclick="chal6()" id="chalno6">Challenge!</button><div>Goal: Level -<a id="Goal6lvl">10</a>. <div></div><a id="Goal6don">0/10</a>. Reward: Pressing x<a id="Goal6rew">2</a><div></div></div></div></div></div></div>
 <div id="charger" style="position: relative; height: 250px; width: 250px; top: 0px; left: -100%; background-color: #CCCC00; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; left: 1px; top: 1px; width: 248px; height: 56px; text-align: center; background-color: #FFFF00; color: #000000; text-align: center;">Charger</div><div style="position: relative; left: 1px; top: -37px; width: 248px; height: 18px; text-align: center; background-color: transparent; color: #000000;"><a id="chargr">0</a> Watts <a id="cps">(0/s)</a></div><div style="position: relative; left: 1px; top: -37px; width: 248px; height: 20px; text-align: center; background-color: transparent; color: #000000;">Charging: <select id="charging"><option value="None">None</option><option value="Spread">Spread</option><option value="Presses">Presses</option><option value="XP">XP</option><option value="Prestige">Prestige</option><option value="Ascend">Ascend</option><option value="Anonymity">Anonymity</option></select></div><div style="background-color: #000000; position: relative; left: 1px; top: -37px; overflow-y: scroll; overflow-x: clip; width: 248px; height: 192px; text-align: center;"><div style="background-color: transparent;">Presses: x<a id="cpress">1</a></div><div style="background-color: transparent;">XP: x<a id="cxp">1</a></div><div style="background-color: transparent;">Prestige: x<a id="cprestige">1</a></div><div style="background-color: transparent;">Ascend: x<a id="cascend">1</a></div><div style="background-color: transparent;">Anonymity: x<a id="canonymity">1</a></div><div style="background-color: transparent;">Squeeze: x<a id="csqueeze">1</a></div><div style="background-color: transparent;">Squeeze Success Rate: +<a id="cschance">0</a>%</div><div style="background-color: transparent;">Squeeze Oil Bonus: +<a id="csqueeze">0</a>%</div></div></div><!--><div id="coverq1b2" style="position: absolute; left: -50px; top: 113px; height: 23px; width: 36px; background-color: transparent;"></div><!-->
@@ -176,6 +176,10 @@ var ascXP = 0;
 var asccost0 = 0;
 var planets = 1;
 var loaded = 0;
+var antistrength = 0;
+var anticost0 = 15;
+var antixp = 0;
+var anticost1 = 100;
 document.body.onload = function(){
     loadCookie();
     updateXPmult()
@@ -510,6 +514,20 @@ document.body.onload = function(){
     ascpts=0
     if (detailedoutput==1){
     console.warn("ascpts was undefined or an invalid value!!! Old or corrupted data? Set to default. Sorry for the inconvenience!")
+    }
+    }
+    if (antistrength === undefined || antistrength < 0 || anticost0 === undefined || anticost0 < 0 ){
+    antistrength=0
+    anticost0=15
+    if (detailedoutput==1){
+    console.warn("antistrength or anticost0 was undefined or an invalid value!!! Old or corrupted data? Set to default. Sorry for the inconvenience!")
+    }
+    }
+    if (antixp === undefined || antixp < 0 || anticost1 === undefined || anticost1 < 0 ){
+    antixp=0
+    anticost1=15
+    if (detailedoutput==1){
+    console.warn("antixp or anticost1 was undefined or an invalid value!!! Old or corrupted data? Set to default. Sorry for the inconvenience!")
     }
     }
     if (asdm === undefined){
@@ -1225,6 +1243,12 @@ function updateChallenge(){
 }
 function updateAuto(){
     if (autobuy==1 && challenge!==3 && challenge!==4 && challenge!==5){
+    if (presses>=(Math.trunc(calc1)) && challenge!==2){
+    buyTenCursors()
+    }
+    if (presses>=(Math.trunc(calcc2)) && challenge!==2){
+    buyTenMothers()
+    }
     if (presses>=(Math.trunc(cost1)) && challenge!==2){
     buyCursor()
     }
@@ -1379,6 +1403,7 @@ function updateResets(){
     }
 }
 function updateXPmult(){
+    if (dimension==0){
     if (challenge!==3 && challenge!==4 && challenge!==5){
     mxpmul=((pxpmul*(goals3+1))*(ascXP+1))
     } else if (challenge==3 || challenge==4){
@@ -1397,16 +1422,111 @@ function updateXPmult(){
     document.getElementById("xpmultiplier").style="font-weight: 500; color: #FF0000; position: absolute; left: 200px;"
     } else if (mxpmul>=1 && mxpmul<10){
     document.getElementById("xpmultiplier").innerText=" x"+mxpmul
-    document.getElementById("xpmultiplier").style="font-weight: 500; position: absolute; left: 200px;"
+    document.getElementById("xpmultiplier").style="font-weight: 500; color: #000000; position: absolute; left: 200px;"
     } else if (mxpmul>=10 && mxpmul<100) {
     document.getElementById("xpmultiplier").innerText=" x"+mxpmul
-    document.getElementById("xpmultiplier").style="font-weight: 750; position: absolute; left: 200px;"
+    document.getElementById("xpmultiplier").style="font-weight: 750; color: #000000; position: absolute; left: 200px;"
     } else if (mxpmul>=100 && mxpmul<1000) {
     document.getElementById("xpmultiplier").innerText=" x"+mxpmul
-    document.getElementById("xpmultiplier").style="font-weight: 1000; position: absolute; left: 200px;"
-    } else if (mxpmul>=1000) {
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #000000; position: absolute; left: 200px;"
+    } else if (mxpmul>=1000 && mxpmul<10000) {
     document.getElementById("xpmultiplier").innerText=" x"+mxpmul
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #000000; position: absolute; left: 200px;"
+    } else if (mxpmul>=10000 && mxpmul<1000000) {
+    document.getElementById("xpmultiplier").innerText=" x"+(mxpmul/1000).toFixed(3)+"k"
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #000000; position: absolute; left: 200px;"
+    } else if (mxpmul>=1000000 && mxpmul<1000000000) {
+    document.getElementById("xpmultiplier").innerText=" x"+(mxpmul/1000000).toFixed(3)+"M"
     document.getElementById("xpmultiplier").style="font-weight: 1000; color: #FFD700; position: absolute; left: 200px;"
+    } else if (mxpmul>=1000000000 && mxpmul<1000000000000) {
+    document.getElementById("xpmultiplier").innerText=" x"+(mxpmul/1000000000).toFixed(3)+"B"
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #D7FF00; position: absolute; left: 200px;"
+    } else if (mxpmul>=1000000000000 && mxpmul<1000000000000000) {
+    document.getElementById("xpmultiplier").innerText=" x"+(mxpmul/1000000000000).toFixed(3)+"T"
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #00FF00; position: absolute; left: 200px;"
+    } else if (mxpmul>=1000000000000000 && mxpmul<1000000000000000000) {
+    document.getElementById("xpmultiplier").innerText=" x"+(mxpmul/1000000000000000).toFixed(3)+"Qa"
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #00FFD7; position: absolute; left: 200px;"
+    } else if (mxpmul>=1000000000000000000 && mxpmul<1000000000000000000000) {
+    document.getElementById("xpmultiplier").innerText=" x"+(mxpmul/1000000000000000000).toFixed(3)+"Qi"
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #00D7FF; position: absolute; left: 200px;"
+    } else if (mxpmul>=1000000000000000000000 && mxpmul<1000000000000000000000000) {
+    document.getElementById("xpmultiplier").innerText=" x"+(mxpmul/1000000000000000000000).toFixed(3)+"Sx"
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #0000FF; position: absolute; left: 200px;"
+    } else if (mxpmul>=1000000000000000000000000 && mxpmul<1000000000000000000000000000) {
+    document.getElementById("xpmultiplier").innerText=" x"+(mxpmul/1000000000000000000000000).toFixed(3)+"Sp"
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #D700FF; position: absolute; left: 200px;"
+    } else if (mxpmul>=1000000000000000000000000000 && mxpmul<1000000000000000000000000000000) {
+    document.getElementById("xpmultiplier").innerText=" x"+(mxpmul/1000000000000000000000000000).toFixed(3)+"Oc"
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #FF00D7; position: absolute; left: 200px;"
+    } else if (mxpmul>=1000000000000000000000000000000 && mxpmul<1000000000000000000000000000000000) {
+    document.getElementById("xpmultiplier").innerText=" x"+(mxpmul/1000000000000000000000000000000).toFixed(3)+"No"
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #FF0000; position: absolute; left: 200px;"
+    } else if (mxpmul>=1000000000000000000000000000000000 && mxpmul<1000000000000000000000000000000000000) {
+    document.getElementById("xpmultiplier").innerText=" x"+(mxpmul/1000000000000000000000000000000000).toFixed(3)+"Dc"
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #FFD700; position: absolute; left: 200px;"
+    }
+    } else if (dimension==1){
+    if (challenge!==6){
+    axpmul=(antixp*(goals3+1))
+    } else if (challenge==6) {
+    mxpmul=((goals3)+1)
+    }
+    if (axpmul==0){
+    document.getElementById("xpmultiplier").innerText=" x"+axpmul
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #FF0000; position: absolute; left: 200px;"
+    } else if (axpmul!=0 && axpmul<0.1){
+    document.getElementById("xpmultiplier").innerText=" x"+axpmul
+    document.getElementById("xpmultiplier").style="font-weight: 750; color: #FF0000; position: absolute; left: 200px;"
+    } else if (axpmul>=0.1 && axpmul<1){
+    document.getElementById("xpmultiplier").innerText=" x"+axpmul
+    document.getElementById("xpmultiplier").style="font-weight: 500; color: #FF0000; position: absolute; left: 200px;"
+    } else if (axpmul>=1 && axpmul<10){
+    document.getElementById("xpmultiplier").innerText=" x"+axpmul
+    document.getElementById("xpmultiplier").style="font-weight: 500; color: #FFFFFF; position: absolute; left: 200px;"
+    } else if (axpmul>=10 && axpmul<100) {
+    document.getElementById("xpmultiplier").innerText=" x"+axpmul
+    document.getElementById("xpmultiplier").style="font-weight: 750; color: #FFFFFF;  position: absolute; left: 200px;"
+    } else if (axpmul>=100 && axpmul<1000) {
+    document.getElementById("xpmultiplier").innerText=" x"+axpmul
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #FFFFFF;  position: absolute; left: 200px;"
+    } else if (axpmul>=1000 && axpmul<10000) {
+    document.getElementById("xpmultiplier").innerText=" x"+axpmul
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #FFFFFF; position: absolute; left: 200px;"
+    } else if (axpmul>=10000 && axpmul<1000000) {
+    document.getElementById("xpmultiplier").innerText=" x"+(axpmul/1000).toFixed(3)+"k"
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #FFFFFF; position: absolute; left: 200px;"
+    } else if (axpmul>=1000000 && axpmul<1000000000) {
+    document.getElementById("xpmultiplier").innerText=" x"+(axpmul/1000000).toFixed(3)+"M"
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #0028FF; position: absolute; left: 200px;"
+    } else if (axpmul>=1000000000 && axpmul<1000000000000) {
+    document.getElementById("xpmultiplier").innerText=" x"+(axpmul/1000000000).toFixed(3)+"B"
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #2800FF; position: absolute; left: 200px;"
+    } else if (axpmul>=1000000000000 && axpmul<1000000000000000) {
+    document.getElementById("xpmultiplier").innerText=" x"+(axpmul/1000000000000).toFixed(3)+"T"
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #FF00FF; position: absolute; left: 200px;"
+    } else if (axpmul>=1000000000000000 && axpmul<1000000000000000000) {
+    document.getElementById("xpmultiplier").innerText=" x"+(axpmul/1000000000000000).toFixed(3)+"Qa"
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #FF0028; position: absolute; left: 200px;"
+    } else if (axpmul>=1000000000000000000 && axpmul<1000000000000000000000) {
+    document.getElementById("xpmultiplier").innerText=" x"+(axpmul/1000000000000000000).toFixed(3)+"Qi"
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #FF2800; position: absolute; left: 200px;"
+    } else if (axpmul>=1000000000000000000000 && axpmul<1000000000000000000000000) {
+    document.getElementById("xpmultiplier").innerText=" x"+(axpmul/1000000000000000000000).toFixed(3)+"Sx"
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #FFFF00; position: absolute; left: 200px;"
+    } else if (axpmul>=1000000000000000000000000 && axpmul<1000000000000000000000000000) {
+    document.getElementById("xpmultiplier").innerText=" x"+(axpmul/1000000000000000000000000).toFixed(3)+"Sp"
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #28FF00; position: absolute; left: 200px;"
+    } else if (axpmul>=1000000000000000000000000000 && axpmul<1000000000000000000000000000000) {
+    document.getElementById("xpmultiplier").innerText=" x"+(axpmul/1000000000000000000000000000).toFixed(3)+"Oc"
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #00FF28; position: absolute; left: 200px;"
+    } else if (axpmul>=1000000000000000000000000000000 && axpmul<1000000000000000000000000000000000) {
+    document.getElementById("xpmultiplier").innerText=" x"+(axpmul/1000000000000000000000000000000).toFixed(3)+"No"
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #00FFFF; position: absolute; left: 200px;"
+    } else if (axpmul>=1000000000000000000000000000000000 && axpmul<1000000000000000000000000000000000000) {
+    document.getElementById("xpmultiplier").innerText=" x"+(axpmul/1000000000000000000000000000000000).toFixed(3)+"Dc"
+    document.getElementById("xpmultiplier").style="font-weight: 1000; color: #0028FF; position: absolute; left: 200px;"
+    }
     }
 }
 function updateBest(){
@@ -2229,7 +2349,7 @@ var byebye = setInterval(function(){
 }, 10)
 var slowupdater = setInterval(function(){
 if (autobuy==1 || autoupgrade==1){
-    updateAuto
+    updateAuto()
 }
 }, 100)
 //this exists for things that do not really need quick updates, but still needs them faster than 5s
@@ -2270,13 +2390,13 @@ function buttonpress(){
     } else if (yes==2 && tutorialmode==1){
         if (firstpress==0){
             if (dimension==0 && presses<16){
-            presses+=1;
-            totalpresses+=1
-            mxppts+=((1*mxpmul)*(ascXP+1))
+            presses+=((ppress*ppower)*(Math.pow(2, goals6)));
+            totalpresses+=((ppress*ppower)*(Math.pow(2, goals6)));
+            mxppts+=mxpmul
             } else if (dimension==1){
-            antipresses+=apress;
-            totalantipresses+=1
-            axppts+=apress
+            antipresses+=(((antistrength*0.25)+1)*(Math.pow(2, goals6)))
+            totalantipresses+=(((antistrength*0.25)+1)*(Math.pow(2, goals6)))
+            axppts+=axpmul
             }
             if (presses<15){
                 document.getElementById("second").innerText="Now... start pressing the button. Unlock the next feature in "+((presses-15)*-1)+" presses.";
@@ -2288,13 +2408,13 @@ function buttonpress(){
             }
         } else {
         if (dimension==0){
-            presses+=1;
-            totalpresses+=1
-            mxppts+=(1*mxpmul)
+            presses+=((ppress*ppower)*(Math.pow(2, goals6)));
+            totalpresses+=((ppress*ppower)*(Math.pow(2, goals6)));
+            mxppts+=mxpmul
         } else if (dimension==1){
-            antipresses+=apress;
-            totalantipresses+=1
-            axppts+=apress
+            antipresses+=(((antistrength*0.25)+1)*(Math.pow(2, goals6)))
+            totalantipresses+=(((antistrength*0.25)+1)*(Math.pow(2, goals6)))
+            axppts+=axpmul
         }
         firstpress=0;
         }
@@ -2305,16 +2425,16 @@ function buttonpress(){
             if (challenge!==3 && challenge!==4 && challenge!==5){
             presses+=((ppress*ppower)*(Math.pow(2, goals6)));
             totalpresses+=((ppress*ppower)*(Math.pow(2, goals6)));
-            mxppts+=(((ppress*ppower)*(Math.pow(2, goals6)))*mxpmul)
+            mxppts+=((ppress*ppower)*mxpmul)
             } else {
             presses+=(ppower*(Math.pow(2, goals6)));
             totalpresses+=(ppower*(Math.pow(2, goals6)))
-            mxppts+=(((ppower)*(Math.pow(2, goals6)))*mxpmul)
+            mxppts+=(ppower*mxpmul)
             }
         } else if (dimension==1){
-            antipresses+=(apress*(Math.pow(2, goals6)));
-            totalantipresses+=(apress*(Math.pow(2, goals6)));
-            axppts+=(apress*(Math.pow(2, goals6)));
+            antipresses+=(((antistrength*0.25)+1)*(Math.pow(2, goals6)));
+            totalantipresses+=(((antistrength*0.25)+1)*(Math.pow(2, goals6)));
+            axppts+=(((antistrength*0.25)+1))*axpmul)
         }
     }
 }
@@ -2874,6 +2994,10 @@ function createCookie(){
         pressingSave.ascXP = ascXP;
         pressingSave.asccost0 = asccost0;
         pressingSave.planets = planets;
+        pressingSave.antistrength = antistrength;
+        pressingSave.anticost0 = anticost0;
+        pressingSave.antixp = antixp;
+        pressingSave.anticost1 = anticost1;
     var jsonString = JSON.stringify(pressingSave);
     document.cookie = jsonString;
 };
@@ -2972,6 +3096,10 @@ function loadCookie(){
         ascXP = saveLoading.ascXP;
         asccost0 = saveLoading.asccost0;
         planets = saveLoading.planets;
+        antistrength = pressingSave.antistrength;
+        anticost0 = pressingSave.anticost0;
+        antixp = pressingSave.antixp;
+        anticost1 = pressingSave.anticost1;
         if (detailedoutput==1){
         console.log(saveLoading)
         }
@@ -3348,6 +3476,10 @@ function reset(){
         pressingSave.ascXP = 0;
         pressingSave.asccost0 = 0;
         pressingSave.planets = 0;
+        pressingSave.antistrength = 0;
+        pressingSave.anticost0 = 15;
+        pressingSave.antixp = 0;
+        pressingSave.anticost1 = 100;
     var jsonString = JSON.stringify(pressingSave);
     document.cookie = jsonString;
     window.location.reload()
@@ -3515,6 +3647,7 @@ cpoweramt = 1;
 mpoweramt = 1;
 cost5 = 1000;
 cost6 = 4000;
+ppsoffbonus=0
 updateResets()
 }
 function ascend(){
@@ -3569,6 +3702,7 @@ cpoweramt = 1;
 mpoweramt = 1;
 cost5 = 1000;
 cost6 = 4000;
+ppsoffbonus=0;
 pcost0 = 100;
 autobuy = 0;
 pcost1 = 25000;
@@ -4320,6 +4454,19 @@ function buyascXP(){
 ascpts-=(Math.trunc(asccost0))
 asccost0=asccost0*1.25
 ascXP+=1
+updateXPmult()
+updateShop()
+}
+function buyAntiStrength(){
+antistrength+=1;
+antipresses-=(Math.trunc(anticost0));
+anticost0=((anticost0+(antistrength+1))*1.125);
+updateShop()
+}
+function buyAntiXP(){
+antixp+=1;
+antipresses-=(Math.trunc(anticost1));
+anticost1=((anticost0+(antixp+1))*2.25);
 updateXPmult()
 updateShop()
 }
