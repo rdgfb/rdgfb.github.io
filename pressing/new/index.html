@@ -1705,14 +1705,14 @@ function updateLevelandAuto(){
     }
     }
     }
-    if (autocooldown>=(auto*1000) && auto!=1 && autotog==1){
-        autocooldown-=(auto*1000)
+    if (autocooldown>=(1000-(auto*10)) && auto!=1 && autotog==1){
+        autocooldown-=(1000-(auto*10))
         buttonhundredpress()
-    } else if (autocooldown>=(auto*100) && auto!=1 && autotog==1){
-        autocooldown-=(auto*100)
+    } else if (autocooldown>=(10000-(auto*100)) && auto!=1 && autotog==1){
+        autocooldown-=(10000-(auto*100))
         buttontenpress()
-    } else if (autocooldown>=(auto*10) && auto!=1 && autotog==1){
-        autocooldown-=(auto*10)
+    } else if (autocooldown>=(100000-(auto*1000)) && auto!=1 && autotog==1){
+        autocooldown-=(100000-(auto*1000))
         buttonpress()
     } else {
         autocooldown+=0.01
