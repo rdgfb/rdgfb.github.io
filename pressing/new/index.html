@@ -2227,6 +2227,11 @@ var byebye = setInterval(function(){
     }
     }
 }, 10)
+var slowupdater = setInterval(function(){
+if (autobuy==1 || autoupgrade==1){
+    updateAuto
+}
+}, 100)
 //this exists for things that do not really need quick updates, but still needs them faster than 5s
 var slowerupdater = setInterval(function(){
     if (loaded==1){
@@ -2243,9 +2248,6 @@ var slowestupdater = setInterval(function(){
         updateBest()
         if (inshop==-2){
         updateSettings()
-        }
-        if (autobuy==1 || autoupgrade==1){
-        updateAuto()
         }
     }
 }, 5000)
