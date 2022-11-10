@@ -1287,14 +1287,14 @@ function updateResets(){
     document.getElementById("prestige").disabled=false
     document.getElementById("prestigeshop").innerText="Prestige shop"
     document.getElementById("prestigeshop").disabled=false 
-    } else if (prestigeamt==1) {
+    } else if (prestigeamt>=1) {
     document.getElementById("prestige").innerText="Prestige"
     document.getElementById("presinfo").innerText="You lose everything, but prestige!"
     document.getElementById("prestigegain").innerText=" You won't gain any Prestige Points."
     document.getElementById("prestige").disabled=true
     document.getElementById("prestigeshop").innerText="Prestige shop"
     document.getElementById("prestigeshop").disabled=false
-    } else if (prestigeamt==1 && challenge==3 || prestigeamt==1 && challenge==4 || prestigeamt==1 && challenge==5) {
+    } else if (prestigeamt>=1 && challenge==3 || prestigeamt>=1 && challenge==4 || prestigeamt>=1 && challenge==5) {
     document.getElementById("prestige").innerText="Prestige"
     document.getElementById("presinfo").innerText="You're in a challenge, silly!"
     document.getElementById("prestigegain").innerText=" Locked temporarily."
@@ -1337,14 +1337,14 @@ function updateResets(){
     document.getElementById("ascend").disabled=false
     document.getElementById("ascendshop").innerText="Ascend shop"
     document.getElementById("ascendshop").disabled=false 
-    } else if (ascendamt==1) {
+    } else if (ascendamt>=1) {
     document.getElementById("ascend").innerText="Ascend"
     document.getElementById("ascendinfo").innerText="Prestige, but resets prestige!"
     document.getElementById("ascendgain").innerText=" You won't gain any Ascend Points."
     document.getElementById("ascend").disabled=true
     document.getElementById("ascendshop").innerText="Ascend shop"
     document.getElementById("ascendshop").disabled=false
-    } else if (ascendamt==1 && challenge==5) {
+    } else if (ascendamt>=1 && challenge==5) {
     document.getElementById("ascend").innerText="Ascend"
     document.getElementById("ascendinfo").innerText="You're in a challenge, silly!"
     document.getElementById("ascendgain").innerText=" Locked temporarily."
