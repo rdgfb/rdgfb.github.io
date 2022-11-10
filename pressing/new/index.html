@@ -1405,11 +1405,11 @@ function updateResets(){
 function updateXPmult(){
     if (dimension==0){
     if (challenge!==3 && challenge!==4 && challenge!==5){
-    mxpmul=((pxpmul*(goals3+1))*(ascXP+1))
+    mxpmul=(((pxpmul*(goals3+1))*(ascXP+1))*(antixp+1))
     } else if (challenge==3 || challenge==4){
-    mxpmul=((goals3+1)*(ascXP+1))
+    mxpmul=(((goals3+1)*(ascXP+1))*(antixp+1))
     } else if (challenge==5) {
-    mxpmul=((goals3)+1)
+    mxpmul=(((goals3)+1)*(antixp+1))
     }
     if (mxpmul==0){
     document.getElementById("xpmultiplier").innerText=" x"+mxpmul
@@ -1468,9 +1468,9 @@ function updateXPmult(){
     }
     } else if (dimension==1){
     if (challenge!==6){
-    axpmul=(antixp*(goals3+1))
+    axpmul=((antixp+1)*(goals3+1))
     } else if (challenge==6) {
-    mxpmul=((goals3)+1)
+    axpmul=(goals3+1)
     }
     if (axpmul==0){
     document.getElementById("xpmultiplier").innerText=" x"+axpmul
@@ -1579,6 +1579,7 @@ function updateLevelandAuto(){
     updateXPmult()
     if(away==0){
     if(ppstog==1){
+    if(dimension==0){
     if (challenge==2){
     pressesdec=0
     } else if (challenge==3 || challenge==4 || challenge==5){
@@ -1594,107 +1595,132 @@ function updateLevelandAuto(){
     } else {
     pps=parseInt(((((((cursor*0.1)*(cpower))+((mother*1))*(mpower))+(goals1*(ppress*ppower)))*(goals2+1)*(Math.pow(2, goals6))).toFixed(1)))
     }
-    antipps=0
     } else {
     pps=-1
     }
+    } else if (dimension==1){
+    pressesdec+=0
+    antipps=0
+    }
     if (pressesdec>=1 && pressesdec<11){
     pressesdec-=1
-    presses+=1
-    totalpresses+=1
     if (dimension==0){
         mxppts+=(0.1*mxpmul)
+        presses+=1
+        totalpresses+=1
     } else if (dimension==1){
+        antipresses+=1
+        totalantipresses+=1
         axppts+=(0.01*(goals3+1))
     }
     } else if (pressesdec>=11 && pressesdec<111){
     pressesdec-=11
-    presses+=11
-    totalpresses+=11
     if (dimension==0){
         mxppts+=(1*mxpmul)
+        presses+=11
+        totalpresses+=11
     } else if (dimension==1){
+        antipresses+=11
+        totalantipresses+=11
         axppts+=(0.1*(goals3+1))
     }
     } else if (pressesdec>=111 && pressesdec<1111){
     pressesdec-=111
-    presses+=111
-    totalpresses+=111
     if (dimension==0){
         mxppts+=(11*mxpmul)
+        presses+=111
+        totalpresses+=111
     } else if (dimension==1){
+        antipresses+=111
+        totalantipresses+=111
         axppts+=(1*((goals3)+1))
     }
     } else if (pressesdec>=1111 && pressesdec<11111){
     pressesdec-=1111
-    presses+=1111
-    totalpresses+=1111
     if (dimension==0){
         mxppts+=(111*mxpmul)
+        presses+=1111
+        totalpresses+=1111
     } else if (dimension==1){
+        antipresses+=1111
+        totalantipresses+=1111
         axppts+=(11*(goals3+1))
     }
     } else if (pressesdec>=11111 && pressesdec<111111){
     pressesdec-=11111
-    presses+=11111
-    totalpresses+=11111
     if (dimension==0){
         mxppts+=(1111*mxpmul)
+        presses+=11111
+        totalpresses+=11111
     } else if (dimension==1){
+        antipresses+=11111
+        totalantipresses+=11111
         axppts+=(111*(goals3+1))
     }
     } else if (pressesdec>=111111 && pressesdec<1111111){
     pressesdec-=111111
-    presses+=111111
-    totalpresses+=111111
     if (dimension==0){
         mxppts+=(11111*mxpmul)
+        presses+=111111
+        totalpresses+=111111
     } else if (dimension==1){
+        antipresses+=111111
+        totalantipresses+=111111
         axppts+=(1111*(goals3+1))
     }
     } else if (pressesdec>=1111111 && pressesdec<11111111){
     pressesdec-=1111111
-    presses+=1111111
-    totalpresses+=1111111
     if (dimension==0){
         mxppts+=(111111*mxpmul)
+        presses+=1111111
+        totalpresses+=1111111
     } else if (dimension==1){
+        antipresses+=1111111
+        totalantipresses+=1111111
         axppts+=(11111*(goals3+1))
     }
     } else if (pressesdec>=11111111 && pressesdec<111111111){
     pressesdec-=11111111
-    presses+=11111111
-    totalpresses+=11111111
     if (dimension==0){
         mxppts+=(1111111*mxpmul)
+        presses+=11111111
+        totalpresses+=11111111
     } else if (dimension==1){
+        antipresses+=11111111
+        totalantipresses+=11111111
         axppts+=(111111*(goals3+1))
     }
     } else if (pressesdec>=111111111 && pressesdec<1111111111){
     pressesdec-=111111111
-    presses+=111111111
-    totalpresses+=111111111
     if (dimension==0){
         mxppts+=(11111111*mxpmul)
+        presses+=111111111
+        totalpresses+=111111111
     } else if (dimension==1){
+        antipresses+=111111111
+        totalantipresses+=111111111
         axppts+=(1111111*(goals3+1))
     }
     } else if (pressesdec>=1111111111 && pressesdec<11111111111){
     pressesdec-=1111111111
-    presses+=1111111111
-    totalpresses+=1111111111
     if (dimension==0){
         mxppts+=(111111111*mxpmul)
+        presses+=1111111111
+        totalpresses+=1111111111
     } else if (dimension==1){
+        antipresses+=1111111111
+        totalantipresses+=1111111111
         axppts+=(11111111*(goals3+1))
     }
     } else if (pressesdec>=11111111111){
     pressesdec-=11111111111
-    presses+=11111111111
-    totalpresses+=11111111111
     if (dimension==0){
         mxppts+=(1111111111*mxpmul)
+        presses+=11111111111
+        totalpresses+=11111111111
     } else if (dimension==1){
+        antipresses+=11111111111
+        totalantipresses+=11111111111
         axppts+=(111111111*(goals3+1))
     }
     }
@@ -2225,57 +2251,6 @@ function updatePressing(){
             document.getElementById("first").innerText=(((Math.round(presses/1000000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"NoDc presses";
         } else if (presses>=1000000000000000000000000000000000000000000000000000000000000000 && presses<1000000000000000000000000000000000000000000000000000000000000000000) {
             document.getElementById("first").innerText=(((Math.round(presses/1000000000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"Vg presses";
-        } else {
-        
-        }
-        } else if (dimension==1){
-        if (antipresses==1){
-            document.getElementById("first").innerText=antipresses+" anti-press";
-        } else if (antipresses>=0 && antipresses<1000000) {
-            document.getElementById("first").innerText=antipresses+" anti-presses";
-        } else if (antipresses>=1000000 && antipresses<1000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000))/1000).toFixed(3))+"M anti-presses";
-        } else if (antipresses>=1000000000 && antipresses<1000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000))/1000).toFixed(3))+"B anti-presses";
-        } else if (antipresses>=1000000000000 && antipresses<1000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000))/1000).toFixed(3))+"T anti-presses";
-        } else if (antipresses>=1000000000000000 && antipresses<1000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000))/1000).toFixed(3))+"Qa anti-presses";
-        } else if (antipresses>=1000000000000000000 && antipresses<1000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000))/1000).toFixed(3))+"Qi anti-presses";
-        } else if (antipresses>=1000000000000000000000 && antipresses<1000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000))/1000).toFixed(3))+"Sx anti-presses";
-        } else if (antipresses>=1000000000000000000000000 && antipresses<1000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000))/1000).toFixed(3))+"Sp anti-presses";
-        } else if (antipresses>=1000000000000000000000000000 && antipresses<1000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000))/1000).toFixed(3))+"Oc anti-presses";
-        } else if (antipresses>=1000000000000000000000000000000 && antipresses<1000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000))/1000).toFixed(3))+"No anti-presses";
-        } else if (antipresses>=1000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000))/1000).toFixed(3))+"Dc anti-presses";
-        } else if (antipresses>=1000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000))/1000).toFixed(3))+"UDc anti-presses";
-        } else if (antipresses>=1000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000))/1000).toFixed(3))+"DDc anti-presses";
-        } else if (antipresses>=1000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000))/1000).toFixed(3))+"TDc anti-presses";
-        } else if (antipresses>=1000000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000))/1000).toFixed(3))+"QaDc anti-presses";
-        } else if (antipresses>=1000000000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000000))/1000).toFixed(3))+"QiDc anti-presses";
-        } else if (antipresses>=1000000000000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"SxDc anti-presses";
-        } else if (antipresses>=1000000000000000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"SpDc anti-presses";
-        } else if (antipresses>=1000000000000000000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"OcDc anti-presses";
-        } else if (antipresses>=1000000000000000000000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"NoDc anti-presses";
-        } else if (antipresses>=1000000000000000000000000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"Vg anti-presses";
-        } else {
-        
-        }
         }
         if (pps==-1){
             document.getElementById("second").innerText="pps disabled.";
@@ -2325,6 +2300,102 @@ function updatePressing(){
             document.getElementById("second").innerText=(((Math.round(pps/1000000000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"Vg presses per second";
         } else {
             document.getElementById("second").innerText=pps+" presses per second";
+        }
+        } else if (dimension==1){
+        if (antipresses==1){
+            document.getElementById("first").innerText=antipresses+" anti-press";
+        } else if (antipresses>=0 && antipresses<1000000) {
+            document.getElementById("first").innerText=antipresses+" anti-presses";
+        } else if (antipresses>=1000000 && antipresses<1000000000) {
+            document.getElementById("first").innerText=(((Math.round(antipresses/1000))/1000).toFixed(3))+"M anti-presses";
+        } else if (antipresses>=1000000000 && antipresses<1000000000000) {
+            document.getElementById("first").innerText=(((Math.round(antipresses/1000000))/1000).toFixed(3))+"B anti-presses";
+        } else if (antipresses>=1000000000000 && antipresses<1000000000000000) {
+            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000))/1000).toFixed(3))+"T anti-presses";
+        } else if (antipresses>=1000000000000000 && antipresses<1000000000000000000) {
+            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000))/1000).toFixed(3))+"Qa anti-presses";
+        } else if (antipresses>=1000000000000000000 && antipresses<1000000000000000000000) {
+            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000))/1000).toFixed(3))+"Qi anti-presses";
+        } else if (antipresses>=1000000000000000000000 && antipresses<1000000000000000000000000) {
+            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000))/1000).toFixed(3))+"Sx anti-presses";
+        } else if (antipresses>=1000000000000000000000000 && antipresses<1000000000000000000000000000) {
+            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000))/1000).toFixed(3))+"Sp anti-presses";
+        } else if (antipresses>=1000000000000000000000000000 && antipresses<1000000000000000000000000000000) {
+            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000))/1000).toFixed(3))+"Oc anti-presses";
+        } else if (antipresses>=1000000000000000000000000000000 && antipresses<1000000000000000000000000000000000) {
+            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000))/1000).toFixed(3))+"No anti-presses";
+        } else if (antipresses>=1000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000) {
+            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000))/1000).toFixed(3))+"Dc anti-presses";
+        } else if (antipresses>=1000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000) {
+            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000))/1000).toFixed(3))+"UDc anti-presses";
+        } else if (antipresses>=1000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000) {
+            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000))/1000).toFixed(3))+"DDc anti-presses";
+        } else if (antipresses>=1000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000) {
+            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000))/1000).toFixed(3))+"TDc anti-presses";
+        } else if (antipresses>=1000000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000000) {
+            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000))/1000).toFixed(3))+"QaDc anti-presses";
+        } else if (antipresses>=1000000000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000000000) {
+            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000000))/1000).toFixed(3))+"QiDc anti-presses";
+        } else if (antipresses>=1000000000000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000000000000) {
+            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"SxDc anti-presses";
+        } else if (antipresses>=1000000000000000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000000000000000) {
+            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"SpDc anti-presses";
+        } else if (antipresses>=1000000000000000000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000000000000000000) {
+            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"OcDc anti-presses";
+        } else if (antipresses>=1000000000000000000000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000000000000000000000) {
+            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"NoDc anti-presses";
+        } else if (antipresses>=1000000000000000000000000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000000000000000000000000) {
+            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"Vg anti-presses";
+        }
+        if (pps==-1){
+            document.getElementById("second").innerText="pps disabled.";
+        } else if (antipps==1){
+            document.getElementById("second").innerText=antipps+" anti-press per second";
+        } else if (antipps>1 && antipps<1000000) {
+            document.getElementById("second").innerText=antipps+" anti-presses per second";
+        } else if (antipps>=1000000 && antipps<1000000000) {
+            document.getElementById("second").innerText=(((Math.round(antipps/1000))/1000).toFixed(3))+"M anti-presses per second";
+        } else if (antipps>=1000000000 && antipps<1000000000000) {
+            document.getElementById("second").innerText=(((Math.round(antipps/1000000))/1000).toFixed(3))+"B anti-presses per second";
+        } else if (antipps>=1000000000000 && antipps<1000000000000000) {
+            document.getElementById("second").innerText=(((Math.round(antipps/1000000000))/1000).toFixed(3))+"T anti-presses per second";
+        } else if (antipps>=1000000000000000 && antipps<1000000000000000000) {
+            document.getElementById("second").innerText=(((Math.round(antipps/1000000000000))/1000).toFixed(3))+"Qa anti-presses per second";
+        } else if (antipps>=1000000000000000000 && antipps<1000000000000000000000) {
+            document.getElementById("second").innerText=(((Math.round(antipps/1000000000000000))/1000).toFixed(3))+"Qi anti-presses per second";
+        } else if (antipps>=1000000000000000000000 && antipps<1000000000000000000000000) {
+            document.getElementById("second").innerText=(((Math.round(antipps/1000000000000000000))/1000).toFixed(3))+"Sx anti-presses per second";
+        } else if (antipps>=1000000000000000000000000 && antipps<1000000000000000000000000000) {
+            document.getElementById("second").innerText=(((Math.round(antipps/1000000000000000000000))/1000).toFixed(3))+"Sp anti-presses per second";
+        } else if (antipps>=1000000000000000000000000000 && antipps<1000000000000000000000000000000) {
+            document.getElementById("second").innerText=(((Math.round(antipps/1000000000000000000000000))/1000).toFixed(3))+"Oc anti-presses per second";
+        } else if (antipps>=1000000000000000000000000000000 && antipps<1000000000000000000000000000000000) {
+            document.getElementById("second").innerText=(((Math.round(antipps/1000000000000000000000000000))/1000).toFixed(3))+"No anti-presses per second";
+        } else if (antipps>=1000000000000000000000000000000000 && antipps<1000000000000000000000000000000000000) {
+            document.getElementById("second").innerText=(((Math.round(antipps/1000000000000000000000000000000))/1000).toFixed(3))+"Dc anti-presses per second";
+        } else if (antipps>=1000000000000000000000000000000000000 && antipps<1000000000000000000000000000000000000000) {
+            document.getElementById("second").innerText=(((Math.round(antipps/1000000000000000000000000000000000))/1000).toFixed(3))+"UDc anti-presses per second";
+        } else if (antipps>=1000000000000000000000000000000000000000 && antipps<1000000000000000000000000000000000000000000) {
+            document.getElementById("second").innerText=(((Math.round(antipps/1000000000000000000000000000000000000))/1000).toFixed(3))+"DDc anti-presses per second";
+        } else if (antipps>=1000000000000000000000000000000000000000000 && antipps<1000000000000000000000000000000000000000000000) {
+            document.getElementById("second").innerText=(((Math.round(antipps/1000000000000000000000000000000000000000))/1000).toFixed(3))+"TDc anti-presses per second";
+        } else if (antipps>=1000000000000000000000000000000000000000000000 && antipps<1000000000000000000000000000000000000000000000000) {
+            document.getElementById("second").innerText=(((Math.round(antipps/1000000000000000000000000000000000000000000))/1000).toFixed(3))+"QaDc anti-presses per second";
+        } else if (antipps>=1000000000000000000000000000000000000000000000000 && antipps<1000000000000000000000000000000000000000000000000000) {
+            document.getElementById("second").innerText=(((Math.round(antipps/1000000000000000000000000000000000000000000000))/1000).toFixed(3))+"QiDc anti-presses per second";
+        } else if (antipps>=1000000000000000000000000000000000000000000000000000 && antipps<1000000000000000000000000000000000000000000000000000000) {
+            document.getElementById("second").innerText=(((Math.round(antipps/1000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"SxDc anti-presses per second";
+        } else if (antipps>=1000000000000000000000000000000000000000000000000000000 && antipps<1000000000000000000000000000000000000000000000000000000000) {
+            document.getElementById("second").innerText=(((Math.round(antipps/1000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"SpDc anti-presses per second";
+        } else if (antipps>=1000000000000000000000000000000000000000000000000000000000 && antipps<1000000000000000000000000000000000000000000000000000000000000) {
+            document.getElementById("second").innerText=(((Math.round(antipps/1000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"OcDc anti-presses per second";
+        } else if (antipps>=1000000000000000000000000000000000000000000000000000000000000 && antipps<1000000000000000000000000000000000000000000000000000000000000000) {
+            document.getElementById("second").innerText=(((Math.round(antipps/1000000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"NoDc anti-presses per second";
+        } else if (antipps>=1000000000000000000000000000000000000000000000000000000000000000 && antipps<1000000000000000000000000000000000000000000000000000000000000000000) {
+            document.getElementById("second").innerText=(((Math.round(antipps/1000000000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"Vg anti-presses per second";
+        } else {
+            document.getElementById("second").innerText=antipps+" anti-presses per second";
+        }
         }
     }
 }
@@ -2509,10 +2580,10 @@ if (inshop==0 && dimension==0){
     document.getElementById("upgradeui").style="opacity: 0; position: absolute; left: -100%; height: 250px; width: 250px; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;";
 } else if (inshop==0 && dimension==1){
     inshop=4;
-    document.getElementById("antiui").style="opacity: 0; position: absolute; left: -100%; height: 250px; width: 250px; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;";
+    document.getElementById("antiui").style="opacity: 1; position: absolute; top: 0px; left: 0px; height: 250px; width: 250px; background-color: #FFFFFF; border-color: #000000; border-width: 1px; color: #000000; z-index: 4;";
 } else if (inshop==4 && dimension==1){
     inshop=0;
-    document.getElementById("antiui").style="opacity: 1; position: absolute; top: 0px; left: 0px; height: 250px; width: 250px; background-color: #FFFFFF; border-color: #000000; border-width: 1px; color: #000000; z-index: 4;";
+    document.getElementById("antiui").style="opacity: 0; position: absolute; left: -100%; height: 250px; width: 250px; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;";
 } else if (inshop==-1 && dimension==0){
     inshop=-2;
     document.getElementById("settingsui").style="opacity: 1; position: absolute; top: 0px; left: 0px; height: 250px; width: 250px; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF; z-index: 4;";
@@ -3801,6 +3872,10 @@ if (challenge==6){
 changeDimension()
 }
 }
+antiStrength=0
+anticost0=15
+antiXP=0
+anticost1=100
 updateResets()
 }
 function buyAutoBuy(){
