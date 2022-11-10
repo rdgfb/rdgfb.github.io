@@ -2182,14 +2182,14 @@ function updateShop(){
     document.getElementById("aitem3").innerText=" Cost: "+(Math.trunc(acost3))+", short "+((anonymity-(Math.trunc(acost3)))*-1)+" Anonymity Points."
     document.getElementById("buyAutoPrestige").disabled=true;
     }
-    if (ppoint>=(Math.trunc(anticost0))){
+    if (antipresses>=(Math.trunc(anticost0))){
     document.getElementById("antiitem0").innerText=" Cost: "+(Math.round(anticost0))+", will be left with "+(antipresses-(Math.round(anticost0)))+" Anti-Presses. "
     document.getElementById("buyAntiStrength").disabled=false;
     } else {
     document.getElementById("antiitem0").innerText=" Cost: "+(Math.round(anticost0))+", short "+((antipresses-(Math.round(anticost0)))*-1)+" Anti-Presses.";
     document.getElementById("buyAntiStrength").disabled=true;
     }
-    if (ppoint>=(Math.trunc(anticost1))){
+    if (antipresses>=(Math.trunc(anticost1))){
     document.getElementById("antiitem1").innerText=" Cost: "+(Math.round(anticost1))+", will be left with "+(antipresses-(Math.round(anticost1)))+" Anti-Presses. "
     document.getElementById("buyAntiXP").disabled=false;
     } else {
