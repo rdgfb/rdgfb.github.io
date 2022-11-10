@@ -1582,23 +1582,17 @@ function updateLevelandAuto(){
     if (challenge==2){
     pressesdec=0
     } else if (challenge==3 || challenge==4 || challenge==5){
-    if (goals1!==0){
+    pressesdec+=((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))
+    } else {
     pressesdec+=((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))
-    } else {
-    pressesdec+=(((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))*(goals2+1)*(Math.pow(2, goals6)))
-    }
-    } else {
-    if (goals1!==0){
-    pressesdec+=((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))
-    } else {
-    pressesdec+=(((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))*(goals2+1)*(Math.pow(2, goals6)))
-    }
     }
     //antipressesdec+=((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))
-    if (goals1!==0){
-    pps=((((((((cursor*0.1)*(cpower))+((mother*1))*(mpower)))+((goals1*(ppress*ppower))*0.0001))*(goals2+1))*(Math.pow(2, goals6))).toFixed(1))
+    if (challenge==2){
+    pps=0
+    } else if (challenge==3 || challenge==4 || challenge==5){
+    pps=parseInt(((((cursor*0.1)+(mother*1)+(goals1*(ppower)))*(goals2+1)*(Math.pow(2, goals6))).toFixed(1)))
     } else {
-    pps=(((((((cursor*0.1)*(cpower))+((mother*1))*(mpower)))*(goals2+1))*(Math.pow(2, goals6))).toFixed(1))
+    pps=parseInt(((((((cursor*0.1)*(cpower))+((mother*1))*(mpower))+(goals1*(ppress*ppower)))*(goals2+1)*(Math.pow(2, goals6))).toFixed(1)))
     }
     antipps=0
     } else {
@@ -2113,6 +2107,20 @@ function updateShop(){
     } else {
     document.getElementById("aitem3").innerText=" Cost: "+(Math.trunc(acost3))+", short "+((anonymity-(Math.trunc(acost3)))*-1)+" Anonymity Points."
     document.getElementById("buyAutoPrestige").disabled=true;
+    }
+    if (ppoint>=(Math.trunc(anticost0))){
+    document.getElementById("antiitem0").innerText=" Cost: "+(Math.round(anticost0))+", will be left with "+(antipresses-(Math.round(anticost0)))+" Anti-Presses. "
+    document.getElementById("buyAntiStrength").disabled=false;
+    } else {
+    document.getElementById("antiitem0").innerText=" Cost: "+(Math.round(anticost0))+", short "+((antipresses-(Math.round(anticost0)))*-1)+" Anti-Presses.";
+    document.getElementById("buyAntiStrength").disabled=true;
+    }
+    if (ppoint>=(Math.trunc(anticost1))){
+    document.getElementById("antiitem1").innerText=" Cost: "+(Math.round(anticost1))+", will be left with "+(antipresses-(Math.round(anticost1)))+" Anti-Presses. "
+    document.getElementById("buyAntiXP").disabled=false;
+    } else {
+    document.getElementById("antiitem1").innerText=" Cost: "+(Math.round(anticost1))+", short "+((antipresses-(Math.round(anticost1)))*-1)+" Anti-Presses.";
+    document.getElementById("buyAntiXP").disabled=true;
     }
     if (waiting>0){
         waiting-=1;
