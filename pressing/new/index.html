@@ -2948,15 +2948,28 @@ window.onfocus = function (ev) {
     if (detailedoutput==1){
     console.log("* USER BACK *")
     }
+    var ppsgainoff = 0
     away=0
+    if (ppstog==1){
+    if (dimension==0){
+    if (challenge==2){
+    pressesdec=0
+    } else if (challenge==3 || challenge==4 || challenge==5){
+    pressesdec+=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
+    ppsgainoff=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
+    } else {
+    pressesdec+=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
+    ppsgainoff=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
+    }
+    } else if (dimension==1){
+    
+    }
+    }
     if (detailedoutput==1){
     console.log("User back after "+((Math.trunc(msaway/86400000)))+" days(s), "+((Math.trunc(msaway/3600000))%24)+" hour(s), "+((Math.trunc(msaway/60000))%60)+" minute(s), and "+((Math.trunc(msaway/1000))%60)+" seconds. Auto cooldown decreased by "+((timeoff-Date.now())/1000)+". Presses increased by "+(((((cursor*0.01))+((mother*0.1)))*((msaway/100))/100)*ppsoffbonus)+" pps presses.");
     }
     if (autotog==1){
     autocooldown+=((Date.now()-timeoff)/1000)
-    }
-    if (ppstog==1){
-    pressesdec+=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
     }
     if (detailedoutput==1){
     console.log("* USER BACK *")
@@ -3388,9 +3401,21 @@ function loadCookie(){
         }
         if (ppstog==1 || autotog==1){
         msaway2 = (Date.now()-lastSave)
+        var ppsgainoff = 0
+        if (ppstog==0){
+        if (challenge==2){
+        pressesdec=0
+        } else if (challenge==3 || challenge==4 || challenge==5){
+        pressesdec+=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
+        ppsgainoff=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
+        } else {
+        pressesdec+=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
+        ppsgainoff=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
+        }
+        }
         if (detailedoutput==1){
         console.log("* USER CAME BACK *")
-        console.log("User came after "+((Math.trunc(msaway2/86400000)))+" days(s), "+((Math.trunc(msaway2/3600000))%24)+" hour(s), "+((Math.trunc(msaway2/60000))%60)+" minute(s), and "+((Math.trunc(msaway2/1000))%60)+" seconds. Auto cooldown decreased by "+((lastSave-Date.now())/1000)+". Presses increased by "+(((((cursor*0.01))+((mother*0.1)))*((msaway2/100))/100)*ppsoffbonus)+" pps presses.");
+        console.log("User came after "+((Math.trunc(msaway2/86400000)))+" days(s), "+((Math.trunc(msaway2/3600000))%24)+" hour(s), "+ppsgainoff+" pps presses.");
         }
         if (autotog==1){
         autocooldown+=((((Date.now()-lastSave)/10000)/100)*ppsoffbonus)
@@ -3430,29 +3455,45 @@ function resetwarning(){
     div.innerHTML='<div style="position: relative; top: 2px; color: #FFFFFF; text-align: center; font-size: 18px; font-weight: bold;">Resetting</div><div style="position: relative; top: 3px; color: #FFFFFF; text-align: left">Resetting will <a style="color: #FF1515">erase</a> your save. This is <a style="color: #FF1515">irreversable</a>! Do it?</div><button style="position: absolute; bottom: 10px; left: 10px; background-color: #FF1515" onclick="resetfinalwarning()">reset</button><button style="position: absolute; bottom: 10px; right: 10px; background-color: #00FF00" onclick="closewarning()">nope.</button>'
     document.body.appendChild(div)
     var divb = document.createElement("div")
-    divb.style="z-index: 254; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; background-color: #000000; opacity: 0.25;"
+    divb.style="z-index: 254; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; background-color: #440000; opacity: 0.25;"
     divb.id="resetWarnBack"
     document.body.appendChild(divb)
 }
 function backwarning(){
         var offlineTime = ((Math.trunc(msaway2/86400000)))+" days(s), "+((Math.trunc(msaway2/3600000))%24)+" hour(s), "+((Math.trunc(msaway2/60000))%60)+" minute(s), and "+((Math.trunc(msaway2/1000))%60)+" second(s)"
-        var offlineGain = ((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway2/100)/100)*ppsoffbonus)
+        var offlineGain = 0
         if (autotog==1){
         autocooldown+=((((Date.now()-lastSave)/10000)/100)*ppsoffbonus)
         }
         if (ppstog==1){
-        pressesdec+=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway2/100)/100)*ppsoffbonus)
+        if (dimension==0){
+        if (challenge==2){
+        pressesdec=0
+        } else if (challenge==3 || challenge==4 || challenge==5){
+        pressesdec+=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
+        offlineGain=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
+        } else {
+        pressesdec+=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
+        offlineGain=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
         }
-    var div = document.createElement("div")
-    div.style="z-index: 255; position: absolute; top: calc(50% - 80px); left: calc(50% - 80px); height: 160px; width: 160px; background-color: #000000; border-width: 5px; border-color: #00FF00 #000000 #000000; border-style: solid;"
-    div.id="backWarn"
-    div.innerHTML='<div style="position: relative; top: 2px; color: #FFFFFF; text-align: center; font-size: 18px; font-weight: bold;">Offline Progress</div><div style="position: relative; top: 3px; color: #FFFFFF; text-align: left">Welcome back! it\'s been '+offlineTime+'. You have gained '+(Math.trunc(offlineGain))+' presses!</div><button style="position: absolute; bottom: 10px; right: 57px; background-color: #00FF00" onclick="closeback()">Yay!</button>'
-    document.body.appendChild(div)
-    var divb = document.createElement("div")
-    divb.style="z-index: 254; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; background-color: #000000; opacity: 0.25;"
-    divb.id="backWarnBack"
-    document.body.appendChild(divb)
-    msoff2=0
+        } else if (dimension==1){
+        
+        }
+        }
+        var div = document.createElement("div")
+        div.style="z-index: 255; position: absolute; top: calc(50% - 80px); left: calc(50% - 80px); height: 160px; width: 160px; background-color: #000000; border-width: 5px; border-color: #00FF00 #000000 #000000; border-style: solid;"
+        div.id="backWarn"
+        if (dimension==0){
+        div.innerHTML='<div style="position: relative; top: 2px; color: #FFFFFF; text-align: center; font-size: 18px; font-weight: bold;">Offline Progress</div><div style="position: relative; top: 3px; color: #FFFFFF; text-align: left">Welcome back! it\'s been '+offlineTime+'. You have gained '+(Math.trunc(offlineGain))+' presses!</div><button style="position: absolute; bottom: 10px; right: 57px; background-color: #00FF00" onclick="closeback()">Yay!</button>'
+        } else if (dimension==1){
+        div.innerHTML='<div style="position: relative; top: 2px; color: #FFFFFF; text-align: center; font-size: 18px; font-weight: bold;">Offline Progress</div><div style="position: relative; top: 3px; color: #FFFFFF; text-align: left">Welcome back! it\'s been '+offlineTime+'. You have gained '+(Math.trunc(offlineGain))+' anti-presses!</div><button style="position: absolute; bottom: 10px; right: 57px; background-color: #00FF00" onclick="closeback()">Yay!</button>'
+        }
+        document.body.appendChild(div)
+        var divb = document.createElement("div")
+        divb.style="z-index: 254; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; background-color: #000000; opacity: 0.25;"
+        divb.id="backWarnBack"
+        document.body.appendChild(divb)
+        msoff2=0
 }
 function resetfinalwarning(){
     closewarning()
@@ -3461,6 +3502,10 @@ function resetfinalwarning(){
     div.id="resetWarn"
     div.innerHTML='<div style="position: relative; top: 2px; color: #FFFFFF; text-align: center; font-size: 18px; font-weight: bold;">Are you 100% sure?</div><div style="position: relative; top: 3px; color: #FFFFFF; text-align: left">I <a style="font-weight: bold; font-style: italic;">mean</a> it.<a style="color: #FF1515"> Resetting is <aa style="font-weight: bold; font-style: italic; FF1515">final</aa>, your save will be wiped clean!</a> Understand that you may regret this?</div><button style="position: absolute; bottom: 10px; left: 10px; background-color: #FF1515" onclick="reset()"><a style="font-weight: bold;">Yup, reset.</a></button><button style="position: absolute; bottom: 10px; right: 10px; background-color: #00FF00" onclick="closewarning()">nope.</button>'
     document.body.appendChild(div)
+    var divb = document.createElement("div")
+    divb.style="z-index: 254; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; background-color: #AA0000; opacity: 0.25;"
+    divb.id="resetWarnBack"
+    document.body.appendChild(divb)
 }
 function reset(){
     autosavetimer=60
