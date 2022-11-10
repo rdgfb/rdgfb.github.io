@@ -180,6 +180,9 @@ var antistrength = 0;
 var anticost0 = 15;
 var antixp = 0;
 var anticost1 = 100;
+var affordamt = 0;
+var ppsgainoff = 0;
+var offlineGain = 0;
 document.body.onload = function(){
     loadCookie();
     updateXPmult()
@@ -1280,6 +1283,7 @@ function updateResets(){
     document.getElementById("prestige").innerText="Prestige"
     document.getElementById("presinfo").innerText="You lose everything, but prestige!"
     if (((mpgain*(1+(goals4*0.25)))*prespwr)==1){
+    //increase this by levels too!!
     document.getElementById("prestigegain").innerText=" You will gain "+((mpgain*(1+(goals4*0.25)))*prespwr)+" Prestige Point."
     } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=0 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000){
     document.getElementById("prestigegain").innerText=" You will gain "+((mpgain*(1+(goals4*0.25)))*prespwr)+" Prestige Points."
@@ -1329,19 +1333,19 @@ function updateResets(){
     document.getElementById("prestige").disabled=false
     document.getElementById("prestigeshop").innerText="Prestige shop"
     document.getElementById("prestigeshop").disabled=false 
-    } else if (prestigeamt>=1) {
-    document.getElementById("prestige").innerText="Prestige"
-    document.getElementById("presinfo").innerText="You lose everything, but prestige!"
-    document.getElementById("prestigegain").innerText=" You won't gain any Prestige Points."
-    document.getElementById("prestige").disabled=true
-    document.getElementById("prestigeshop").innerText="Prestige shop"
-    document.getElementById("prestigeshop").disabled=false
     } else if (prestigeamt>=1 && challenge==3 || prestigeamt>=1 && challenge==4 || prestigeamt>=1 && challenge==5) {
     document.getElementById("prestige").innerText="Prestige"
     document.getElementById("presinfo").innerText="You're in a challenge, silly!"
     document.getElementById("prestigegain").innerText=" Locked temporarily."
     document.getElementById("prestige").disabled=true
     document.getElementById("prestigeshop").innerText="Prestige Shop"
+    document.getElementById("prestigeshop").disabled=false
+    } else if (prestigeamt>=1) {
+    document.getElementById("prestige").innerText="Prestige"
+    document.getElementById("presinfo").innerText="You lose everything, but prestige!"
+    document.getElementById("prestigegain").innerText=" You won't gain any Prestige Points."
+    document.getElementById("prestige").disabled=true
+    document.getElementById("prestigeshop").innerText="Prestige shop"
     document.getElementById("prestigeshop").disabled=false
     } else {
     document.getElementById("prestige").innerText="????????"
@@ -1361,6 +1365,7 @@ function updateResets(){
     document.getElementById("prestigegain").innerText=" You gain "+((again*(1+(goals4*0.25)))*prespwr)+" anonymity point."
     document.getElementById("prestige").disabled=false
     } else {
+    //shorten exponential values
     document.getElementById("prestigegain").innerText=" You gain "+((again*(1+(goals4*0.25)))*prespwr)+" anonymity points."
     document.getElementById("prestige").disabled=false
     }
@@ -1371,9 +1376,10 @@ function updateResets(){
     if (mlevel>=100){
     document.getElementById("ascend").innerText="Ascend"
     document.getElementById("ascendinfo").innerText="Prestige, but resets prestige!"
-    if (((mpgain*(1+(goals4*0.25)))*prespwr)==1){
+    if (((ppress+1)*(pxpmul+1)*(plowco+1)*0.25)==1){
     document.getElementById("ascendgain").innerText=" You will gain "+((ppress+1)*(pxpmul+1)*(plowco+1)*0.25)+" Ascend Point."
     } else {
+    //shorten exponential values
     document.getElementById("ascendgain").innerText=" You will gain "+((ppress+1)*(pxpmul+1)*(plowco+1)*0.25)+" Ascend Points."
     }
     document.getElementById("ascend").disabled=false
@@ -1414,8 +1420,8 @@ function updateResets(){
     document.getElementById("ascendgain").innerText=" You gain "+((prespwr+1)*0.25)+" mls of oily water, using "+(10000*((prespwr+1)*0.25))+" watts."
     document.getElementById("ascend").disabled=false
     } else if (charge<(10000*((prespwr+1)*0.25))){
-    var affordamt=((((prespwr+1)*0.25)/charge).toFixed(0))
-    document.getElementById("ascendgain").innerText=" You gain "+affordamt+"/"+((prespwr+1)*0.25)+" mls of oily water, using "+(10000*((affordamt)*0.25))+" watts. (charge is too low)"
+    affordamt=((((prespwr+1)*0.25)/charge).toFixed(0))
+    document.getElementById("ascendgain").innerText=" You gain "+(affordamt)+"/"+((prespwr+1)*0.25)+" mls of oily water, using "+(10000*((affordamt)*0.25))+" watts. (charge is too low)"
     document.getElementById("ascend").disabled=false
     }
     document.getElementById("ascendshop").innerText="Seperator"
@@ -2990,7 +2996,7 @@ window.onfocus = function (ev) {
     if (detailedoutput==1){
     console.log("* USER BACK *")
     }
-    var ppsgainoff = 0
+    ppsgainoff = 0
     away=0
     if (ppstog==1){
     if (dimension==0){
@@ -3443,7 +3449,7 @@ function loadCookie(){
         }
         if (ppstog==1 || autotog==1){
         msaway2 = (Date.now()-lastSave)
-        var ppsgainoff = 0
+        ppsgainoff = 0
         if (ppstog==0){
         if (challenge==2){
         pressesdec=0
@@ -3503,7 +3509,7 @@ function resetwarning(){
 }
 function backwarning(){
         var offlineTime = ((Math.trunc(msaway2/86400000)))+" days(s), "+((Math.trunc(msaway2/3600000))%24)+" hour(s), "+((Math.trunc(msaway2/60000))%60)+" minute(s), and "+((Math.trunc(msaway2/1000))%60)+" second(s)"
-        var offlineGain = 0
+        offlineGain = 0
         if (autotog==1){
         autocooldown+=((((Date.now()-lastSave)/10000)/100)*ppsoffbonus)
         }
@@ -4588,7 +4594,7 @@ var saveFile = JSON.stringify(pressingFile);
 var emergencySave = base64encode(saveFile);
 var uriContent = "data:application/octet-stream," + encodeURIComponent(emergencySave);
 newWindow = window.open(uriContent, "corruptedPressingSave.sav");
-//reset()
+reset()
 } else {
 reset()
 }
