@@ -25,7 +25,7 @@
 <div id="debuggoeshereidiot"></div>
 <button id="pressing" onclick="buttonpress()" style="cursor: pointer;">Yes!</button><button id="shop" onclick="shop()" style="opacity: 0; cursor: default;">Shop</button><!----<button id="q1b2" style="opacity: 1; cursor: pointer;" onclick="q0102()">No!</button><button id="q2b2" style="opacity: 1; position: absolute; left: -50px; cursor: pointer;" onclick="q0102()">No!</button>--><div></div><button style="opacity: 1; cursor: pointer;" onclick="settings()">Settings</button><div></div><button style="opacity: 1; cursor: pointer;" id="prestige" onclick="prestigechoose()">?????????</button><a id="prestigegain"> Level 30 required.</a><div id="presinfo">What does this do?</div><button style="opacity: 1; cursor: pointer;" id="prestigeshop" onclick="prestigeshop()">???????? ????</button><div></div><button style="opacity: 1; cursor: pointer;" id="ascend" onclick="ascendchoose()">??????</button><a id="ascendgain"> Level 100 required.</a><div id="ascendinfo">This seems too powerful for now.</div><button style="opacity: 1; cursor: pointer;" id="ascendshop" onclick="ascendshop()">?????? ????</button><div></div><button style="opacity: 1; cursor: pointer;" id="dimension" onclick="changeDimension()">Dimension Hop</button><a id="dimenreq"> A certain upgrade required.</a><div id="dimeninfo">Hop to the next dimension.</div><button style="opacity: 1; cursor: pointer;" id="challenge" onclick="challenges()">??????????</button><div id="chalinfo">What does this do?</div>
 <div id="shopui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF; z-index: 1;"><div style="position: relative; text-align: left;">Teh Shop</div><div style="position: relative; top: 212px; text-align: center;" id="amt">You have 0 presses.</div><button onclick="upgradeshop()" style="position: absolute; top: 0px; right: 72px; cursor: pointer;">Upgrades</button><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit Shop</button><div style="overflow-y: scroll; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;"></div><a>Cursors</a><a id="item1count"> x0</a><div></div><button id="buyCursor" onclick="buyCursor()">+1</button><div id="shop1item1"> Cost: 15, short 15 presses.</div><button id="buyTenCursors" onclick="buyTenCursors()">+10</button><div id="shop10item1"> Cost: 371, short 371 presses.</div><a>Mothers</a><a id="item2count"> x0</a><div></div><button id="buyMother" onclick="buyMother()">+1</button><div id="shop1item2"> Cost: 100, short 100 presses.</div><button id="buyTenMothers" onclick="buyTenMothers()">+10</button><div id="shop10item2"> Cost: 1219, short 1219 presses.</div></div></div>
-<div id="antiui" style="position: absolute; height: 250px; left: -100%; width: 250px; background-color: #FFFFFF; border-color: #000000; border-width: 1px; color: #000000; z-index: 1;"><div style="position: relative; text-align: left;">Buy something or get out.</div><div style="position: relative; top: 212px; text-align: center;" id="antiamt">You have 0 anti-presses.</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Leave.</button><div style="overflow-y: scroll; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #000000; height: 300px; width: 11px;"></div><a> Anti-Press Strength</a><a id="antiitem0count"> x0</a><div></div><button id="buyAntiStrength" onclick="buyAntiStrength()">+1</button><div id="antiitem0"> Cost: 15, short 15 anti-presses.</div><a> Anti-Press XP</a><a id="antiitem1count"> x0</a><div></div><button id="buyAntiXP" onclick="buyAntiXP()">+1</button><div id="antiitem1"> Cost: 100, short 100 presses.</div></div></div>
+<div id="antiui" style="position: absolute; height: 250px; left: -100%; width: 250px; background-color: #FFFFFF; border-color: #000000; border-width: 1px; color: #000000; z-index: 1;"><div style="position: relative; text-align: left;">Buy something or get out.</div><div style="position: relative; top: 212px; text-align: center;" id="antiamt">You have 0 anti-presses.</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Leave.</button><div style="overflow-y: scroll; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #000000; height: 300px; width: 11px;"></div><a> Anti-Press Strength</a><a id="antiitem0count"> x0</a><div></div><button id="buyAntiStrength" onclick="buyAntiStrength()">+1</button><div id="antiitem0"> Cost: 15, short 15 anti-presses.</div><a> Anti-Press XP</a><a id="antiitem1count"> x0</a><div></div><button id="buyAntiXP" onclick="buyAntiXP()">+1</button><div id="antiitem1"> Cost: 100, short 100 presses.</div><button id="buyAutoPresBuy" onclick="buyAutoPrestigeBuy()">Prestige Auto Buyer</button><a id="antiitem2count"> Locked</a><div id="antiitem2"> Cost: 100000, short 100000 anti-presses.</div></div></div>
 <div id="upgradeui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Teh Upgrades</div><div style="position: relative; top: 212px; text-align: center;" id="amt2">You have 0 presses.</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit Shop</button><button onclick="upgradeshop()" style="position: absolute; top: 0px; right: 72px; cursor: pointer;">Buildings</button><div style="overflow: scroll;  scrollbar-color: #FFFFFF; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;"></div><button id="buyAuto" onclick="buyAuto()">Auto Clicker</button><a id="item0count"> lvl 0</a><div id="shopitem0"> Cost: 1000, short 1000 presses.</div><button id="buyPower" onclick="buyPower()">Click Power</button><a id="item3count"> lvl 1</a><div id="shopitem3"> Cost: 10000, short 10000 presses.</div><button id="buyOffPower" onclick="buyOffPower()">Offline Power</button><a id="item4count"> lvl 1</a><div id="shopitem4"> Cost: 25000, short 25000 presses.</div><button id="buyCursorPower" onclick="buyCursorPower()">Better Cursors</button><a id="item5count"> lvl 1</a><div id="shopitem5"> Cost: 1000, short 1000 presses.</div><button id="buyMotherPower" onclick="buyMotherPower()">Stronger Hands</button><a id="item6count"> lvl 1</a><div id="shopitem6"> Cost: 4000, short 4000 presses.</div></div></div>
 <div id="prestigeui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Teh Prestige</div><div style="position: relative; top: 212px; text-align: center;" id="pamt">You have 0 prestige points.</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit Shop</button><div style="overflow: scroll;  scrollbar-color: #FFFFFF; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;"></div><div>THESE UPGRADES WON'T RESET ON PRESTIGE</div><button id="buyAutoBuy" onclick="buyAutoBuy()">Shop Auto Buyer</button><a id="pitem0count"> Locked</a><div id="pitem0"> Cost: 100, short 100 prestige points.</div><button id="buyAutoUpgrade" onclick="buyAutoUpgrade()">Auto Upgrader</button><a id="pitem1count"> Locked</a><div id="pitem1"> Cost: 10000, short 10000 prestige points.</div><button id="buyPCpower" onclick="buyPCpower()">Prestige Click Power</button><a id="pitem2count"> lvl 1</a><div id="pitem2">Cost: 1, short 1 prestige points.</div><button id="buyPXPmult" onclick="buyPXPmult()">Prestige XP Multiplier</button><a id="pitem3count"> lvl 1</a><div id="pitem3"> Cost: 100, short 100 presses. UNLOCKS NEW BUILDING!</div><button id="buyAnti" onclick="buyAnti()">Anti Dimension</button><a id="pitem4count"> Locked</a><div id="pitem4"> Cost: 1000000, short 1000000 prestige points. UNLOCKS A NEW FEATURE!</div><button id="buyCostLowerer" onclick="buyCostLowerer()">Lower Cost</button><a id="item5count"> lvl 1</a><div id="pitem5"> Cost: 1000, short 1000 presses. Lowers cost of all button shop items by 1%.</div></div></div>
 <div id="ascendui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Underground Shop</div><div style="position: relative; top: 212px; text-align: center;" id="ascamt">You have 0 ascend points.</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit Shop</button><div style="overflow: scroll;  scrollbar-color: #FFFFFF; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;"></div><div>THESE UPGRADES WON'T RESET ON ASCEND/PRESTIGE</div><button id="buyascXP" onclick="buyascXP()">XP multiplier</button><a id="ascitem0count"> x0</a><div id="ascitem0"> Cost: 1, short 1 ascend points.</div></div></div></div>
@@ -183,6 +183,7 @@ var anticost1 = 100;
 var affordamt = 0;
 var ppsgainoff = 0;
 var offlineGain = 0;
+var autopresbuy = 0;
 document.body.onload = function(){
     loadCookie();
     updateXPmult()
@@ -337,6 +338,12 @@ document.body.onload = function(){
     autobuy=0
     if (detailedoutput==1){
     console.warn("autobuy was undefined!!! Old or corrupted data? Set to default. Sorry for the inconvenience!")
+    }
+    }
+    if (autopresbuy === undefined){
+    autopresbuy=0
+    if (detailedoutput==1){
+    console.warn("autopresbuy was undefined!!! Old or corrupted data? Set to default. Sorry for the inconvenience!")
     }
     }
     if (pcost1 === undefined){
@@ -838,6 +845,31 @@ function updatePlanets(){
     }   
 }
 function updateSettings(){
+    if (autoupgrade==1){
+    document.getElementById("toggleAutoUpgrade").innerText="true"
+    } else if (autoupgrade==2){
+    document.getElementById("toggleAutoUpgrade").innerText="false"
+    }
+    if (autobuy==1){
+    document.getElementById("toggleAutoBuy").innerText="true"
+    } else if (autobuy==2){
+    document.getElementById("toggleAutoBuy").innerText="false"
+    }
+    if (autopresbuy==1){
+    document.getElementById("toggleAutoPresBuy").innerText="true"
+    } else if (autopresbuy==2){
+    document.getElementById("toggleAutoPresBuy").innerText="false"
+    }
+    if (autotog==1){
+    document.getElementById("toggleAuto").innerText="true"
+    } else if (autotog==0){
+    document.getElementById("toggleAuto").innerText="false"
+    }
+    if (ppstog==1){
+    document.getElementById("togglePPS").innerText="true"
+    } else if (ppstog==0){
+    document.getElementById("togglePPS").innerText="false"
+    }
     var autosavevalue = document.getElementById("autosav").valueAsNumber
     if (autosavevalue==0){
     document.getElementById("settingsshop").disabled=false
@@ -1274,6 +1306,26 @@ function updateAuto(){
     }
     if (presses>=(Math.trunc(cost6)) && cost6 !== 0 && challenge!==2){
     buyMotherPower()
+    }
+    }
+    if (autopresbuy==1 && dimension==0){
+    if (ppoint>=(Math.trunc(pcost0)) && autobuy==0){
+    buyAutoBuy()
+    }
+    if (ppoint>=(Math.trunc(pcost1)) && autoupgrade==0){
+    buyAutoUpgrade()
+    }
+    if (ppoint>=(Math.trunc(pcost2))){
+    buyPCpower()
+    }
+    if (ppoint>=(Math.trunc(pcost3))){
+    buyPXPmult()
+    }
+    if (ppoint>=(Math.trunc(pcost4)) && cananti==0){
+    buyAnti()
+    }
+    if (ppoint>=(Math.trunc(pcost5))){
+    buyCostLowerer()
     }
     }
 }
@@ -2196,6 +2248,13 @@ function updateShop(){
     document.getElementById("antiitem1").innerText=" Cost: "+(Math.round(anticost1))+", short "+((antipresses-(Math.round(anticost1)))*-1)+" Anti-Presses.";
     document.getElementById("buyAntiXP").disabled=true;
     }
+    if (antipresses>=(Math.trunc(anticost2))){
+    document.getElementById("antiitem2").innerText=" Cost: "+(Math.round(anticost2))+", will be left with "+(antipresses-(Math.round(anticost2)))+" Anti-Presses. "
+    document.getElementById("buyAutoPresBuy").disabled=false;
+    } else {
+    document.getElementById("antiitem2").innerText=" Cost: "+(Math.round(anticost2))+", short "+((antipresses-(Math.round(anticost2)))*-1)+" Anti-Presses.";
+    document.getElementById("buyAutoPresBuy").disabled=true;
+    }
     if (waiting>0){
         waiting-=1;
     }
@@ -3073,6 +3132,7 @@ function createCookie(){
         pressingSave.mpgain = mpgain;
         pressingSave.pcost0 = pcost0;
         pressingSave.autobuy = autobuy;
+        pressingSave.autobuy = autopresbuy;
         pressingSave.pcost1 = pcost1;
         pressingSave.autoupgrade = autoupgrade;
         pressingSave.pcost2 = pcost2;
@@ -3175,6 +3235,7 @@ function loadCookie(){
         mpgain = saveLoading.mpgain;
         pcost0 = saveLoading.pcost0;
         autobuy = saveLoading.autobuy;
+        autopresbuy = saveLoading.autopresbuy;
         pcost1 = saveLoading.pcost1;
         autoupgrade = saveLoading.autoupgrade;
         pcost2 = saveLoading.pcost2;
@@ -3587,6 +3648,7 @@ function reset(){
         pressingSave.mpgain = 1;
         pressingSave.pcost0 = 100;
         pressingSave.autobuy = 0;
+        pressingSave.autopresbuy = 0;
         pressingSave.pcost1 = 25000;
         pressingSave.autoupgrade = 0;
         pressingSave.pcost2 = 1;
@@ -4076,6 +4138,11 @@ ppoint-=100
 autobuy=1
 updateShop()
 }
+function buyAutoPresBuy(){
+antipresses-=100000
+autopresbuy=1
+updateShop()
+}
 function buyAutoUpgrade(){
 ppoint-=10000
 autoupgrade=1
@@ -4353,6 +4420,15 @@ document.getElementById("toggleAutoBuy").innerText="false"
 } else if (autobuy==2){
 autobuy=1
 document.getElementById("toggleAutoBuy").innerText="true"
+}
+}
+function toggleAutoPresBuy(){
+if (autopresbuy==1){
+autopresbuy=2
+document.getElementById("toggleAutoPresBuy").innerText="false"
+} else if (autopresbuy==2){
+autopresbuy=1
+document.getElementById("toggleAutoPresBuy").innerText="true"
 }
 }
 function toggleAuto(){
