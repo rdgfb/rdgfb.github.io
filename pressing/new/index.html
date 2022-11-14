@@ -487,14 +487,14 @@ document.body.onload = function(){
     console.warn("acost0 or prespwr was undefined or invalid values!!! Old or corrupted data? Set to default. Sorry for the inconvenience!")
     }
     }
-    if (acost1 === undefined || acost1<=0 || charger<0 || charger>1){
+    if (acost1 === undefined || acost1<0 || charger<0 || charger>1){
     acost1=1000
     charger=0
     if (detailedoutput==1){
     console.warn("acost1 or charger was undefined or invalid values!!! Old or corrupted data? Set to default. Sorry for the inconvenience!")
     }
     }
-    if (acost2 === undefined || acost2<=0 || subpress === undefined || subpress<0 || subpress>1){
+    if (acost2 === undefined || acost2<0 || subpress === undefined || subpress<0 || subpress>1){
     acost2=100000
     subpress=1
     if (detailedoutput==1){
