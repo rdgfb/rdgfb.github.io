@@ -3888,9 +3888,9 @@ goals4+=25
 }
 challenge=0
 }
-ppoint+=(mpgain*(1+(goals4*0.25)))
-if (bestprestige<(mpgain*(1+(goals4*0.25)))){
-bestprestige=(mpgain*(1+(goals4*0.25)))
+ppoint+=((mpgain*(1+(goals4*0.25)))*prespwr)
+if (bestprestige<((mpgain*(1+(goals4*0.25)))*prespwr)){
+bestprestige=((mpgain*(1+(goals4*0.25)))*prespwr)
 }
 mpgain=0
 presses = 0;
