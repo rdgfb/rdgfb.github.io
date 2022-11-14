@@ -1684,17 +1684,17 @@ function updateLevelandAuto(){
     if (challenge==2){
     pressesdec=0
     } else if (challenge==3 || challenge==4 || challenge==5){
-    pressesdec+=(((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul*0.1))
+    pressesdec+=(((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul))
     } else {
-    pressesdec+=(((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul*0.1))
+    pressesdec+=(((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul))
     }
     //antipressesdec+=((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))
     if (challenge==2){
     pps=0
     } else if (challenge==3 || challenge==4 || challenge==5){
-    pps=parseInt((((((cursor*0.1)+(mother*1)+(goals1*(ppower)))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul*0.01)).toFixed(1)))
+    pps=parseInt((((((cursor*0.1)+(mother*1)+(goals1*(ppower)))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul)).toFixed(1)))
     } else {
-    pps=parseInt((((((((cursor*0.1)*(cpower))+((mother*1))*(mpower))+(goals1*(ppress*ppower)))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul*0.01)).toFixed(1)))
+    pps=parseInt((((((((cursor*0.1)*(cpower))+((mother*1))*(mpower))+(goals1*(ppress*ppower)))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul)).toFixed(1)))
     }
     } else {
     pps=-1
@@ -1813,7 +1813,7 @@ function updateLevelandAuto(){
         totalantipresses+=1111111111
         axppts+=(1111111*(goals3+1))
     }
-    } else if (pressesdec>=11111111111){
+    } else if (pressesdec>=11111111111 && pressesdec<111111111111){
     pressesdec-=11111111111
     if (dimension==0){
         mxppts+=(11111111111*mxpmul)
@@ -1823,6 +1823,38 @@ function updateLevelandAuto(){
         antipresses+=11111111111
         totalantipresses+=11111111111
         axppts+=(11111111*(goals3+1))
+    } else if (pressesdec>=111111111111 && pressesdec<1111111111111){
+    pressesdec-=111111111111
+    if (dimension==0){
+        mxppts+=(111111111111*mxpmul)
+        presses+=111111111111
+        totalpresses+=111111111111
+    } else if (dimension==1){
+        antipresses+=111111111111
+        totalantipresses+=111111111111
+        axppts+=(111111111*(goals3+1))
+    }
+    } else if (pressesdec>=1111111111111 && pressesdec<11111111111111){
+    pressesdec-=1111111111111
+    if (dimension==0){
+        mxppts+=(1111111111111*mxpmul)
+        presses+=1111111111111
+        totalpresses+=1111111111111
+    } else if (dimension==1){
+        antipresses+=1111111111111
+        totalantipresses+=1111111111111
+        axppts+=(1111111111*(goals3+1))
+    }
+    } else if (pressesdec>=11111111111111){
+    pressesdec-=11111111111111
+    if (dimension==0){
+        mxppts+=(11111111111111*mxpmul)
+        presses+=11111111111111
+        totalpresses+=11111111111111
+    } else if (dimension==1){
+        antipresses+=11111111111111
+        totalantipresses+=11111111111111
+        axppts+=(11111111111*(goals3+1))
     }
     }
     }
@@ -2577,12 +2609,12 @@ function buttonpress(){
     } else if (yes==2 && tutorialmode==1){
         if (firstpress==0){
             if (dimension==0 && presses<16){
-            presses+=((ppress*ppower)*(mxpmul*0.1)*(Math.pow(2, goals6)));
-            totalpresses+=((ppress*ppower)*(mxpmul*0.1)*(Math.pow(2, goals6)));
+            presses+=((ppress*ppower)*(mxpmul)*(Math.pow(2, goals6)));
+            totalpresses+=((ppress*ppower)*(mxpmul)*(Math.pow(2, goals6)));
             mxppts+=mxpmul
             } else if (dimension==1){
-            antipresses+=(((antistrength*0.25)+1)*(axpmul*0.1)*(Math.pow(2, goals6)))
-            totalantipresses+=(((antistrength*0.25)+1)*(axpmul*0.1)*(Math.pow(2, goals6)))
+            antipresses+=(((antistrength*0.25)+1)*(axpmul)*(Math.pow(2, goals6)))
+            totalantipresses+=(((antistrength*0.25)+1)*(axpmul)*(Math.pow(2, goals6)))
             axppts+=axpmul
             }
             if (presses<15){
