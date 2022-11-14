@@ -1684,15 +1684,15 @@ function updateLevelandAuto(){
     if (challenge==2){
     pressesdec=0
     } else if (challenge==3 || challenge==4 || challenge==5){
-    pressesdec+=(((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*mxpmul)
+    pressesdec+=(((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul*0.1))
     } else {
-    pressesdec+=(((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*mxpmul)
+    pressesdec+=(((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul*0.1))
     }
     //antipressesdec+=((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))
     if (challenge==2){
     pps=0
     } else if (challenge==3 || challenge==4 || challenge==5){
-    pps=parseInt((((((cursor*0.1)+(mother*1)+(goals1*(ppower)))*(goals2+1)*(Math.pow(2, goals6)))*mxpmul).toFixed(1)))
+    pps=parseInt((((((cursor*0.1)+(mother*1)+(goals1*(ppower)))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul)).toFixed(1)))
     } else {
     pps=parseInt((((((((cursor*0.1)*(cpower))+((mother*1))*(mpower))+(goals1*(ppress*ppower)))*(goals2+1)*(Math.pow(2, goals6)))*mxpmul).toFixed(1)))
     }
@@ -1710,8 +1710,8 @@ function updateLevelandAuto(){
         presses+=1
         totalpresses+=1
     } else if (dimension==1){
-        antipresses+=axpmul
-        totalantipresses+=axpmul
+        antipresses+=1
+        totalantipresses+=1
         axppts+=(0.001*((goals3+1)*axpmul))
     }
     } else if (pressesdec>=11 && pressesdec<111){
@@ -2577,12 +2577,12 @@ function buttonpress(){
     } else if (yes==2 && tutorialmode==1){
         if (firstpress==0){
             if (dimension==0 && presses<16){
-            presses+=((ppress*ppower)*(Math.pow(2, goals6)));
-            totalpresses+=((ppress*ppower)*(Math.pow(2, goals6)));
+            presses+=((ppress*ppower)*(mxpmul*0.1)*(Math.pow(2, goals6)));
+            totalpresses+=((ppress*ppower)*(mxpmul*0.1)*(Math.pow(2, goals6)));
             mxppts+=mxpmul
             } else if (dimension==1){
-            antipresses+=(((antistrength*0.25)+1)*(Math.pow(2, goals6)))
-            totalantipresses+=(((antistrength*0.25)+1)*(Math.pow(2, goals6)))
+            antipresses+=(((antistrength*0.25)+1)*(axpmul*0.1)*(Math.pow(2, goals6)))
+            totalantipresses+=(((antistrength*0.25)+1)*(axpmul*0.1)*(Math.pow(2, goals6)))
             axppts+=axpmul
             }
             if (presses<15){
