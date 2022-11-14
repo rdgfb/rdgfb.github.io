@@ -1692,9 +1692,9 @@ function updateLevelandAuto(){
     if (challenge==2){
     pps=0
     } else if (challenge==3 || challenge==4 || challenge==5){
-    pps=parseInt((((((cursor*0.1)+(mother*1)+(goals1*(ppower)))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul)).toFixed(1)))
+    pps=parseInt((((((cursor*0.1)+(mother*1)+(goals1*(ppower)))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul*0.01)).toFixed(1)))
     } else {
-    pps=parseInt((((((((cursor*0.1)*(cpower))+((mother*1))*(mpower))+(goals1*(ppress*ppower)))*(goals2+1)*(Math.pow(2, goals6)))*mxpmul).toFixed(1)))
+    pps=parseInt((((((((cursor*0.1)*(cpower))+((mother*1))*(mpower))+(goals1*(ppress*ppower)))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul*0.01)).toFixed(1)))
     }
     } else {
     pps=-1
