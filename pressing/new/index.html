@@ -3199,6 +3199,8 @@ function createCookie(){
         pressingSave.anticost0 = anticost0;
         pressingSave.antixp = antixp;
         pressingSave.anticost1 = anticost1;
+        pressingSave.autopresbuy = autopresbuy;
+        pressingSave.anticost2 = anticost2;
     var jsonString = JSON.stringify(pressingSave);
     document.cookie = jsonString;
 };
@@ -3302,6 +3304,8 @@ function loadCookie(){
         anticost0 = saveLoading.anticost0;
         antixp = saveLoading.antixp;
         anticost1 = saveLoading.anticost1;
+        autopresbuy = saveLoading.autopresbuy;
+        anticost2 = saveLoading.anticost2;
         if (detailedoutput==1){
         console.log(saveLoading)
         }
@@ -3715,6 +3719,8 @@ function reset(){
         pressingSave.anticost0 = 15;
         pressingSave.antixp = 0;
         pressingSave.anticost1 = 100;
+        pressingSave.autopresbuy = 0;
+        pressingSave.anticost2 = 1000000;
     var jsonString = JSON.stringify(pressingSave);
     document.cookie = jsonString;
     window.location.reload()
