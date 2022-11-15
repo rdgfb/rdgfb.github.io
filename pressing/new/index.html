@@ -30,7 +30,7 @@
 <div id="prestigeui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Teh Prestige</div><div style="position: relative; top: 212px; text-align: center;" id="pamt">You have 0 prestige points.</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit Shop</button><div style="overflow: scroll;  scrollbar-color: #FFFFFF; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;"></div><div>THESE UPGRADES WON'T RESET ON PRESTIGE</div><button id="buyAutoBuy" onclick="buyAutoBuy()">Shop Auto Buyer</button><a id="pitem0count"> Locked</a><div id="pitem0"> Cost: 100, short 100 prestige points.</div><button id="buyAutoUpgrade" onclick="buyAutoUpgrade()">Auto Upgrader</button><a id="pitem1count"> Locked</a><div id="pitem1"> Cost: 10000, short 10000 prestige points.</div><button id="buyPCpower" onclick="buyPCpower()">Prestige Click Power</button><a id="pitem2count"> lvl 1</a><div id="pitem2">Cost: 1, short 1 prestige points.</div><button id="buyPXPmult" onclick="buyPXPmult()">Prestige XP Multiplier</button><a id="pitem3count"> lvl 1</a><div id="pitem3"> Cost: 100, short 100 presses. UNLOCKS NEW BUILDING!</div><button id="buyAnti" onclick="buyAnti()">Anti Dimension</button><a id="pitem4count"> Locked</a><div id="pitem4"> Cost: 1000000, short 1000000 prestige points. UNLOCKS A NEW FEATURE!</div><button id="buyCostLowerer" onclick="buyCostLowerer()">Lower Cost</button><a id="item5count"> lvl 1</a><div id="pitem5"> Cost: 1000, short 1000 presses. Lowers cost of all button shop items by 1%.</div></div></div>
 <div id="ascendui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Underground Shop</div><div style="position: relative; top: 212px; text-align: center;" id="ascamt">You have 0 ascend points.</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit Shop</button><div style="overflow: scroll;  scrollbar-color: #FFFFFF; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;"></div><div>THESE UPGRADES WON'T RESET ON ASCEND/PRESTIGE</div><button id="buyascXP" onclick="buyascXP()">XP multiplier</button><a id="ascitem0count"> x0</a><div id="ascitem0"> Cost: 1, short 1 ascend points.</div></div></div></div>
 <div id="anonymityui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Anonymous Tools</div><div style="position: relative; top: 212px; text-align: center;" id="pamt">You have 0 anonymity points.</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit quietly.</button><div style="overflow: scroll;  scrollbar-color: #FFFFFF; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;"></div><div>THESE UPGRADES WON'T RESET ON ANONYMITY</div><button id="buyPpower" onclick="buyPpower()">Prestige Power</button><a id="aitem0count"> lvl 1</a><div id="aitem0">Cost: 1, short 1 anonymity.</div><button id="buyCharge" onclick="buyCharge()">Charger</button><a id="aitem1count"> 0/1</a><div id="aitem1"> Cost: 1000, short 1000 anonymity. UNLOCKS NEW BUILDING!</div><button id="buyFreeBuy" onclick="buyFreeBuy()">Never Subtract Press</button><a id="aitem2count"> 0/1</a><div id="aitem2"> Cost: 100000, short 10000 anonymity.</div><button id="buyAutoPrestige" onclick="buyAutoPrestige()">Auto Prestige Gain</button><a id="aitem3count"> Locked</a><div id="aitem3"> Cost: 1M, short 1M anonymity.</div></div></div>
-<div id="settingsui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Settings and Stats</div><button onclick="shop()" id="settingsshop" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Save</button><div style="background-color: inherit; overflow: scroll; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; background-color: #000000">Settings</div></div><div></div><button style="opacity: 1; cursor: pointer;" onclick="createCookie()">Save</button><a id="autosave" style="color: inherit; text-align: left;"> Auto save: 0s</a><div></div><input style="width: 50px;" type="number" min="0" max="3600" id="autosav"> min 10, max 3600</input><div></div><button style="opacity: 1; cursor: pointer;" onclick="resetwarning()">Wipe</button><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Auto</div></div><div id="Set1" style="color: inherit; text-align: left;">Save timer: <button onclick="toggleASDM()" id="toggleASDM">Style 1: (ones)</button></div><div id="Set2" style="color: inherit; text-align: left;">Automatic pressing per second: <button onclick="togglePPS()" id="togglePPS">true</button></div><div id="Set3" style="color: inherit; text-align: left;">Automatic pressing: <button onclick="toggleAuto()" id="toggleAuto">true</button></div><div id="Set4" style="color: inherit; text-align: left;">Automatic buying: <button onclick="toggleAutoBuy()" id="toggleAutoBuy">true</button></div><div id="Set5" style="color: inherit; text-align: left;">Automatic upgrading: <button onclick="toggleAutoUpgrade()" id="toggleAutoUpgrade">true</button></div><div id="Set6" style="color: inherit; text-align: left;">Automatic Prestige: <button onclick="toggleAutoPresBuy()" id="toggleAutoPresBuy">true</button></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Optimizations</div></div><div id="SetO0" style="color: inherit; text-align: left;">Planets visibility: <button onclick="togglePlanets()" id="togglePlanets">true</button></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Stats</div></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Time and Amounts</div></div><div id="statT0" style="color: inherit; text-align: left;"></div><div id="statR1" style="color: inherit; text-align: left;"></div><div id="statR2" style="color: inherit; text-align: left;"></div><div id="statR3" style="color: inherit; text-align: left;"></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Currently</div></div><div id="statC1" style="color: inherit; text-align: left;"></div><div id="statC2" style="color: inherit; text-align: left;"></div><div id="statC3" style="color: inherit; text-align: left;"></div><div id="statC4" style="color: inherit; text-align: left;"></div><div id="statC5" style="color: inherit; text-align: left;"></div><div id="statC6" style="color: inherit; text-align: left;"></div><div id="statC7" style="color: inherit; text-align: left;"></div><div id="statC8" style="color: inherit; text-align: left;"></div><div id="statC9" style="color: inherit; text-align: left;"></div><div id="statC10" style="color: inherit; text-align: left;"></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Records</div></div><div id="statB1" style="color: inherit; text-align: left;"></div><div id="statB2" style="color: inherit; text-align: left;"></div><div id="statB3" style="color: inherit; text-align: left;"></div><div id="statB4" style="color: inherit; text-align: left;"></div><div id="statB5" style="color: inherit; text-align: left;"></div><div id="statB6" style="color: inherit; text-align: left;"></div></div></div>
+<div id="settingsui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Settings and Stats</div><div style="background-color: inherit; overflow: scroll; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; background-color: #000000">Settings</div></div><div></div><button style="opacity: 1; cursor: pointer;" onclick="createCookie()">Save</button><a id="autosave" style="color: inherit; text-align: left;"> Auto save: 0s</a><div></div><input style="width: 50px;" type="number" min="0" max="3600" id="autosav"> min 10, max 3600</input><div></div><button style="opacity: 1; cursor: pointer;" onclick="resetwarning()">Wipe</button><div></div><button style="opacity: 1; cursor: pointer;" onclick="exportfilewarning()">Export (as file)</button><button style="opacity: 1; cursor: pointer;" onclick="exporttextwarning()">Export (as text)</button><button style="opacity: 1; cursor: pointer;" onclick="importwarning()">Import</button><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Auto</div></div><div id="Set1" style="color: inherit; text-align: left;">Save timer: <button onclick="toggleASDM()" id="toggleASDM">Style 1: (ones)</button></div><div id="Set2" style="color: inherit; text-align: left;">Automatic pressing per second: <button onclick="togglePPS()" id="togglePPS">true</button></div><div id="Set3" style="color: inherit; text-align: left;">Automatic pressing: <button onclick="toggleAuto()" id="toggleAuto">true</button></div><div id="Set4" style="color: inherit; text-align: left;">Automatic buying: <button onclick="toggleAutoBuy()" id="toggleAutoBuy">true</button></div><div id="Set5" style="color: inherit; text-align: left;">Automatic upgrading: <button onclick="toggleAutoUpgrade()" id="toggleAutoUpgrade">true</button></div><div id="Set6" style="color: inherit; text-align: left;">Automatic Prestige: <button onclick="toggleAutoPresBuy()" id="toggleAutoPresBuy">true</button></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Optimizations</div></div><div id="SetO0" style="color: inherit; text-align: left;">Planets visibility: <button onclick="togglePlanets()" id="togglePlanets">true</button></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Stats</div></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Time and Amounts</div></div><div id="statT0" style="color: inherit; text-align: left;"></div><div id="statR1" style="color: inherit; text-align: left;"></div><div id="statR2" style="color: inherit; text-align: left;"></div><div id="statR3" style="color: inherit; text-align: left;"></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Currently</div></div><div id="statC1" style="color: inherit; text-align: left;"></div><div id="statC2" style="color: inherit; text-align: left;"></div><div id="statC3" style="color: inherit; text-align: left;"></div><div id="statC4" style="color: inherit; text-align: left;"></div><div id="statC5" style="color: inherit; text-align: left;"></div><div id="statC6" style="color: inherit; text-align: left;"></div><div id="statC7" style="color: inherit; text-align: left;"></div><div id="statC8" style="color: inherit; text-align: left;"></div><div id="statC9" style="color: inherit; text-align: left;"></div><div id="statC10" style="color: inherit; text-align: left;"></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Records</div></div><div id="statB1" style="color: inherit; text-align: left;"></div><div id="statB2" style="color: inherit; text-align: left;"></div><div id="statB3" style="color: inherit; text-align: left;"></div><div id="statB4" style="color: inherit; text-align: left;"></div><div id="statB5" style="color: inherit; text-align: left;"></div><div id="statB6" style="color: inherit; text-align: left;"></div></div></div>
 <div id="challengeui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Challenges</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit</button><div style="background-color: inherit; overflow: scroll; position: absolute; bottom: 1px; height: 227px; width: 250px;"><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div id="regchal" style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Regular Challenges</div></div><div id="vezchal" style="position: absolute; left: 1px; width: 248px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Very Easy</div><div></div><div style="position: relative; color: inherit; text-align: left;">No pps automation from shop. <button onclick="chal0()" id="chalno0">Challenge!</button><div>Goal: <a id="Goal0lvl">100</a> presses. <div></div><a id="Goal0don">0/1</a>. Reward: Unlock easy challenges.</div></div></div><div id="easychal" style="position: absolute; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Easy (no pressing perks apply)</div><div></div><div style="position: relative; color: inherit; text-align: left;">No pressing. <button onclick="chal1()" id="chalno1">Challenge!</button><div><div>Goal: Level <a id="Goal1lvl">10</a>. </div><div><a id="Goal1don">0/50</a>. Reward: +<a id="Goal1rew">100</a>% ppower added to pps.</div></div></div><div></div><div style="position: relative; color: inherit; text-align: left;">No automation. <button onclick="chal2()" id="chalno2">Challenge!</button><div>Goal: Level <a id="Goal2lvl">10</a>. </div><div><a id="Goal2don">0/50</a>. Reward: +<a id="Goal2rew">100</a>% pps</div></div></div><div id="medchal" style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Medium (no prestige perks or below)</div><div style="position: relative; color: inherit; text-align: left;">No Shop. <button onclick="chal3()" id="chalno3">Challenge!</button><div>Goal: Level <a id="Goal3lvl">10</a>. </div><div><a id="Goal3don">0/50</a>. Reward: +<a id="Goal3rew">100</a>% xp</div></div><div style="position: relative; color: inherit; text-align: left;">Prestige speedrun. <button onclick="chal4()" id="chalno4">Challenge!</button><div>Goal: Prestige in <a id="Goal4lvl">60</a> minutes. </div><div><a id="Goal4don">0/23</a>. Reward: +<a id="Goal4rew">25</a>% Prestige Points</div></div></div><div id="hardchal" style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Hard (no ascend perks or below)</div><div style="position: relative; color: inherit; text-align: left;">Sacrifice Speedrun. <button onclick="chal5()" id="chalno5">Challenge!</button><div>Goal: Dimension hop in <a id="Goal5lvl">720</a> minutes. <div></div><a id="Goal5don">0/10</a>. Reward: <a id="Goal5rew">+0% Sacrifice Points</a><div></div><a id="Goal5rew2">Dimension cost: 1M Prestige Points</a></div></div></div><div id="antichal" style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Anti Challenges</div></div><div id="easyantichal" style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Easy (no antipressing perks or below)</div><div style="position: relative; color: inherit; text-align: left;">No Anti-pressing. <button onclick="chal6()" id="chalno6">Challenge!</button><div>Goal: Level -<a id="Goal6lvl">10</a>. <div></div><a id="Goal6don">0/10</a>. Reward: Pressing x<a id="Goal6rew">2</a><div></div></div></div></div></div></div>
 <div id="charger" style="position: relative; height: 250px; width: 250px; top: 0px; left: -100%; background-color: #CCCC00; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; left: 1px; top: 1px; width: 248px; height: 56px; text-align: center; background-color: #FFFF00; color: #000000; text-align: center;">Charger</div><div style="position: relative; left: 1px; top: -37px; width: 248px; height: 18px; text-align: center; background-color: transparent; color: #000000;"><a id="chargr">0</a> Watts <a id="cps">(0/s)</a></div><div style="position: relative; left: 1px; top: -37px; width: 248px; height: 20px; text-align: center; background-color: transparent; color: #000000;">Charging: <select id="charging"><option value="None">None</option><option value="Spread">Spread</option><option value="Presses">Presses</option><option value="XP">XP</option><option value="Prestige">Prestige</option><option value="Ascend">Ascend</option><option value="Anonymity">Anonymity</option></select></div><div style="background-color: #000000; position: relative; left: 1px; top: -37px; overflow-y: scroll; overflow-x: clip; width: 248px; height: 192px; text-align: center;"><div style="background-color: transparent;">Presses: x<a id="cpress">1</a></div><div style="background-color: transparent;">XP: x<a id="cxp">1</a></div><div style="background-color: transparent;">Prestige: x<a id="cprestige">1</a></div><div style="background-color: transparent;">Ascend: x<a id="cascend">1</a></div><div style="background-color: transparent;">Anonymity: x<a id="canonymity">1</a></div><div style="background-color: transparent;">Squeeze: x<a id="csqueeze">1</a></div><div style="background-color: transparent;">Squeeze Success Rate: +<a id="cschance">0</a>%</div><div style="background-color: transparent;">Squeeze Oil Bonus: +<a id="csqueeze">0</a>%</div></div></div><!--><div id="coverq1b2" style="position: absolute; left: -50px; top: 113px; height: 23px; width: 36px; background-color: transparent;"></div><!-->
 </body>
@@ -3606,6 +3606,41 @@ function resetwarning(){
     divb.id="resetWarnBack"
     document.body.appendChild(divb)
 }
+function exportwarning(){
+    var div = document.createElement("div")
+    div.style="z-index: 255; position: absolute; top: calc(50% - 152px); left: calc(50% - 152px); height: 299px; width: 299px; background-color: #000000; border-width: 5px; border-color: #FF0000 #000000 #000000; border-style: solid;"
+    div.id="exportText"
+    div.innerHTML='<div style="position: relative; top: 2px; color: #FFFFFF; text-align: center; font-size: 18px; font-weight: bold;">Exporting</div><div style="position: relative; top: 3px; color: #FFFFFF; text-align: left">Here\'s your code! Copy and save it! <div></div><input id="exportastext" style="position: absolute; left: 0px; top: 0px; width: 10px; height: 10px;"><button style="position: absolute; bottom: 10px; right: 57px; background-color: #00FF00" onclick="closeexporttext()">All good!</button></div>'
+    document.body.appendChild(div)
+    var divb = document.createElement("div")
+    divb.style="z-index: 254; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; background-color: #000000; opacity: 0.25;"
+    divb.id="exportTextBack"
+    document.body.appendChild(divb)
+    exporttext()
+}
+function exportfilewarning(){
+    var div = document.createElement("div")
+    exportfile()
+    div.style="z-index: 255; position: absolute; top: calc(50% - 65px); left: calc(50% - 65px); height: 125px; width: 125px; background-color: #000000; border-width: 5px; border-color: #FF0000 #000000 #000000; border-style: solid;"
+    div.id="exportFile"
+    div.innerHTML='<div style="position: relative; top: 2px; color: #FFFFFF; text-align: center; font-size: 18px; font-weight: bold;">Exporting</div><div style="position: relative; top: 3px; color: #FFFFFF; text-align: left">Your save is downloaded. <div></div><button style="position: absolute; bottom: 10px; right: 57px; background-color: #00FF00" onclick="closeexportfile()">Ok!</button></div>'
+    document.body.appendChild(div)
+    var divb = document.createElement("div")
+    divb.style="z-index: 254; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; background-color: #440000; opacity: 0.25;"
+    divb.id="exportFileBack"
+    document.body.appendChild(divb)
+}
+function importwarning(){
+    var div = document.createElement("div")
+    div.style="z-index: 255; position: absolute; top: calc(50% - 152px); left: calc(50% - 152px); height: 299px; width: 299px; background-color: #000000; border-width: 5px; border-color: #FF0000 #000000 #000000; border-style: solid;"
+    div.id="import"
+    div.innerHTML='<div style="position: relative; top: 2px; color: #FFFFFF; text-align: center; font-size: 18px; font-weight: bold;">Importing</div><div style="position: relative; top: 3px; color: #FFFFFF; text-align: left">Got your code handy? Use it! <div></div><input id="importtext" style="position: absolute; left: 0px; top: 0px; width: 10px; height: 10px;"><button style="position: absolute; bottom: 10px; right: 57px; background-color: #00FF00" onclick="importtext()">IMPORT!!!</button></div>'
+    document.body.appendChild(div)
+    var divb = document.createElement("div")
+    divb.style="z-index: 254; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; background-color: #000000; opacity: 0.25;"
+    divb.id="importBack"
+    document.body.appendChild(divb)
+}
 function backwarning(){
         var offlineTime = ((Math.trunc(msaway2/86400000)))+" days(s), "+((Math.trunc(msaway2/3600000))%24)+" hour(s), "+((Math.trunc(msaway2/60000))%60)+" minute(s), and "+((Math.trunc(msaway2/1000))%60)+" second(s)"
         offlineGain = 0
@@ -3765,6 +3800,14 @@ function closewarning(){
 function closeback(){
     document.getElementById("backWarn").remove()
     document.getElementById("backWarnBack").remove()
+}
+function closeexportfile(){
+    document.getElementById("exportFile").remove()
+    document.getElementById("exportFileBack").remove()
+}
+function closeexporttext(){
+    document.getElementById("exportText").remove()
+    document.getElementById("exportTextBack").remove()
 }
 function removedebug(){
     debug=0
@@ -4683,29 +4726,37 @@ pressingFile.ascpts = ascpts;
 pressingFile.oilywater = oilywater;
 pressingFile.water = water;
 pressingFile.oil = oil;
-pressingSave.asdm = asdm;
-pressingSave.bestprestige = bestprestige;
-pressingSave.totalpresses = totalpresses;
-pressingSave.totalantipresses = totalantipresses;
-pressingSave.bestascend = bestascend;
-pressingSave.bestanonymity = bestanonymity;
-pressingSave.bestlevel = bestlevel;
-pressingSave.detailedoutput = detailedoutput;
-pressingSave.outputvarchange = outputvarchange;
-pressingSave.bestantilevel = bestantilevel;
-pressingSave.goals0 = goals0;
-pressingSave.prestigeamt = prestigeamt;
-pressingSave.lastprestige = lastprestige;
-pressingSave.ascendamt = ascendamt;
-pressingSave.lastascend = lastascend;
-pressingSave.galacticamt = galacticamt;
-pressingSave.lastgalactic = lastgalactic;
-pressingSave.anomymityamt = anomymityamt;
-pressingSave.lastanonymity = lastanonymity;
-pressingSave.squeezeamt = squeezeamt;
-pressingSave.lastsqueeze = lastsqueeze;
-pressingSave.stars = stars;
-pressingSave.totalstars = totalstars;
+pressingFile.asdm = asdm;
+pressingFile.bestprestige = bestprestige;
+pressingFile.totalpresses = totalpresses;
+pressingFile.totalantipresses = totalantipresses;
+pressingFile.bestascend = bestascend;
+pressingFile.bestanonymity = bestanonymity;
+pressingFile.bestlevel = bestlevel;
+pressingFile.detailedoutput = detailedoutput;
+pressingFile.outputvarchange = outputvarchange;
+pressingFile.bestantilevel = bestantilevel;
+pressingFile.goals0 = goals0;
+pressingFile.prestigeamt = prestigeamt;
+pressingFile.lastprestige = lastprestige;
+pressingFile.ascendamt = ascendamt;
+pressingFile.lastascend = lastascend;
+pressingFile.galacticamt = galacticamt;
+pressingFile.lastgalactic = lastgalactic;
+pressingFile.anomymityamt = anomymityamt;
+pressingFile.lastanonymity = lastanonymity;
+pressingFile.squeezeamt = squeezeamt;
+pressingFile.lastsqueeze = lastsqueeze;
+pressingFile.stars = stars;
+pressingFile.ascXP = ascXP;
+pressingFile.asccost0 = asccost0;
+pressingFile.planets = planets;
+pressingFile.antistrength = antistrength;
+pressingFile.anticost0 = anticost0;
+pressingFile.antixp = antixp;
+pressingFile.anticost1 = anticost1;
+pressingFile.autopresbuy = autopresbuy;
+pressingFile.anticost2 = anticost2;
 var saveFile = JSON.stringify(pressingFile);
 var emergencySave = base64encode(saveFile);
 var uriContent = "data:application/octet-stream," + encodeURIComponent(emergencySave);
@@ -4714,6 +4765,313 @@ reset()
 } else {
 reset()
 }
+}
+function exportfile(){
+autosavetimer = astmax
+lastSave = Date.now()
+var pressingFile = {};
+pressingFile.tutorialmode = tutorialmode;
+pressingFile.presses = presses;
+pressingFile.antipresses = antipresses;
+pressingFile.pressesdec = pressesdec;
+pressingFile.autocooldown = autocooldown;
+pressingFile.astmax = astmax;
+pressingFile.auto = auto;
+pressingFile.cpoweramt = cpoweramt;
+pressingFile.ppoweramt = ppoweramt;
+pressingFile.mpoweramt = mpoweramt;
+pressingFile.cursor = cursor;
+pressingFile.mother = mother;
+pressingFile.apoweramt = apoweramt;
+pressingFile.firstLaunch = firstLaunch;
+pressingFile.lastSave = lastSave;
+pressingFile.debug = debug;
+pressingFile.ppoint = ppoint;
+pressingFile.mlevel = mlevel;
+pressingFile.mxppts = mxppts;
+pressingFile.mxpnxt = mxpnxt;
+pressingFile.alevel = alevel;
+pressingFile.axppts = axppts;
+pressingFile.axpnxt = axpnxt;
+pressingFile.mxpmul = mxpmul;
+pressingFile.axpmul = axpmul;
+pressingFile.mpgain = mpgain;
+pressingFile.pcost0 = pcost0;
+pressingFile.autobuy = autobuy;
+pressingFile.pcost1 = pcost1;
+pressingFile.autoupgrade = autoupgrade;
+pressingFile.pcost2 = pcost2;
+pressingFile.ppress = ppress;
+pressingFile.pcost3 = pcost3;
+pressingFile.pxpmul = pxpmul;
+pressingFile.pcost4 = pcost4;
+pressingFile.cananti = cananti;
+pressingFile.pcost5 = pcost5;
+pressingFile.plowco = plowco;
+pressingFile.dimension = dimension;
+pressingFile.noantireset = noantireset;
+pressingFile.challenge = challenge;
+pressingFile.failtimer = failtimer;
+pressingFile.goals1 = goals1;
+pressingFile.goals2 = goals2;
+pressingFile.goals3 = goals3;
+pressingFile.goals4 = goals4;
+pressingFile.goals5 = goals5;
+pressingFile.again = again;
+pressingFile.anonymity = anonymity;
+pressingFile.acost0 = acost0;
+pressingFile.prespwr = prespwr
+pressingFile.acost1 = acost1;
+pressingFile.charger = charger;
+pressingFile.acost2 = acost2;
+pressingFile.subpress = subpress;
+pressingFile.acost3 = acost3;
+pressingFile.autopres = autopres;
+pressingFile.charge = charge;
+pressingFile.ascpts = ascpts;
+pressingFile.oilywater = oilywater;
+pressingFile.water = water;
+pressingFile.oil = oil;
+pressingFile.asdm = asdm;
+pressingFile.bestprestige = bestprestige;
+pressingFile.totalpresses = totalpresses;
+pressingFile.totalantipresses = totalantipresses;
+pressingFile.bestascend = bestascend;
+pressingFile.bestanonymity = bestanonymity;
+pressingFile.bestlevel = bestlevel;
+pressingFile.detailedoutput = detailedoutput;
+pressingFile.outputvarchange = outputvarchange;
+pressingFile.bestantilevel = bestantilevel;
+pressingFile.goals0 = goals0;
+pressingFile.prestigeamt = prestigeamt;
+pressingFile.lastprestige = lastprestige;
+pressingFile.ascendamt = ascendamt;
+pressingFile.lastascend = lastascend;
+pressingFile.galacticamt = galacticamt;
+pressingFile.lastgalactic = lastgalactic;
+pressingFile.anomymityamt = anomymityamt;
+pressingFile.lastanonymity = lastanonymity;
+pressingFile.squeezeamt = squeezeamt;
+pressingFile.lastsqueeze = lastsqueeze;
+pressingFile.stars = stars;
+pressingFile.ascXP = ascXP;
+pressingFile.asccost0 = asccost0;
+pressingFile.planets = planets;
+pressingFile.antistrength = antistrength;
+pressingFile.anticost0 = anticost0;
+pressingFile.antixp = antixp;
+pressingFile.anticost1 = anticost1;
+pressingFile.autopresbuy = autopresbuy;
+pressingFile.anticost2 = anticost2;
+var saveFile = JSON.stringify(pressingFile);
+var saveAsText = base64encode(saveFile);
+var uriContent = "data:application/octet-stream," + encodeURIComponent(saveAsText);
+newWindow = window.open(uriContent, "PressingSave.sav");
+}
+function exporttext(){
+autosavetimer = astmax
+lastSave = Date.now()
+var pressingFile = {};
+pressingFile.tutorialmode = tutorialmode;
+pressingFile.presses = presses;
+pressingFile.antipresses = antipresses;
+pressingFile.pressesdec = pressesdec;
+pressingFile.autocooldown = autocooldown;
+pressingFile.astmax = astmax;
+pressingFile.auto = auto;
+pressingFile.cpoweramt = cpoweramt;
+pressingFile.ppoweramt = ppoweramt;
+pressingFile.mpoweramt = mpoweramt;
+pressingFile.cursor = cursor;
+pressingFile.mother = mother;
+pressingFile.apoweramt = apoweramt;
+pressingFile.firstLaunch = firstLaunch;
+pressingFile.lastSave = lastSave;
+pressingFile.debug = debug;
+pressingFile.ppoint = ppoint;
+pressingFile.mlevel = mlevel;
+pressingFile.mxppts = mxppts;
+pressingFile.mxpnxt = mxpnxt;
+pressingFile.alevel = alevel;
+pressingFile.axppts = axppts;
+pressingFile.axpnxt = axpnxt;
+pressingFile.mxpmul = mxpmul;
+pressingFile.axpmul = axpmul;
+pressingFile.mpgain = mpgain;
+pressingFile.pcost0 = pcost0;
+pressingFile.autobuy = autobuy;
+pressingFile.pcost1 = pcost1;
+pressingFile.autoupgrade = autoupgrade;
+pressingFile.pcost2 = pcost2;
+pressingFile.ppress = ppress;
+pressingFile.pcost3 = pcost3;
+pressingFile.pxpmul = pxpmul;
+pressingFile.pcost4 = pcost4;
+pressingFile.cananti = cananti;
+pressingFile.pcost5 = pcost5;
+pressingFile.plowco = plowco;
+pressingFile.dimension = dimension;
+pressingFile.noantireset = noantireset;
+pressingFile.challenge = challenge;
+pressingFile.failtimer = failtimer;
+pressingFile.goals1 = goals1;
+pressingFile.goals2 = goals2;
+pressingFile.goals3 = goals3;
+pressingFile.goals4 = goals4;
+pressingFile.goals5 = goals5;
+pressingFile.again = again;
+pressingFile.anonymity = anonymity;
+pressingFile.acost0 = acost0;
+pressingFile.prespwr = prespwr
+pressingFile.acost1 = acost1;
+pressingFile.charger = charger;
+pressingFile.acost2 = acost2;
+pressingFile.subpress = subpress;
+pressingFile.acost3 = acost3;
+pressingFile.autopres = autopres;
+pressingFile.charge = charge;
+pressingFile.ascpts = ascpts;
+pressingFile.oilywater = oilywater;
+pressingFile.water = water;
+pressingFile.oil = oil;
+pressingFile.asdm = asdm;
+pressingFile.bestprestige = bestprestige;
+pressingFile.totalpresses = totalpresses;
+pressingFile.totalantipresses = totalantipresses;
+pressingFile.bestascend = bestascend;
+pressingFile.bestanonymity = bestanonymity;
+pressingFile.bestlevel = bestlevel;
+pressingFile.detailedoutput = detailedoutput;
+pressingFile.outputvarchange = outputvarchange;
+pressingFile.bestantilevel = bestantilevel;
+pressingFile.goals0 = goals0;
+pressingFile.prestigeamt = prestigeamt;
+pressingFile.lastprestige = lastprestige;
+pressingFile.ascendamt = ascendamt;
+pressingFile.lastascend = lastascend;
+pressingFile.galacticamt = galacticamt;
+pressingFile.lastgalactic = lastgalactic;
+pressingFile.anomymityamt = anomymityamt;
+pressingFile.lastanonymity = lastanonymity;
+pressingFile.squeezeamt = squeezeamt;
+pressingFile.lastsqueeze = lastsqueeze;
+pressingFile.stars = stars;
+pressingFile.ascXP = ascXP;
+pressingFile.asccost0 = asccost0;
+pressingFile.planets = planets;
+pressingFile.antistrength = antistrength;
+pressingFile.anticost0 = anticost0;
+pressingFile.antixp = antixp;
+pressingFile.anticost1 = anticost1;
+pressingFile.autopresbuy = autopresbuy;
+pressingFile.anticost2 = anticost2;
+var saveFile = JSON.stringify(pressingFile);
+var saveAsFile = base64encode(saveFile);
+//navigator.clipboard.writeText(saveAsFile);
+document.getElementById("exportastext").value=saveAsFile
+}
+function importtext(){
+document.getElementById("import").remove()
+document.getElementById("importBack").remove()
+var decodeSave = document.getElementById("exportastext").value
+var decodedSave = base64decode(decodeSave)
+var saveLoadin1 = decodedSave
+var saveLoadin2 = saveLoadin1.split(';');
+var saveLoadin3 = saveLoadin2[0];
+var saveLoading = JSON.parse(saveLoadin3);
+tutorialmode = pressingFile.tutorialmode;
+presses = pressingFile.presses;
+antipresses = pressingFile.antipresses;
+pressesdec = pressingFile.pressesdec;
+autocooldown = pressingFile.autocooldown;
+astmax = pressingFile.astmax;
+auto = pressingFile.auto;
+cpoweramt = pressingFile.cpoweramt;
+ppoweramt = pressingFile.ppoweramt;
+mpoweramt = pressingFile.mpoweramt;
+cursor = pressingFile.cursor;
+mother = pressingFile.mother;
+apoweramt = pressingFile.apoweramt;
+firstLaunch = pressingFile.firstLaunch;
+lastSave = pressingFile.lastSave;
+debug = pressingFile.debug;
+ppoint = pressingFile.ppoint;
+mlevel = pressingFile.mlevel;
+mxppts = pressingFile.mxppts;
+mxpnxt = pressingFile.mxpnxt;
+alevel = pressingFile.alevel;
+axppts = pressingFile.axppts;
+axpnxt = pressingFile.axpnxt;
+mxpmul = pressingFile.mxpmul;
+axpmul = pressingFile.axpmul;
+mpgain = pressingFile.mpgain;
+pcost0 = pressingFile.pcost0;
+autobuy = pressingFile.autobuy;
+pcost1 = pressingFile.pcost1;
+autoupgrade = pressingFile.autoupgrade;
+pcost2 = pressingFile.pcost2;
+ppress = pressingFile.ppress;
+pcost3 = pressingFile.pcost3;
+pxpmul = pressingFile.pxpmul;
+pcost4 = pressingFile.pcost4;
+cananti = pressingFile.cananti;
+pcost5 = pressingFile.pcost5;
+plowco = pressingFile.plowco;
+dimension = pressingFile.dimension;
+noantireset = pressingFile.noantireset;
+challenge = pressingFile.challenge;
+failtimer = pressingFile.failtimer;
+goals1 = pressingFile.goals1;
+goals2 = pressingFile.goals2;
+goals3 = pressingFile.goals3;
+goals4 = pressingFile.goals4;
+goals5 = pressingFile.goals5;
+again = pressingFile.again;
+anonymity = pressingFile.anonymity;
+acost0 = pressingFile.acost0;
+prespwr = pressingFile.prespwr
+acost1 = pressingFile.acost1;
+charger = pressingFile.charger;
+acost2 = pressingFile.acost2;
+subpress = pressingFile.subpress;
+acost3 = pressingFile.acost3;
+autopres = pressingFile.autopres;
+charge = pressingFile.charge;
+ascpts = pressingFile.ascpts;
+oilywater = pressingFile.oilywater;
+water = pressingFile.water;
+oil = pressingFile.oil;
+asdm = pressingFile.asdm;
+bestprestige = pressingFile.bestprestige;
+totalpresses = pressingFile.totalpresses;
+totalantipresses = pressingFile.totalantipresses;
+bestascend = pressingFile.bestascend;
+bestanonymity = pressingFile.bestanonymity;
+bestlevel = pressingFile.bestlevel;
+detailedoutput = pressingFile.detailedoutput;
+outputvarchange = pressingFile.outputvarchange;
+bestantilevel = pressingFile.bestantilevel;
+goals0 = pressingFile.goals0;
+prestigeamt = pressingFile.prestigeamt;
+lastprestige = pressingFile.lastprestige;
+ascendamt = pressingFile.ascendamt;
+lastascend = pressingFile.lastascend;
+galacticamt = pressingFile.galacticamt;
+lastgalactic = pressingFile.lastgalactic;
+anomymityamt = pressingFile.anomymityamt;
+lastanonymity = pressingFile.lastanonymity;
+squeezeamt = pressingFile.squeezeamt;
+lastsqueeze = pressingFile.lastsqueeze;
+stars = pressingFile.stars;
+ascXP = pressingFile.ascXP;
+asccost0 = pressingFile.asccost0;
+planets = pressingFile.planets;
+antistrength = pressingFile.antistrength;
+anticost0 = pressingFile.anticost0;
+antixp = pressingFile.antixp;
+anticost1 = pressingFile.anticost1;
+autopresbuy = pressingFile.autopresbuy;
+anticost2 = pressingFile.anticost2;
 }
 //base64 functions grabbed from gist.github.com/enepomnyaschih/72c423f727d395eeaa09697058238727, i didn't know how to. major thanks!
 const base64abc = [],
@@ -4809,8 +5167,6 @@ function base64ToBytes(str) {
 function base64encode(str, encoder = new TextEncoder()) {
         return bytesToBase64(encoder.encode(str));
 }
-
-
 function base64decode(str, decoder = new TextDecoder()) {
         return decoder.decode(base64ToBytes(str));
 }
