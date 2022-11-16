@@ -67,7 +67,7 @@ var away = 0;
 var msaway = 0;
 var msoff = 0;
 var msaway2 = 0;
-var msawayoff = 0;
+var msawaycalc = 0;
 var autosavetimer = 60;
 var astmax = 60;
 var tutorialmode = 1; 
@@ -3164,8 +3164,8 @@ window.onfocus = function (ev) {
     ppsgainoff=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msawaycalc/100)/100)*ppsoffbonus)
     }
     } else if (dimension==1){
-    pressesdec+=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msawaycalc/100))
-    ppsgainoff=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msawaycalc/100))
+    pressesdec+=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msawaycalc))
+    ppsgainoff=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msawaycalc))
     }
     }
     if (detailedoutput==1){
@@ -3614,7 +3614,7 @@ function loadCookie(){
             cost6=0
         }
         if (ppstog==1 || autotog==1){
-        msaway2 = (Date.now()-lastSave)
+        msawaycalc = (Date.now()-lastSave)
         ppsgainoff=0
         if (ppstog==0){
         if (dimension==0){
@@ -3626,7 +3626,7 @@ function loadCookie(){
         ppsgainoff=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway2/100)/100)*ppsoffbonus)
         }
         } else if (dimension==1){
-        ppsgainoff=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msaway2/100))
+        ppsgainoff=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msaway2))
         }
         }
         if (detailedoutput==1){
