@@ -4374,8 +4374,86 @@ changeDimension()
 }
 antiStrength=0
 anticost0=15
-antiXP=0
+antixp=0
 anticost1=100
+autopresbuy=1
+updateResets()
+}
+function anonymitynogain(){
+ppoint=0
+pgain=0
+ascpts=0
+again=0;
+mpgain=0;
+presses = 0;
+pressesdec = 0;
+antipresses = 0;
+autocooldown = 0;
+astmax = 60;
+auto = 1;
+ppoweramt = 0;
+cursor = 0;
+cpoweramt = 0;
+mother = 0;
+ppower = 1;
+cpower = 1;
+mpower = 1;
+mpoweramt = 0;
+mlevel = 1;
+mxppts = 0;
+mxpnxt = 100;
+mxpmul = 1;
+cost1 = 15;
+costc1 = 15;
+calcc1 = 371;
+costnew1 = 371;
+cost2 = 100;
+costc2 = 100;
+calcc2 = 1219;
+costnew2 = 1219;
+cost0 = 1000;
+ppower = 1;
+cost3 = 10000;
+cost4 = 25000;
+ppoweramt = 0;
+apoweramt = 0;
+failsafe = 100;
+count = 0
+cpower = 1;
+mpower = 1;
+cpoweramt = 1;
+mpoweramt = 1;
+cost5 = 1000;
+cost6 = 4000;
+alevel = 1;
+axppts = 0;
+axpnxt = 100;
+mxpmul = 1;
+axpmul = 1;
+mpgain = 1;
+pcost0 = 100;
+autobuy = 0;
+pcost1 = 25000;
+autoupgrade = 0;
+pcost2 = 1;
+ppress = 1;
+pcost3 = 1;
+pxpmul = 1;
+pcost4 = 1000000;
+cananti = 0;
+pcost5 = 1000;
+plowco = 1;
+if (goals5!==10){
+if (challenge==6){
+} else {
+changeDimension()
+}
+}
+antiStrength=0
+anticost0=15
+antixp=0
+anticost1=100
+autopresbuy=1
 updateResets()
 }
 function buyAutoBuy(){
@@ -4434,10 +4512,11 @@ shop()
 }
 }
 function changeDimension(){
-if (dimension==0){
-mpgain=0
+again=0;
+mpgain=0;
 presses = 0;
 pressesdec = 0;
+antipresses = 0;
 autocooldown = 0;
 astmax = 60;
 auto = 1;
@@ -4467,12 +4546,33 @@ cost3 = 10000;
 cost4 = 25000;
 ppoweramt = 0;
 apoweramt = 0;
+failsafe = 100;
+count = 0
 cpower = 1;
 mpower = 1;
 cpoweramt = 1;
 mpoweramt = 1;
 cost5 = 1000;
 cost6 = 4000;
+alevel = 1;
+axppts = 0;
+axpnxt = 100;
+mxpmul = 1;
+axpmul = 1;
+mpgain = 1;
+pcost0 = 100;
+autobuy = 0;
+pcost1 = 25000;
+autoupgrade = 0;
+pcost2 = 1;
+ppress = 1;
+pcost3 = 1;
+pxpmul = 1;
+pcost4 = 1000000;
+cananti = 0;
+pcost5 = 1000;
+plowco = 1;
+if (dimension==0){
 document.body.style="overflow: hidden; background-color: #000000"
 document.getElementById("first").style="color: #FFFFFF; position: relative; top: -15px"
 document.getElementById("second").style="color: #FFFFFF"
@@ -4540,30 +4640,9 @@ document.getElementById("first").innerText=(((Math.round(antipresses/10000000000
 document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"NoDc anti-presses";
 } else if (antipresses>=1000000000000000000000000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000000000000000000000000) {
 document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"Vg anti-presses";
-} else {
-
-
 }
 dimension=1
 } else if (dimension==1){
-mpgain=0
-presses = 0;
-pressesdec = 0;
-autocooldown = 0;
-astmax = 60;
-auto = 1;
-ppoweramt = 0;
-cursor = 0;
-cpoweramt = 0;
-mother = 0;
-ppower = 1;
-cpower = 1;
-mpower = 1;
-mpoweramt = 0;
-mlevel = 1;
-mxppts = 0;
-mxpnxt = 100;
-mxpmul = 1;
 document.body.style="overflow: hidden; background-color: #FFFFFF"
 document.getElementById("first").style="color: #000000; position: relative; top: -15px"
 document.getElementById("second").style="color: #000000"
@@ -4631,9 +4710,6 @@ document.getElementById("first").innerText=(((Math.round(presses/100000000000000
 document.getElementById("first").innerText=(((Math.round(presses/1000000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"NDc presses";
 } else if (presses>=1000000000000000000000000000000000000000000000000000000000000000 && presses<1000000000000000000000000000000000000000000000000000000000000000000) {
 document.getElementById("first").innerText=(((Math.round(presses/1000000000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"Vg presses";
-} else {
-
-
 }
 dimension=0
 }
@@ -4827,7 +4903,7 @@ updateXPmult()
 }
 function chal6(){
 challenge=6
-doAnonymity()
+anonymitynogain()
 shop()
 updateXPmult()
 }
