@@ -667,7 +667,7 @@ document.body.onload = function(){
     alert("You tampered with the unimplemented galactic reset. Keep it the same as default for now! If you wish to mess around with this, please wait until v0.3's prototype!")
     }
     }
-    loaded=1
+    loaded+=1
 }
 function togglePlanets(){
     if (planets==0){
@@ -2596,7 +2596,7 @@ function settingsCheck(){
 }
 //oh look, the first function, the most important!! remains the same name, but it'ś the updater
 var byebye = setInterval(function(){
-    if (loaded==1){
+    if (loaded==2){
     updateAutoSave()
     updateLevelandAuto()
     updatePressing()
@@ -2619,7 +2619,7 @@ if (autobuy==1 || autoupgrade==1){
 }, 100)
 //this exists for things that do not really need quick updates, but still needs them faster than 5s
 var slowerupdater = setInterval(function(){
-    if (loaded==1){
+    if (loaded==2){
         updateResets()
         updateCharger()
         if (inshop!==0){
@@ -2629,7 +2629,7 @@ var slowerupdater = setInterval(function(){
 }, 1000)
 //this exists for things that only needs to update time to time
 var slowestupdater = setInterval(function(){
-    if (loaded==1){
+    if (loaded==2){
         updateBest()
         if (inshop==-2){
         updateSettings()
@@ -2637,7 +2637,7 @@ var slowestupdater = setInterval(function(){
     }
 }, 5000)
 var autoreset = setInterval(function(){
-    if (loaded==1){
+    if (loaded==2){
         if (autopres==1 && dimension==0 && mlevel>=30){
             if (autoresettimer>=6000){
                 autoprestigegain()
@@ -3146,8 +3146,6 @@ window.onfocus = function (ev) {
     if (detailedoutput==1){
     console.log("* USER BACK *")
     }
-    ppsgainoff = 0
-    away=0
     if (ppstog==1){
     if (dimension==0){
     if (challenge==2){
@@ -3176,6 +3174,8 @@ window.onfocus = function (ev) {
     autoresettimer+=((Date.now()-timeoff)/10)
     }
     }
+    ppsgainoff = 0
+    away=0
 };
 
 
@@ -3659,6 +3659,7 @@ function loadCookie(){
         }
         autosavetimer=0
     }
+    loaded+=1
 }
 function resetwarning(){
     var div = document.createElement("div")
