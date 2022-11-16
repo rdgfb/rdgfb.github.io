@@ -1381,7 +1381,14 @@ function updateResets(){
     if (mlevel>=30){
     document.getElementById("prestige").innerText="Prestige"
     document.getElementById("presinfo").innerText="You lose everything, but prestige!"
-    if (((mpgain*(1+(goals4*0.25)))*prespwr)==1){
+    if (prestigeamt>=1 && challenge==3) {
+    document.getElementById("prestige").innerText="Prestige"
+    document.getElementById("presinfo").innerText="You're in an anti-prestige level challenge, silly!"
+    document.getElementById("prestigegain").innerText=" Locked temporarily."
+    document.getElementById("prestige").disabled=true
+    document.getElementById("prestigeshop").innerText="Prestige Shop"
+    document.getElementById("prestigeshop").disabled=false
+    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)==1){
     //increase this by levels too!!
     document.getElementById("prestigegain").innerText=" You will gain "+((mpgain*(1+(goals4*0.25)))*prespwr)+" Prestige Point."
     } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=0 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000){
@@ -1432,13 +1439,6 @@ function updateResets(){
     document.getElementById("prestige").disabled=false
     document.getElementById("prestigeshop").innerText="Prestige shop"
     document.getElementById("prestigeshop").disabled=false 
-    } else if (prestigeamt>=1 && challenge==3 || prestigeamt>=1 && challenge==4 || prestigeamt>=1 && challenge==5) {
-    document.getElementById("prestige").innerText="Prestige"
-    document.getElementById("presinfo").innerText="You're in a challenge, silly!"
-    document.getElementById("prestigegain").innerText=" Locked temporarily."
-    document.getElementById("prestige").disabled=true
-    document.getElementById("prestigeshop").innerText="Prestige Shop"
-    document.getElementById("prestigeshop").disabled=false
     } else if (prestigeamt>=1) {
     document.getElementById("prestige").innerText="Prestige"
     document.getElementById("presinfo").innerText="You lose everything, but prestige!"
@@ -1491,13 +1491,13 @@ function updateResets(){
     document.getElementById("ascend").disabled=true
     document.getElementById("ascendshop").innerText="Ascend shop"
     document.getElementById("ascendshop").disabled=false
-    } else if (ascendamt>=1 && challenge==5) {
-    document.getElementById("ascend").innerText="Ascend"
-    document.getElementById("ascendinfo").innerText="You're in a challenge, silly!"
-    document.getElementById("ascendgain").innerText=" Locked temporarily."
-    document.getElementById("ascend").disabled=true
-    document.getElementById("ascendshop").innerText="Ascend Shop"
-    document.getElementById("ascendshop").disabled=false
+    //} else if (ascendamt>=1 && challenge==1 || ascendamt>=1 && challenge==2 || ascendamt>=1 && challenge==3 || ascendamt>=1 && challenge==4) {
+    //document.getElementById("ascend").innerText="Ascend"
+    //document.getElementById("ascendinfo").innerText="You're in an anti-ascend challenge, silly!"
+    //document.getElementById("ascendgain").innerText=" Locked temporarily."
+    //document.getElementById("ascend").disabled=true
+    //document.getElementById("ascendshop").innerText="Ascend Shop"
+    //document.getElementById("ascendshop").disabled=false
     } else {
     document.getElementById("ascend").innerText="??????"
     document.getElementById("ascendinfo").innerText="This seems too powerful for now."
@@ -1556,7 +1556,7 @@ function updateXPmult(){
     } else if (challenge==3 || challenge==4){
     mxpmul=(((goals3+1)*(ascXP+1))*(antixp+1))
     } else if (challenge==5) {
-    mxpmul=(((goals3)+1)*(antixp+1))
+    mxpmul=(((pxpmul*(goals3+1))*(antixp+1))
     }
     if (mxpmul==0){
     document.getElementById("xpmultiplier").innerText=" x"+mxpmul
@@ -1729,14 +1729,14 @@ function updateLevelandAuto(){
     if(ppstog==1){
     if (challenge==2){
     pressesdec=0
-    } else if (challenge==3 || challenge==4 || challenge==5){
+    } else if (challenge==3 || challenge==4){
     pressesdec+=(((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul*0.001))
     } else {
     pressesdec+=(((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul*0.001))
     }
     if (challenge==2){
     pps=0
-    } else if (challenge==3 || challenge==4 || challenge==5){
+    } else if (challenge==3 || challenge==4){
     pps=parseInt((((((cursor*0.1)+(mother*1)+(goals1*(ppower)))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul*0.001)).toFixed(1)))
     } else {
     pps=parseInt((((((((cursor*0.1)*(cpower))+((mother*1))*(mpower))+(goals1*(ppress*ppower)))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul*0.001)).toFixed(1)))
@@ -2366,7 +2366,7 @@ function updatePressing(){
     document.getElementById("chalid").innerText="Prestige Speedrun. You got "+(Math.trunc(((failtimer-(Date.now()))/1000)/60))+"m "+(Math.trunc(((failtimer-(Date.now()))/1000)%60))+"s left."
     }
     if (challenge==5){
-    document.getElementById("chalid").innerText="Anti-Speedrun. You got "+(Math.trunc(((failtimer-(Date.now()))/1000)/3600))+"h "+(Math.trunc((((failtimer-(Date.now()))/1000)/60)%60))+"m "+(Math.trunc(((failtimer-(Date.now()))/1000)%60))+"s left."
+    document.getElementById("chalid").innerText="Ascend Speedrun. You got "+(Math.trunc(((failtimer-(Date.now()))/1000)/3600))+"h "+(Math.trunc((((failtimer-(Date.now()))/1000)/60)%60))+"m "+(Math.trunc(((failtimer-(Date.now()))/1000)%60))+"s left."
     }
     //not challenge 1 copied and pasted no no!!!!
     if (challenge==6){
@@ -3152,7 +3152,7 @@ window.onfocus = function (ev) {
     if (dimension==0){
     if (challenge==2){
     pressesdec=0
-    } else if (challenge==3 || challenge==4 || challenge==5){
+    } else if (challenge==3 || challenge==4){
     pressesdec+=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
     ppsgainoff=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
     } else {
@@ -3614,7 +3614,7 @@ function loadCookie(){
         if (ppstog==0){
         if (challenge==2){
         pressesdec=0
-        } else if (challenge==3 || challenge==4 || challenge==5){
+        } else if (challenge==3 || challenge==4){
         pressesdec+=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
         ppsgainoff=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
         } else {
@@ -3716,7 +3716,7 @@ function backwarning(){
         if (dimension==0){
         if (challenge==2){
         pressesdec=0
-        } else if (challenge==3 || challenge==4 || challenge==5){
+        } else if (challenge==3 || challenge==4){
         pressesdec+=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
         offlineGain=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
         } else {
@@ -4152,6 +4152,64 @@ ascpts+=((ppress+1)*(pxpmul+1)*(plowco+1)*0.25);
 if (bestascend<((ppress+1)*(pxpmul+1)*(plowco+1)*0.25)){
 bestascend=((ppress+1)*(pxpmul+1)*(plowco+1)*0.25)
 }
+presses = 0;
+pressesdec = 0;
+autocooldown = 0;
+astmax = 60;
+auto = 1;
+ppoweramt = 0;
+cursor = 0;
+cpoweramt = 0;
+mother = 0;
+ppower = 1;
+cpower = 1;
+mpower = 1;
+mpoweramt = 0;
+mlevel = 1;
+mxppts = 0;
+mxpnxt = 100;
+mxpmul = 1;
+cost1 = 15;
+costc1 = 15;
+calcc1 = 371;
+costnew1 = 371;
+cost2 = 100;
+costc2 = 100;
+calcc2 = 1219;
+costnew2 = 1219;
+cost0 = 1000;
+ppower = 1;
+cost3 = 10000;
+cost4 = 25000;
+ppoweramt = 0;
+apoweramt = 0;
+failsafe = 100;
+count = 0
+cpower = 1;
+mpower = 1;
+cpoweramt = 1;
+mpoweramt = 1;
+cost5 = 1000;
+cost6 = 4000;
+ppsoffbonus=0;
+pcost0 = 100;
+autobuy = 0;
+pcost1 = 25000;
+autoupgrade = 0;
+pcost2 = 1;
+ppress = 1;
+pcost3 = 1;
+pxpmul = 1;
+pcost4 = 1000000;
+cananti = 0;
+pcost5 = 1000;
+plowco = 1;
+updateResets()
+}
+function ascend(){
+ppoint=0
+pgain=0
+again=0
 presses = 0;
 pressesdec = 0;
 autocooldown = 0;
@@ -4731,7 +4789,7 @@ updateXPmult()
 function chal5(){
 failtimer=((Date.now())+(43200000-(goals5*4320000)))
 challenge=5
-prestigenogain()
+ascendnogain()
 shop()
 updateXPmult()
 }
