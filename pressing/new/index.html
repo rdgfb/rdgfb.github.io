@@ -874,13 +874,13 @@ function updateSettings(){
     var autosavevalue = document.getElementById("autosav").valueAsNumber
     if (autosavevalue==0){
     document.getElementById("settingsshop").disabled=false
-    document.getElementById("settingsshop").style="position: absolute; top: 0px; right: 0px; cursor: not-allowed;"
+    document.getElementById("settingsshop").style="position: absolute; top: 0px; right: 0px; cursor: not-allowed; z-index: 1;"
     } else if (autosavevalue<10 || autosavevalue>3600){
     document.getElementById("settingsshop").disabled=true
-    document.getElementById("settingsshop").style="position: absolute; top: 0px; right: 0px; cursor: not-allowed;"
+    document.getElementById("settingsshop").style="position: absolute; top: 0px; right: 0px; cursor: not-allowed; z-index: 1;"
     } else {
     document.getElementById("settingsshop").disabled=false
-    document.getElementById("settingsshop").style="position: absolute; top: 0px; right: 0px; cursor: pointer;"
+    document.getElementById("settingsshop").style="position: absolute; top: 0px; right: 0px; cursor: pointer; z-index: 1;"
     }
     if (((Math.trunc(timePlayed/3600000))%24)<10){
         document.getElementById("statT0").innerText="First Played: "+((Math.trunc(timePlayed/86400000)))+":0"+((Math.trunc(timePlayed/3600000))%24)+":"+((Math.trunc(timePlayed/600000))%6)+""+((Math.trunc(timePlayed/60000))%10)+":"+((Math.trunc(timePlayed/10000))%6)+""+((Math.trunc(timePlayed/1000))%10)+" ago"
