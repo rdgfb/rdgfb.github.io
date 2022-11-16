@@ -2613,9 +2613,11 @@ var byebye = setInterval(function(){
     }
 }, 10)
 var slowupdater = setInterval(function(){
-if (autobuy==1 || autoupgrade==1){
-    updateAuto()
-}
+    if (loaded==2){
+        if (autobuy==1 || autoupgrade==1){
+            updateAuto()
+        }
+    }
 }, 100)
 //this exists for things that do not really need quick updates, but still needs them faster than 5s
 var slowerupdater = setInterval(function(){
@@ -3610,7 +3612,7 @@ function loadCookie(){
             cost6=0
         }
         if (ppstog==1 || autotog==1){
-        msaway2 = (Date.now()-lastSave)
+        msaway = (Date.now()-lastSave)
         ppsgainoff=0
         if (ppstog==0){
         if (dimension==0){
@@ -3627,7 +3629,7 @@ function loadCookie(){
         }
         if (detailedoutput==1){
         console.log("* USER CAME BACK *")
-        console.log("User came after "+((Math.trunc(msaway2/86400000)))+" days(s), "+((Math.trunc(msaway2/3600000))%24)+" hour(s). Presses increased by "+ppsgainoff+" pps presses.");
+        console.log("User came after "+((Math.trunc(msaway/86400000)))+" days(s), "+((Math.trunc(msaway/3600000))%24)+" hour(s). Presses increased by "+ppsgainoff+" pps presses.");
         }
         if (autotog==1){
         autocooldown+=((((Date.now()-lastSave)/10000)/100)*ppsoffbonus)
