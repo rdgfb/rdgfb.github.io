@@ -1,4 +1,5 @@
-﻿<html>
+<!DOCTYPE html>
+<html>
 <head>
 <title>Button Pressing</title>
 </head>
@@ -3609,7 +3610,7 @@ function exportwarning(){
     var div = document.createElement("div")
     div.style="z-index: 255; position: absolute; top: calc(50% - 152px); left: calc(50% - 152px); height: 299px; width: 299px; background-color: #000000; border-width: 5px; border-color: #FF0000 #000000 #000000; border-style: solid;"
     div.id="exportText"
-    div.innerHTML='<div style="position: relative; top: 2px; color: #FFFFFF; text-align: center; font-size: 18px; font-weight: bold;">Exporting</div><div style="position: relative; top: 3px; color: #FFFFFF; text-align: left">Here\'s your code! Copy and save it! <div></div><input id="exportastext" style="position: absolute; left: 0px; top: 0px; width: 10px; height: 10px;"><button style="position: absolute; bottom: 10px; right: 57px; background-color: #00FF00" onclick="closeexporttext()">All good!</button></div>'
+    div.innerHTML='<div style="position: relative; top: 2px; color: #FFFFFF; text-align: center; font-size: 18px; font-weight: bold;">Exporting</div><div style="position: relative; top: 3px; color: #FFFFFF; text-align: left">Here\'s your code! Copy and save it! <div></div><textarea id="exportastext" style="position: absolute;left: 0px;top: 0px;width: 298px;height: 250px;"></textarea><button style="position: absolute; bottom: -256px; right: 110px; background-color: #00FF00" onclick="closeexporttext()">All good!</button></div>'
     document.body.appendChild(div)
     var divb = document.createElement("div")
     divb.style="z-index: 254; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; background-color: #000000; opacity: 0.25;"
@@ -3633,7 +3634,7 @@ function importwarning(){
     var div = document.createElement("div")
     div.style="z-index: 255; position: absolute; top: calc(50% - 152px); left: calc(50% - 152px); height: 299px; width: 299px; background-color: #000000; border-width: 5px; border-color: #FF0000 #000000 #000000; border-style: solid;"
     div.id="import"
-    div.innerHTML='<div style="position: relative; top: 2px; color: #FFFFFF; text-align: center; font-size: 18px; font-weight: bold;">Importing</div><div style="position: relative; top: 3px; color: #FFFFFF; text-align: left">Got your code handy? Use it! <div></div><input id="importtext" style="position: absolute; left: 0px; top: 0px; width: 10px; height: 10px;"><button style="position: absolute; bottom: 10px; right: 57px; background-color: #00FF00" onclick="importtext()">IMPORT!!!</button></div>'
+    div.innerHTML='<div style="position: relative; top: 2px; color: #FFFFFF; text-align: center; font-size: 18px; font-weight: bold;">Importing</div><div style="position: relative; top: 3px; color: #FFFFFF; text-align: left">Got your code handy? Use it! <div></div><textarea id="importtext" style="position: absolute;left: 0px;top: 0px;width: 298px;height: 250px;"></textarea><button style="position: absolute; bottom: -256px; right: 110px; background-color: #00FF00" onclick="importtext()">IMPORT!!!</button></div>'
     document.body.appendChild(div)
     var divb = document.createElement("div")
     divb.style="z-index: 254; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; background-color: #000000; opacity: 0.25;"
@@ -4992,12 +4993,12 @@ pressingFile.anticost2 = anticost2;
 var saveFile = JSON.stringify(pressingFile);
 var saveAsFile = base64encode(saveFile);
 //navigator.clipboard.writeText(saveAsFile);
-document.getElementById("exportastext").value=saveAsFile
+document.getElementById("exportastext").innerText=saveAsFile
 }
 function importtext(){
 document.getElementById("import").remove()
 document.getElementById("importBack").remove()
-var decodeSave = document.getElementById("exportastext").value
+var decodeSave = document.getElementById("exportastext").innerText
 var decodedSave = base64decode(decodeSave)
 var saveLoadin1 = decodedSave
 var saveLoadin2 = saveLoadin1.split(';');
