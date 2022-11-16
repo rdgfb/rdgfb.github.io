@@ -859,20 +859,57 @@ function updateSettings(){
     } else if (autoupgrade==2){
     document.getElementById("toggleAutoUpgrade").innerText="false"
     }
+    if (autoupgrade!=0){
+    document.getElementById("Set5").innerText="Automatic Upgrading "
+    document.getElementById("toggleAutoUpgrade").disabled=false
+    } else {
+    document.getElementById("Set5").innerText="Automatic ????????? "
+    document.getElementById("toggleAutoUpgrade").innerText="false"
+    document.getElementById("toggleAutoUpgrade").disabled=true
+    }
     if (autobuy==1){
     document.getElementById("toggleAutoBuy").innerText="true"
     } else if (autobuy==2){
     document.getElementById("toggleAutoBuy").innerText="false"
+    }
+    if (autobuy!=0){
+    document.getElementById("Set4").innerText="Automatic Buying "
+    document.getElementById("toggleAutoBuy").disabled=false
+    } else {
+    document.getElementById("Set4").innerText="Automatic ?????? "
+    document.getElementById("toggleAutoBuy").innerText="false"
+    document.getElementById("toggleAutoBuy").disabled=true
     }
     if (autopresbuy==1){
     document.getElementById("toggleAutoPresBuy").innerText="true"
     } else if (autopresbuy==2){
     document.getElementById("toggleAutoPresBuy").innerText="false"
     }
+    if (autopresbuy!=0){
+    document.getElementById("Set6").innerText="Automatic Prestige Buying "
+    document.getElementById("toggleAutoPresBuy").disabled=false
+    } else {
+    document.getElementById("Set6").innerText="Automatic ???????? ?????? "
+    document.getElementById("toggleAutoPresBuy").innerText="false"
+    document.getElementById("toggleAutoPresBuy").disabled=true
+    }
     if (autotog==1){
     document.getElementById("toggleAuto").innerText="true"
     } else if (autotog==0){
     document.getElementById("toggleAuto").innerText="false"
+    }
+    if (autopres==1){
+    document.getElementById("toggleAutoPres").innerText="true"
+    } else if (autopres==2){
+    document.getElementById("toggleAutoPres").innerText="false"
+    }
+    if (autopres!=0){
+    document.getElementById("Set7").innerText="Automatic Prestige "
+    document.getElementById("toggleAutoPres").disabled=false
+    } else {
+    document.getElementById("Set7").innerText="Automatic ???????? "
+    document.getElementById("toggleAutoPres").innerText="false"
+    document.getElementById("toggleAutoPres").disabled=true
     }
     if (ppstog==1){
     document.getElementById("togglePPS").innerText="true"
