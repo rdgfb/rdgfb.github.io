@@ -3158,7 +3158,8 @@ window.onfocus = function (ev) {
     ppsgainoff=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
     }
     } else if (dimension==1){
-    
+    pressesdec+=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msaway/100))
+    ppsgainoff=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msaway/100))
     }
     }
     if (detailedoutput==1){
@@ -3610,27 +3611,43 @@ function loadCookie(){
         }
         if (ppstog==1 || autotog==1){
         msaway2 = (Date.now()-lastSave)
-        ppsgainoff = 0
+        ppsgainoff=0
         if (ppstog==0){
+        if (dimension==0){
         if (challenge==2){
-        pressesdec=0
+        ppsgainoff=0
         } else if (challenge==3 || challenge==4){
-        pressesdec+=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
         ppsgainoff=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
         } else {
-        pressesdec+=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
         ppsgainoff=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
+        }
+        } else if (dimension==1){
+        ppsgainoff=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msaway/100))
         }
         }
         if (detailedoutput==1){
         console.log("* USER CAME BACK *")
-        console.log("User came after "+((Math.trunc(msaway2/86400000)))+" days(s), "+((Math.trunc(msaway2/3600000))%24)+" hour(s), "+ppsgainoff+" pps presses.");
+        console.log("User came after "+((Math.trunc(msaway2/86400000)))+" days(s), "+((Math.trunc(msaway2/3600000))%24)+" hour(s). Presses increased by "+ppsgainoff+" pps presses.");
         }
         if (autotog==1){
         autocooldown+=((((Date.now()-lastSave)/10000)/100)*ppsoffbonus)
         }
         if (ppstog==1){
+        if (dimension==0){
+        if (challenge==2){
+        pressesdec+=0
+        console.log("chal "+challenge+"... no gain.")
+        } else if (challenge==3 || challenge == 4) {
+        pressesdec+=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
+        console.log("chal "+challenge+". +"+((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)+"!")
+        } else {
         pressesdec+=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
+        console.log("chal "+challenge+". +"+((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)+"!")
+        }
+        } else if (dimension==1){
+        pressesdec+=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msaway/100))
+        console.log("anti-dimension. +"+((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)+"!")
+        }
         }
         if (detailedoutput==1){
         console.log("* USER CAME BACK *")
