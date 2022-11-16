@@ -3164,8 +3164,8 @@ window.onfocus = function (ev) {
     ppsgainoff=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msawaycalc/100)/100)*ppsoffbonus)
     }
     } else if (dimension==1){
-    pressesdec+=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msawaycalc))
-    ppsgainoff=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msawaycalc))
+    pressesdec+=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msawaycalc/10))
+    ppsgainoff=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msawaycalc/10))
     }
     }
     if (detailedoutput==1){
@@ -3626,7 +3626,7 @@ function loadCookie(){
         ppsgainoff=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway2/100)/100)*ppsoffbonus)
         }
         } else if (dimension==1){
-        ppsgainoff=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msaway2))
+        ppsgainoff=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msaway2/10))
         }
         }
         if (detailedoutput==1){
@@ -3657,7 +3657,7 @@ function loadCookie(){
         } else if (dimension==1){
         pressesdec+=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msaway2/100))
         if (detailedoutput==1){
-        console.log("anti-dimension. +"+((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msaway2/100))+"!")
+        console.log("anti-dimension. +"+((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msaway2/10))+"!")
         }
         }
         } else {
