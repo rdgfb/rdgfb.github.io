@@ -3636,17 +3636,29 @@ function loadCookie(){
         if (dimension==0){
         if (challenge==2){
         pressesdec+=0
-        console.log("chal "+challenge+"... no gain.")
+        if (detailedoutput==1){
+        console.log("chal "+challenge+"... no gain. (ppstog is "+ppstog+"))
+        }
         } else if (challenge==3 || challenge == 4) {
         pressesdec+=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
+        if (detailedoutput==1){
         console.log("chal "+challenge+". +"+((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)+"!")
+        }
         } else {
         pressesdec+=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
+        if (detailedoutput==1){
         console.log("chal "+challenge+". +"+((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)+"!")
+        }
         }
         } else if (dimension==1){
         pressesdec+=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msaway/100))
-        console.log("anti-dimension. +"+((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)+"!")
+        if (detailedoutput==1){
+        console.log("anti-dimension. +"+((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msaway/100))+"!")
+        }
+        }
+        } else {
+        if (detailedoutput==1){
+        console.log("chal "+challenge+"... no gain. (ppstog is "+ppstog+"))
         }
         }
         if (detailedoutput==1){
