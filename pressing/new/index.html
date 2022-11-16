@@ -67,6 +67,7 @@ var away = 0;
 var msaway = 0;
 var msoff = 0;
 var msaway2 = 0;
+var msawayoff = 0;
 var autosavetimer = 60;
 var astmax = 60;
 var tutorialmode = 1; 
@@ -3144,41 +3145,42 @@ updateShop()
 }
 }
 window.onfocus = function (ev) {
+    msawaycalc=(Date.now()-timeoff)
+    away=0
     if (ppstog==1 || autotog==1){
     if (detailedoutput==1){
     console.log("* USER BACK *")
     }
+    ppsgainoff=0
     if (ppstog==1){
     if (dimension==0){
     if (challenge==2){
     pressesdec=0
     } else if (challenge==3 || challenge==4){
-    pressesdec+=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
-    ppsgainoff=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
+    pressesdec+=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msawaycalc/100)/100)*ppsoffbonus)
+    ppsgainoff=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msawaycalc/100)/100)*ppsoffbonus)
     } else {
-    pressesdec+=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
-    ppsgainoff=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msaway/100)/100)*ppsoffbonus)
+    pressesdec+=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msawaycalc/100)/100)*ppsoffbonus)
+    ppsgainoff=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msawaycalc/100)/100)*ppsoffbonus)
     }
     } else if (dimension==1){
-    pressesdec+=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msaway/100))
-    ppsgainoff=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msaway/100))
+    pressesdec+=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msawaycalc/100))
+    ppsgainoff=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msawaycalc/100))
     }
     }
     if (detailedoutput==1){
-    console.log("User back after "+((Math.trunc(msaway/86400000)))+" days(s), "+((Math.trunc(msaway/3600000))%24)+" hour(s), "+((Math.trunc(msaway/60000))%60)+" minute(s), and "+((Math.trunc(msaway/1000))%60)+" seconds. Auto cooldown decreased by "+((timeoff-Date.now())/1000)+". Presses increased by "+(((((cursor*0.01))+((mother*0.1)))*((msaway/100))/100)*ppsoffbonus)+" pps presses.");
+    console.log("User back after "+((Math.trunc(msawaycalc/86400000)))+" days(s), "+((Math.trunc(msaway/3600000))%24)+" hour(s), "+((Math.trunc(msawaycalc/60000))%60)+" minute(s), and "+((Math.trunc(msawaycalc/1000))%60)+" seconds. Auto cooldown decreased by "+((timeoff-Date.now())/1000)+". Presses increased by "+ppsgainoff+" pps presses.");
     }
     if (autotog==1){
-    autocooldown+=((Date.now()-timeoff)/1000)
+    autocooldown+=(msawaycalc/1000)
     }
     if (detailedoutput==1){
     console.log("* USER BACK *")
     }
     if (autopres==1){
-    autoresettimer+=((Date.now()-timeoff)/10)
+    autoresettimer+=(msawaycalc/10)
     }
     }
-    ppsgainoff = 0
-    away=0
 };
 
 
