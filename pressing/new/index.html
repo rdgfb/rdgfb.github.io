@@ -1725,8 +1725,8 @@ function checkChallenge(){
 function updateLevelandAuto(){
     updateXPmult()
     if(away==0){
-    if(ppstog==1){
     if(dimension==0){
+    if(ppstog==1){
     if (challenge==2){
     pressesdec=0
     } else if (challenge==3 || challenge==4 || challenge==5){
@@ -1734,7 +1734,6 @@ function updateLevelandAuto(){
     } else {
     pressesdec+=(((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul*0.001))
     }
-    //antipressesdec+=((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))
     if (challenge==2){
     pps=0
     } else if (challenge==3 || challenge==4 || challenge==5){
@@ -1746,8 +1745,8 @@ function updateLevelandAuto(){
     pps=-1
     }
     } else if (dimension==1){
-    pressesdec+=0
-    antipps=0
+    pressesdec+=(((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))
+    antipps=parseInt((((((goals1*(antistrength)))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001)).toFixed(1)))
     }
     if (pressesdec>=1 && pressesdec<11){
     pressesdec-=1
@@ -2488,7 +2487,7 @@ function updatePressing(){
         } else {
             document.getElementById("second").innerText=pps+" presses per second";
         }
-        } else if (dimension==1){
+        } else {
         if (antipresses==1){
             document.getElementById("first").innerText=antipresses+" anti-press";
         } else if (antipresses>=0 && antipresses<1000000) {
@@ -2534,8 +2533,8 @@ function updatePressing(){
         } else if (antipresses>=1000000000000000000000000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000000000000000000000000) {
             document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"Vg anti-presses";
         }
-        if (pps==-1){
-            document.getElementById("second").innerText="pps disabled.";
+        if (antipps==-1){
+            document.getElementById("second").innerText="anti-pps disabled.";
         } else if (antipps==1){
             document.getElementById("second").innerText=antipps+" anti-press per second";
         } else if (antipps>1 && antipps<1000000) {
@@ -4385,7 +4384,7 @@ mpoweramt = 1;
 cost5 = 1000;
 cost6 = 4000;
 document.body.style="overflow: hidden; background-color: #000000"
-document.getElementById("first").style="color: #FFFFFF"
+document.getElementById("first").style="color: #FFFFFF; position: relative; top: -15px"
 document.getElementById("second").style="color: #FFFFFF"
 document.getElementById("Level").style="color: #FFFFFF"
 document.getElementById("debug0").style="color: #FFFFFF"
@@ -4476,7 +4475,7 @@ mxppts = 0;
 mxpnxt = 100;
 mxpmul = 1;
 document.body.style="overflow: hidden; background-color: #FFFFFF"
-document.getElementById("first").style="color: #000000"
+document.getElementById("first").style="color: #000000; position: relative; top: -15px"
 document.getElementById("second").style="color: #000000"
 document.getElementById("Level").style="color: #000000"
 document.getElementById("debug0").style="color: #000000"
