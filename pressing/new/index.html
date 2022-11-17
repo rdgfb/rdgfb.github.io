@@ -188,6 +188,50 @@ var offlineGain = 0;
 var autopresbuy = 0;
 var anticost2 = 1000000;
 var autoresettimer = 0;
+/** all achievements. for all, 0 achievements is none **/
+/* pressing milestones */
+var achpps = 0; //each achievement is a 10x milestone, but 1 is one. "raking in the money"
+var achtotal = 0; //each achievement is a OoM milestone, but 1 is one. "rich in total"
+var achheld = 0; //each achievement is a OoM milestone, but is at the half way point of achievementpps's milestones. "rich on hand"
+/* building */
+var achcursor = 0; //each achievement is a custom milestone, from 1 to 7, it is 1, 5, 25, 100, 250, 500, 1000. "More cursors, more techniques, more power"
+var achmother = 0; //each achievement is a custom milestone, from 1 to 7, it is 1, 5, 25, 100, 250, 500, 1000. "Endless your mother jokes"
+/* progression */
+var achanti = 0; //unique achievement, first dimension hop.
+var achpres = 0; //each achievement is a custom milestone, from 1 to 14, it is 1, 5, 25, 50, 75, 100, 250, 500, 750, 1000, 2500, 5000, 7500, 10000. "My money is in another realm, sorry"
+var achasc = 0; //each achievement is a custom milestone, from 1 to 15, it is 1, 5, 10, 25, 50, 75, 100, 125, 250, 375, 500, 750, 1000, 1250, 1337. "My stuff is in another realm, sorry"
+var secscammed = 0; //secret achievement, achieve everything (but this). "100%!! wait, there's more?"
+/* easter eggs */
+var eggcookie = 0; //secret achievement, find the cookie. "who said a cookie clicker clone didn't have references?"
+var eggbirthday = 0; //secret achievement, play on the game's birthday! (February 15th, 2022) probably the hardest to get legit. "Today is the game's birthday!"
+var eggmother = 0; //secret achievement, witness the 1 in a million your mother joke. "AHHAHAHAHAH SO FUNNY XDDD"
+var eggcursor = 0; //secret achievement, click on the cursor text. 1000 times. that's it. why would anyone do this. "Were you trying to get a cursor? because it worked... almost."
+var eggcursorpresses = 0; //needed for above
+var eggegg = 0; //holiday secret achievement, find the 不可能的 egg, in 1 minute. "嗯不是那么不可能吧！！！"
+/* easter */
+var achshegg = 0; //holiday achievement, find the shining egg. "it like to be in your face. literally."
+var achegg = 0; //holiday achievement, find the normal egg. "it likes trades."
+var achhaegg = 0; //holiday achievement, find the midnight egg. "it likes the 0th hour."
+var achimpegg = 0; //holiday achievement, find the 不可能的 egg. "它喜欢成为隐藏最好的（祝你好运）" means "It likes to be the best at hiding (good luck)"
+var achgoegg = 0; //holiday achievement, find the gold egg. "it likes large amounts of presses"
+var acheggment = 0; //holiday achievement, find ALL eggs. unlocks a trophy "eg"
+/* holiday */
+var achdeco1 = 0; //holiday achievement, decorate the button "Dashing through the snow, in a one-horse open sleigh. O'er the fields we go, pressing all the way!"
+var achdeco2 = 0; //holiday achievement, buy a tree. "Grandma got run over by a reindeer. Walking home from pressing, Christmas Eve"
+var achdeco3 = 0; //holiday achievement, buy lights for the christmas tree. "Rockin' around the Christmas tree, at the pressing christmas event."
+var achdeco4 = 0; //holiday achievement, buy a fireplace. "Staying warm, especially on Christmas, is important."
+var achdeco5 = 0; //holiday achievement, buy christmas stockings. "Have a holly, jolly christmas! It's the best pressing time of the year."
+var achsanta = 0; //holiday achievement, play on christmas day! Santa has arrived. "Merry Christmas!"
+/* secret */
+var secfrown = 0; //secret achievement, inspect element the credits, then edit any name. ":("
+var seccheater = 0; //secret achievement, be a dirty cheater. "i'm telling mom"
+var seclilsweat = 0; //secret achievement, start the game, and get 1 million in 15 minutes. "wow, that was fast."
+var secsweat = 0; //secret achievement, start the game, and get 1 million in 10 minutes. "ok, you can slow down now."
+var secbigsweat = 0; //secret achievement, start the game, and get 1 million in 5 minutes. "oh my god, how are you so fast?!?"
+/* insane (please for the love of god don't actively get these.) */
+var secscammed = 0; //secret achievement, achieve absolutely EVERYTHING (but this). "true 100%!! wait, where's my reward?"
+var sectootired = 0; //secret achievement, do not gain any presses in 24 hours, all in one sitting. "i'm entirely too tired. can i sleep yet?"
+/** end of all achievements **/
 document.body.onload = function(){
     loadCookie();
     updateXPmult()
@@ -2615,7 +2659,7 @@ var byebye = setInterval(function(){
 }, 10)
 var slowupdater = setInterval(function(){
     if (loaded==2){
-        if (autobuy==1 || autoupgrade==1){
+        if (autobuy==1 || autoupgrade==1 || autopresbuy==1){
             updateAuto()
         }
     }
