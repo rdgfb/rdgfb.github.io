@@ -465,10 +465,10 @@ document.body.onload = function(){
     console.warn("goals5 was undefined!!! Old or corrupted data? Set to default. Sorry for the inconvenience!")
     }
     }
-    if (goals5 === undefined){
-    goals5=0
+    if (goals6 === undefined){
+    goals6=0
     if (detailedoutput==1){
-    console.warn("goals5 was undefined!!! Old or corrupted data? Set to default. Sorry for the inconvenience!")
+    console.warn("goals6 was undefined!!! Old or corrupted data? Set to default. Sorry for the inconvenience!")
     }
     }
     if (again === undefined){
@@ -3357,7 +3357,7 @@ function loadCookie(){
         goals3 = saveLoading.goals3;
         goals4 = saveLoading.goals4;
         goals5 = saveLoading.goals5;
-        goals5 = saveLoading.goals6;
+        goals6 = saveLoading.goals6;
         again = saveLoading.again;
         anonymity = saveLoading.anonymity;
         acost0 = saveLoading.acost0;
@@ -4240,7 +4240,7 @@ pcost5 = 1000;
 plowco = 1;
 updateResets()
 }
-function ascend(){
+function ascendnogain(){
 ppoint=0
 pgain=0
 again=0
@@ -4514,6 +4514,8 @@ shop()
 }
 }
 function changeDimension(){
+ppoint=0
+ascpts=0
 again=0;
 mpgain=0;
 presses = 0;
@@ -4990,6 +4992,7 @@ pressingFile.goals2 = goals2;
 pressingFile.goals3 = goals3;
 pressingFile.goals4 = goals4;
 pressingFile.goals5 = goals5;
+pressingFile.goals6 = goals6;
 pressingFile.again = again;
 pressingFile.anonymity = anonymity;
 pressingFile.acost0 = acost0;
@@ -5097,6 +5100,7 @@ pressingFile.goals2 = goals2;
 pressingFile.goals3 = goals3;
 pressingFile.goals4 = goals4;
 pressingFile.goals5 = goals5;
+pressingFile.goals6 = goals6;
 pressingFile.again = again;
 pressingFile.anonymity = anonymity;
 pressingFile.acost0 = acost0;
@@ -5200,6 +5204,7 @@ pressingFile.goals2 = goals2;
 pressingFile.goals3 = goals3;
 pressingFile.goals4 = goals4;
 pressingFile.goals5 = goals5;
+pressingFile.goals6 = goals6;
 pressingFile.again = again;
 pressingFile.anonymity = anonymity;
 pressingFile.acost0 = acost0;
@@ -5308,6 +5313,7 @@ goals2 = pressingFile.goals2;
 goals3 = pressingFile.goals3;
 goals4 = pressingFile.goals4;
 goals5 = pressingFile.goals5;
+goals6 = pressingFile.goals6;
 again = pressingFile.again;
 anonymity = pressingFile.anonymity;
 acost0 = pressingFile.acost0;
