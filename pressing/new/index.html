@@ -4226,6 +4226,30 @@ goals4+=25
 }
 challenge=0
 }
+if (challenge==5){
+if ((failtimer-(Date.now()))>=0 && (failtimer-(Date.now()))<4320000){
+goals5+=1
+} else if ((failtimer-(Date.now()))>=4320000 && (failtimer-(Date.now()))<8640000){
+goals5+=2
+} else if ((failtimer-(Date.now()))>=8640000 && (failtimer-(Date.now()))<12960000){
+goals5+=3
+} else if ((failtimer-(Date.now()))>=12960000 && (failtimer-(Date.now()))<17280000){
+goals5+=4
+} else if ((failtimer-(Date.now()))>=17280000 && (failtimer-(Date.now()))<21600000){
+goals5+=5
+} else if ((failtimer-(Date.now()))>=21600000 && (failtimer-(Date.now()))<25920000){
+goals5+=6
+} else if ((failtimer-(Date.now()))>=25920000 && (failtimer-(Date.now()))<30240000){
+goals5+=7
+} else if ((failtimer-(Date.now()))>=30240000 && (failtimer-(Date.now()))<34560000){
+goals5+=8
+} else if ((failtimer-(Date.now()))>=34560000 && (failtimer-(Date.now()))<38880000){
+goals5+=9
+} else if ((failtimer-(Date.now()))>=38880000 && (failtimer-(Date.now()))<43200000){
+goals5+=10
+}
+challenge=0
+}
 ppoint=0
 pgain=0
 ascpts+=((ppress+1)*(pxpmul+1)*(plowco+1)*0.25);
