@@ -4248,7 +4248,7 @@ goals5+=10
 challenge=0
 }
 ppoint=0
-pgain=0
+mpgain=0
 ascpts+=((ppress+1)*(pxpmul+1)*(plowco+1)*0.25);
 if (bestascend<((ppress+1)*(pxpmul+1)*(plowco+1)*0.25)){
 bestascend=((ppress+1)*(pxpmul+1)*(plowco+1)*0.25)
@@ -4311,7 +4311,7 @@ updateResets()
 }
 function ascendnogain(){
 ppoint=0
-pgain=0
+mpgain=0
 again=0
 presses = 0;
 pressesdec = 0;
@@ -4373,14 +4373,13 @@ function doAnonymity(){
 lastanonymity=Date.now()
 anonymityamt+=1
 ppoint=0
-pgain=0
+mpgain=0
 ascpts=0
 anonymity+=((again*(1+(goals4*0.25)))*prespwr)
 if (bestanonymity<((again*(1+(goals4*0.25)))*prespwr)){
 bestanonymity=((again*(1+(goals4*0.25)))*prespwr)
 }
 again=0;
-mpgain=0;
 presses = 0;
 pressesdec = 0;
 antipresses = 0;
@@ -4456,10 +4455,9 @@ updateResets()
 }
 function anonymitynogain(){
 ppoint=0
-pgain=0
+mpgain=0
 ascpts=0
 again=0;
-mpgain=0;
 presses = 0;
 pressesdec = 0;
 antipresses = 0;
