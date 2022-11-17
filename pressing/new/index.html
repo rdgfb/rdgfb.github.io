@@ -1734,9 +1734,6 @@ function updateBest(){
     if (pcost4>0){
     pcost4=(1000000-(goals5*100000))
     }
-    if (goals5==10){
-    buyAnti()
-    }
 }
 function checkChallenge(){
     if (presses>=100 && challenge==7){
@@ -4305,7 +4302,9 @@ ppress = 1;
 pcost3 = 1;
 pxpmul = 1;
 pcost4 = 1000000;
+if (goals5!==10){
 cananti = 0;
+}
 pcost5 = 1000;
 plowco = 1;
 updateResets()
@@ -4363,7 +4362,9 @@ ppress = 1;
 pcost3 = 1;
 pxpmul = 1;
 pcost4 = 1000000;
+if (goals5!==10){
 cananti = 0;
+}
 pcost5 = 1000;
 plowco = 1;
 updateResets()
@@ -4435,7 +4436,9 @@ ppress = 1;
 pcost3 = 1;
 pxpmul = 1;
 pcost4 = 1000000;
+if (goals5!==10){
 cananti = 0;
+}
 pcost5 = 1000;
 plowco = 1;
 if (goals5!==10){
@@ -4512,7 +4515,9 @@ ppress = 1;
 pcost3 = 1;
 pxpmul = 1;
 pcost4 = 1000000;
+if (goals5!==10){
 cananti = 0;
+}
 pcost5 = 1000;
 plowco = 1;
 if (goals5!==10){
@@ -4643,7 +4648,9 @@ ppress = 1;
 pcost3 = 1;
 pxpmul = 1;
 pcost4 = 1000000;
+if (goals5!==10){
 cananti = 0;
+}
 pcost5 = 1000;
 plowco = 1;
 if (dimension==0){
