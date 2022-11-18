@@ -36,6 +36,7 @@
 <div id="charger" style="position: relative; height: 250px; width: 250px; top: 0px; left: -100%; background-color: #CCCC00; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; left: 1px; top: 1px; width: 248px; height: 56px; text-align: center; background-color: #FFFF00; color: #000000; text-align: center;">Charger</div><div style="position: relative; left: 1px; top: -37px; width: 248px; height: 18px; text-align: center; background-color: transparent; color: #000000;"><a id="chargr">0</a> Watts <a id="cps">(0/s)</a></div><div style="position: relative; left: 1px; top: -37px; width: 248px; height: 20px; text-align: center; background-color: transparent; color: #000000;">Charging: <select id="charging"><option value="None">None</option><option value="Spread">Spread</option><option value="Presses">Presses</option><option value="XP">XP</option><option value="Prestige">Prestige</option><option value="Ascend">Ascend</option><option value="Anonymity">Anonymity</option></select></div><div style="background-color: #000000; position: relative; left: 1px; top: -37px; overflow-y: scroll; overflow-x: clip; width: 248px; height: 192px; text-align: center;"><div style="background-color: transparent;">Presses: x<a id="cpress">1</a></div><div style="background-color: transparent;">XP: x<a id="cxp">1</a></div><div style="background-color: transparent;">Prestige: x<a id="cprestige">1</a></div><div style="background-color: transparent;">Ascend: x<a id="cascend">1</a></div><div style="background-color: transparent;">Anonymity: x<a id="canonymity">1</a></div><div style="background-color: transparent;">Squeeze: x<a id="csqueeze">1</a></div><div style="background-color: transparent;">Squeeze Success Rate: +<a id="cschance">0</a>%</div><div style="background-color: transparent;">Squeeze Oil Bonus: +<a id="csbonus">0</a>%</div></div></div><!--><div id="coverq1b2" style="position: absolute; left: -50px; top: 113px; height: 23px; width: 36px; background-color: transparent;"></div><!-->
 </body>
 <script>
+/** WARNING: looking here will result in spoilers. you been warned. this should be on [rdgfb.github.io/pressing/new/index.html] **/
 var lastSave = 0;
 var firstCursor = 1;
 var pressesdec = 0;
@@ -188,49 +189,273 @@ var offlineGain = 0;
 var autopresbuy = 0;
 var anticost2 = 1000000;
 var autoresettimer = 0;
+var popups = 0;
 /** all achievements. for all, 0 achievements is none **/
+/* descriptions */
+/* presses */
+var achtitle1 = "The Legendary First!"
+var achdesc1 = "You have pressed once! However, one is not enough."
+var achcomp1 = 0
+var achtitle2 = "Now we're talking!"
+var achdesc2 = "Pressed 1k times. Keep going!"
+var achcomp2 = 0
+var achtitle3 = "Millions, baby!"
+var achdesc3 = "Pressed 1M times. Millionaire!"
+var achcomp3 = 0
+var achtitle4 = "I'm getting rich!"
+var achdesc4 = "Pressed 1B times. Well done!"
+var achcomp4 = 0
+var achtitle5 = "I'm worth an amazon."
+var achdesc5 = "Pressed 1T times. Are you Jeff Bazos?"
+var achcomp5 = 0
+var achtitle6 = "Quad? Quadrant?"
+var achdesc6 = "Pressed 1Qa times. This isn't math. It's heaven."
+var achcomp6 = 0
+var achtitle7 = "Quin? Penquin?"
+var achdesc7 = "Pressed 1Qi times. \"penguin* 🤓\""
+var achcomp7 = 0
+var achtitle8 = "Mmmm Richer!"
+var achdesc8 = "Pressed 1Sx times. Lamp oil? Rope? Bombs?"
+var achcomp8 = 0
+var achtitle9 = "Sp...ACE!!"
+var achdesc9 = "Pressed 1Sp times. *portal reference*"
+var achcomp9 = 0
+var achtitle10 = "Octagon?"
+var achdesc10 = "Pressed 1Oc times. This stop sign is an octagon!"
+var achcomp10 = 0
+var achtitle11 = "No...vember?"
+var achdesc11 = "Pressed 1No times. Written in? yes. (11/18/22)"
+var achcomp11 = 0
+var achtitle12 = "Dec...ember?"
+var achdesc12 = "Pressed 1Dc times. Where's the snow?"
+var achcomp12 = 0
+/* pps */
+var achtitle13 = "Faster than a rock."
+var achdesc13 = "0.1 PPS. Patrick Star's rock is faster."
+var achcomp13 = 0
+var achtitle14 = "Faster than a snail"
+var achdesc14 = "100 PPS. You got more to go."
+var achcomp14 = 0
+var achtitle15 = "Faster than a turtle"
+var achdesc15 = "10,000 PPS. Getting better!"
+var achcomp15 = 0
+var achtitle16 = "Faster than a human"
+var achdesc16 = "1,000,000 PPS. Yeah."
+var achcomp16 = 0
+var achtitle17 = "Faster than a rat"
+var achdesc17 = "100,000,000 PPS. Rats are faster somehow."
+var achcomp17 = 0
+var achtitle18 = "Faster than a bunny"
+var achdesc18 = "10 Billion PPS. Bunny fast."
+var achcomp18 = 0
+var achtitle19 = "Faster than a cheetah"
+var achdesc19 = "1 Trillion PPS. Cheetahs are cheetas."
+var achcomp19 = 0
+var achtitle20 = "Faster than a car"
+var achdesc20 = "1 Quadrillion PPS. Vroom vroom."
+var achcomp20 = 0
+var achtitle21 = "Faster than a plane"
+var achdesc21 = "1 Quintillion PPS. We're flying!"
+var achcomp21 = 0
+var achtitle22 = "Faster than a bullet"
+var achdesc22 = "1 Sextillion PPS. Quick! A matrix reference!"
+var achcomp22 = 0
+var achtitle23 = "Faster than a rocket"
+var achdesc23 = "1 Septillion PPS. I'm going to eat the moon."
+var achcomp23 = 0
+var achtitle24 = "Faster than the sound"
+var achdesc24 = "1 Octillion PPS. I am fast."
+var achcomp24 = 0
+var achtitle25 = "Faster than the light"
+var achdesc25 = "1 Nonillion PPS. Fast? more like FASTER!"
+var achcomp25 = 0
+var achtitle26 = "Faster than it all"
+var achdesc26 = "1 Decillion PPS. Faster? more like FASTEST!"
+var achcomp26 = 0
+/* buildings */
+var achtitle27 = "Click"
+var achdesc27 = "1 cursor. (does your mouse count?)"
+var achcomp27 = 0
+var achtitle28 = "Hand of clicking"
+var achdesc28 = "5 cursors. 1 finger = 1 mouse"
+var achcomp28 = 0
+var achtitle29 = "Family of clicking"
+var achdesc29 = "25 cursors. Clicking is fun for the family!"
+var achcomp29 = 0
+var achtitle30 = "Workspace of clicking"
+var achdesc30 = "100 cursors. This is work 100%, boss."
+var achcomp30 = 0
+var achtitle31 = "School of clicking"
+var achdesc31 = "250 cursors. Not fish."
+var achcomp31 = 0
+var achtitle32 = "Clicking robots."
+var achdesc32 = "500 cursors. They might take over."
+var achcomp32 = 0
+var achtitle33 = "All Robots"
+var achdesc33 = "1,000 cursors. Yeah they just did. Oops."
+var achcomp33 = 0
+var achtitle34 = "Your Mother!!!"
+var achdesc34 = "1 mother. \"Joe Mama!\""
+var achcomp34 = 0
+var achtitle35 = "Your Grandmothers!!!"
+var achdesc35 = "5 mothers. Too old is not an excuse"
+var achcomp35 = 0
+var achtitle36 = "More mothers!"
+var achdesc36 = "25 mothers. Mother, where are you?"
+var achcomp36 = 0
+var achtitle37 = "Endless mothers"
+var achdesc37 = "100 mothers. Endless Joe Mama Jokes."
+var achcomp37 = 0
+var achtitle38 = "Mothers everywhere"
+var achdesc38 = "250 mothers. Mother?"
+var achcomp38 = 0
+var achtitle39 = "I miss you, mother."
+var achdesc39 = "500 mothers. I hope they are cared for."
+var achcomp39 = 0
+var achtitle40 = "All mothers."
+var achdesc40 = "1,000 mothers. Mother's clicking, son."
+var achcomp40 = 0
+/* unique achievements */
+var achtitle41 = "Quick day"
+var achdesc41 = "Dimension hop 1 time."
+var achcomp41 = 0
+var achtitle42 = "Quick night"
+var achdesc42 = "Dimension hop 2 times."
+var achcomp42 = 0
+var achtitle43 = "Accomplishing"
+var achdesc43 = "Accomplish something."
+var achcomp43 = 0
+var achtitle44 = "Accomplished"
+var achdesc44 = "Accomplish everything!"
+var achcomp44 = 0
+var achtitle45 = "Wake and Bake"
+var achdesc45 = "Bake 1 cooki- wait what"
+var achcomp45 = 0
+var achtitle46 = "Birthday!"
+var achdesc46 = "Play on February 15th. thanks for sticking!"
+var achcomp46 = 0
+var achtitle47 = "Cursor text"
+var achdesc47 = "click 1000 times. Got one free... almost."
+var achcomp47 = 0
+var achtitle48 = "嗯不是那么不可能吧！！！"
+var achdesc48 = "Find the 不可能的 egg... in a minute."
+var achcomp48 = 0
+/* event achievements */
+var achtitle49 = "Shining egg!"
+var achdesc49 = "It likes to be in your face... literally."
+var achcomp49 = 0
+var achtitle50 = "Normal egg!"
+var achdesc50 = "It likes trades"
+var achcomp50 = 0
+var achtitle51 = "Midnight egg!"
+var achdesc51 = "It likes late hours"
+var achcomp51 = 0
+var achtitle52 = "Gold egg!"
+var achdesc52 = "It likes large amounts"
+var achcomp52 = 0
+var achtitle53 = "不可能的 egg!"
+var achdesc53 = "它喜欢成为隐藏最好的（祝你好运）"
+var achcomp53 = 0
+var achtitle54 = "achieggment!"
+var achdesc54 = "Complete the Easter event!"
+var achcomp54 = 0
+var achtitle55 = "Festive button"
+var achdesc55 = "Decorate the button."
+var achcomp55 = 0
+var achtitle56 = "Pine tree."
+var achdesc56 = "Get a pine tree... why?"
+var achcomp56 = 0
+var achtitle57 = "Festive tree"
+var achdesc57 = "Decorate the tree. oh that's why"
+var achcomp57 = 0
+var achtitle58 = "Warmth!"
+var achdesc58 = "Get a fireplace. Warmth is increased."
+var achcomp58 = 0
+var achtitle59 = "Stockings!"
+var achdesc59 = "Decorate the fireplace."
+var achcomp59 = 0
+var achtitle60 = "Santa!!!"
+var achdesc60 = "He came."
+var achcomp60 = 0
+/* reset achievements */
+var achtitle61 = "Hey! My presses!"
+var achdesc61 = "Prestige for the first time."
+var achcomp61 = 0
+var achtitle62 = "Hey! My prestige!"
+var achdesc62 = "Ascend for the first time."
+var achcomp62 = 0
+var achtitle63 = "Hey! My identity!"
+var achdesc63 = "Anonymity for the first time."
+var achcomp63 = 0
+var achtitle64 = "Hey! My anonymity!"
+var achdesc64 = "Squeeze for the first time."
+var achcomp64 = 0
+/* secrets */
+var achtitle65 = "i'm telling mom"
+var achdesc65 = "Cheat. \"are you a cheetah or a cheeta?\""
+var achcomp65 = 0
+var achtitle66 = "Sweating a little."
+var achdesc66 = "1M presses in 900s. *NEW SAVE ONLY*"
+var achcomp66 = 0
+var achtitle67 = "Sweating."
+var achdesc67 = "1M presses in 600s. *NEW SAVE ONLY*"
+var achcomp67 = 0
+var achtitle68 = "Sweating a lot."
+var achdesc68 = "1M presses in 300s. *NEW SAVE ONLY*"
+var achcomp68 = 0
+var achtitle69 = "too tired."
+var achdesc69 = "Do not press or idle for 86400s. *yawn*"
+var achcomp69 = 0
+var achtitle70 = "69 achieved!"
+var achdesc70 = "Achieve it all. Time to touch Grass?"
+var achcomp70 = 0
+/* scrapped */
+//var achtitle65 = ":("
+//var achdesc65 = "Edit a name, and change it."
+//var achcomp65 = 0
+/* old */
 /* pressing milestones */
-var achpps = 0; //each achievement is a 10x milestone, but 1 is one. "raking in the money"
-var achtotal = 0; //each achievement is a OoM milestone, but 1 is one. "rich in total"
-var achheld = 0; //each achievement is a OoM milestone, but is at the half way point of achievementpps's milestones. "rich on hand"
+//var achpps = 0; //each achievement is a OoM milestone, but 1 is one. "raking in the money"
+//var achtotal = 0; //each achievement is a OoM milestone, but 1 is one. "rich in total"
+/* (scrapped) var achheld = 0; //each achievement is a OoM milestone, but is at the half way point of achievementpps's milestones. "rich on hand" */
 /* building */
-var achcursor = 0; //each achievement is a custom milestone, from 1 to 7, it is 1, 5, 25, 100, 250, 500, 1000. "More cursors, more techniques, more power"
-var achmother = 0; //each achievement is a custom milestone, from 1 to 7, it is 1, 5, 25, 100, 250, 500, 1000. "Endless your mother jokes"
+//var achcursor = 0; //each achievement is a custom milestone, from 1 to 7, it is 1, 5, 25, 100, 250, 500, 1000. "More cursors, more techniques, more power"
+//var achmother = 0; //each achievement is a custom milestone, from 1 to 7, it is 1, 5, 25, 100, 250, 500, 1000. "Endless your mother jokes"
 /* progression */
-var achanti = 0; //unique achievement, first dimension hop.
-var achpres = 0; //each achievement is a custom milestone, from 1 to 14, it is 1, 5, 25, 50, 75, 100, 250, 500, 750, 1000, 2500, 5000, 7500, 10000. "My money is in another realm, sorry"
-var achasc = 0; //each achievement is a custom milestone, from 1 to 15, it is 1, 5, 10, 25, 50, 75, 100, 125, 250, 375, 500, 750, 1000, 1250, 1337. "My stuff is in another realm, sorry"
-var secscammed = 0; //secret achievement, achieve everything (but this). "100%!! wait, there's more?"
+//var achanti = 0; //unique achievement, first dimension hop.
+//var achpres = 0; //each achievement is a custom milestone, from 1 (formally to 14, it is 1, 5, 25, 50, 75, 100, 250, 500, 750, 1000, 2500, 5000, 7500, 10000.) "My money is in another realm, sorry"
+//var achasc = 0; //each achievement is a custom milestone, from 1 (formally to 15, it is 1, 5, 10, 25, 50, 75, 100, 125, 250, 375, 500, 750, 1000, 1250, 1337.) "My stuff is in another realm, sorry"
+//var secscammer = 0; //secret achievement, accomplish everything (but this). "100%!! wait, there's more?"
 /* easter eggs */
-var eggcookie = 0; //secret achievement, find the cookie. "who said a cookie clicker clone didn't have references?"
-var eggbirthday = 0; //secret achievement, play on the game's birthday! (February 15th, 2022) probably the hardest to get legit. "Today is the game's birthday!"
-var eggmother = 0; //secret achievement, witness the 1 in a million your mother joke. "AHHAHAHAHAH SO FUNNY XDDD"
-var eggcursor = 0; //secret achievement, click on the cursor text. 1000 times. that's it. why would anyone do this. "Were you trying to get a cursor? because it worked... almost."
-var eggcursorpresses = 0; //needed for above
-var eggegg = 0; //holiday secret achievement, find the 不可能的 egg, in 1 minute. "嗯不是那么不可能吧！！！"
+//var eggcookie = 0; //secret achievement, find the cookie. "who said a cookie clicker clone didn't have references?"
+//var eggbirthday = 0; //secret achievement, play on the game's birthday! (February 15th, 2022) probably the hardest to get legit. "Today is the game's birthday!"
+// var eggmother = 0; //secret achievement, witness the 1 in a million your mother joke. "AHHAHAHAHAH SO FUNNY XDDD" nope already did a your mother joke
+//var eggcursor = 0; //secret achievement, click on the cursor text. 1000 times. that's it. why would anyone do this. "Were you trying to get a cursor? because it worked... almost."
+//var eggcursorpresses = 0; //needed for above
+//var eggegg = 0; //holiday secret achievement, find the 不可能的 egg, in 1 minute. "嗯不是那么不可能吧！！！"
 /* easter */
-var achshegg = 0; //holiday achievement, find the shining egg. "it like to be in your face. literally."
-var achegg = 0; //holiday achievement, find the normal egg. "it likes trades."
-var achhaegg = 0; //holiday achievement, find the midnight egg. "it likes the 0th hour."
-var achimpegg = 0; //holiday achievement, find the 不可能的 egg. "它喜欢成为隐藏最好的（祝你好运）" means "It likes to be the best at hiding (good luck)"
-var achgoegg = 0; //holiday achievement, find the gold egg. "it likes large amounts of presses"
-var acheggment = 0; //holiday achievement, find ALL eggs. unlocks a trophy "eg"
+//var achshegg = 0; //holiday achievement, find the shining egg. "it like to be in your face. literally."
+//var achegg = 0; //holiday achievement, find the normal egg. "it likes trades."
+//var achhaegg = 0; //holiday achievement, find the midnight egg. "it likes the 0th hour."
+//var achimpegg = 0; //holiday achievement, find the 不可能的 egg. "它喜欢成为隐藏最好的（祝你好运）" means "It likes to be the best at hiding (good luck)"
+//var achgoegg = 0; //holiday achievement, find the gold egg. "it likes large amounts of presses"
+//var achieggment = 0; //holiday achievement, find ALL eggs. unlocks a trophy "eg"
 /* holiday */
-var achdeco1 = 0; //holiday achievement, decorate the button "Dashing through the snow, in a one-horse open sleigh. O'er the fields we go, pressing all the way!"
-var achdeco2 = 0; //holiday achievement, buy a tree. "Grandma got run over by a reindeer. Walking home from pressing, Christmas Eve"
-var achdeco3 = 0; //holiday achievement, buy lights for the christmas tree. "Rockin' around the Christmas tree, at the pressing christmas event."
-var achdeco4 = 0; //holiday achievement, buy a fireplace. "Staying warm, especially on Christmas, is important."
-var achdeco5 = 0; //holiday achievement, buy christmas stockings. "Have a holly, jolly christmas! It's the best pressing time of the year."
-var achsanta = 0; //holiday achievement, play on christmas day! Santa has arrived. "Merry Christmas!"
+//var achdeco1 = 0; //holiday achievement, decorate the button "Dashing through the snow, in a one-horse open sleigh. O'er the fields we go, pressing all the way!"
+//var achdeco2 = 0; //holiday achievement, buy a tree. "Grandma got run over by a reindeer. Walking home from pressing, Christmas Eve"
+//var achdeco3 = 0; //holiday achievement, buy lights for the christmas tree. "Rockin' around the Christmas tree, at the pressing christmas event."
+//var achdeco4 = 0; //holiday achievement, buy a fireplace. "Staying warm, especially on Christmas, is important."
+//var achdeco5 = 0; //holiday achievement, buy christmas stockings. "Have a holly, jolly christmas! It's the best pressing time of the year."
+//var achsanta = 0; //holiday achievement, play on christmas day! Santa has arrived. "Merry Christmas!"
 /* secret */
-var secfrown = 0; //secret achievement, inspect element the credits, then edit any name. ":("
-var seccheater = 0; //secret achievement, be a dirty cheater. "i'm telling mom"
-var seclilsweat = 0; //secret achievement, start the game, and get 1 million in 15 minutes. "wow, that was fast."
-var secsweat = 0; //secret achievement, start the game, and get 1 million in 10 minutes. "ok, you can slow down now."
-var secbigsweat = 0; //secret achievement, start the game, and get 1 million in 5 minutes. "oh my god, how are you so fast?!?"
+//var secfrown = 0; //secret achievement, inspect element the credits, then edit any name. ":("
+//var seccheater = 0; //secret achievement, be a dirty cheater. "i'm telling mom"
+//var seclilsweat = 0; //secret achievement, start the game, and get 1 million in 15 minutes. "wow, that was fast."
+//var secsweat = 0; //secret achievement, start the game, and get 1 million in 10 minutes. "ok, you can slow down now."
+//var secbigsweat = 0; //secret achievement, start the game, and get 1 million in 5 minutes. "oh my god, how are you so fast?!?"
 /* insane (please for the love of god don't actively get these.) */
-var secscammed = 0; //secret achievement, achieve absolutely EVERYTHING (but this). "true 100%!! wait, where's my reward?"
-var sectootired = 0; //secret achievement, do not gain any presses in 24 hours, all in one sitting. "i'm entirely too tired. can i sleep yet?"
+//var secscammed = 0; //secret achievement, achieve absolutely EVERYTHING (but this). "true 100%!! wait, where's my reward?"
+//var sectootired = 0; //secret achievement, do not gain any presses in 24 hours, all in one sitting. "i'm entirely too tired. can i sleep yet?"
 /** end of all achievements **/
 document.body.onload = function(){
     loadCookie();
@@ -2636,6 +2861,46 @@ function settingsCheck(){
     document.getElementById("settingsui").style="opacity: 1; position: absolute; top: 0px; left: -100%; height: 250px; width: 250px; background-color: #FFFFFF; border-color: #000000; border-width: 1px; color: #000000; z-index: 4;";
     }
 }
+function checkAchievements(){
+    if (popups==0){
+    if (totalpresses>=1){
+    accomplish(achtitle1, achdesc1)
+    }
+    if (totalpresses>=1000){
+    accomplish(achtitle2, achdesc2)
+    }
+    if (totalpresses>=1000000){
+    accomplish(achtitle3, achdesc3)
+    }
+    if (totalpresses>=1000000000){
+    accomplish(achtitle4, achdesc4)
+    }
+    if (totalpresses>=1000000000000){
+    accomplish(achtitle5, achdesc5)
+    }
+    if (totalpresses>=1000000000000000){
+    accomplish(achtitle6, achdesc6)
+    }
+    if (totalpresses>=1000000000000000000){
+    accomplish(achtitle7, achdesc7)
+    }
+    if (totalpresses>=1000000000000000000000){
+    accomplish(achtitle8, achdesc8)
+    }
+    if (totalpresses>=1000000000000000000000000){
+    accomplish(achtitle9, achdesc9)
+    }
+    if (totalpresses>=1000000000000000000000000000){
+    accomplish(achtitle10, achdesc10)
+    }
+    if (totalpresses>=1000000000000000000000000000000){
+    accomplish(achtitle11, achdesc11)
+    }
+    if (totalpresses>=1000000000000000000000000000000000){
+    accomplish(achtitle12, achdesc12)
+    }
+    }
+}
 //oh look, the first function, the most important!! remains the same name, but it'ś the updater
 var byebye = setInterval(function(){
     if (loaded==2){
@@ -2652,6 +2917,7 @@ var byebye = setInterval(function(){
     if (debug!==0){
     updateDebug()
     }
+    checkAchievements()
     }
 }, 10)
 var slowupdater = setInterval(function(){
@@ -3341,6 +3607,77 @@ function createCookie(){
         pressingSave.autopresbuy = autopresbuy;
         pressingSave.anticost2 = anticost2;
         pressingSave.autoresettimer = autoresettimer;
+        pressingSave.achcomp1 = achcomp1;
+        pressingSave.achcomp2 = achcomp2;
+        pressingSave.achcomp3 = achcomp3;
+        pressingSave.achcomp4 = achcomp4;
+        pressingSave.achcomp5 = achcomp5;
+        pressingSave.achcomp6 = achcomp6;
+        pressingSave.achcomp7 = achcomp7;
+        pressingSave.achcomp8 = achcomp8;
+        pressingSave.achcomp9 = achcomp9;
+        pressingSave.achcomp10 = achcomp10;
+        pressingSave.achcomp11 = achcomp11;
+        pressingSave.achcomp12 = achcomp12;
+        pressingSave.achcomp13 = achcomp13;
+        pressingSave.achcomp14 = achcomp14;
+        pressingSave.achcomp15 = achcomp15;
+        pressingSave.achcomp16 = achcomp16;
+        pressingSave.achcomp17 = achcomp17;
+        pressingSave.achcomp18 = achcomp18;
+        pressingSave.achcomp19 = achcomp19;
+        pressingSave.achcomp20 = achcomp20;
+        pressingSave.achcomp21 = achcomp21;
+        pressingSave.achcomp22 = achcomp22;
+        pressingSave.achcomp23 = achcomp23;
+        pressingSave.achcomp24 = achcomp24;
+        pressingSave.achcomp25 = achcomp25;
+        pressingSave.achcomp26 = achcomp26;
+        pressingSave.achcomp27 = achcomp27;
+        pressingSave.achcomp28 = achcomp28;
+        pressingSave.achcomp29 = achcomp29;
+        pressingSave.achcomp30 = achcomp30;
+        pressingSave.achcomp31 = achcomp31;
+        pressingSave.achcomp32 = achcomp32;
+        pressingSave.achcomp33 = achcomp33;
+        pressingSave.achcomp34 = achcomp34;
+        pressingSave.achcomp35 = achcomp35;
+        pressingSave.achcomp36 = achcomp36;
+        pressingSave.achcomp37 = achcomp37;
+        pressingSave.achcomp38 = achcomp38;
+        pressingSave.achcomp39 = achcomp39;
+        pressingSave.achcomp40 = achcomp40;
+        pressingSave.achcomp41 = achcomp41;
+        pressingSave.achcomp42 = achcomp42;
+        pressingSave.achcomp43 = achcomp43;
+        pressingSave.achcomp44 = achcomp44;
+        pressingSave.achcomp45 = achcomp45;
+        pressingSave.achcomp46 = achcomp46;
+        pressingSave.achcomp47 = achcomp47;
+        pressingSave.achcomp48 = achcomp48;
+        pressingSave.achcomp49 = achcomp49;
+        pressingSave.achcomp50 = achcomp50;
+        pressingSave.achcomp51 = achcomp51;
+        pressingSave.achcomp52 = achcomp52;
+        pressingSave.achcomp53 = achcomp53;
+        pressingSave.achcomp54 = achcomp54;
+        pressingSave.achcomp55 = achcomp55;
+        pressingSave.achcomp56 = achcomp56;
+        pressingSave.achcomp57 = achcomp57;
+        pressingSave.achcomp58 = achcomp58;
+        pressingSave.achcomp59 = achcomp59;
+        pressingSave.achcomp60 = achcomp60;
+        pressingSave.achcomp61 = achcomp61;
+        pressingSave.achcomp62 = achcomp62;
+        pressingSave.achcomp63 = achcomp63;
+        pressingSave.achcomp64 = achcomp64;
+        pressingSave.achcomp65 = achcomp65;
+        pressingSave.achcomp66 = achcomp66;
+        pressingSave.achcomp67 = achcomp67;
+        pressingSave.achcomp68 = achcomp68;
+        pressingSave.achcomp69 = achcomp69;
+        pressingSave.achcomp70 = achcomp70;
+        pressingSave.achcomp71 = achcomp71;
     var jsonString = JSON.stringify(pressingSave);
     document.cookie = jsonString;
 };
@@ -3447,6 +3784,77 @@ function loadCookie(){
         autopresbuy = saveLoading.autopresbuy;
         anticost2 = saveLoading.anticost2;
         autoresettimer = saveLoading.autoresettimer;
+        achcomp1 = saveLoading.achcomp1;
+        achcomp2 = saveLoading.achcomp2;
+        achcomp3 = saveLoading.achcomp3;
+        achcomp4 = saveLoading.achcomp4;
+        achcomp5 = saveLoading.achcomp5;
+        achcomp6 = saveLoading.achcomp6;
+        achcomp7 = saveLoading.achcomp7;
+        achcomp8 = saveLoading.achcomp8;
+        achcomp9 = saveLoading.achcomp9;
+        achcomp10 = saveLoading.achcomp10;
+        achcomp11 = saveLoading.achcomp11;
+        achcomp12 = saveLoading.achcomp12;
+        achcomp13 = saveLoading.achcomp13;
+        achcomp14 = saveLoading.achcomp14;
+        achcomp15 = saveLoading.achcomp15;
+        achcomp16 = saveLoading.achcomp16;
+        achcomp17 = saveLoading.achcomp17;
+        achcomp18 = saveLoading.achcomp18;
+        achcomp19 = saveLoading.achcomp19;
+        achcomp20 = saveLoading.achcomp20;
+        achcomp21 = saveLoading.achcomp21;
+        achcomp22 = saveLoading.achcomp22;
+        achcomp23 = saveLoading.achcomp23;
+        achcomp24 = saveLoading.achcomp24;
+        achcomp25 = saveLoading.achcomp25;
+        achcomp26 = saveLoading.achcomp26;
+        achcomp27 = saveLoading.achcomp27;
+        achcomp28 = saveLoading.achcomp28;
+        achcomp29 = saveLoading.achcomp29;
+        achcomp30 = saveLoading.achcomp30;
+        achcomp31 = saveLoading.achcomp31;
+        achcomp32 = saveLoading.achcomp32;
+        achcomp33 = saveLoading.achcomp33;
+        achcomp34 = saveLoading.achcomp34;
+        achcomp35 = saveLoading.achcomp35;
+        achcomp36 = saveLoading.achcomp36;
+        achcomp37 = saveLoading.achcomp37;
+        achcomp38 = saveLoading.achcomp38;
+        achcomp39 = saveLoading.achcomp39;
+        achcomp40 = saveLoading.achcomp40;
+        achcomp41 = saveLoading.achcomp41;
+        achcomp42 = saveLoading.achcomp42;
+        achcomp43 = saveLoading.achcomp43;
+        achcomp44 = saveLoading.achcomp44;
+        achcomp45 = saveLoading.achcomp45;
+        achcomp46 = saveLoading.achcomp46;
+        achcomp47 = saveLoading.achcomp47;
+        achcomp48 = saveLoading.achcomp48;
+        achcomp49 = saveLoading.achcomp49;
+        achcomp50 = saveLoading.achcomp50;
+        achcomp51 = saveLoading.achcomp51;
+        achcomp52 = saveLoading.achcomp52;
+        achcomp53 = saveLoading.achcomp53;
+        achcomp54 = saveLoading.achcomp54;
+        achcomp55 = saveLoading.achcomp55;
+        achcomp56 = saveLoading.achcomp56;
+        achcomp57 = saveLoading.achcomp57;
+        achcomp58 = saveLoading.achcomp58;
+        achcomp59 = saveLoading.achcomp59;
+        achcomp60 = saveLoading.achcomp60;
+        achcomp61 = saveLoading.achcomp61;
+        achcomp62 = saveLoading.achcomp62;
+        achcomp63 = saveLoading.achcomp63;
+        achcomp64 = saveLoading.achcomp64;
+        achcomp65 = saveLoading.achcomp65;
+        achcomp66 = saveLoading.achcomp66;
+        achcomp67 = saveLoading.achcomp67;
+        achcomp68 = saveLoading.achcomp68;
+        achcomp69 = saveLoading.achcomp69;
+        achcomp70 = saveLoading.achcomp70;
+        achcomp71 = saveLoading.achcomp71;
         if (detailedoutput==1){
         console.log(saveLoading)
         }
@@ -4056,6 +4464,10 @@ cost5 = 1000;
 cost6 = 4000;
 }
 function prestige(){
+if (achcomp61==0){
+    achcomp61=1
+    accomplish(achtitle61, achdesc61)
+}
 lastprestige=Date.now()
 prestigeamt+=1
 if (challenge==4){
@@ -4167,6 +4579,10 @@ bestprestige=((mpgain*(1+(goals4*0.25)))*prespwr)
 }
 }
 function ascend(){
+if (achcomp62==0){
+    achcomp62=1
+    accomplish(achtitle62, achdesc62)
+}
 lastascend=Date.now()
 ascendamt+=1
 if (challenge==4){
@@ -4370,6 +4786,10 @@ plowco = 1;
 updateResets()
 }
 function doAnonymity(){
+if (achcomp63==0){
+    achcomp63=1
+    accomplish(achtitle63, achdesc63)
+}
 lastanonymity=Date.now()
 anonymityamt+=1
 ppoint=0
@@ -5581,6 +6001,16 @@ antipresses-=(Math.trunc(anticost1));
 anticost1=((anticost1+(antixp+1))*2.25);
 updateXPmult()
 updateShop()
+}
+function closepopup(id){
+id.remove()
+}
+function accomplish(title, desc){
+var div = document.createElement(div)
+div.id="achievement"
+div.style="position: absolute; bottom: 14px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
+div.innerHTML='<div style="position: absolute;left: -3px;top: -36px;width: 248px;height: 91px;background-color: transparent;z-index: 2;"></div><div style="position: absolute;bottom: 77px;right: -12px;height: 14px;width: 14px;border-color: #000000;border-style: double;background-color: #FFFFFF;font-weight: 750;font-family: monospace;text-align: center;z-index: 2;"><a style="position: absolute;top: -6px;left: 0px;font-size: 17px;">🗙</a><a style="position: absolute;top: -3px;left: -3px;background-color: transparent;height: 20px;width: 20px;cursor:pointer;" onclick="closepopup(achievement)"></a></div><div style="position: absolute;height: 89px;width: 1px;left: -2px;top: -35px;background-color:#FFFFFF;z-index: 1;"></div><div style="position: absolute;height: 56px;width: 1px;left: 53px;top: -2px; background-color:#FFFFFF"></div><div style="position: absolute;height: 1px;width: 191px;left: 53px;top: 18px;background-color:#FFFFFF; z-index: 1;"></div><div style="position: absolute;height: 89px;width: 1px;left: 243px;top: -35px;background-color:#FFFFFF;z-index: 1;"></div><div style="position: absolute;bottom: 55px;right: -3px;height: 30px;width: 242px;border-color: #000000;border-right-style: double;border-left-style: double;border-top-style: double;background-color: #FFFFFF;font-weight: 750;font-size: 19px;font-family: monospace; text-align: center; z-index: 0;"><a style="position: relative;text-align: center;top: 5px; z-index: 0;">Achievement achieved!</a></div><img src="https://media.tenor.com/1X2SyR0pGVAAAAAd/luigi-dancing.gif" style="width: 52px; height: 52px; left: 0px; top: 0px; position: absolute; border-color: #000000; border-right-style: double; z-index: 0;"><div style="position: absolute;left: 55px;top: 0px;height: 17px;width: 187px;background-color: transparent;overflow-y: clip;font-size: 15px;text-align: center;border-bottom-style: double;border-color: #000000; font-style: italic; z-index: 0;">'+title+'</div><div style="position: absolute;left: 57px;top: 19px;height: 33px;width: 183px;background-color: transparent;overflow-y: clip;font-size: 14px;text-align: center; z-index: 0;">'+desc+'</div>'
+document.body.appendChild(div)
 }
 </script>
 </html>
