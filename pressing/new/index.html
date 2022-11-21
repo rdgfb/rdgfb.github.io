@@ -1603,27 +1603,27 @@ function updateCharger(){
     netcharge=(Math.trunc(pressfuel*prestigefuel*ascendfuel*antipressfuel*anonymityfuel))
     charge+=((pressfuel*prestigefuel*ascendfuel*antipressfuel*anonymityfuel)*0.1)
     if (charge<1000000){
-    document.getElementById("chargr").innerText=((Math.trunc(charge)).toFixed(0))
+    document.getElementById("chargr").innerText=(charge).toFixed(0)
     } else if (charge>=1000000 && charge<=1000000000){
-    document.getElementById("chargr").innerText=((Math.trunc(charge/1000000)).toFixed(3))+"M"
+    document.getElementById("chargr").innerText=(charge/1000000).toFixed(3)+"M"
     } else if (charge>=1000000000 && charge<=1000000000000){
-    document.getElementById("chargr").innerText=((Math.trunc(charge/1000000000)).toFixed(3))+"B"
+    document.getElementById("chargr").innerText=(charge/1000000000).toFixed(3)+"B"
     } else if (charge>=1000000000000 && charge<=1000000000000000){
-    document.getElementById("chargr").innerText=((Math.trunc(charge/1000000000000)).toFixed(3))+"T"
+    document.getElementById("chargr").innerText=(charge/1000000000000).toFixed(3)+"T"
     } else if (charge>=1000000000000000 && charge<=1000000000000000000){
-    document.getElementById("chargr").innerText=((Math.trunc(charge/1000000000000000)).toFixed(3))+"Qa"
+    document.getElementById("chargr").innerText=(charge/1000000000000000).toFixed(3)+"Qa"
     } else if (charge>=1000000000000000000 && charge<=1000000000000000000000){
-    document.getElementById("chargr").innerText=((Math.trunc(charge/1000000000000000000)).toFixed(3))+"Qi"
+    document.getElementById("chargr").innerText=(charge/1000000000000000000).toFixed(3)+"Qi"
     } else if (charge>=1000000000000000000000 && charge<=1000000000000000000000000){
-    document.getElementById("chargr").innerText=((Math.trunc(charge/1000000000000000000000)).toFixed(3))+"Sx"
+    document.getElementById("chargr").innerText=(charge/1000000000000000000000).toFixed(3)+"Sx"
     } else if (charge>=1000000000000000000000000 && charge<=1000000000000000000000000000){
-    document.getElementById("chargr").innerText=((Math.trunc(charge/1000000000000000000000000)).toFixed(3))+"Sp"
+    document.getElementById("chargr").innerText=(charge/1000000000000000000000000).toFixed(3)+"Sp"
     } else if (charge>=1000000000000000000000000000 && charge<=1000000000000000000000000000000){
-    document.getElementById("chargr").innerText=((Math.trunc(charge/1000000000000000000000000000)).toFixed(3))+"Oc"
+    document.getElementById("chargr").innerText=(charge/1000000000000000000000000000).toFixed(3)+"Oc"
     } else if (charge>=1000000000000000000000000000000 && charge<=1000000000000000000000000000000000){
-    document.getElementById("chargr").innerText=((Math.trunc(charge/1000000000000000000000000000000)).toFixed(3))+"No"
+    document.getElementById("chargr").innerText=(charge/1000000000000000000000000000000).toFixed(3)+"No"
     } else if (charge>=1000000000000000000000000000000000 && charge<=1000000000000000000000000000000000000){
-    document.getElementById("chargr").innerText=((Math.trunc(charge/1000000000000000000000000000000000)).toFixed(3))+"Dc"
+    document.getElementById("chargr").innerText=(charge/1000000000000000000000000000000000).toFixed(3)+"Dc"
     }
     if (netcharge==0){
     document.getElementById("cps").innerText="(no change)"
