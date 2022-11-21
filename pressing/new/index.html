@@ -6059,8 +6059,9 @@ anticost1=((anticost1+(antixp+1))*2.25);
 updateXPmult()
 updateShop()
 }
-function closepopup(id){
-document.getElementById(id).remove()
+function closepopup(thisid){
+console.log(thisid)
+document.getElementById(thisid).remove()
 
 }
 function accomplish(title, desc){
