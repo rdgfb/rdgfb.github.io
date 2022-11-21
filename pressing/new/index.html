@@ -875,15 +875,15 @@ document.body.onload = function(){
     }
     }
     if (pressfuel === undefined || pressfuel<0 || fuelcost0 === undefined || fuelcost0<=0 || prestigefuel === undefined || prestigefuel<0 || fuelcost1 === undefined || fuelcost1<=0 || ascendfuel === undefined || ascendfuel<0 || fuelcost2 === undefined || fuelcost2<=0 || antipressfuel === undefined || antipressfuel<0 || fuelcost3 === undefined || fuelcost3<=0 || anonymityfuel === undefined || anonymityfuel<0 || fuelcost4 === undefined || fuelcost4<=0){
-    pressfuel=0
+    pressfuel=1
     fuelcost0=1
-    prestigefuel=0
+    prestigefuel=1
     fuelcost1=1
-    ascendfuel=0
+    ascendfuel=1
     fuelcost2=1
-    antipressfuel=0
+    antipressfuel=1
     fuelcost3=1
-    anonymityfuel=0
+    anonymityfuel=1
     fuelcost4=1
     if (detailedoutput==1){
     console.warn("fuel was undefined or an invalid value!!! Old or corrupted data? Set to default. Sorry for the inconvenience!")
@@ -1600,8 +1600,8 @@ function updateCharger(){
     } else if (charger == 1){
     document.getElementById("charger").style="position: relative; height: 250px; width: 250px; top: 0px; left: 0px; background-color: #CCCC00; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"
     }
-    netcharge=(pressfuel*prestigefuel*ascendfuel*antipressfuel*anonymityfuel)
-    charge+=((pressfuel*prestigefuel*ascendfuel*antipressfuel*anonymityfuel)*0.1)
+    netcharge=(Math.trunc(pressfuel*prestigefuel*ascendfuel*antipressfuel*anonymityfuel))
+    charge+=(Math.trunc(pressfuel*prestigefuel*ascendfuel*antipressfuel*anonymityfuel)*0.1)
     document.getElementById("chargr").innerText=charge
     if (netcharge==0){
     document.getElementById("cps").innerText="(no change)"
@@ -6244,26 +6244,31 @@ function buyPressFuel(){
 presses-=fuelcost0
 pressfuel*=2
 fuelcost0=((fuelcost0+(pressfuel+1))*8)
+updateShop()
 }
 function buyPrestigeFuel(){
 ppoint-=fuelcost1
 prestigefuel*=2
 fuelcost1=((fuelcost1+(prestigefuel+1))*4)
+updateShop()
 }
 function buyAscendFuel(){
 ascpts-=fuelcost2
 ascendfuel*=2
 fuelcost2=((fuelcost2+(ascendfuel+1))*2)
+updateShop()
 }
 function buyAntiPressFuel(){
 antipresses-=fuelcost3
 antipressfuel*=2
 fuelcost3=((fuelcost3+(antipressfuel+1))*4)
+updateShop()
 }
 function buyAnonymityFuel(){
 anonymity-=fuelcost4
 anonymityfuel*=2
 fuelcost4=((fuelcost4+(anonymityfuel+1))*2)
+updateShop()
 }
 function fuelcharger(){
 if (inshop==0){
