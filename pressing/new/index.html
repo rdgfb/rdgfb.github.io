@@ -2662,38 +2662,38 @@ function updateShop(){
         waiting-=1;
     }
     if (presses>=(Math.trunc(fuelcost0))){
-    document.getElementById("fuelitem0").innerText=" Cost: "+(Math.trunc(fuelcost0))+", will be left with "+(presses-(Math.trunc(fuelcost0)))+" Presses. "
+    document.getElementById("chargeritem0").innerText=" Cost: "+(Math.trunc(fuelcost0))+", will be left with "+(presses-(Math.trunc(fuelcost0)))+" Presses. "
     document.getElementById("buyPressFuel").disabled=false;
     } else {
-    document.getElementById("fuelitem0").innerText=" Cost: "+(Math.trunc(fuelcost0))+", short "+((presses-(Math.trunc(fuelcost0)))*-1)+" Presses.";
+    document.getElementById("chargeritem0").innerText=" Cost: "+(Math.trunc(fuelcost0))+", short "+((presses-(Math.trunc(fuelcost0)))*-1)+" Presses.";
     document.getElementById("buyPressFuel").disabled=true;
     }
     if (ppoint>=(Math.trunc(fuelcost1))){
-    document.getElementById("fuelitem1").innerText=" Cost: "+(Math.trunc(fuelcost1))+", will be left with "+(presses-(Math.trunc(fuelcost1)))+" Prestige Points. "
+    document.getElementById("chargeritem1").innerText=" Cost: "+(Math.trunc(fuelcost1))+", will be left with "+(presses-(Math.trunc(fuelcost1)))+" Prestige Points. "
     document.getElementById("buyPrestigeFuel").disabled=false;
     } else {
-    document.getElementById("fuelitem1").innerText=" Cost: "+(Math.trunc(fuelcost1))+", short "+((presses-(Math.trunc(fuelcost1)))*-1)+" Prestige Points.";
+    document.getElementById("chargeritem1").innerText=" Cost: "+(Math.trunc(fuelcost1))+", short "+((presses-(Math.trunc(fuelcost1)))*-1)+" Prestige Points.";
     document.getElementById("buyPrestigeFuel").disabled=true;
     }
     if (ascpts>=(Math.trunc(fuelcost2))){
-    document.getElementById("fuelitem2").innerText=" Cost: "+(Math.trunc(fuelcost2))+", will be left with "+(presses-(Math.trunc(fuelcost2)))+" Ascend Points. "
+    document.getElementById("chargeritem2").innerText=" Cost: "+(Math.trunc(fuelcost2))+", will be left with "+(presses-(Math.trunc(fuelcost2)))+" Ascend Points. "
     document.getElementById("buyAscendFuel").disabled=false;
     } else {
-    document.getElementById("fuelitem2").innerText=" Cost: "+(Math.trunc(fuelcost2))+", short "+((presses-(Math.trunc(fuelcost2)))*-1)+" Ascend Points.";
+    document.getElementById("chargeritem2").innerText=" Cost: "+(Math.trunc(fuelcost2))+", short "+((presses-(Math.trunc(fuelcost2)))*-1)+" Ascend Points.";
     document.getElementById("buyAscendFuel").disabled=true;
     }
     if (antipresses>=(Math.trunc(fuelcost3))){
-    document.getElementById("fuelitem3").innerText=" Cost: "+(Math.trunc(fuelcost3))+", will be left with "+(presses-(Math.trunc(fuelcost3)))+" Anti-Presses. "
+    document.getElementById("chargeritem3").innerText=" Cost: "+(Math.trunc(fuelcost3))+", will be left with "+(presses-(Math.trunc(fuelcost3)))+" Anti-Presses. "
     document.getElementById("buyAntiPressFuel").disabled=false;
     } else {
-    document.getElementById("fuelitem3").innerText=" Cost: "+(Math.trunc(fuelcost3))+", short "+((presses-(Math.trunc(fuelcost3)))*-1)+" Anti-Presses.";
+    document.getElementById("chargeritem3").innerText=" Cost: "+(Math.trunc(fuelcost3))+", short "+((presses-(Math.trunc(fuelcost3)))*-1)+" Anti-Presses.";
     document.getElementById("buyAntiPressFuel").disabled=true;
     }
     if (anonymity>=(Math.trunc(fuelcost4))){
-    document.getElementById("fuelitem4").innerText=" Cost: "+(Math.trunc(fuelcost4))+", will be left with "+(presses-(Math.trunc(fuelcost4)))+" Anonymity Points. "
+    document.getElementById("chargeritem4").innerText=" Cost: "+(Math.trunc(fuelcost4))+", will be left with "+(presses-(Math.trunc(fuelcost4)))+" Anonymity Points. "
     document.getElementById("buyAnonymityFuel").disabled=false;
     } else {
-    document.getElementById("fuelitem4").innerText=" Cost: "+(Math.trunc(fuelcost4))+", short "+((presses-(Math.trunc(fuelcost4)))*-1)+" Anonymity Points.";
+    document.getElementById("chargeritem4").innerText=" Cost: "+(Math.trunc(fuelcost4))+", short "+((presses-(Math.trunc(fuelcost4)))*-1)+" Anonymity Points.";
     document.getElementById("buyAnonymityFuel").disabled=true;
     }
 }
