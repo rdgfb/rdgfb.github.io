@@ -876,15 +876,15 @@ document.body.onload = function(){
     }
     if (pressfuel === undefined || pressfuel<0 || fuelcost0 === undefined || fuelcost0<=0 || prestigefuel === undefined || prestigefuel<0 || fuelcost1 === undefined || fuelcost1<=0 || ascendfuel === undefined || ascendfuel<0 || fuelcost2 === undefined || fuelcost2<=0 || antipressfuel === undefined || antipressfuel<0 || fuelcost3 === undefined || fuelcost3<=0 || anonymityfuel === undefined || anonymityfuel<0 || fuelcost4 === undefined || fuelcost4<=0){
     pressfuel=0
-    fuelcost0=0
+    fuelcost0=1
     prestigefuel=0
-    fuelcost1=0
+    fuelcost1=1
     ascendfuel=0
-    fuelcost2=0
+    fuelcost2=1
     antipressfuel=0
-    fuelcost3=0
+    fuelcost3=1
     anonymityfuel=0
-    fuelcost4=0
+    fuelcost4=1
     if (detailedoutput==1){
     console.warn("fuel was undefined or an invalid value!!! Old or corrupted data? Set to default. Sorry for the inconvenience!")
     }
@@ -6261,7 +6261,7 @@ anonymityfuel*=2
 fuelcost0=((fuelcost4+(anonymityfuel+1))*2)
 }
 function fuelcharger(){
-if (shop==0){
+if (inshop==0){
 inshop=16
 shop()
 }
