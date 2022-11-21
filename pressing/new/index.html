@@ -2661,11 +2661,11 @@ function updateShop(){
     if (waiting>0){
         waiting-=1;
     }
-    document.getElementById("chargeritem0count").innerText=pressfuel
-    document.getElementById("chargeritem1count").innerText=prestigefuel
-    document.getElementById("chargeritem2count").innerText=ascendfuel
-    document.getElementById("chargeritem3count").innerText=antipressfuel
-    document.getElementById("chargeritem4count").innerText=anonymityfuel
+    document.getElementById("chargeritem0count").innerText=" x"+pressfuel
+    document.getElementById("chargeritem1count").innerText=" x"+prestigefuel
+    document.getElementById("chargeritem2count").innerText=" x"+ascendfuel
+    document.getElementById("chargeritem3count").innerText=" x"+antipressfuel
+    document.getElementById("chargeritem4count").innerText=" x"+anonymityfuel
     if (presses>=(Math.trunc(fuelcost0))){
     document.getElementById("chargeritem0").innerText=" Cost: "+(Math.trunc(fuelcost0))+", will be left with "+(presses-(Math.trunc(fuelcost0)))+" Presses. "
     document.getElementById("buyPressFuel").disabled=false;
@@ -6248,22 +6248,22 @@ fuelcost0=((fuelcost0+(pressfuel+1))*8)
 function buyPrestigeFuel(){
 ppoint-=fuelcost1
 prestigefuel*=2
-fuelcost0=((fuelcost1+(prestigefuel+1))*4)
+fuelcost1=((fuelcost1+(prestigefuel+1))*4)
 }
 function buyAscendFuel(){
 ascpts-=fuelcost2
 ascendfuel*=2
-fuelcost0=((fuelcost2+(ascendfuel+1))*2)
+fuelcost2=((fuelcost2+(ascendfuel+1))*2)
 }
 function buyAntiPressFuel(){
 antipresses-=fuelcost3
 antipressfuel*=2
-fuelcost0=((fuelcost3+(antipressfuel+1))*4)
+fuelcost3=((fuelcost3+(antipressfuel+1))*4)
 }
 function buyAnonymityFuel(){
 anonymity-=fuelcost4
 anonymityfuel*=2
-fuelcost0=((fuelcost4+(anonymityfuel+1))*2)
+fuelcost4=((fuelcost4+(anonymityfuel+1))*2)
 }
 function fuelcharger(){
 if (inshop==0){
