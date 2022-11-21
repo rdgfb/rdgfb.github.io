@@ -2863,41 +2863,65 @@ function settingsCheck(){
 }
 function checkAchievements(){
     if (popups==0){
-    if (totalpresses>=1){
+    if (totalpresses>=1 && achcomp1==0){
+    achcomp1=1
     accomplish(achtitle1, achdesc1)
+    popups=1
     }
-    if (totalpresses>=1000){
+    if (totalpresses>=1000 && achcomp2==0){
+    achcomp2=1
     accomplish(achtitle2, achdesc2)
+    popups=1
     }
-    if (totalpresses>=1000000){
+    if (totalpresses>=1000000 && achcomp3==0){
+    achcomp3=1
     accomplish(achtitle3, achdesc3)
+    popups=1
     }
-    if (totalpresses>=1000000000){
+    if (totalpresses>=1000000000 && achcomp4==0){
+    achcomp4=1
     accomplish(achtitle4, achdesc4)
+    popups=1
     }
-    if (totalpresses>=1000000000000){
+    if (totalpresses>=1000000000000 && achcomp5==0){
+    achcomp5=1
     accomplish(achtitle5, achdesc5)
+    popups=1
     }
-    if (totalpresses>=1000000000000000){
+    if (totalpresses>=1000000000000000 && achcomp6==0){
+    achcomp6=1
     accomplish(achtitle6, achdesc6)
+    popups=1
     }
-    if (totalpresses>=1000000000000000000){
+    if (totalpresses>=1000000000000000000 && achcomp7==0){
+    achcomp7=1
     accomplish(achtitle7, achdesc7)
+    popups=1
     }
-    if (totalpresses>=1000000000000000000000){
+    if (totalpresses>=1000000000000000000000 && achcomp8==0){
+    achcomp8=1
     accomplish(achtitle8, achdesc8)
+    popups=1
     }
-    if (totalpresses>=1000000000000000000000000){
+    if (totalpresses>=1000000000000000000000000 && achcomp9==0){
+    achcomp9=1
     accomplish(achtitle9, achdesc9)
+    popups=1
     }
-    if (totalpresses>=1000000000000000000000000000){
+    if (totalpresses>=1000000000000000000000000000 && achcomp10==0){
+    achcomp10=1
     accomplish(achtitle10, achdesc10)
+    popups=1
     }
-    if (totalpresses>=1000000000000000000000000000000){
+    if (totalpresses>=1000000000000000000000000000000 && achcomp11==0){
+    achcomp11=1
     accomplish(achtitle11, achdesc11)
+    popups=1
     }
-    if (totalpresses>=1000000000000000000000000000000000){
+    if (totalpresses>=1000000000000000000000000000000000 && achcomp12==0){
+    achcomp12=1
     accomplish(achtitle12, achdesc12)
+    popups=1
     }
     }
 }
@@ -4464,9 +4488,10 @@ cost5 = 1000;
 cost6 = 4000;
 }
 function prestige(){
-if (achcomp61==0){
+if (achcomp61==0 && popups==0){
     achcomp61=1
     accomplish(achtitle61, achdesc61)
+    popups=1
 }
 lastprestige=Date.now()
 prestigeamt+=1
@@ -4579,9 +4604,10 @@ bestprestige=((mpgain*(1+(goals4*0.25)))*prespwr)
 }
 }
 function ascend(){
-if (achcomp62==0){
+if (achcomp62==0 && popups==0){
     achcomp62=1
     accomplish(achtitle62, achdesc62)
+    popups=1
 }
 lastascend=Date.now()
 ascendamt+=1
@@ -4786,9 +4812,10 @@ plowco = 1;
 updateResets()
 }
 function doAnonymity(){
-if (achcomp63==0){
+if (achcomp63==0 && popups==0){
     achcomp63=1
     accomplish(achtitle63, achdesc63)
+    popups=1
 }
 lastanonymity=Date.now()
 anonymityamt+=1
@@ -6003,7 +6030,8 @@ updateXPmult()
 updateShop()
 }
 function closepopup(id){
-id.remove()
+document.getElementById(id).remove()
+
 }
 function accomplish(title, desc){
 var div = document.createElement(div)
