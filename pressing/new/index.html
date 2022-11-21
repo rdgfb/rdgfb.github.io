@@ -5810,9 +5810,9 @@ var saveAsFile = base64encode(saveFile);
 document.getElementById("exportastext").innerText=saveAsFile
 }
 function importtext(){
+var decodeSave = document.getElementById("importtext").innerText
 document.getElementById("import").remove()
 document.getElementById("importBack").remove()
-var decodeSave = document.getElementById("importastext").innerText
 var decodedSave = base64decode(decodeSave)
 var saveLoadin1 = decodedSave
 var saveLoadin2 = saveLoadin1.split(';');
