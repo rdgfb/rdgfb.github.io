@@ -1601,8 +1601,30 @@ function updateCharger(){
     document.getElementById("charger").style="position: relative; height: 250px; width: 250px; top: 0px; left: 0px; background-color: #CCCC00; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"
     }
     netcharge=(Math.trunc(pressfuel*prestigefuel*ascendfuel*antipressfuel*anonymityfuel))
-    charge+=(Math.trunc(pressfuel*prestigefuel*ascendfuel*antipressfuel*anonymityfuel)*0.1)
-    document.getElementById("chargr").innerText=charge
+    charge+=((pressfuel*prestigefuel*ascendfuel*antipressfuel*anonymityfuel)*0.1)
+    if (charge<1000000){
+    document.getElementById("chargr").innerText=((Math.trunc(charge)).toFixed(0))
+    } else if (charge>=1000000 && charge<=1000000000){
+    document.getElementById("chargr").innerText=((Math.trunc(charge/1000)).toFixed(3))+"M"
+    } else if (charge>=1000000000 && charge<=1000000000000){
+    document.getElementById("chargr").innerText=((Math.trunc(charge/1000000)).toFixed(3))+"B"
+    } else if (charge>=1000000000000 && charge<=1000000000000000){
+    document.getElementById("chargr").innerText=((Math.trunc(charge/1000000000)).toFixed(3))+"T"
+    } else if (charge>=1000000000000000 && charge<=1000000000000000000){
+    document.getElementById("chargr").innerText=((Math.trunc(charge/1000000000000)).toFixed(3))+"Qa"
+    } else if (charge>=1000000000000000000 && charge<=1000000000000000000000){
+    document.getElementById("chargr").innerText=((Math.trunc(charge/1000000000000000)).toFixed(3))+"Qi"
+    } else if (charge>=1000000000000000000000 && charge<=1000000000000000000000000){
+    document.getElementById("chargr").innerText=((Math.trunc(charge/1000000000000000000)).toFixed(3))+"Sx"
+    } else if (charge>=1000000000000000000000000 && charge<=1000000000000000000000000000){
+    document.getElementById("chargr").innerText=((Math.trunc(charge/1000000000000000000000)).toFixed(3))+"Sp"
+    } else if (charge>=1000000000000000000000000000 && charge<=1000000000000000000000000000000){
+    document.getElementById("chargr").innerText=((Math.trunc(charge/1000000000000000000000000)).toFixed(3))+"Oc"
+    } else if (charge>=1000000000000000000000000000000 && charge<=1000000000000000000000000000000000){
+    document.getElementById("chargr").innerText=((Math.trunc(charge/1000000000000000000000000000)).toFixed(3))+"No"
+    } else if (charge>=1000000000000000000000000000000000 && charge<=1000000000000000000000000000000000000){
+    document.getElementById("chargr").innerText=((Math.trunc(charge/1000000000000000000000000000000)).toFixed(3))+"Dc"
+    }
     if (netcharge==0){
     document.getElementById("cps").innerText="(no change)"
     } else if (netcharge>0){
