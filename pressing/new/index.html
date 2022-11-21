@@ -33,7 +33,8 @@
 <div id="anonymityui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Anonymous Tools</div><div style="position: relative; top: 212px; text-align: center;" id="aamt">You have 0 anonymity points.</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit quietly.</button><div style="overflow: scroll;  scrollbar-color: #FFFFFF; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;"></div><div>THESE UPGRADES WON'T RESET ON ANONYMITY</div><button id="buyPpower" onclick="buyPpower()">Prestige Power</button><a id="aitem0count"> lvl 1</a><div id="aitem0">Cost: 1, short 1 anonymity.</div><button id="buyCharge" onclick="buyCharge()">Charger</button><a id="aitem1count"> 0/1</a><div id="aitem1"> Cost: 1000, short 1000 anonymity. UNLOCKS NEW BUILDING!</div><button id="buyFreeBuy" onclick="buyFreeBuy()">Never Subtract Press</button><a id="aitem2count"> 0/1</a><div id="aitem2"> Cost: 100000, short 10000 anonymity.</div><button id="buyAutoPrestige" onclick="buyAutoPrestige()">Auto Prestige Gain</button><a id="aitem3count"> Locked</a><div id="aitem3"> Cost: 1M, short 1M anonymity.</div></div></div>
 <div id="settingsui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><button onclick="shop()" id="settingsshop" style="position: absolute; top: 0px; right: 0px; cursor: pointer; z-index: 1">Save</button><div style="position: relative; text-align: left;">Settings and Stats</div><div style="background-color: inherit; overflow: scroll; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; background-color: #000000">Settings</div></div><div></div><button style="opacity: 1; cursor: pointer;" onclick="createCookie()">Save</button><a id="autosave" style="color: inherit; text-align: left;"> Auto save: 0s</a><div></div><input style="width: 50px;" type="number" min="0" max="3600" id="autosav"> min 10, max 3600<div></div><button style="opacity: 1; cursor: pointer;" onclick="resetwarning()">Wipe</button><div></div><button style="opacity: 1; cursor: pointer;" onclick="exportfilewarning()">Export (as file)</button><div></div><button style="opacity: 1; cursor: pointer;" onclick="exportwarning()">Export (as text)</button><div></div><button style="opacity: 1; cursor: pointer;" onclick="importwarning()">Import</button><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Auto</div></div><div id="Set1" style="color: inherit; text-align: left;">Save timer: <button onclick="toggleASDM()" id="toggleASDM">Style 1: (ones)</button></div><div id="Set2" style="color: inherit; text-align: left;">Automatic pressing per second: <button onclick="togglePPS()" id="togglePPS">true</button></div><div id="Set3" style="color: inherit; text-align: left;">Automatic pressing: <button onclick="toggleAuto()" id="toggleAuto">true</button></div><div id="Set4" style="color: inherit; text-align: left;"><a id="Set4Name">Automatic buying: </a><button onclick="toggleAutoBuy()" id="toggleAutoBuy">true</button></div><div id="Set5" style="color: inherit; text-align: left;"><a id="Set5Name">Automatic upgrading: </a><button onclick="toggleAutoUpgrade()" id="toggleAutoUpgrade">true</button></div><div id="Set6" style="color: inherit; text-align: left;"><a id="Set6Name">Automatic Prestige Buying: </a><button onclick="toggleAutoPresBuy()" id="toggleAutoPresBuy">true</button></div><div id="Set7" style="color: inherit; text-align: left;"><a id="Set7Name">Automatic Prestige: </a><button onclick="toggleAutoPres()" id="toggleAutoPres">true</button></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Optimizations</div></div><div id="SetO0" style="color: inherit; text-align: left;">Planets visibility: <button onclick="togglePlanets()" id="togglePlanets">true</button></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Stats</div></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Time and Amounts</div></div><div id="statT0" style="color: inherit; text-align: left;"></div><div id="statR1" style="color: inherit; text-align: left;"></div><div id="statR2" style="color: inherit; text-align: left;"></div><div id="statR3" style="color: inherit; text-align: left;"></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Currently</div></div><div id="statC1" style="color: inherit; text-align: left;"></div><div id="statC2" style="color: inherit; text-align: left;"></div><div id="statC3" style="color: inherit; text-align: left;"></div><div id="statC4" style="color: inherit; text-align: left;"></div><div id="statC5" style="color: inherit; text-align: left;"></div><div id="statC6" style="color: inherit; text-align: left;"></div><div id="statC7" style="color: inherit; text-align: left;"></div><div id="statC8" style="color: inherit; text-align: left;"></div><div id="statC9" style="color: inherit; text-align: left;"></div><div id="statC10" style="color: inherit; text-align: left;"></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Records</div></div><div id="statB1" style="color: inherit; text-align: left;"></div><div id="statB2" style="color: inherit; text-align: left;"></div><div id="statB3" style="color: inherit; text-align: left;"></div><div id="statB4" style="color: inherit; text-align: left;"></div><div id="statB5" style="color: inherit; text-align: left;"></div><div id="statB6" style="color: inherit; text-align: left;"></div></div></div>
 <div id="challengeui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Challenges</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit</button><div style="background-color: inherit; overflow: scroll; position: absolute; bottom: 1px; height: 227px; width: 250px;"><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div id="regchal" style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Regular Challenges</div></div><div id="vezchal" style="position: absolute; left: 1px; width: 248px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Very Easy</div><div></div><div style="position: relative; color: inherit; text-align: left;">No pps automation from shop. <button onclick="chal0()" id="chalno0">Challenge!</button><div>Goal: <a id="Goal0lvl">100</a> presses. <div></div><a id="Goal0don">0/1</a>. Reward: Unlock easy challenges.</div></div></div><div id="easychal" style="position: absolute; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Easy (no pressing perks apply)</div><div></div><div style="position: relative; color: inherit; text-align: left;">No pressing. <button onclick="chal1()" id="chalno1">Challenge!</button><div><div>Goal: Level <a id="Goal1lvl">10</a>. </div><div><a id="Goal1don">0/50</a>. Reward: +<a id="Goal1rew">100</a>% ppower added to pps.</div></div></div><div></div><div style="position: relative; color: inherit; text-align: left;">No automation. <button onclick="chal2()" id="chalno2">Challenge!</button><div>Goal: Level <a id="Goal2lvl">10</a>. </div><div><a id="Goal2don">0/50</a>. Reward: +<a id="Goal2rew">100</a>% pps</div></div></div><div id="medchal" style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Medium (no prestige perks or below)</div><div style="position: relative; color: inherit; text-align: left;">No Shop. <button onclick="chal3()" id="chalno3">Challenge!</button><div>Goal: Level <a id="Goal3lvl">10</a>. </div><div><a id="Goal3don">0/50</a>. Reward: +<a id="Goal3rew">100</a>% xp</div></div><div style="position: relative; color: inherit; text-align: left;">Prestige speedrun. <button onclick="chal4()" id="chalno4">Challenge!</button><div>Goal: Prestige in <a id="Goal4lvl">60</a> minutes. </div><div><a id="Goal4don">0/23</a>. Reward: +<a id="Goal4rew">25</a>% Prestige Points</div></div></div><div id="hardchal" style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Hard (no ascend perks or below)</div><div style="position: relative; color: inherit; text-align: left;">Sacrifice Speedrun. <button onclick="chal5()" id="chalno5">Challenge!</button><div>Goal: Dimension hop in <a id="Goal5lvl">720</a> minutes. <div></div><a id="Goal5don">0/10</a>. Reward: <a id="Goal5rew">+0% Sacrifice Points</a><div></div><a id="Goal5rew2">Dimension cost: 1M Prestige Points</a></div></div></div><div id="antichal" style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Anti Challenges</div></div><div id="easyantichal" style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Easy (no antipressing perks or below)</div><div style="position: relative; color: inherit; text-align: left;">No Anti-pressing. <button onclick="chal6()" id="chalno6">Challenge!</button><div>Goal: Level -<a id="Goal6lvl">10</a>. <div></div><a id="Goal6don">0/10</a>. Reward: Pressing x<a id="Goal6rew">2</a><div></div></div></div></div></div></div>
-<div id="charger" style="position: relative; height: 250px; width: 250px; top: 0px; left: -100%; background-color: #CCCC00; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; left: 1px; top: 1px; width: 248px; height: 56px; text-align: center; background-color: #FFFF00; color: #000000; text-align: center;">Charger</div><div style="position: relative; left: 1px; top: -37px; width: 248px; height: 18px; text-align: center; background-color: transparent; color: #000000;"><a id="chargr">0</a> Watts <a id="cps">(0/s)</a></div><div style="position: relative; left: 1px; top: -37px; width: 248px; height: 20px; text-align: center; background-color: transparent; color: #000000;">Charging: <select id="charging"><option value="None">None</option><option value="Spread">Spread</option><option value="Presses">Presses</option><option value="XP">XP</option><option value="Prestige">Prestige</option><option value="Ascend">Ascend</option><option value="Anonymity">Anonymity</option></select></div><div style="background-color: #000000; position: relative; left: 1px; top: -37px; overflow-y: scroll; overflow-x: clip; width: 248px; height: 192px; text-align: center;"><div style="background-color: transparent;">Presses: x<a id="cpress">1</a></div><div style="background-color: transparent;">XP: x<a id="cxp">1</a></div><div style="background-color: transparent;">Prestige: x<a id="cprestige">1</a></div><div style="background-color: transparent;">Ascend: x<a id="cascend">1</a></div><div style="background-color: transparent;">Anonymity: x<a id="canonymity">1</a></div><div style="background-color: transparent;">Squeeze: x<a id="csqueeze">1</a></div><div style="background-color: transparent;">Squeeze Success Rate: +<a id="cschance">0</a>%</div><div style="background-color: transparent;">Squeeze Oil Bonus: +<a id="csbonus">0</a>%</div></div></div><!--><div id="coverq1b2" style="position: absolute; left: -50px; top: 113px; height: 23px; width: 36px; background-color: transparent;"></div><!-->
+<div id="charger" style="position: relative; height: 250px; width: 250px; top: 0px; left: -100%; background-color: #CCCC00; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; left: 1px; top: 1px; width: 248px; height: 56px; text-align: center; background-color: #FFFF00; color: #000000; text-align: center;">Charger</div><button onclick="fuelcharger()" style="position: absolute; right: 0px; top: 0px;">Fuel</button><div style="position: relative; left: 1px; top: -37px; width: 248px; height: 18px; text-align: center; background-color: transparent; color: #000000;"><a id="chargr">0</a> Watts <a id="cps">(0/s)</a></div><div style="position: relative; left: 1px; top: -37px; width: 248px; height: 20px; text-align: center; background-color: transparent; color: #000000;">Charging: <select id="charging"><option value="None">None</option><option value="Spread">Spread</option><option value="Presses">Presses</option><option value="XP">XP</option><option value="Prestige">Prestige</option><option value="Ascend">Ascend</option><option value="Anonymity">Anonymity</option></select></div><div style="background-color: #000000; position: relative; left: 1px; top: -37px; overflow-y: scroll; overflow-x: clip; width: 248px; height: 192px; text-align: center;"><div style="background-color: transparent;">Presses: x<a id="cpress">1</a></div><div style="background-color: transparent;">XP: x<a id="cxp">1</a></div><div style="background-color: transparent;">Prestige: x<a id="cprestige">1</a></div><div style="background-color: transparent;">Ascend: x<a id="cascend">1</a></div><div style="background-color: transparent;">Anonymity: x<a id="canonymity">1</a></div><div style="background-color: transparent;">Squeeze: x<a id="csqueeze">1</a></div><div style="background-color: transparent;">Squeeze Success Rate: +<a id="cschance">0</a>%</div><div style="background-color: transparent;">Squeeze Oil Bonus: +<a id="csbonus">0</a>%</div></div></div><!--><div id="coverq1b2" style="position: absolute; left: -50px; top: 113px; height: 23px; width: 36px; background-color: transparent;"></div><!-->
+<div id="chargerui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Fuel Charger</div><div style="position: relative; top: 212px; text-align: center;" id="fuelmult">Fuel Mult: x1</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Stop Fueling</button><div style="overflow: scroll;  scrollbar-color: #FFFFFF; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;"></div><div>THESE UPGRADES WILL INCREASE CHARGE!</div><button id="buyPressFuel" onclick="buyPressFuel()">Pressing Fuel</button><a id="chargeritem0count"> x0</a><div id="chargeritem0"> Cost: 1, short 1 Presses.</div><button id="buyPrestigeFuel" onclick="buyPrestigeFuel()">Prestige Fuel</button><a id="chargeritem1count"> x0</a><div id="chargeritem1"> Cost: 1, short 1 Prestige Points.</div><button id="buyAscendFuel" onclick="buyAscendFuel()">Ascend Fuel</button><a id="chargeritem2count"> x0</a><div id="chargeritem2"> Cost: 1, short 1 Ascend Points.</div><button id="buyAntiPressFuel" onclick="buyAntiPressFuel()">Anti-pressing Fuel</button><a id="chargeritem3count"> x0</a><div id="chargeritem3"> Cost: 1, short 1 Anti-Presses.</div><button id="buyAnonymityFuel" onclick="buyAnonymityFuel()">Anonymity Fuel</button><a id="chargeritem4count"> x0</a><div id="chargeritem4"> Cost: 1, short 1 Anonymity Points.</div></div></div>
 </body>
 <script>
 /** WARNING: looking here will result in spoilers. you been warned. this should be on [rdgfb.github.io/pressing/new/index.html] **/
@@ -190,6 +191,16 @@ var autopresbuy = 0;
 var anticost2 = 1000000;
 var autoresettimer = 0;
 var popups = 0;
+var pressfuel = 1;
+var fuelcost0 = 1;
+var prestigefuel = 1;
+var fuelcost1 = 1;
+var ascendfuel = 1;
+var fuelcost2 = 1;
+var antipressfuel = 1;
+var fuelcost3 = 1;
+var anonymityfuel = 1;
+var fuelcost4 = 1;
 /** all achievements. for all, 0 achievements is none **/
 /* descriptions */
 /* presses */
@@ -861,6 +872,21 @@ document.body.onload = function(){
     autoresettimer=0
     if (detailedoutput==1){
     console.warn("autoresettimer was undefined or an invalid value!!! Old or corrupted data? Set to default. Sorry for the inconvenience!")
+    }
+    }
+    if (pressfuel === undefined || pressfuel<0 || fuelcost0 === undefined || fuelcost0<=0 || prestigefuel === undefined || prestigefuel<0 || fuelcost1 === undefined || fuelcost1<=0 || ascendfuel === undefined || ascendfuel<0 || fuelcost2 === undefined || fuelcost2<=0 || antipressfuel === undefined || antipressfuel<0 || fuelcost3 === undefined || fuelcost3<=0 || anonymityfuel === undefined || anonymityfuel<0 || fuelcost4 === undefined || fuelcost4<=0 || ){
+    pressfuel=0
+    fuelcost0=0
+    prestigefuel=0
+    fuelcost1=0
+    ascendfuel=0
+    fuelcost2=0
+    antipressfuel=0
+    fuelcost3=0
+    anonymityfuel=0
+    fuelcost4=0
+    if (detailedoutput==1){
+    console.warn("fuel was undefined or an invalid value!!! Old or corrupted data? Set to default. Sorry for the inconvenience!")
     }
     }
     if (achcomp1 === undefined || achcomp1<0 || achcomp1>1 || achcomp2 === undefined || achcomp2<0 || achcomp2>1 || achcomp3 === undefined || achcomp3<0 || achcomp3>1 || achcomp4 === undefined || achcomp4<0 || achcomp4>1 || achcomp5 === undefined || achcomp5<0 || achcomp5>1 || achcomp6 === undefined || achcomp6<0 || achcomp6>1 || achcomp7 === undefined || achcomp7<0 || achcomp7>1 || achcomp8 === undefined || achcomp8<0 || achcomp8>1 || achcomp9 === undefined || achcomp9<0 || achcomp9>1 || achcomp10 === undefined || achcomp10<0 || achcomp10>1 || achcomp11 === undefined || achcomp11<0 || achcomp11>1 || achcomp12 === undefined || achcomp12<0 || achcomp12>1 || achcomp13 === undefined || achcomp13<0 || achcomp13>1 || achcomp14 === undefined || achcomp14<0 || achcomp14>1 || achcomp15 === undefined || achcomp15<0 || achcomp15>1 || achcomp16 === undefined || achcomp16<0 || achcomp16>1 || achcomp17 === undefined || achcomp17<0 || achcomp17>1 || achcomp18 === undefined || achcomp18<0 || achcomp18>1 || achcomp19 === undefined || achcomp19<0 || achcomp19>1 || achcomp20 === undefined || achcomp20<0 || achcomp20>1 || achcomp21 === undefined || achcomp21<0 || achcomp21>1 || achcomp22 === undefined || achcomp22<0 || achcomp22>1 || achcomp23 === undefined || achcomp23<0 || achcomp23>1 || achcomp24 === undefined || achcomp24<0 || achcomp24>1 || achcomp25 === undefined || achcomp25<0 || achcomp25>1 || achcomp26 === undefined || achcomp26<0 || achcomp26>1 || achcomp27 === undefined || achcomp27<0 || achcomp27>1 || achcomp28 === undefined || achcomp28<0 || achcomp28>1 || achcomp29 === undefined || achcomp29<0 || achcomp29>1 || achcomp30 === undefined || achcomp30<0 || achcomp30>1 || achcomp31 === undefined || achcomp31<0 || achcomp31>1 || achcomp32 === undefined || achcomp32<0 || achcomp32>1 || achcomp33 === undefined || achcomp33<0 || achcomp33>1 || achcomp34 === undefined || achcomp34<0 || achcomp34>1 || achcomp35 === undefined || achcomp35<0 || achcomp35>1 || achcomp36 === undefined || achcomp36<0 || achcomp36>1 || achcomp37 === undefined || achcomp37<0 || achcomp37>1 || achcomp38 === undefined || achcomp38<0 || achcomp38>1 || achcomp39 === undefined || achcomp39<0 || achcomp39>1 || achcomp40 === undefined || achcomp40<0 || achcomp40>1 || achcomp41 === undefined || achcomp41<0 || achcomp41>1 || achcomp42 === undefined || achcomp42<0 || achcomp42>1 || achcomp43 === undefined || achcomp43<0 || achcomp43>1 || achcomp44 === undefined || achcomp44<0 || achcomp44>1 || achcomp45 === undefined || achcomp45<0 || achcomp45>1 || achcomp46 === undefined || achcomp46<0 || achcomp46>1 || achcomp47 === undefined || achcomp47<0 || achcomp47>1 || achcomp48 === undefined || achcomp48<0 || achcomp48>1 || achcomp49 === undefined || achcomp49<0 || achcomp49>1 || achcomp50 === undefined || achcomp50<0 || achcomp50>1 || achcomp51 === undefined || achcomp51<0 || achcomp51>1 || achcomp52 === undefined || achcomp52<0 || achcomp52>1 || achcomp53 === undefined || achcomp53<0 || achcomp53>1 || achcomp54 === undefined || achcomp54<0 || achcomp54>1 || achcomp55 === undefined || achcomp55<0 || achcomp55>1 || achcomp56 === undefined || achcomp56<0 || achcomp56>1 || achcomp57 === undefined || achcomp57<0 || achcomp57>1 || achcomp58 === undefined || achcomp58<0 || achcomp58>1 || achcomp59 === undefined || achcomp59<0 || achcomp59>1 || achcomp60 === undefined || achcomp60<0 || achcomp60>1 || achcomp61 === undefined || achcomp61<0 || achcomp61>1 || achcomp62 === undefined || achcomp62<0 || achcomp62>1 || achcomp63 === undefined || achcomp63<0 || achcomp63>1 || achcomp64 === undefined || achcomp64<0 || achcomp64>1 || achcomp65 === undefined || achcomp65<0 || achcomp65>1 || achcomp66 === undefined || achcomp66<0 || achcomp66>1 || achcomp67 === undefined || achcomp67<0 || achcomp67>1 || achcomp68 === undefined || achcomp68<0 || achcomp68>1 || achcomp69 === undefined || achcomp69<0 || achcomp69>1 || achcomp70 === undefined || achcomp70<0 || achcomp70>1){
@@ -1574,7 +1600,8 @@ function updateCharger(){
     } else if (charger == 1){
     document.getElementById("charger").style="position: relative; height: 250px; width: 250px; top: 0px; left: 0px; background-color: #CCCC00; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"
     }
-    netcharge=charge
+    netcharge=(pressfuel*prestigefuel*ascendfuel*antipressfuel*anonymityfuel)
+    charge+=((pressfuel*prestigefuel*ascendfuel*antipressfuel*anonymityfuel)*0.1)
     document.getElementById("chargr").innerText=charge
     if (netcharge==0){
     document.getElementById("cps").innerText="(no change)"
@@ -2444,7 +2471,7 @@ function updateDebug(){
     }
 }
 function updateShop(){
-    
+    document.getElementById("fuelmult").innerText="Fuel Multiplier: x"+(pressfuel*prestigefuel*ascendfuel*antipressfuel*anonymityfuel)+"
     document.getElementById("item0count").innerText=" lvl "+(auto-1);
     document.getElementById("item1count").innerText=" x"+cursor;
     document.getElementById("item2count").innerText=" x"+mother;
@@ -2633,6 +2660,41 @@ function updateShop(){
     }
     if (waiting>0){
         waiting-=1;
+    }
+    if (presses>=(Math.trunc(fuelcost0))){
+    document.getElementById("fuelitem0").innerText=" Cost: "+(Math.trunc(fuelcost0))+", will be left with "+(presses-(Math.trunc(fuelcost0)))+" Presses. "
+    document.getElementById("buyPressFuel").disabled=false;
+    } else {
+    document.getElementById("fuelitem0").innerText=" Cost: "+(Math.trunc(fuelcost0))+", short "+((presses-(Math.trunc(fuelcost0)))*-1)+" Presses.";
+    document.getElementById("buyPressFuel").disabled=true;
+    }
+    if (ppoint>=(Math.trunc(fuelcost1))){
+    document.getElementById("fuelitem1").innerText=" Cost: "+(Math.trunc(fuelcost1))+", will be left with "+(presses-(Math.trunc(fuelcost1)))+" Prestige Points. "
+    document.getElementById("buyPrestigeFuel").disabled=false;
+    } else {
+    document.getElementById("fuelitem1").innerText=" Cost: "+(Math.trunc(fuelcost1))+", short "+((presses-(Math.trunc(fuelcost1)))*-1)+" Prestige Points.";
+    document.getElementById("buyPrestigeFuel").disabled=true;
+    }
+    if (ascpts>=(Math.trunc(fuelcost2))){
+    document.getElementById("fuelitem2").innerText=" Cost: "+(Math.trunc(fuelcost2))+", will be left with "+(presses-(Math.trunc(fuelcost2)))+" Ascend Points. "
+    document.getElementById("buyAscendFuel").disabled=false;
+    } else {
+    document.getElementById("fuelitem2").innerText=" Cost: "+(Math.trunc(fuelcost2))+", short "+((presses-(Math.trunc(fuelcost2)))*-1)+" Ascend Points.";
+    document.getElementById("buyAscendFuel").disabled=true;
+    }
+    if (antipresses>=(Math.trunc(fuelcost3))){
+    document.getElementById("fuelitem3").innerText=" Cost: "+(Math.trunc(fuelcost3))+", will be left with "+(presses-(Math.trunc(fuelcost3)))+" Anti-Presses. "
+    document.getElementById("buyAntiPressFuel").disabled=false;
+    } else {
+    document.getElementById("fuelitem3").innerText=" Cost: "+(Math.trunc(fuelcost3))+", short "+((presses-(Math.trunc(fuelcost3)))*-1)+" Anti-Presses.";
+    document.getElementById("buyAntiPressFuel").disabled=true;
+    }
+    if (anonymity>=(Math.trunc(fuelcost4))){
+    document.getElementById("fuelitem4").innerText=" Cost: "+(Math.trunc(fuelcost4))+", will be left with "+(presses-(Math.trunc(fuelcost4)))+" Anonymity Points. "
+    document.getElementById("buyAnonymityFuel").disabled=false;
+    } else {
+    document.getElementById("fuelitem4").innerText=" Cost: "+(Math.trunc(fuelcost4))+", short "+((presses-(Math.trunc(fuelcost4)))*-1)+" Anonymity Points.";
+    document.getElementById("buyAnonymityFuel").disabled=true;
     }
 }
 function updatePressing(){
@@ -2979,13 +3041,13 @@ var slowupdater = setInterval(function(){
         if (autobuy==1 || autoupgrade==1 || autopresbuy==1){
             updateAuto()
         }
+        updateCharger()
     }
 }, 100)
 //this exists for things that do not really need quick updates, but still needs them faster than 5s
 var slowerupdater = setInterval(function(){
     if (loaded==2){
         updateResets()
-        updateCharger()
         if (inshop!==0){
         updateShop()
         }
@@ -3180,6 +3242,12 @@ document.getElementById("ascendui").style="opacity: 1; position: absolute; top: 
 } else if (inshop==9) {
 inshop=0
 document.getElementById("ascendui").style="opacity: 0; position: absolute; top: 0px; left: -100%; height: 250px; width: 250px; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF; z-index: 4;"
+} else if (inshop==16){
+inshop=15
+document.getElementById("chargerui").style="opacity: 1; position: absolute; top: 0px; left: 0px; height: 250px; width: 250px; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF; z-index: 4;"
+} else if (inshop==15) {
+inshop=0
+document.getElementById("chargerui").style="opacity: 0; position: absolute; top: 0px; left: -100%; height: 250px; width: 250px; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF; z-index: 4;"
 }
 }
 function upgradeshop(){
@@ -3731,7 +3799,16 @@ function createCookie(){
         pressingSave.achcomp68 = achcomp68;
         pressingSave.achcomp69 = achcomp69;
         pressingSave.achcomp70 = achcomp70;
-        pressingSave.achcomp71 = achcomp71;
+        pressingSave.pressfuel = pressfuel;
+        pressingSave.fuelcost0 = fuelcost0;
+        pressingSave.prestigefuel = prestigefuel;
+        pressingSave.fuelcost1 = fuelcost1;
+        pressingSave.ascendfuel = ascendfuel;
+        pressingSave.fuelcost2 = fuelcost2;
+        pressingSave.antipressfuel = antipressfuel;
+        pressingSave.fuelcost3 = fuelcost3;
+        pressingSave.anonymityfuel = anonymityfuel;
+        pressingSave.fuelcost4 = fuelcost4;
     var jsonString = JSON.stringify(pressingSave);
     document.cookie = jsonString;
 };
@@ -3908,7 +3985,16 @@ function loadCookie(){
         achcomp68 = saveLoading.achcomp68;
         achcomp69 = saveLoading.achcomp69;
         achcomp70 = saveLoading.achcomp70;
-        achcomp71 = saveLoading.achcomp71;
+        pressfuel = saveLoading.pressfuel;
+        fuelcost0 = saveLoading.fuelcost0;
+        prestigefuel = saveLoading.prestigefuel;
+        fuelcost1 = saveLoading.fuelcost1;
+        ascendfuel = saveLoading.ascendfuel;
+        fuelcost2 = saveLoading.fuelcost2;
+        antipressfuel = saveLoading.antipressfuel;
+        fuelcost3 = saveLoading.fuelcost3;
+        anonymityfuel = saveLoading.anonymityfuel;
+        fuelcost4 = saveLoading.fuelcost4;
         if (detailedoutput==1){
         console.log(saveLoading)
         }
@@ -5913,6 +5999,86 @@ anticost1 = pressingFile.anticost1;
 autopresbuy = pressingFile.autopresbuy;
 anticost2 = pressingFile.anticost2;
 autoresettimer = pressingFile.autoresettimer;
+        achcomp1 = saveLoading.achcomp1;
+        achcomp2 = saveLoading.achcomp2;
+        achcomp3 = saveLoading.achcomp3;
+        achcomp4 = saveLoading.achcomp4;
+        achcomp5 = saveLoading.achcomp5;
+        achcomp6 = saveLoading.achcomp6;
+        achcomp7 = saveLoading.achcomp7;
+        achcomp8 = saveLoading.achcomp8;
+        achcomp9 = saveLoading.achcomp9;
+        achcomp10 = saveLoading.achcomp10;
+        achcomp11 = saveLoading.achcomp11;
+        achcomp12 = saveLoading.achcomp12;
+        achcomp13 = saveLoading.achcomp13;
+        achcomp14 = saveLoading.achcomp14;
+        achcomp15 = saveLoading.achcomp15;
+        achcomp16 = saveLoading.achcomp16;
+        achcomp17 = saveLoading.achcomp17;
+        achcomp18 = saveLoading.achcomp18;
+        achcomp19 = saveLoading.achcomp19;
+        achcomp20 = saveLoading.achcomp20;
+        achcomp21 = saveLoading.achcomp21;
+        achcomp22 = saveLoading.achcomp22;
+        achcomp23 = saveLoading.achcomp23;
+        achcomp24 = saveLoading.achcomp24;
+        achcomp25 = saveLoading.achcomp25;
+        achcomp26 = saveLoading.achcomp26;
+        achcomp27 = saveLoading.achcomp27;
+        achcomp28 = saveLoading.achcomp28;
+        achcomp29 = saveLoading.achcomp29;
+        achcomp30 = saveLoading.achcomp30;
+        achcomp31 = saveLoading.achcomp31;
+        achcomp32 = saveLoading.achcomp32;
+        achcomp33 = saveLoading.achcomp33;
+        achcomp34 = saveLoading.achcomp34;
+        achcomp35 = saveLoading.achcomp35;
+        achcomp36 = saveLoading.achcomp36;
+        achcomp37 = saveLoading.achcomp37;
+        achcomp38 = saveLoading.achcomp38;
+        achcomp39 = saveLoading.achcomp39;
+        achcomp40 = saveLoading.achcomp40;
+        achcomp41 = saveLoading.achcomp41;
+        achcomp42 = saveLoading.achcomp42;
+        achcomp43 = saveLoading.achcomp43;
+        achcomp44 = saveLoading.achcomp44;
+        achcomp45 = saveLoading.achcomp45;
+        achcomp46 = saveLoading.achcomp46;
+        achcomp47 = saveLoading.achcomp47;
+        achcomp48 = saveLoading.achcomp48;
+        achcomp49 = saveLoading.achcomp49;
+        achcomp50 = saveLoading.achcomp50;
+        achcomp51 = saveLoading.achcomp51;
+        achcomp52 = saveLoading.achcomp52;
+        achcomp53 = saveLoading.achcomp53;
+        achcomp54 = saveLoading.achcomp54;
+        achcomp55 = saveLoading.achcomp55;
+        achcomp56 = saveLoading.achcomp56;
+        achcomp57 = saveLoading.achcomp57;
+        achcomp58 = saveLoading.achcomp58;
+        achcomp59 = saveLoading.achcomp59;
+        achcomp60 = saveLoading.achcomp60;
+        achcomp61 = saveLoading.achcomp61;
+        achcomp62 = saveLoading.achcomp62;
+        achcomp63 = saveLoading.achcomp63;
+        achcomp64 = saveLoading.achcomp64;
+        achcomp65 = saveLoading.achcomp65;
+        achcomp66 = saveLoading.achcomp66;
+        achcomp67 = saveLoading.achcomp67;
+        achcomp68 = saveLoading.achcomp68;
+        achcomp69 = saveLoading.achcomp69;
+        achcomp70 = saveLoading.achcomp70;
+        pressfuel = saveLoading.pressfuel;
+        fuelcost0 = saveLoading.fuelcost0;
+        prestigefuel = saveLoading.prestigefuel;
+        fuelcost1 = saveLoading.fuelcost1;
+        ascendfuel = saveLoading.ascendfuel;
+        fuelcost2 = saveLoading.fuelcost2;
+        antipressfuel = saveLoading.antipressfuel;
+        fuelcost3 = saveLoading.fuelcost3;
+        anonymityfuel = saveLoading.anonymityfuel;
+        fuelcost4 = saveLoading.fuelcost4;
 }
 //base64 functions grabbed from gist.github.com/enepomnyaschih/72c423f727d395eeaa09697058238727, i didn't know how to. major thanks!
 const base64abc = [],
@@ -6068,6 +6234,37 @@ div.id="achievement"
 div.style="position: absolute; bottom: 14px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
 div.innerHTML='<div style="position: absolute;left: -3px;top: -36px;width: 248px;height: 91px;background-color: transparent;z-index: 2;"></div><div style="position: absolute;bottom: 77px;right: -12px;height: 14px;width: 14px;border-color: #000000;border-style: double;background-color: #FFFFFF;font-weight: 750;font-family: monospace;text-align: center;z-index: 2;"><a style="position: absolute;top: -6px;left: 0px;font-size: 17px;">🗙</a><a style="position: absolute;top: -3px;left: -3px;background-color: transparent;height: 20px;width: 20px;cursor:pointer;" onclick="closeach()"></a></div><div style="position: absolute;height: 89px;width: 1px;left: -2px;top: -35px;background-color:#FFFFFF;z-index: 1;"></div><div style="position: absolute;height: 56px;width: 1px;left: 53px;top: -2px; background-color:#FFFFFF"></div><div style="position: absolute;height: 1px;width: 191px;left: 53px;top: 18px;background-color:#FFFFFF; z-index: 1;"></div><div style="position: absolute;height: 89px;width: 1px;left: 243px;top: -35px;background-color:#FFFFFF;z-index: 1;"></div><div style="position: absolute;bottom: 55px;right: -3px;height: 30px;width: 242px;border-color: #000000;border-right-style: double;border-left-style: double;border-top-style: double;background-color: #FFFFFF;font-weight: 750;font-size: 19px;font-family: monospace; text-align: center; z-index: 0;"><a style="position: relative;text-align: center;top: 5px; z-index: 0;">Achievement achieved!</a></div><img src="https://media.tenor.com/1X2SyR0pGVAAAAAd/luigi-dancing.gif" style="width: 52px; height: 52px; left: 0px; top: 0px; position: absolute; border-color: #000000; border-right-style: double; z-index: 0;"><div style="position: absolute;left: 55px;top: 0px;height: 17px;width: 187px;background-color: transparent;overflow-y: clip;font-size: 15px;text-align: center;border-bottom-style: double;border-color: #000000; font-style: italic; z-index: 0;">'+title+'</div><div style="position: absolute;left: 57px;top: 19px;height: 33px;width: 183px;background-color: transparent;overflow-y: clip;font-size: 14px;text-align: center; z-index: 0;">'+desc+'</div>'
 document.body.appendChild(div)
+}
+function buyPressFuel(){
+presses-=fuelcost0
+pressfuel*=2
+fuelcost0=((fuelcost0+(pressfuel+1))*8)
+}
+function buyPrestigeFuel(){
+ppoint-=fuelcost1
+prestigefuel*=2
+fuelcost0=((fuelcost1+(prestigefuel+1))*4)
+}
+function buyAscendFuel(){
+ascpts-=fuelcost2
+ascendfuel*=2
+fuelcost0=((fuelcost2+(ascendfuel+1))*2)
+}
+function buyAntiPressFuel(){
+antipresses-=fuelcost3
+antipressfuel*=2
+fuelcost0=((fuelcost3+(antipressfuel+1))*4)
+}
+function buyAnonymityFuel(){
+anonymity-=fuelcost4
+anonymityfuel*=2
+fuelcost0=((fuelcost4+(anonymityfuel+1))*2)
+}
+function fuelcharger(){
+if (shop==0){
+inshop==16
+shop()
+}
 }
 </script>
 </html>
