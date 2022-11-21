@@ -1604,33 +1604,75 @@ function updateCharger(){
     charge+=((pressfuel*prestigefuel*ascendfuel*antipressfuel*anonymityfuel)*0.1)
     if (charge<1000000){
     document.getElementById("chargr").innerText=(charge).toFixed(0)
-    } else if (charge>=1000000 && charge<=1000000000){
+    } else if (charge>=1000000 && charge<1000000000){
     document.getElementById("chargr").innerText=(charge/1000000).toFixed(3)+"M"
-    } else if (charge>=1000000000 && charge<=1000000000000){
+    } else if (charge>=1000000000 && charge<1000000000000){
     document.getElementById("chargr").innerText=(charge/1000000000).toFixed(3)+"B"
-    } else if (charge>=1000000000000 && charge<=1000000000000000){
+    } else if (charge>=1000000000000 && charge<1000000000000000){
     document.getElementById("chargr").innerText=(charge/1000000000000).toFixed(3)+"T"
-    } else if (charge>=1000000000000000 && charge<=1000000000000000000){
+    } else if (charge>=1000000000000000 && charge<1000000000000000000){
     document.getElementById("chargr").innerText=(charge/1000000000000000).toFixed(3)+"Qa"
-    } else if (charge>=1000000000000000000 && charge<=1000000000000000000000){
+    } else if (charge>=1000000000000000000 && charge<1000000000000000000000){
     document.getElementById("chargr").innerText=(charge/1000000000000000000).toFixed(3)+"Qi"
-    } else if (charge>=1000000000000000000000 && charge<=1000000000000000000000000){
+    } else if (charge>=1000000000000000000000 && charge<1000000000000000000000000){
     document.getElementById("chargr").innerText=(charge/1000000000000000000000).toFixed(3)+"Sx"
-    } else if (charge>=1000000000000000000000000 && charge<=1000000000000000000000000000){
+    } else if (charge>=1000000000000000000000000 && charge<1000000000000000000000000000){
     document.getElementById("chargr").innerText=(charge/1000000000000000000000000).toFixed(3)+"Sp"
-    } else if (charge>=1000000000000000000000000000 && charge<=1000000000000000000000000000000){
+    } else if (charge>=1000000000000000000000000000 && charge<1000000000000000000000000000000){
     document.getElementById("chargr").innerText=(charge/1000000000000000000000000000).toFixed(3)+"Oc"
-    } else if (charge>=1000000000000000000000000000000 && charge<=1000000000000000000000000000000000){
+    } else if (charge>=1000000000000000000000000000000 && charge<1000000000000000000000000000000000){
     document.getElementById("chargr").innerText=(charge/1000000000000000000000000000000).toFixed(3)+"No"
-    } else if (charge>=1000000000000000000000000000000000 && charge<=1000000000000000000000000000000000000){
+    } else if (charge>=1000000000000000000000000000000000 && charge<1000000000000000000000000000000000000){
     document.getElementById("chargr").innerText=(charge/1000000000000000000000000000000000).toFixed(3)+"Dc"
     }
     if (netcharge==0){
     document.getElementById("cps").innerText="(no change)"
-    } else if (netcharge>0){
-    document.getElementById("cps").innerText="(+"+netcharge+"/s)"
-    } else if (netcharge<0){
-    document.getElementById("cps").innerText="(-"+netcharge+"/s)"
+    } else if (netcharge>0 && netcharge<1000000){
+    document.getElementById("cps").innerText="(+"+(netcharge).toFixed(0)+"/s)"
+    } else if (netcharge>=1000000 && netcharge<1000000000){
+    document.getElementById("cps").innerText="(+"+(netcharge/1000000).toFixed(3)+"M/s)"
+    } else if (netcharge>=1000000000 && netcharge<1000000000000){
+    document.getElementById("cps").innerText="(+"+(netcharge/1000000000).toFixed(3)+"B/s)"
+    } else if (netcharge>=1000000000000 && netcharge<1000000000000000){
+    document.getElementById("cps").innerText="(+"+(netcharge/1000000000000).toFixed(3)+"T/s)"
+    } else if (netcharge>=1000000000000000 && netcharge<1000000000000000000){
+    document.getElementById("cps").innerText="(+"+(netcharge/1000000000000000).toFixed(3)+"Qa/s)"
+    } else if (netcharge>=1000000000000000000 && netcharge<1000000000000000000000){
+    document.getElementById("cps").innerText="(+"+(netcharge/1000000000000000000).toFixed(3)+"Qi/s)"
+    } else if (netcharge>=1000000000000000000000 && netcharge<1000000000000000000000000){
+    document.getElementById("cps").innerText="(+"+(netcharge/1000000000000000000000).toFixed(3)+"Sx/s)"
+    } else if (netcharge>=1000000000000000000000000 && netcharge<1000000000000000000000000000){
+    document.getElementById("cps").innerText="(+"+(netcharge/1000000000000000000000000).toFixed(3)+"Sp/s)"
+    } else if (netcharge>=1000000000000000000000000000 && netcharge<1000000000000000000000000000000){
+    document.getElementById("cps").innerText="(+"+(netcharge/1000000000000000000000000000).toFixed(3)+"Oc/s)"
+    } else if (netcharge>=1000000000000000000000000000000 && netcharge<1000000000000000000000000000000000){
+    document.getElementById("cps").innerText="(+"+(netcharge/1000000000000000000000000000000).toFixed(3)+"No/s)"
+    } else if (netcharge>=1000000000000000000000000000000000 && netcharge<1000000000000000000000000000000000000){
+    document.getElementById("cps").innerText="(+"+(netcharge/1000000000000000000000000000000000).toFixed(3)+"Dc/s)"
+    } else if (netcharge<0 && netcharge>-1000000){
+    document.getElementById("cps").innerText="(-"+(netcharge).toFixed(0)+"/s)"
+    } else if (netcharge<=-1000000 && netcharge>-1000000000){
+    document.getElementById("cps").innerText="(-"+(netcharge/1000000).toFixed(3)+"M/s)"
+    } else if (netcharge<=-1000000000 && netcharge>-1000000000000){
+    document.getElementById("cps").innerText="(-"+(netcharge/1000000000).toFixed(3)+"B/s)"
+    } else if (netcharge<=-1000000000000 && netcharge>-1000000000000000){
+    document.getElementById("cps").innerText="(-"+(netcharge/1000000000000).toFixed(3)+"T/s)"
+    } else if (netcharge<=-1000000000000000 && netcharge>-1000000000000000000){
+    document.getElementById("cps").innerText="(-"+(netcharge/1000000000000000).toFixed(3)+"Qa/s)"
+    } else if (netcharge<=-1000000000000000000 && netcharge>-1000000000000000000000){
+    document.getElementById("cps").innerText="(-"+(netcharge/1000000000000000000).toFixed(3)+"Qi/s)"
+    } else if (netcharge<=-1000000000000000000000 && netcharge>-1000000000000000000000000){
+    document.getElementById("cps").innerText="(-"+(netcharge/1000000000000000000000).toFixed(3)+"Sx/s)"
+    } else if (netcharge<=-1000000000000000000000000 && netcharge>-1000000000000000000000000000){
+    document.getElementById("cps").innerText="(-"+(netcharge/1000000000000000000000000).toFixed(3)+"Sp/s)"
+    } else if (netcharge<=-1000000000000000000000000000 && netcharge>-1000000000000000000000000000000){
+    document.getElementById("cps").innerText="(-"+(netcharge/1000000000000000000000000000).toFixed(3)+"Oc/s)"
+    } else if (netcharge<=-1000000000000000000000000000000 && netcharge>-1000000000000000000000000000000000){
+    document.getElementById("cps").innerText="(-"+(netcharge/1000000000000000000000000000000).toFixed(3)+"No/s)"
+    } else if (netcharge<=-1000000000000000000000000000000000 && netcharge>-1000000000000000000000000000000000000){
+    document.getElementById("cps").innerText="(-"+(netcharge/1000000000000000000000000000000000).toFixed(3)+"Dc/s)"
+    } else {
+    document.getElementById("cps").innerText="(>999Dc or <-999Dc)"
     }
 }
 function updateChallenge(){
