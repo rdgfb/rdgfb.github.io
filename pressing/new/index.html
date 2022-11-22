@@ -1623,8 +1623,8 @@ function updateCharger(){
     document.getElementById("charger").style="position: relative; height: 250px; width: 250px; top: 0px; left: -100%; background-color: #CCCC00; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"
     } else if (charger == 1){
     document.getElementById("charger").style="position: relative; height: 250px; width: 250px; top: 0px; left: 0px; background-color: #CCCC00; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"
-    netcharge=(Math.trunc(pressfuel*prestigefuel*ascendfuel*antipressfuel*anonymityfuel*chargerfuel))
-    charge+=((pressfuel*prestigefuel*ascendfuel*antipressfuel*anonymityfuel*chargerfuel)*0.1)
+    netcharge=(Math.trunc(pressfuel*prestigefuel*ascendfuel*antipressfuel*anonymityfuel*chargefuel))
+    charge+=((pressfuel*prestigefuel*ascendfuel*antipressfuel*anonymityfuel*chargefuel)*0.1)
     }
     if (charge<1000000){
     document.getElementById("chargr").innerText=(charge).toFixed(0)
