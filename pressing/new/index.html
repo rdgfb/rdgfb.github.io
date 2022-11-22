@@ -2819,7 +2819,7 @@ function updateShop(){
     document.getElementById("buyAnonymityFuel").disabled=true;
     }
     if (charge>=(Math.trunc(fuelcost5))){
-    document.getElementById("chargeritem5").innerText=" Cost: "+(Math.trunc(fuelcost5))+", will be left with "+(cbarge-(Math.trunc(fuelcost5)))+" Watts of Charge. "
+    document.getElementById("chargeritem5").innerText=" Cost: "+(Math.trunc(fuelcost5))+", will be left with "+(charge-(Math.trunc(fuelcost5)))+" Watts of Charge. "
     document.getElementById("buyChargeFuel").disabled=false;
     } else {
     document.getElementById("chargeritem5").innerText=" Cost: "+(Math.trunc(fuelcost5))+", short "+((charge-(Math.trunc(fuelcost5)))*-1)+" Watts of Charge.";
