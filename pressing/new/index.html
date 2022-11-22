@@ -4982,9 +4982,9 @@ goals4+=25
 }
 challenge=0
 }
-ppoint+=((mpgain*(1+(goals4*0.25)))*prespwr)
-if (bestprestige<((mpgain*(1+(goals4*0.25)))*prespwr)){
-bestprestige=((mpgain*(1+(goals4*0.25)))*prespwr)
+ppoint+=(((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)
+if (bestprestige<(((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)){
+bestprestige=(((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)
 }
 mpgain=0
 presses = 0;
@@ -5031,9 +5031,9 @@ updateResets()
 }
 
 function autoprestigegain(){
-ppoint+=(((mpgain*(1+(goals4*0.25)))*prespwr))
-if (bestprestige<((mpgain*(1+(goals4*0.25)))*prespwr)){
-bestprestige=((mpgain*(1+(goals4*0.25)))*prespwr)
+ppoint+=(((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)
+if (bestprestige<(((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)){
+bestprestige=(((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)
 }
 }
 function ascend(){
@@ -5125,9 +5125,9 @@ challenge=0
 }
 ppoint=0
 mpgain=0
-ascpts+=((ppress+1)*(pxpmul+1)*(plowco+1)*0.25);
-if (bestascend<((ppress+1)*(pxpmul+1)*(plowco+1)*0.25)){
-bestascend=((ppress+1)*(pxpmul+1)*(plowco+1)*0.25)
+ascpts+=(((ppress+1)*(pxpmul+1)*(plowco+1)*0.25)*chargeascend);
+if (bestascend<(((ppress+1)*(pxpmul+1)*(plowco+1)*0.25)*chargeascend)){
+bestascend=(((ppress+1)*(pxpmul+1)*(plowco+1)*0.25)*chargeascend)
 }
 presses = 0;
 pressesdec = 0;
@@ -5258,9 +5258,9 @@ anonymityamt+=1
 ppoint=0
 mpgain=0
 ascpts=0
-anonymity+=((again*(1+(goals4*0.25)))*prespwr)
-if (bestanonymity<((again*(1+(goals4*0.25)))*prespwr)){
-bestanonymity=((again*(1+(goals4*0.25)))*prespwr)
+anonymity+=(((again*(1+(goals4*0.25)))*prespwr)*chargeanonymity)(
+if (bestanonymity<(((again*(1+(goals4*0.25)))*prespwr)*chargeanonymity)){
+bestanonymity=(((again*(1+(goals4*0.25)))*prespwr)*chargeanonymity)
 }
 again=0;
 presses = 0;
