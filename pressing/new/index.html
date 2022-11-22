@@ -1888,11 +1888,11 @@ function updateResets(){
     document.getElementById("prestigegain").innerText=" You gain no anonymity points."
     document.getElementById("prestige").disabled=true
     } else if ((again*chargeanonymity)==1){
-    document.getElementById("prestigegain").innerText=" You gain "+((again*(1+(goals4*0.25)))*prespwr)*chargeanonymity)+" anonymity point."
+    document.getElementById("prestigegain").innerText=" You gain "+(((again*(1+(goals4*0.25)))*prespwr)*chargeanonymity)+" anonymity point."
     document.getElementById("prestige").disabled=false
     } else {
     //shorten exponential values
-    document.getElementById("prestigegain").innerText=" You gain "+((again*(1+(goals4*0.25)))*prespwr)*chargeanonymity)+" anonymity points."
+    document.getElementById("prestigegain").innerText=" You gain "+(((again*(1+(goals4*0.25)))*prespwr)*chargeanonymity)+" anonymity points."
     document.getElementById("prestige").disabled=false
     }
     document.getElementById("prestigeshop").innerText="Anonymity shop"
