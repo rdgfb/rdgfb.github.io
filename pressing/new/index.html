@@ -1694,17 +1694,17 @@ function updateCharger(){
     } else {
     document.getElementById("cps").innerText="(>999Dc or <-999Dc)"
     }
-    chargepress = ((charge/1000000)+1);
+    chargepress = ((charge/2000000)+1);
     document.getElementById("cpress").innerText=((chargepress).toFixed(3))
-    chargexp = ((charge/2000000)+1);
+    chargexp = ((charge/4000000)+1);
     document.getElementById("cxp").innerText=((chargexp).toFixed(3))
-    chargeprestige = ((charge/4000000)+1);
+    chargeprestige = ((charge/16000000)+1);
     document.getElementById("cprestige").innerText=((chargeprestige).toFixed(3))
-    chargeascend = ((charge/16000000)+1);
+    chargeascend = ((charge/256000000)+1);
     document.getElementById("cascend").innerText=((chargeascend).toFixed(3))
-    chargeanonymity = ((charge/256000000)+1);
+    chargeanonymity = ((charge/65536000000)+1);
     document.getElementById("canonymity").innerText=((chargeanonymity).toFixed(3))
-    chargesqueeze = ((charge/65536000000)+1);
+    chargesqueeze = ((charge/368934881000000)+1);
     document.getElementById("csqueeze").innerText=((chargesqueeze).toFixed(3))
     chargesqueezesuccess = ((charge/4294967296000000)+1);
     document.getElementById("cschance").innerText=((chargesqueezesuccess).toFixed(3))
