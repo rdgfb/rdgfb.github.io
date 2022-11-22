@@ -1694,21 +1694,21 @@ function updateCharger(){
     document.getElementById("cps").innerText="(>999Dc or <-999Dc)"
     }
     chargepress = ((charge/1)+1);
-    document.getElementById("cpress").innerText=chargepress
+    document.getElementById("cpress").innerText=((chargepress).toFixed(3))
     chargexp = ((charge/2)+1);
-    document.getElementById("cxp").innerText=chargexp
+    document.getElementById("cxp").innerText=((chargexp).toFixed(3))
     chargeprestige = ((charge/4)+1);
-    document.getElementById("cprestige").innerText=chargeprestige
+    document.getElementById("cprestige").innerText=((chargeprestige).toFixed(3))
     chargeascend = ((charge/16)+1);
-    document.getElementById("cascend").innerText=chargeascend
+    document.getElementById("cascend").innerText=((chargeascend).toFixed(3))
     chargeanonymity = ((charge/256)+1);
-    document.getElementById("canonymity").innerText=chargeanonymity
+    document.getElementById("canonymity").innerText=((chargeanonymity).toFixed(3))
     chargesqueeze = ((charge/65536)+1);
-    document.getElementById("csqueeze").innerText=chargesqueeze
+    document.getElementById("csqueeze").innerText=((chargesqueeze).toFixed(3))
     chargesqueezesuccess = ((charge/4294967296)+1);
-    document.getElementById("cschance").innerText=chargesqueezesuccess
+    document.getElementById("cschance").innerText=((chargesqueezesuccess).toFixed(3))
     chargesqueezebonus = ((charge/4294967296)+1);
-    document.getElementById("csbonus").innerText=chargesqueezebonus
+    document.getElementById("csbonus").innerText=((chargesqueezebonus).toFixed(3))
 }
 function updateChallenge(){
     document.getElementById("Goal0lvl").innerText="100"
