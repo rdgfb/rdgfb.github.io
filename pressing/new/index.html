@@ -201,6 +201,14 @@ var antipressfuel = 1;
 var fuelcost3 = 1;
 var anonymityfuel = 1;
 var fuelcost4 = 1;
+var chargepress = 1;
+var chargexp = 1;
+var chargeprestige = 1;
+var chargeascend = 1;
+var chargeanonymity = 1;
+var chargesqueeze = 1;
+var chargesqueezesuccess = 1;
+var chargesqueezebonus = 1;
 /** all achievements. for all, 0 achievements is none **/
 /* descriptions */
 /* presses */
@@ -368,9 +376,9 @@ var achcomp51 = 0
 var achtitle52 = "Gold egg!"
 var achdesc52 = "It likes large amounts"
 var achcomp52 = 0
-var achtitle48 = "\"Giving them candy?\""
-var achdesc48 = "Lose 1 Billion charge"
-var achcomp48 = 0
+var achtitle53 = "\"Giving them candy?\""
+var achdesc53 = "Lose 1 Billion charge"
+var achcomp53 = 0
 //var achtitle53 = "不可能的 egg!"
 //var achdesc53 = "它喜欢成为隐藏最好的（祝你好运）"
 //var achcomp53 = 0
@@ -420,13 +428,13 @@ var achtitle65 = "Eventful."
 var achdesc65 = "Participate in any event"
 var achcomp65 = 0
 var achtitle66 = "Sweating a little."
-var achdesc66 = "1M presses in 900s. *NEW SAVE ONLY*"
+var achdesc66 = "1M presses in 900s. *NEW ONLY*"
 var achcomp66 = 0
 var achtitle67 = "Sweating."
-var achdesc67 = "1M presses in 600s. *NEW SAVE ONLY*"
+var achdesc67 = "1M presses in 600s. *NEW ONLY*"
 var achcomp67 = 0
 var achtitle68 = "Sweating a lot."
-var achdesc68 = "1M presses in 300s. *NEW SAVE ONLY*"
+var achdesc68 = "1M presses in 300s. *NEW ONLY*"
 var achcomp68 = 0
 var achtitle69 = "too tired."
 var achdesc69 = "Do not press or idle for 86400s. *yawn*"
@@ -434,6 +442,7 @@ var achcomp69 = 0
 var achtitle70 = "69 achieved!"
 var achdesc70 = "Achieve it all. Time to touch Grass?"
 var achcomp70 = 0
+/** no more achievements **/
 document.body.onload = function(){
     loadCookie();
     updateXPmult()
@@ -1609,9 +1618,9 @@ function updateCharger(){
     document.getElementById("charger").style="position: relative; height: 250px; width: 250px; top: 0px; left: -100%; background-color: #CCCC00; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"
     } else if (charger == 1){
     document.getElementById("charger").style="position: relative; height: 250px; width: 250px; top: 0px; left: 0px; background-color: #CCCC00; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"
-    }
     netcharge=(Math.trunc(pressfuel*prestigefuel*ascendfuel*antipressfuel*anonymityfuel))
     charge+=((pressfuel*prestigefuel*ascendfuel*antipressfuel*anonymityfuel)*0.1)
+    }
     if (charge<1000000){
     document.getElementById("chargr").innerText=(charge).toFixed(0)
     } else if (charge>=1000000 && charge<1000000000){
@@ -1684,6 +1693,22 @@ function updateCharger(){
     } else {
     document.getElementById("cps").innerText="(>999Dc or <-999Dc)"
     }
+    chargepress = ((charge/1)+1);
+    document.getElementById("cpress").innerText=chargepress
+    chargexp = ((charge/2)+1);
+    document.getElementById("cxp").innerText=chargexp
+    chargeprestige = ((charge/4)+1);
+    document.getElementById("cprestige").innerText=chargeprestige
+    chargeascend = ((charge/16)+1);
+    document.getElementById("cascend").innerText=chargeascend
+    chargeanonymity = ((charge/256)+1);
+    document.getElementById("canonymity").innerText=chargeanonymity
+    chargesqueeze = ((charge/65536)+1);
+    document.getElementById("csqueeze").innerText=chargesqueeze
+    chargesqueezesuccess = ((charge/4294967296)+1);
+    document.getElementById("cschance").innerText=chargesqueezesuccess
+    chargesqueezebonus = ((charge/4294967296)+1);
+    document.getElementById("csbonus").innerText=chargesqueezebonus
 }
 function updateChallenge(){
     document.getElementById("Goal0lvl").innerText="100"
@@ -1789,53 +1814,53 @@ function updateResets(){
     document.getElementById("prestige").disabled=true
     document.getElementById("prestigeshop").innerText="Prestige Shop"
     document.getElementById("prestigeshop").disabled=false
-    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)==1){
+    } else if ((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)==1){
     //increase this by levels too!!
-    document.getElementById("prestigegain").innerText=" You will gain "+((mpgain*(1+(goals4*0.25)))*prespwr)+" Prestige Point."
-    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=0 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000){
-    document.getElementById("prestigegain").innerText=" You will gain "+((mpgain*(1+(goals4*0.25)))*prespwr)+" Prestige Points."
-    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=1000 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000000){
-    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)/1000)))+"k Prestige Points."
-    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=1000000 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000000000){
-    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)/1000000)))+"M Prestige Points."
-    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=1000000000 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000000000000){
-    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)/1000000000)))+"B Prestige Points."
-    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=1000000000000 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000000000000000){
-    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)/1000000000000)))+"T Prestige Points."
-    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=1000000000000000 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000000000000000000){
-    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)/1000000000000000)))+"Qa Prestige Points."
-    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=1000000000000000000 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000000000000000000000){
-    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)/1000000000000000000)))+"Qi Prestige Points."
-    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=1000000000000000000000 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000000000000000000000000){
-    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)/1000000000000000000000)))+"Sx Prestige Points."
-    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=1000000000000000000000000 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000000000000000000000000000){
-    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)/1000000000000000000000000)))+"Sp Prestige Points."
-    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=1000000000000000000000000000 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000000000000000000000000000000){
-    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)/1000000000000000000000000000)))+"Oc Prestige Points."
-    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=1000000000000000000000000000000 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000000000000000000000000000000000){
-    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)/1000000000000000000000000000000)))+"No Prestige Points."
-    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=1000000000000000000000000000000000 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000000000000000000000000000000000000){
-    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)/1000000000000000000000000000000000)))+"Dc Prestige Points."
-    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=1000000000000000000000000000000000000 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000000000000000000000000000000000000000){
-    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)/1000000000000000000000000000000000000)))+"UDc Prestige Points."
-    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=1000000000000000000000000000000000000000 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000000000000000000000000000000000000000000){
-    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)/1000000000000000000000000000000000000000)))+"DDc Prestige Points."
-    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=1000000000000000000000000000000000000000000 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000000000000000000000000000000000000000000000){
-    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)/1000000000000000000000000000000000000000000)))+"TDc Prestige Points."
-    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=1000000000000000000000000000000000000000000000 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000000000000000000000000000000000000000000000000){
-    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)/1000000000000000000000000000000000000000000000)))+"QaDc Prestige Points."
-    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=1000000000000000000000000000000000000000000000000 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000000000000000000000000000000000000000000000000000){
-    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)/1000000000000000000000000000000000000000000000000)))+"QiDc Prestige Points."
-    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=1000000000000000000000000000000000000000000000000000 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000000000000000000000000000000000000000000000000000000){
-    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)/1000000000000000000000000000000000000000000000000000)))+"SxDc Prestige Points."
-    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=1000000000000000000000000000000000000000000000000000000 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000000000000000000000000000000000000000000000000000000000){
-    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)/1000000000000000000000000000000000000000000000000000000)))+"SpDc Prestige Points."
-    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=1000000000000000000000000000000000000000000000000000000000 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000000000000000000000000000000000000000000000000000000000000){
-    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)/1000000000000000000000000000000000000000000000000000000000)))+"OcDc Prestige Points."
-    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=1000000000000000000000000000000000000000000000000000000000000 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000000000000000000000000000000000000000000000000000000000000000){
-    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)/1000000000000000000000000000000000000000000000000000000000000)))+"NoDc Prestige Points."
-    } else if (((mpgain*(1+(goals4*0.25)))*prespwr)>=1000000000000000000000000000000000000000000000000000000000000000 && ((mpgain*(1+(goals4*0.25)))*prespwr)<1000000000000000000000000000000000000000000000000000000000000000000){
-    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)/1000000000000000000000000000000000000000000000000000000000000000)))+"Vg Prestige Points."
+    document.getElementById("prestigegain").innerText=" You will gain "+(((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)+" Prestige Point."
+    } else if ((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)>=0 && (((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)<1000){
+    document.getElementById("prestigegain").innerText=" You will gain "+(((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)+" Prestige Points."
+    } else if ((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)>=1000 && (((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)<1000000){
+    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)/1000)))+"k Prestige Points."
+    } else if ((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)>=1000000 && (((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)<1000000000){
+    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)/1000000)))+"M Prestige Points."
+    } else if ((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)>=1000000000 && (((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)<1000000000000){
+    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)/1000000000)))+"B Prestige Points."
+    } else if ((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)>=1000000000000 && (((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)<1000000000000000){
+    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)/1000000000000)))+"T Prestige Points."
+    } else if ((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)>=1000000000000000 && (((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)<1000000000000000000){
+    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)/1000000000000000)))+"Qa Prestige Points."
+    } else if ((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)>=1000000000000000000 && (((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)<1000000000000000000000){
+    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)/1000000000000000000)))+"Qi Prestige Points."
+    } else if ((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)>=1000000000000000000000 && (((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)<1000000000000000000000000){
+    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)/1000000000000000000000)))+"Sx Prestige Points."
+    } else if ((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)>=1000000000000000000000000 && (((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)<1000000000000000000000000000){
+    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)/1000000000000000000000000)))+"Sp Prestige Points."
+    } else if ((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)>=1000000000000000000000000000 && (((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)<1000000000000000000000000000000){
+    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)/1000000000000000000000000000)))+"Oc Prestige Points."
+    } else if ((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)>=1000000000000000000000000000000 && (((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)<1000000000000000000000000000000000){
+    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)/1000000000000000000000000000000)))+"No Prestige Points."
+    } else if ((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)>=1000000000000000000000000000000000 && (((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)<1000000000000000000000000000000000000){
+    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)/1000000000000000000000000000000000)))+"Dc Prestige Points."
+    } else if ((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)>=1000000000000000000000000000000000000 && (((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)<1000000000000000000000000000000000000000){
+    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)/1000000000000000000000000000000000000)))+"UDc Prestige Points."
+    } else if ((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)>=1000000000000000000000000000000000000000 && (((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)<1000000000000000000000000000000000000000000){
+    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)/1000000000000000000000000000000000000000)))+"DDc Prestige Points."
+    } else if ((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)>=1000000000000000000000000000000000000000000 && (((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)<1000000000000000000000000000000000000000000000){
+    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)/1000000000000000000000000000000000000000000)))+"TDc Prestige Points."
+    } else if ((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)>=1000000000000000000000000000000000000000000000 && (((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)<1000000000000000000000000000000000000000000000000){
+    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)/1000000000000000000000000000000000000000000000)))+"QaDc Prestige Points."
+    } else if ((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)>=1000000000000000000000000000000000000000000000000 && (((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)<1000000000000000000000000000000000000000000000000000){
+    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)/1000000000000000000000000000000000000000000000000)))+"QiDc Prestige Points."
+    } else if ((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)>=1000000000000000000000000000000000000000000000000000 && (((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)<1000000000000000000000000000000000000000000000000000000){
+    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)/1000000000000000000000000000000000000000000000000000)))+"SxDc Prestige Points."
+    } else if ((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)>=1000000000000000000000000000000000000000000000000000000 && (((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)<1000000000000000000000000000000000000000000000000000000000){
+    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)/1000000000000000000000000000000000000000000000000000000)))+"SpDc Prestige Points."
+    } else if ((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)>=1000000000000000000000000000000000000000000000000000000000 && (((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)<1000000000000000000000000000000000000000000000000000000000000){
+    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)/1000000000000000000000000000000000000000000000000000000000)))+"OcDc Prestige Points."
+    } else if ((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)>=1000000000000000000000000000000000000000000000000000000000000 && (((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)<1000000000000000000000000000000000000000000000000000000000000000){
+    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)/1000000000000000000000000000000000000000000000000000000000000)))+"NoDc Prestige Points."
+    } else if ((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)>=1000000000000000000000000000000000000000000000000000000000000000 && (((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)<1000000000000000000000000000000000000000000000000000000000000000000){
+    document.getElementById("prestigegain").innerText=" You will gain "+(Math.trunc((((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)/1000000000000000000000000000000000000000000000000000000000000000)))+"Vg Prestige Points."
     }
     document.getElementById("prestige").disabled=false
     document.getElementById("prestigeshop").innerText="Prestige shop"
@@ -1858,15 +1883,15 @@ function updateResets(){
     } else if (dimension==1) {
     document.getElementById("prestige").innerText="Anonymity"
     document.getElementById("presinfo").innerText="Gain anonymous power, but at the cost of anti-presses."
-    if (again==0){
+    if ((again*chargeanonymity)==0){
     document.getElementById("prestigegain").innerText=" You gain no anonymity points."
     document.getElementById("prestige").disabled=true
-    } else if (again==1){
-    document.getElementById("prestigegain").innerText=" You gain "+((again*(1+(goals4*0.25)))*prespwr)+" anonymity point."
+    } else if ((again*chargeanonymity)==1){
+    document.getElementById("prestigegain").innerText=" You gain "+((again*(1+(goals4*0.25)))*prespwr)*chargeanonymity)+" anonymity point."
     document.getElementById("prestige").disabled=false
     } else {
     //shorten exponential values
-    document.getElementById("prestigegain").innerText=" You gain "+((again*(1+(goals4*0.25)))*prespwr)+" anonymity points."
+    document.getElementById("prestigegain").innerText=" You gain "+((again*(1+(goals4*0.25)))*prespwr)*chargeanonymity)+" anonymity points."
     document.getElementById("prestige").disabled=false
     }
     document.getElementById("prestigeshop").innerText="Anonymity shop"
@@ -1876,11 +1901,11 @@ function updateResets(){
     if (mlevel>=100){
     document.getElementById("ascend").innerText="Ascend"
     document.getElementById("ascendinfo").innerText="Prestige, but resets prestige!"
-    if (((ppress+1)*(pxpmul+1)*(plowco+1)*0.25)==1){
-    document.getElementById("ascendgain").innerText=" You will gain "+((ppress+1)*(pxpmul+1)*(plowco+1)*0.25)+" Ascend Point."
+    if ((((ppress+1)*(pxpmul+1)*(plowco+1)*0.25)*chargeascend)==1){
+    document.getElementById("ascendgain").innerText=" You will gain "+(((ppress+1)*(pxpmul+1)*(plowco+1)*0.25)*chargeascend)+" Ascend Point."
     } else {
     //shorten exponential values
-    document.getElementById("ascendgain").innerText=" You will gain "+((ppress+1)*(pxpmul+1)*(plowco+1)*0.25)+" Ascend Points."
+    document.getElementById("ascendgain").innerText=" You will gain "+(((ppress+1)*(pxpmul+1)*(plowco+1)*0.25)*chargeascend)+" Ascend Points."
     }
     document.getElementById("ascend").disabled=false
     document.getElementById("ascendshop").innerText="Ascend shop"
@@ -1913,15 +1938,15 @@ function updateResets(){
     if (((prespwr+1)*0.25)==0){
     document.getElementById("ascendgain").innerText=" You gain no oily water."
     document.getElementById("ascend").disabled=true
-    } else if (((prespwr+1)*0.25)==1 && charge==10000){
-    document.getElementById("ascendgain").innerText=" You gain "+((prespwr+1)*0.25)+" ml of oily water, using "+(10000*((prespwr+1)*0.25))+" watts."
+    } else if ((((prespwr+1)*0.25)*chargesqueeze)==1 && charge==10000){
+    document.getElementById("ascendgain").innerText=" You gain "+(((prespwr+1)*0.25)*chargesqueeze)+" ml of oily water, using "+(10000*((((prespwr+1)*0.25)*chargesqueeze))+" watts."
     document.getElementById("ascend").disabled=false
-    } else if (((prespwr+1)*0.25)>=1 && charge>=(10000*((prespwr+1)*0.25))) {
-    document.getElementById("ascendgain").innerText=" You gain "+((prespwr+1)*0.25)+" mls of oily water, using "+(10000*((prespwr+1)*0.25))+" watts."
+    } else if ((((prespwr+1)*0.25)*chargesqueeze)>=1 && charge>=(10000*(((prespwr+1)*0.25)*chargesqueeze))) {
+    document.getElementById("ascendgain").innerText=" You gain "+(((prespwr+1)*0.25)*chargesqueeze)+" mls of oily water, using "+(10000*((((prespwr+1)*0.25)*chargesqueeze))+" watts."
     document.getElementById("ascend").disabled=false
     } else if (charge<(10000*((prespwr+1)*0.25))){
-    affordamt=((((prespwr+1)*0.25)/charge).toFixed(0))
-    document.getElementById("ascendgain").innerText=" You gain "+(affordamt)+"/"+((prespwr+1)*0.25)+" mls of oily water, using "+(10000*((affordamt)*0.25))+" watts. (charge is too low)"
+    affordamt=(((((prespwr+1)*0.25)*chargesqueeze)/charge).toFixed(0))
+    document.getElementById("ascendgain").innerText=" You gain "+(affordamt)+"/"+(((prespwr+1)*0.25)*chargesqueeze)+" mls of oily water, using "+(10000*((affordamt)*0.25))+" watts. (charge is too low)"
     document.getElementById("ascend").disabled=false
     }
     document.getElementById("ascendshop").innerText="Seperator"
@@ -1953,11 +1978,11 @@ function updateResets(){
 function updateXPmult(){
     if (dimension==0){
     if (challenge!==3 && challenge!==4 && challenge!==5){
-    mxpmul=(((pxpmul*(goals3+1))*(ascXP+1))*(antixp+1))
+    mxpmul=((((pxpmul*(goals3+1))*(ascXP+1))*(antixp+1))*chargexp)
     } else if (challenge==3 || challenge==4){
-    mxpmul=(((goals3+1)*(ascXP+1))*(antixp+1))
+    mxpmul=((((goals3+1)*(ascXP+1))*(antixp+1))*chargexp)
     } else if (challenge==5) {
-    mxpmul=((pxpmul*(goals3+1))*(antixp+1))
+    mxpmul=(((pxpmul*(goals3+1))*(antixp+1))*chargexp)
     }
     if (mxpmul==0){
     document.getElementById("xpmultiplier").innerText=" x"+mxpmul
@@ -2128,23 +2153,23 @@ function updateLevelandAuto(){
     if (challenge==2){
     pressesdec=0
     } else if (challenge==3 || challenge==4){
-    pressesdec+=(((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul*0.001))
+    pressesdec+=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul*0.001))*chargepress)
     } else {
-    pressesdec+=(((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul*0.001))
+    pressesdec+=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul*0.001))*chargepress)
     }
     if (challenge==2){
     pps=0
     } else if (challenge==3 || challenge==4){
-    pps=parseInt((((((cursor*0.1)+(mother*1)+(goals1*(ppower)))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul*0.001)).toFixed(1)))
+    pps=parseInt(((((((cursor*0.1)+(mother*1)+(goals1*(ppower)))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul*0.001))*chargepress).toFixed(1)))
     } else {
-    pps=parseInt((((((((cursor*0.1)*(cpower))+((mother*1))*(mpower))+(goals1*(ppress*ppower)))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul*0.001)).toFixed(1)))
+    pps=parseInt(((((((((cursor*0.1)*(cpower))+((mother*1))*(mpower))+(goals1*(ppress*ppower)))*(goals2+1)*(Math.pow(2, goals6)))*(mxpmul*0.001))*chargepress).toFixed(1)))
     }
     } else {
     pps=-1
     }
     } else if (dimension==1){
-    pressesdec+=(((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))
-    antipps=parseInt((((((goals1*(antistrength)))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001)).toFixed(1)))
+    pressesdec+=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*chargepress)
+    antipps=parseInt(((((((goals1*(antistrength)))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*chargepress).toFixed(1)))
     }
     if (pressesdec>=1 && pressesdec<11){
     pressesdec-=1
@@ -2310,7 +2335,19 @@ function updateLevelandAuto(){
         buttontenpress()
     } else if (autocooldown>=(100000-(auto*1000)) && auto!=1 && autotog==1){
         autocooldown-=(100000-(auto*1000))
-        buttonpress()
+        buttonhundredpress()
+    } else if (autocooldown>=(1000000-(auto*10000)) && auto!=1 && autotog==1){
+        autocooldown-=(1000000-(auto*10000))
+        buttonthousandpress()
+    } else if (autocooldown>=(10000000-(auto*100000)) && auto!=1 && autotog==1){
+        autocooldown-=(10000000-(auto*100000))
+        buttontenthousandpress()
+    } else if (autocooldown>=(100000000-(auto*1000000)) && auto!=1 && autotog==1){
+        autocooldown-=(100000000-(auto*1000000))
+        buttonhundredthousandpress()
+    } else if (autocooldown>=(1000000000-(auto*10000000)) && auto!=1 && autotog==1){
+        autocooldown-=(1000000000-(auto*10000000))
+        buttonmillionpress()
     } else {
         autocooldown+=0.01
     }
@@ -3172,12 +3209,12 @@ function buttonpress(){
     } else if (yes==2 && tutorialmode==1){
         if (firstpress==0){
             if (dimension==0 && presses<16){
-            presses+=((ppress*ppower)*(mxpmul)*(Math.pow(2, goals6)));
-            totalpresses+=((ppress*ppower)*(mxpmul)*(Math.pow(2, goals6)));
+            presses+=(((ppress*ppower)*(Math.pow(2, goals6)))*chargepress);
+            totalpresses+=(((ppress*ppower)*(Math.pow(2, goals6)))*chargepress);
             mxppts+=mxpmul
             } else if (dimension==1){
-            antipresses+=(((antistrength*0.25)+1)*(axpmul)*(Math.pow(2, goals6)))
-            totalantipresses+=(((antistrength*0.25)+1)*(axpmul)*(Math.pow(2, goals6)))
+            antipresses+=((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)
+            totalantipresses+=((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)
             axppts+=axpmul
             }
             if (presses<15){
@@ -3190,12 +3227,12 @@ function buttonpress(){
             }
         } else {
         if (dimension==0){
-            presses+=((ppress*ppower)*(Math.pow(2, goals6)));
-            totalpresses+=((ppress*ppower)*(Math.pow(2, goals6)));
+            presses+=(((ppress*ppower)*(Math.pow(2, goals6)))*chargepress);
+            totalpresses+=(((ppress*ppower)*(Math.pow(2, goals6)))*chargepress);
             mxppts+=mxpmul
         } else if (dimension==1){
-            antipresses+=(((antistrength*0.25)+1)*(Math.pow(2, goals6)))
-            totalantipresses+=(((antistrength*0.25)+1)*(Math.pow(2, goals6)))
+            antipresses+=((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)
+            totalantipresses+=((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)
             axppts+=axpmul
         }
         firstpress=0;
@@ -3205,18 +3242,18 @@ function buttonpress(){
     } else {
         if (dimension==0){
             if (challenge!==3 && challenge!==4 && challenge!==5){
-            presses+=((ppress*ppower)*(Math.pow(2, goals6)));
-            totalpresses+=((ppress*ppower)*(Math.pow(2, goals6)));
-            mxppts+=((ppress*ppower)*mxpmul)
+            presses+=(((ppress*ppower)*(Math.pow(2, goals6)))*chargepress);
+            totalpresses+=(((ppress*ppower)*(Math.pow(2, goals6)))*chargepress);
+            mxppts+=(((ppress*ppower)*mxpmul)*chargepress)
             } else {
-            presses+=(ppower*(Math.pow(2, goals6)));
-            totalpresses+=(ppower*(Math.pow(2, goals6)))
-            mxppts+=(ppower*mxpmul)
+            presses+=((ppower*(Math.pow(2, goals6)))*chargepress);
+            totalpresses+=((ppower*(Math.pow(2, goals6)))*chargepress)
+            mxppts+=((ppower*mxpmul)*chargepress)
             }
         } else if (dimension==1){
-            antipresses+=(((antistrength*0.25)+1)*(Math.pow(2, goals6)));
-            totalantipresses+=(((antistrength*0.25)+1)*(Math.pow(2, goals6)));
-            axppts+=(((antistrength*0.25)+1)*axpmul)
+            antipresses+=((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress);
+            totalantipresses+=((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress);
+            axppts+=((((antistrength*0.25)+1)*axpmul)*chargepress)
         }
     }
 }
@@ -3224,18 +3261,18 @@ function buttontenpress(){
     if (tutorialmode==0) {
         if (dimension==0){
             if (challenge!==3 && challenge!==4 && challenge!==5){
-            presses+=(((ppress*ppower)*(Math.pow(2, goals6)))*10)
-            totalpresses+=(((ppress*ppower)*(Math.pow(2, goals6)))*10)
-            mxppts+=((((ppress*ppower)*(Math.pow(2, goals6)))*mxpmul)*10)
+            presses+=((((ppress*ppower)*(Math.pow(2, goals6)))*chargepress)*10)
+            totalpresses+=((((ppress*ppower)*(Math.pow(2, goals6)))*chargepress)*10)
+            mxppts+=((((ppress*ppower)*mxpmul)*chargepress)*10)
             } else {
-            presses+=((ppower*(Math.pow(2, goals6)))*10)
-            totalpresses+=((ppower*(Math.pow(2, goals6)))*10)
-            mxppts+=((((ppower)*(Math.pow(2, goals6)))*mxpmul)*10)
+            presses+=(((ppower*(Math.pow(2, goals6)))*chargepress)*10)
+            totalpresses+=(((ppower*(Math.pow(2, goals6)))*chargepress)*10)
+            mxppts+=(((ppower*mxpmul)*chargepress)*10)
             }
         } else if (dimension==1){
-            antipresses+=((apress*(Math.pow(2, goals6)))*10);
-            totalantipresses+=((apress*(Math.pow(2, goals6)))*10);
-            axppts+=((apress*(Math.pow(2, goals6)))*10);
+            antipresses+=(((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)*10);
+            totalantipresses+=(((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)*10);
+            axppts+=(((((antistrength*0.25)+1)*axpmul)*chargepress)*10);
         }
     }
 }
@@ -3243,18 +3280,94 @@ function buttonhundredpress(){
     if (tutorialmode==0) {
         if (dimension==0){
             if (challenge!==3 && challenge!==4 && challenge!==5){
-            presses+=(((ppress*ppower)*(Math.pow(2, goals6)))*100)
-            totalpresses+=(((ppress*ppower)*(Math.pow(2, goals6)))*100)
-            mxppts+=((((ppress*ppower)*(Math.pow(2, goals6)))*mxpmul)*100)
+            presses+=((((ppress*ppower)*(Math.pow(2, goals6)))*chargepress)*100)
+            totalpresses+=((((ppress*ppower)*(Math.pow(2, goals6)))*chargepress)*100)
+            mxppts+=((((ppress*ppower)*mxpmul)*chargepress)*100)
             } else {
-            presses+=((ppower*(Math.pow(2, goals6)))*100)
-            totalpresses+=((ppower*(Math.pow(2, goals6)))*100)
-            mxppts+=((((ppower)*(Math.pow(2, goals6)))*mxpmul)*100)
+            presses+=(((ppower*(Math.pow(2, goals6)))*chargepress)*100)
+            totalpresses+=(((ppower*(Math.pow(2, goals6)))*chargepress)*100)
+            mxppts+=(((ppower*mxpmul)*chargepress)*100)
             }
         } else if (dimension==1){
-            antipresses+=((apress*(Math.pow(2, goals6)))*100);
-            totalantipresses+=((apress*(Math.pow(2, goals6)))*100);
-            axppts+=((apress*(Math.pow(2, goals6)))*100);
+            antipresses+=(((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)*100);
+            totalantipresses+=(((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)*100);
+            axppts+=(((((antistrength*0.25)+1)*axpmul)*chargepress)*100);
+        }
+    }
+}
+function buttonthousandpress(){
+    if (tutorialmode==0) {
+        if (dimension==0){
+            if (challenge!==3 && challenge!==4 && challenge!==5){
+            presses+=((((ppress*ppower)*(Math.pow(2, goals6)))*chargepress)*1000)
+            totalpresses+=((((ppress*ppower)*(Math.pow(2, goals6)))*chargepress)*1000)
+            mxppts+=((((ppress*ppower)*mxpmul)*chargepress)*1000)
+            } else {
+            presses+=(((ppower*(Math.pow(2, goals6)))*chargepress)*1000)
+            totalpresses+=(((ppower*(Math.pow(2, goals6)))*chargepress)*1000)
+            mxppts+=(((ppower*mxpmul)*chargepress)*1000)
+            }
+        } else if (dimension==1){
+            antipresses+=(((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)*1000);
+            totalantipresses+=(((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)*1000);
+            axppts+=(((((antistrength*0.25)+1)*axpmul)*chargepress)*1000);
+        }
+    }
+}
+function buttontenthousandpress(){
+    if (tutorialmode==0) {
+        if (dimension==0){
+            if (challenge!==3 && challenge!==4 && challenge!==5){
+            presses+=((((ppress*ppower)*(Math.pow(2, goals6)))*chargepress)*10000)
+            totalpresses+=((((ppress*ppower)*(Math.pow(2, goals6)))*chargepress)*10000)
+            mxppts+=((((ppress*ppower)*mxpmul)*chargepress)*10000)
+            } else {
+            presses+=(((ppower*(Math.pow(2, goals6)))*chargepress)*10000)
+            totalpresses+=(((ppower*(Math.pow(2, goals6)))*chargepress)*10000)
+            mxppts+=(((ppower*mxpmul)*chargepress)*10000)
+            }
+        } else if (dimension==1){
+            antipresses+=(((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)*10000);
+            totalantipresses+=(((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)*10000);
+            axppts+=(((((antistrength*0.25)+1)*axpmul)*chargepress)*10000);
+        }
+    }
+}
+function buttonhundredthousandpress(){
+    if (tutorialmode==0) {
+        if (dimension==0){
+            if (challenge!==3 && challenge!==4 && challenge!==5){
+            presses+=((((ppress*ppower)*(Math.pow(2, goals6)))*chargepress)*100000)
+            totalpresses+=((((ppress*ppower)*(Math.pow(2, goals6)))*chargepress)*100000)
+            mxppts+=((((ppress*ppower)*mxpmul)*chargepress)*100000)
+            } else {
+            presses+=(((ppower*(Math.pow(2, goals6)))*chargepress)*100000)
+            totalpresses+=(((ppower*(Math.pow(2, goals6)))*chargepress)*100000)
+            mxppts+=(((ppower*mxpmul)*chargepress)*100000)
+            }
+        } else if (dimension==1){
+            antipresses+=(((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)*100000);
+            totalantipresses+=(((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)*100000);
+            axppts+=(((((antistrength*0.25)+1)*axpmul)*chargepress)*100000);
+        }
+    }
+}
+function buttonmillionpress(){
+    if (tutorialmode==0) {
+        if (dimension==0){
+            if (challenge!==3 && challenge!==4 && challenge!==5){
+            presses+=((((ppress*ppower)*(Math.pow(2, goals6)))*chargepress)*1000000)
+            totalpresses+=((((ppress*ppower)*(Math.pow(2, goals6)))*chargepress)*1000000)
+            mxppts+=((((ppress*ppower)*mxpmul)*chargepress)*1000000)
+            } else {
+            presses+=(((ppower*(Math.pow(2, goals6)))*chargepress)*1000000)
+            totalpresses+=(((ppower*(Math.pow(2, goals6)))*chargepress)*1000000)
+            mxppts+=(((ppower*mxpmul)*chargepress)*1000000)
+            }
+        } else if (dimension==1){
+            antipresses+=(((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)*1000000);
+            totalantipresses+=(((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)*1000000);
+            axppts+=(((((antistrength*0.25)+1)*axpmul)*chargepress)*1000000);
         }
     }
 }
@@ -3888,6 +4001,14 @@ function createCookie(){
         pressingSave.fuelcost3 = fuelcost3;
         pressingSave.anonymityfuel = anonymityfuel;
         pressingSave.fuelcost4 = fuelcost4;
+        pressingSave.chargepress = chargepress;
+        pressingSave.chargexp = chargexp;
+        pressingSave.chargeprestige = chargeprestige;
+        pressingSave.chargeascend = chargeascend;
+        pressingSave.chargeanonymity = chargeanonymity;
+        pressingSave.chargesqueeze = chargesqueeze;
+        pressingSave.chargesqueezesuccess = chargesqueezesuccess;
+        pressingSave.chargesqueezebonus = chargesqueezebonus;
     var jsonString = JSON.stringify(pressingSave);
     document.cookie = jsonString;
 };
@@ -4074,6 +4195,14 @@ function loadCookie(){
         fuelcost3 = saveLoading.fuelcost3;
         anonymityfuel = saveLoading.anonymityfuel;
         fuelcost4 = saveLoading.fuelcost4;
+        chargepress = saveLoading.chargepress;
+        chargexp = saveLoading.chargexp;
+        chargeprestige = saveLoading.chargeprestige;
+        chargeascend = saveLoading.chargeascend;
+        chargeanonymity = saveLoading.chargeanonymity;
+        chargesqueeze = saveLoading.chargesqueeze;
+        chargesqueezesuccess = saveLoading.chargesqueezesuccess;
+        chargesqueezebonus = saveLoading.chargesqueezebonus;
         if (detailedoutput==1){
         console.log(saveLoading)
         }
@@ -4558,6 +4687,95 @@ function reset(){
         pressingSave.anticost1 = 100;
         pressingSave.autopresbuy = 0;
         pressingSave.anticost2 = 1000000;
+        pressingSave.autoresettimer = 60;
+        pressingSave.achcomp1 = 0;
+        pressingSave.achcomp2 = 0;
+        pressingSave.achcomp3 = 0;
+        pressingSave.achcomp4 = 0;
+        pressingSave.achcomp5 = 0;
+        pressingSave.achcomp6 = 0;
+        pressingSave.achcomp7 = 0;
+        pressingSave.achcomp8 = 0;
+        pressingSave.achcomp9 = 0;
+        pressingSave.achcomp10 = 0;
+        pressingSave.achcomp11 = 0;
+        pressingSave.achcomp12 = 0;
+        pressingSave.achcomp13 = 0;
+        pressingSave.achcomp14 = 0;
+        pressingSave.achcomp15 = 0;
+        pressingSave.achcomp16 = 0;
+        pressingSave.achcomp17 = 0;
+        pressingSave.achcomp18 = 0;
+        pressingSave.achcomp19 = 0;
+        pressingSave.achcomp20 = 0;
+        pressingSave.achcomp21 = 0;
+        pressingSave.achcomp22 = 0;
+        pressingSave.achcomp23 = 0;
+        pressingSave.achcomp24 = 0;
+        pressingSave.achcomp25 = 0;
+        pressingSave.achcomp26 = 0;
+        pressingSave.achcomp27 = 0;
+        pressingSave.achcomp28 = 0;
+        pressingSave.achcomp29 = 0;
+        pressingSave.achcomp30 = 0;
+        pressingSave.achcomp31 = 0;
+        pressingSave.achcomp32 = 0;
+        pressingSave.achcomp33 = 0;
+        pressingSave.achcomp34 = 0;
+        pressingSave.achcomp35 = 0;
+        pressingSave.achcomp36 = 0;
+        pressingSave.achcomp37 = 0;
+        pressingSave.achcomp38 = 0;
+        pressingSave.achcomp39 = 0;
+        pressingSave.achcomp40 = 0;
+        pressingSave.achcomp41 = 0;
+        pressingSave.achcomp42 = 0;
+        pressingSave.achcomp43 = 0;
+        pressingSave.achcomp44 = 0;
+        pressingSave.achcomp45 = 0;
+        pressingSave.achcomp46 = 0;
+        pressingSave.achcomp47 = 0;
+        pressingSave.achcomp48 = 0;
+        pressingSave.achcomp49 = 0;
+        pressingSave.achcomp50 = 0;
+        pressingSave.achcomp51 = 0;
+        pressingSave.achcomp52 = 0;
+        pressingSave.achcomp53 = 0;
+        pressingSave.achcomp54 = 0;
+        pressingSave.achcomp55 = 0;
+        pressingSave.achcomp56 = 0;
+        pressingSave.achcomp57 = 0;
+        pressingSave.achcomp58 = 0;
+        pressingSave.achcomp59 = 0;
+        pressingSave.achcomp60 = 0;
+        pressingSave.achcomp61 = 0;
+        pressingSave.achcomp62 = 0;
+        pressingSave.achcomp63 = 0;
+        pressingSave.achcomp64 = 0;
+        pressingSave.achcomp65 = 0;
+        pressingSave.achcomp66 = 0;
+        pressingSave.achcomp67 = 0;
+        pressingSave.achcomp68 = 0;
+        pressingSave.achcomp69 = 0;
+        pressingSave.achcomp70 = 0;
+        pressingSave.pressfuel = 1;
+        pressingSave.fuelcost0 = 1;
+        pressingSave.prestigefuel = 1;
+        pressingSave.fuelcost1 = 1;
+        pressingSave.ascendfuel = 1;
+        pressingSave.fuelcost2 = 1;
+        pressingSave.antipressfuel = 1;
+        pressingSave.fuelcost3 = 1;
+        pressingSave.anonymityfuel = 1;
+        pressingSave.fuelcost4 = 1;
+        pressingSave.chargepress = 1;
+        pressingSave.chargexp = 1;
+        pressingSave.chargeprestige = 1;
+        pressingSave.chargeascend = 1;
+        pressingSave.chargeanonymity = 1;
+        pressingSave.chargesqueeze = 1;
+        pressingSave.chargesqueezesuccess = 1;
+        pressingSave.chargesqueezebonus = 1;
     var jsonString = JSON.stringify(pressingSave);
     document.cookie = jsonString;
     window.location.reload()
@@ -5229,6 +5447,7 @@ shop()
 }
 }
 function changeDimension(){
+charge=0
 ppoint=0
 ascpts=0
 again=0;
@@ -6158,6 +6377,14 @@ autoresettimer = pressingFile.autoresettimer;
         fuelcost3 = saveLoading.fuelcost3;
         anonymityfuel = saveLoading.anonymityfuel;
         fuelcost4 = saveLoading.fuelcost4;
+        chargepress = saveLoading.chargepress;
+        chargexp = saveLoading.chargexp;
+        chargeprestige = saveLoading.chargeprestige;
+        chargeascend = saveLoading.chargeascend;
+        chargeanonymity = saveLoading.chargeanonymity;
+        chargesqueeze = saveLoading.chargesqueeze;
+        chargesqueezesuccess = saveLoading.chargesqueezesuccess;
+        chargesqueezebonus = saveLoading.chargesqueezebonus;
 }
 //base64 functions grabbed from gist.github.com/enepomnyaschih/72c423f727d395eeaa09697058238727, i didn't know how to. major thanks!
 const base64abc = [],
