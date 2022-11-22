@@ -4218,8 +4218,8 @@ function loadCookie(){
         chargesqueeze = saveLoading.chargesqueeze;
         chargesqueezesuccess = saveLoading.chargesqueezesuccess;
         chargesqueezebonus = saveLoading.chargesqueezebonus;
-        chargefuel = pressingSave.chargefuel;
-        fuelcost5 = pressingSave.fuelcost5;
+        chargefuel = saveLoading.chargefuel;
+        fuelcost5 = saveLoading.fuelcost5;
         if (detailedoutput==1){
         console.log(saveLoading)
         }
@@ -4925,6 +4925,7 @@ if (achcomp61==0 && popups==0){
     accomplish(achtitle61, achdesc61)
     popups=1
 }
+charge=0
 lastprestige=Date.now()
 prestigeamt+=1
 if (challenge==4){
@@ -5041,6 +5042,7 @@ if (achcomp62==0 && popups==0){
     accomplish(achtitle62, achdesc62)
     popups=1
 }
+charge=0
 lastascend=Date.now()
 ascendamt+=1
 if (challenge==4){
@@ -5184,6 +5186,7 @@ plowco = 1;
 updateResets()
 }
 function ascendnogain(){
+charge=0
 ppoint=0
 mpgain=0
 again=0
@@ -5249,6 +5252,7 @@ if (achcomp63==0 && popups==0){
     accomplish(achtitle63, achdesc63)
     popups=1
 }
+charge=0
 lastanonymity=Date.now()
 anonymityamt+=1
 ppoint=0
@@ -5333,6 +5337,7 @@ autopresbuy=1
 updateResets()
 }
 function anonymitynogain(){
+charge=0
 ppoint=0
 mpgain=0
 ascpts=0
