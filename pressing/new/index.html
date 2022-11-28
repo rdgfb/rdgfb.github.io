@@ -1698,22 +1698,72 @@ function updateCharger(){
     } else {
     document.getElementById("cps").innerText="(>999Dc or <-999Dc)"
     }
-    chargepress = ((charge/2000000)+1);
+    chargepress = (charge/(2000000+((charge/2000000)*16384))+1);
     document.getElementById("cpress").innerText=((chargepress).toFixed(3))
-    chargexp = ((charge/4000000)+1);
+    if (((chargepress).toFixed(3))==1){
+        document.getElementById("cpress").style.color="#AAAAAA"
+    }
+    chargexp = (charge/(4000000+((charge/4000000)*16384))+1);
     document.getElementById("cxp").innerText=((chargexp).toFixed(3))
-    chargeprestige = ((charge/16000000)+1);
+    if (((chargepress).toFixed(3))==1){
+        document.getElementById("cxp").style.color="#AAAAAA"
+    } else {
+        document.getElementById("cxp").style.color="#AAAAAA"
+    }
+    chargeprestige = (charge/(16000000+((charge/16000000)*16384))+1);
     document.getElementById("cprestige").innerText=((chargeprestige).toFixed(3))
-    chargeascend = ((charge/256000000)+1);
+    if (((chargeprestige).toFixed(3))==1){
+        document.getElementById("cprestige").style.color="#AAAAAA"
+    } else {
+        document.getElementById("cprestige").style.color="#AAAAAA"
+    }
+    chargeascend = (charge/(256000000+((charge/256000000)*16384))+1);
     document.getElementById("cascend").innerText=((chargeascend).toFixed(3))
-    chargeanonymity = ((charge/65536000000)+1);
+    if (((chargeascend).toFixed(3))==1){
+        document.getElementById("cascend").style.color="#AAAAAA"
+    } else {
+        document.getElementById("cascend").style.color="#FFFFFF"
+    }
+    chargeanonymity = (charge/(65536000000+((charge/65536000000)*16384))+1);
     document.getElementById("canonymity").innerText=((chargeanonymity).toFixed(3))
-    chargesqueeze = ((charge/368934881000000)+1);
+    if (((chargeanonymity).toFixed(3))==1){
+        document.getElementById("canonymity").style.color="#AAAAAA"
+    } else {
+        document.getElementById("canonymity").style.color="#FFFFFF"
+    }
+    chargesqueeze = (charge/(368934881000000+((charge/368934881000000)*16384))+1);
     document.getElementById("csqueeze").innerText=((chargesqueeze).toFixed(3))
-    chargesqueezesuccess = ((charge/4294967296000000)+1);
+    if (squeezeamt==1){
+    if (((chargesqueeze).toFixed(3))==1){
+        document.getElementById("csqueeze").style.color="#AAAAAA"
+    } else {
+        document.getElementById("csqueeze").style.color="#FFFFFF"
+    }
+    } else {
+        document.getElementById("csqueeze").style.color="transparent"
+    }
+    chargesqueezesuccess = (charge/(4294967296000000+((charge/4294967296000000)*16384))+1);
     document.getElementById("cschance").innerText=((chargesqueezesuccess).toFixed(3))
-    chargesqueezebonus = ((charge/18446744073709551616000000)+1);
+    if (squeezeamt==1){
+    if (((chargesqueezesuccess).toFixed(3))==1){
+        document.getElementById("cschance").style.color="#AAAAAA"
+    } else {
+        document.getElementById("cschance").style.color="#FFFFFF"
+    }
+    } else {
+        document.getElementById("cschance").style.color="transparent"
+    }
+    chargesqueezebonus = (charge/(18446744073709551616000000+((charge/18446744073709551616000000)*16384))+1);
     document.getElementById("csbonus").innerText=((chargesqueezebonus).toFixed(3))
+    if (squeezeamt==1){
+    if (((chargesqueezebonus).toFixed(3))==1){
+        document.getElementById("csbonus").style.color="#AAAAAA"
+    } else {
+        document.getElementById("csbonus").style.color="#FFFFFF"
+    }
+    } else {
+        document.getElementById("csbonus").style.color="transparent"
+    }
 }
 function updateChallenge(){
     document.getElementById("Goal0lvl").innerText="100"
