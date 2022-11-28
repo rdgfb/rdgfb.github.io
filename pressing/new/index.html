@@ -3090,154 +3090,174 @@ function updatePressing(){
         }
     } else if (yes==3 || tutorialmode==0){
         if (dimension==0){
-        if (presses==1){
-            document.getElementById("first").innerText=presses+" press";
-        } else if (presses>=0 && presses<1000000) {
-            document.getElementById("first").innerText=(presses.toFixed(0))+" presses";
+        if (presses<1) {
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1)))/1000).toFixed(2))+" presses";
+        } else if (presses==1){
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1)))/1000).toFixed(2))+" press";
+        } else if (presses>=0 && presses<1000) {
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1)))%1000).toFixed(2))+" presses";
+        } else if (presses>=1000 && presses<1000000) {
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1000)))%1000).toFixed(0))+","+(((Math.round(Math.trunc(presses/1)))%1000).toFixed(0))+" presses";
         } else if (presses>=1000000 && presses<1000000000) {
-            document.getElementById("first").innerText=(((Math.round(presses/1000))/1000).toFixed(3))+"M presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1000000)))%1000).toFixed(0))+","+(((Math.round(Math.trunc(presses/1000)))%1000).toFixed(0))+","+(((Math.round(Math.trunc(presses/1)))%1000).toFixed(0))+" presses";
         } else if (presses>=1000000000 && presses<1000000000000) {
-            document.getElementById("first").innerText=(((Math.round(presses/1000000))/1000).toFixed(3))+"B presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1000000)))/1000).toFixed(3))+"B presses";
         } else if (presses>=1000000000000 && presses<1000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(presses/1000000000))/1000).toFixed(3))+"T presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1000000000)))/1000).toFixed(3))+"T presses";
         } else if (presses>=1000000000000000 && presses<1000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(presses/1000000000000))/1000).toFixed(3))+"Qa presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1000000000000)))/1000).toFixed(3))+"Qa presses";
         } else if (presses>=1000000000000000000 && presses<1000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(presses/1000000000000000))/1000).toFixed(3))+"Qi presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1000000000000000)))/1000).toFixed(3))+"Qi presses";
         } else if (presses>=1000000000000000000000 && presses<1000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(presses/1000000000000000000))/1000).toFixed(3))+"Sx presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1000000000000000000)))/1000).toFixed(3))+"Sx presses";
         } else if (presses>=1000000000000000000000000 && presses<1000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(presses/1000000000000000000000))/1000).toFixed(3))+"Sp presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1000000000000000000000)))/1000).toFixed(3))+"Sp presses";
         } else if (presses>=1000000000000000000000000000 && presses<1000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(presses/1000000000000000000000000))/1000).toFixed(3))+"Oc presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1000000000000000000000000)))/1000).toFixed(3))+"Oc presses";
         } else if (presses>=1000000000000000000000000000000 && presses<1000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(presses/1000000000000000000000000000))/1000).toFixed(3))+"No presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1000000000000000000000000000)))/1000).toFixed(3))+"No presses";
         } else if (presses>=1000000000000000000000000000000000 && presses<1000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(presses/1000000000000000000000000000000))/1000).toFixed(3))+"Dc presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1000000000000000000000000000000)))/1000).toFixed(3))+"Dc presses";
         } else if (presses>=1000000000000000000000000000000000000 && presses<1000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(presses/1000000000000000000000000000000000))/1000).toFixed(3))+"UDc presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1000000000000000000000000000000000)))/1000).toFixed(3))+"UDc presses";
         } else if (presses>=1000000000000000000000000000000000000000 && presses<1000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(presses/1000000000000000000000000000000000000))/1000).toFixed(3))+"DDc presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1000000000000000000000000000000000000)))/1000).toFixed(3))+"DDc presses";
         } else if (presses>=1000000000000000000000000000000000000000000 && presses<1000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(presses/1000000000000000000000000000000000000000))/1000).toFixed(3))+"TDc presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1000000000000000000000000000000000000000)))/1000).toFixed(3))+"TDc presses";
         } else if (presses>=1000000000000000000000000000000000000000000000 && presses<1000000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(presses/1000000000000000000000000000000000000000000))/1000).toFixed(3))+"QaDc presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1000000000000000000000000000000000000000000)))/1000).toFixed(3))+"QaDc presses";
         } else if (presses>=1000000000000000000000000000000000000000000000000 && presses<1000000000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(presses/1000000000000000000000000000000000000000000000))/1000).toFixed(3))+"QiDc presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1000000000000000000000000000000000000000000000)))/1000).toFixed(3))+"QiDc presses";
         } else if (presses>=1000000000000000000000000000000000000000000000000000 && presses<1000000000000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(presses/1000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"SxDc presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1000000000000000000000000000000000000000000000000)))/1000).toFixed(3))+"SxDc presses";
         } else if (presses>=1000000000000000000000000000000000000000000000000000000 && presses<1000000000000000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(presses/1000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"SpDc presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1000000000000000000000000000000000000000000000000000)))/1000).toFixed(3))+"SpDc presses";
         } else if (presses>=1000000000000000000000000000000000000000000000000000000000 && presses<1000000000000000000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(presses/1000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"OcDc presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1000000000000000000000000000000000000000000000000000000)))/1000).toFixed(3))+"OcDc presses";
         } else if (presses>=1000000000000000000000000000000000000000000000000000000000000 && presses<1000000000000000000000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(presses/1000000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"NoDc presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1000000000000000000000000000000000000000000000000000000000)))/1000).toFixed(3))+"NoDc presses";
         } else if (presses>=1000000000000000000000000000000000000000000000000000000000000000 && presses<1000000000000000000000000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(presses/1000000000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"Vg presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(presses/1000000000000000000000000000000000000000000000000000000000000)))/1000).toFixed(3))+"Vg presses";
+        } else if (presses>=1000000000000000000000000000000000000000000000000000000000000000000){
+            document.getElementById("first").innerText="1UVg+ presses";
         }
         if (pps==-1){
             document.getElementById("second").innerText="pps disabled.";
+        } else if (pps>=0 && pps<1){
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1)))/1000).toFixed(2))+" presses per second";
         } else if (pps==1){
-            document.getElementById("second").innerText=pps+" press per second";
-        } else if (pps>1 && pps<1000000) {
-            document.getElementById("second").innerText=pps+" presses per second";
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1)))/1000).toFixed(2))+" press per second";
+        } else if (pps>1 && pps<1000) {
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1)))/1000).toFixed(2))+" presses per second";
+        } else if (pps>=1000 && pps<1000000) {
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1000)))%1000).toFixed(0))+","+(((Math.round(Math.trunc(pps/1)))%1000).toFixed(0))+" presses per second";
         } else if (pps>=1000000 && pps<1000000000) {
-            document.getElementById("second").innerText=(((Math.round(pps/1000))/1000).toFixed(3))+"M presses per second";
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1000000)))%1000).toFixed(0))+","+(((Math.round(Math.trunc(pps/1000)))%1000).toFixed(0))+","+(((Math.round(Math.trunc(pps/1)))%1000).toFixed(0))+" presses per second";
         } else if (pps>=1000000000 && pps<1000000000000) {
-            document.getElementById("second").innerText=(((Math.round(pps/1000000))/1000).toFixed(3))+"B presses per second";
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1000000)))/1000).toFixed(3))+"B presses per second";
         } else if (pps>=1000000000000 && pps<1000000000000000) {
-            document.getElementById("second").innerText=(((Math.round(pps/1000000000))/1000).toFixed(3))+"T presses per second";
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1000000000)))/1000).toFixed(3))+"T presses per second";
         } else if (pps>=1000000000000000 && pps<1000000000000000000) {
-            document.getElementById("second").innerText=(((Math.round(pps/1000000000000))/1000).toFixed(3))+"Qa presses per second";
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1000000000000)))/1000).toFixed(3))+"Qa presses per second";
         } else if (pps>=1000000000000000000 && pps<1000000000000000000000) {
-            document.getElementById("second").innerText=(((Math.round(pps/1000000000000000))/1000).toFixed(3))+"Qi presses per second";
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1000000000000000)))/1000).toFixed(3))+"Qi presses per second";
         } else if (pps>=1000000000000000000000 && pps<1000000000000000000000000) {
-            document.getElementById("second").innerText=(((Math.round(pps/1000000000000000000))/1000).toFixed(3))+"Sx presses per second";
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1000000000000000000)))/1000).toFixed(3))+"Sx presses per second";
         } else if (pps>=1000000000000000000000000 && pps<1000000000000000000000000000) {
-            document.getElementById("second").innerText=(((Math.round(pps/1000000000000000000000))/1000).toFixed(3))+"Sp presses per second";
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1000000000000000000000)))/1000).toFixed(3))+"Sp presses per second";
         } else if (pps>=1000000000000000000000000000 && pps<1000000000000000000000000000000) {
-            document.getElementById("second").innerText=(((Math.round(pps/1000000000000000000000000))/1000).toFixed(3))+"Oc presses per second";
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1000000000000000000000000)))/1000).toFixed(3))+"Oc presses per second";
         } else if (pps>=1000000000000000000000000000000 && pps<1000000000000000000000000000000000) {
-            document.getElementById("second").innerText=(((Math.round(pps/1000000000000000000000000000))/1000).toFixed(3))+"No presses per second";
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1000000000000000000000000000)))/1000).toFixed(3))+"No presses per second";
         } else if (pps>=1000000000000000000000000000000000 && pps<1000000000000000000000000000000000000) {
-            document.getElementById("second").innerText=(((Math.round(pps/1000000000000000000000000000000))/1000).toFixed(3))+"Dc presses per second";
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1000000000000000000000000000000)))/1000).toFixed(3))+"Dc presses per second";
         } else if (pps>=1000000000000000000000000000000000000 && pps<1000000000000000000000000000000000000000) {
-            document.getElementById("second").innerText=(((Math.round(pps/1000000000000000000000000000000000))/1000).toFixed(3))+"UDc presses per second";
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1000000000000000000000000000000000)))/1000).toFixed(3))+"UDc presses per second";
         } else if (pps>=1000000000000000000000000000000000000000 && pps<1000000000000000000000000000000000000000000) {
-            document.getElementById("second").innerText=(((Math.round(pps/1000000000000000000000000000000000000))/1000).toFixed(3))+"DDc presses per second";
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1000000000000000000000000000000000000)))/1000).toFixed(3))+"DDc presses per second";
         } else if (pps>=1000000000000000000000000000000000000000000 && pps<1000000000000000000000000000000000000000000000) {
-            document.getElementById("second").innerText=(((Math.round(pps/1000000000000000000000000000000000000000))/1000).toFixed(3))+"TDc presses per second";
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1000000000000000000000000000000000000000)))/1000).toFixed(3))+"TDc presses per second";
         } else if (pps>=1000000000000000000000000000000000000000000000 && pps<1000000000000000000000000000000000000000000000000) {
-            document.getElementById("second").innerText=(((Math.round(pps/1000000000000000000000000000000000000000000))/1000).toFixed(3))+"QaDc presses per second";
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1000000000000000000000000000000000000000000)))/1000).toFixed(3))+"QaDc presses per second";
         } else if (pps>=1000000000000000000000000000000000000000000000000 && pps<1000000000000000000000000000000000000000000000000000) {
-            document.getElementById("second").innerText=(((Math.round(pps/1000000000000000000000000000000000000000000000))/1000).toFixed(3))+"QiDc presses per second";
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1000000000000000000000000000000000000000000000)))/1000).toFixed(3))+"QiDc presses per second";
         } else if (pps>=1000000000000000000000000000000000000000000000000000 && pps<1000000000000000000000000000000000000000000000000000000) {
-            document.getElementById("second").innerText=(((Math.round(pps/1000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"SxDc presses per second";
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1000000000000000000000000000000000000000000000000)))/1000).toFixed(3))+"SxDc presses per second";
         } else if (pps>=1000000000000000000000000000000000000000000000000000000 && pps<1000000000000000000000000000000000000000000000000000000000) {
-            document.getElementById("second").innerText=(((Math.round(pps/1000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"SpDc presses per second";
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1000000000000000000000000000000000000000000000000000)))/1000).toFixed(3))+"SpDc presses per second";
         } else if (pps>=1000000000000000000000000000000000000000000000000000000000 && pps<1000000000000000000000000000000000000000000000000000000000000) {
-            document.getElementById("second").innerText=(((Math.round(pps/1000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"OcDc presses per second";
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1000000000000000000000000000000000000000000000000000000)))/1000).toFixed(3))+"OcDc presses per second";
         } else if (pps>=1000000000000000000000000000000000000000000000000000000000000 && pps<1000000000000000000000000000000000000000000000000000000000000000) {
-            document.getElementById("second").innerText=(((Math.round(pps/1000000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"NoDc presses per second";
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1000000000000000000000000000000000000000000000000000000000)))/1000).toFixed(3))+"NoDc presses per second";
         } else if (pps>=1000000000000000000000000000000000000000000000000000000000000000 && pps<1000000000000000000000000000000000000000000000000000000000000000000) {
-            document.getElementById("second").innerText=(((Math.round(pps/1000000000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"Vg presses per second";
-        } else {
-            document.getElementById("second").innerText=pps+" presses per second";
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(pps/1000000000000000000000000000000000000000000000000000000000000)))/1000).toFixed(3))+"Vg presses per second";
+        } else if (pps>=1000000000000000000000000000000000000000000000000000000000000000000){
+            document.getElementById("second").innerText="1UVg+ presses per second";
         }
         } else {
-        if (antipresses==1){
-            document.getElementById("first").innerText=antipresses+" anti-press";
-        } else if (antipresses>=0 && antipresses<1000000) {
-            document.getElementById("first").innerText=antipresses+" anti-presses";
+        if (antipresses<1) {
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1)))%1000).toFixed(2))+" anti-presses");
+        } else if (antipresses==1){
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1)))%1000).toFixed(2))+" anti-press";
+        } else if (antipresses>=0 && antipresses<1000) {
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1)))%1000).toFixed(2))+" anti-presses");
+        } else if (antipresses>=1000 && antipresses<1000000) {
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000)))%1000).toFixed(0))+","+(((Math.round(Math.trunc(antipresses/1)))%1000).toFixed(0))+" anti-presses";
         } else if (antipresses>=1000000 && antipresses<1000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000))/1000).toFixed(3))+"M anti-presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000000)))%1000).toFixed(0))+","+(((Math.round(Math.trunc(antipresses/1000)))%1000).toFixed(0))+","+(((Math.round(Math.trunc(antipresses/1)))%1000).toFixed(0))+" anti-presses";
         } else if (antipresses>=1000000000 && antipresses<1000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000))/1000).toFixed(3))+"B anti-presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000000)))/1000).toFixed(3))+"B anti-presses";
         } else if (antipresses>=1000000000000 && antipresses<1000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000))/1000).toFixed(3))+"T anti-presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000000000)))/1000).toFixed(3))+"T anti-presses";
         } else if (antipresses>=1000000000000000 && antipresses<1000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000))/1000).toFixed(3))+"Qa anti-presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000000000000)))/1000).toFixed(3))+"Qa anti-presses";
         } else if (antipresses>=1000000000000000000 && antipresses<1000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000))/1000).toFixed(3))+"Qi anti-presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000000000000000)))/1000).toFixed(3))+"Qi anti-presses";
         } else if (antipresses>=1000000000000000000000 && antipresses<1000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000))/1000).toFixed(3))+"Sx anti-presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000000000000000000)))/1000).toFixed(3))+"Sx anti-presses";
         } else if (antipresses>=1000000000000000000000000 && antipresses<1000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000))/1000).toFixed(3))+"Sp anti-presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000000000000000000000)))/1000).toFixed(3))+"Sp anti-presses";
         } else if (antipresses>=1000000000000000000000000000 && antipresses<1000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000))/1000).toFixed(3))+"Oc anti-presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000000000000000000000000)))/1000).toFixed(3))+"Oc anti-presses";
         } else if (antipresses>=1000000000000000000000000000000 && antipresses<1000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000))/1000).toFixed(3))+"No anti-presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000000000000000000000000000)))/1000).toFixed(3))+"No anti-presses";
         } else if (antipresses>=1000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000))/1000).toFixed(3))+"Dc anti-presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000000000000000000000000000000)))/1000).toFixed(3))+"Dc anti-presses";
         } else if (antipresses>=1000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000))/1000).toFixed(3))+"UDc anti-presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000000000000000000000000000000000)))/1000).toFixed(3))+"UDc anti-presses";
         } else if (antipresses>=1000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000))/1000).toFixed(3))+"DDc anti-presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000000000000000000000000000000000000)))/1000).toFixed(3))+"DDc anti-presses";
         } else if (antipresses>=1000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000))/1000).toFixed(3))+"TDc anti-presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000000000000000000000000000000000000000)))/1000).toFixed(3))+"TDc anti-presses";
         } else if (antipresses>=1000000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000))/1000).toFixed(3))+"QaDc anti-presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000000000000000000000000000000000000000000)))/1000).toFixed(3))+"QaDc anti-presses";
         } else if (antipresses>=1000000000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000000))/1000).toFixed(3))+"QiDc anti-presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000000000000000000000000000000000000000000000)))/1000).toFixed(3))+"QiDc anti-presses";
         } else if (antipresses>=1000000000000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"SxDc anti-presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000000000000000000000000000000000000000000000000)))/1000).toFixed(3))+"SxDc anti-presses";
         } else if (antipresses>=1000000000000000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"SpDc anti-presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000000000000000000000000000000000000000000000000000)))/1000).toFixed(3))+"SpDc anti-presses";
         } else if (antipresses>=1000000000000000000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"OcDc anti-presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000000000000000000000000000000000000000000000000000000)))/1000).toFixed(3))+"OcDc anti-presses";
         } else if (antipresses>=1000000000000000000000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"NoDc anti-presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000000000000000000000000000000000000000000000000000000000)))/1000).toFixed(3))+"NoDc anti-presses";
         } else if (antipresses>=1000000000000000000000000000000000000000000000000000000000000000 && antipresses<1000000000000000000000000000000000000000000000000000000000000000000) {
-            document.getElementById("first").innerText=(((Math.round(antipresses/1000000000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"Vg anti-presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000000000000000000000000000000000000000000000000000000000000)))/1000).toFixed(3))+"Vg anti-presses";
+        } else if (antipresses>=1000000000000000000000000000000000000000000000000000000000000000000){
+            document.getElementById("first").innerText="1UVg+ anti-presses";
         }
         if (antipps==-1){
             document.getElementById("second").innerText="anti-pps disabled.";
+        } else if (antipps>=0 && pantips<1){
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(antipps/1)))/1000).toFixed(2))+" anti-presses per second";
         } else if (antipps==1){
-            document.getElementById("second").innerText=antipps+" anti-press per second";
-        } else if (antipps>1 && antipps<1000000) {
-            document.getElementById("second").innerText=antipps+" anti-presses per second";
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(antipps/1)))/1000).toFixed(2))+" anti-press per second";
+        } else if (antipps>1 && antipps<1000) {
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(antipps/1)))/1000).toFixed(2))+" anti-presses per second";
+        } else if (antipps>=1000 && antipps<1000000) {
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(antipps/1000)))%1000).toFixed(0))+","+(((Math.round(Math.trunc(antipps/1)))%1000).toFixed(0))+"anti-presses per second";
         } else if (antipps>=1000000 && antipps<1000000000) {
-            document.getElementById("second").innerText=(((Math.round(antipps/1000))/1000).toFixed(3))+"M anti-presses per second";
+            document.getElementById("second").innerText=(((Math.round(Math.trunc(antipps/1000000)))%1000).toFixed(0))+","+(((Math.round(Math.trunc(antipps/1000)))%1000).toFixed(0))+","+(((Math.round(Math.trunc(antipps/1)))%1000).toFixed(0))+" anti-presses per second";
         } else if (antipps>=1000000000 && antipps<1000000000000) {
             document.getElementById("second").innerText=(((Math.round(antipps/1000000))/1000).toFixed(3))+"B anti-presses per second";
         } else if (antipps>=1000000000000 && antipps<1000000000000000) {
@@ -3276,8 +3296,8 @@ function updatePressing(){
             document.getElementById("second").innerText=(((Math.round(antipps/1000000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"NoDc anti-presses per second";
         } else if (antipps>=1000000000000000000000000000000000000000000000000000000000000000 && antipps<1000000000000000000000000000000000000000000000000000000000000000000) {
             document.getElementById("second").innerText=(((Math.round(antipps/1000000000000000000000000000000000000000000000000000000000000))/1000).toFixed(3))+"Vg anti-presses per second";
-        } else {
-            document.getElementById("second").innerText=antipps+" anti-presses per second";
+        } else if (antipps>=1000000000000000000000000000000000000000000000000000000000000000000){
+            document.getElementById("second").innerText="1UVg+ anti-presses per second";
         }
         }
     }
