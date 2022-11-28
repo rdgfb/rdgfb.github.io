@@ -3196,11 +3196,11 @@ function updatePressing(){
         }
         } else {
         if (antipresses<1) {
-            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1)))%1000).toFixed(2))+" anti-presses");
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1)))%1000).toFixed(2))+" anti-presses";
         } else if (antipresses==1){
             document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1)))%1000).toFixed(2))+" anti-press";
         } else if (antipresses>=0 && antipresses<1000) {
-            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1)))%1000).toFixed(2))+" anti-presses");
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1)))%1000).toFixed(2))+" anti-presses";
         } else if (antipresses>=1000 && antipresses<1000000) {
             document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000)))%1000).toFixed(0))+","+(((Math.round(Math.trunc(antipresses/1)))%1000).toFixed(0))+" anti-presses";
         } else if (antipresses>=1000000 && antipresses<1000000000) {
