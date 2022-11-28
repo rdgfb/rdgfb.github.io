@@ -3202,9 +3202,9 @@ function updatePressing(){
         } else if (antipresses>=0 && antipresses<1000) {
             document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1)))%1000).toFixed(2))+" anti-presses";
         } else if (antipresses>=1000 && antipresses<1000000) {
-            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000)))%1000).toFixed(0))+","+(((Math.round(Math.trunc(antipresses/1)))%1000).toFixed(0))+" anti-presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000)))%10).toFixed(0))+","+(((Math.round(Math.trunc(antipresses/100)))%10).toFixed(0))+""+(((Math.round(Math.trunc(antipresses/10)))%10).toFixed(0))+""+(((Math.round(Math.trunc(antipresses/1)))%10).toFixed(0))+" anti-presses";
         } else if (antipresses>=1000000 && antipresses<1000000000) {
-            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000000)))%1000).toFixed(0))+","+(((Math.round(Math.trunc(antipresses/1000)))%1000).toFixed(0))+","+(((Math.round(Math.trunc(antipresses/1)))%1000).toFixed(0))+" anti-presses";
+            document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000000)))%1000).toFixed(0))+","+(((Math.round(Math.trunc(antipresses/100000)))%10).toFixed(0))+""+(((Math.round(Math.trunc(antipresses/10000)))%10).toFixed(0))+""+(((Math.round(Math.trunc(antipresses/1000)))%10).toFixed(0))+","+(((Math.round(Math.trunc(antipresses/100)))%10).toFixed(0))+""+(((Math.round(Math.trunc(antipresses/10)))%10).toFixed(0))+""+(((Math.round(Math.trunc(antipresses/1)))%10).toFixed(0))+"" anti-presses";
         } else if (antipresses>=1000000000 && antipresses<1000000000000) {
             document.getElementById("first").innerText=(((Math.round(Math.trunc(antipresses/1000000)))/1000).toFixed(3))+"B anti-presses";
         } else if (antipresses>=1000000000000 && antipresses<1000000000000000) {
@@ -3248,7 +3248,7 @@ function updatePressing(){
         }
         if (antipps==-1){
             document.getElementById("second").innerText="anti-pps disabled.";
-        } else if (antipps>=0 && pantips<1){
+        } else if (antipps>=0 && antipps<1){
             document.getElementById("second").innerText=(((Math.round(Math.trunc(antipps/1)))/1000).toFixed(2))+" anti-presses per second";
         } else if (antipps==1){
             document.getElementById("second").innerText=(((Math.round(Math.trunc(antipps/1)))/1000).toFixed(2))+" anti-press per second";
