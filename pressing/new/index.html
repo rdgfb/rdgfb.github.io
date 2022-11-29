@@ -48,7 +48,7 @@ var presses = 0;
 var firstpress = 1;
 var pps = 0;
 var antipps = 0;
-var yes = 0;
+var yes = 3; //yes is 3 instead of 0 temp
 var no = 0;
 var autocooldown = 0;
 var auto = 1;
@@ -73,7 +73,7 @@ var msaway2 = 0;
 var msawaycalc = 0;
 var autosavetimer = 60;
 var astmax = 60;
-var tutorialmode = 1; 
+var tutorialmode = 0; //Tutorial mode temp disabled
 var ppsoffbonus = 0;
 var ppower = 1;
 var cost3 = 10000;
@@ -477,17 +477,19 @@ document.body.onload = function(){
     //already finished detection. all i need is to just style it all!!
     }
     if (tutorialmode === undefined){
-    tutorialmode=1
+    //tutorialmode=1
+    tutorialmode=0
     if (detailedoutput==1){
     console.error("tutorialmode was undefined!!! No doubt, data is corrupted, and needs to be wiped. Warning user... Sorry for the major inconvenience!")
     }
-    reset()
+    dataCorrupted()
     }
     if (presses === undefined){
     presses=0
     if (detailedoutput==1){
-    console.error("tutorialmode was undefined!!! No doubt, data is corrupted, and needs to be wiped. Warning user... Sorry for the major inconvenience!")
+    console.error("presses was undefined!!! No doubt, data is corrupted, and needs to be wiped. Warning user... Sorry for the major inconvenience!")
     }
+    dataCorrupted()
     }
     if (antipresses === undefined){
     antipresses=0
@@ -500,6 +502,7 @@ document.body.onload = function(){
     if (detailedoutput==1){
     console.error("pressesdec was undefined!!! No doubt, data is corrupted, and needs to be wiped. Warning user... Sorry for the major inconvenience!")
     }
+    dataCorrupted()
     }
     if (autocooldown === undefined){
     autocooldown=0
@@ -1097,7 +1100,6 @@ function updatePlanets(){
     //console.log("step 6")
     //console.log(leclipse6)
     } else if (((timePlayed/3600000)%8) >= ((19/20)+nexteclipse) && ((timePlayed/3600000)%8) < ((29/30)+nexteclipse)){
-    if (popups==0 && 
     leclipse1 = 145
     leclipse2 = 245
     leclipse3 = 250
@@ -4407,6 +4409,12 @@ function createCookie(){
         pressingSave.achcomp68 = achcomp68;
         pressingSave.achcomp69 = achcomp69;
         pressingSave.achcomp70 = achcomp70;
+        pressingSave.achcomp71 = achcomp71;
+        pressingSave.achcomp72 = achcomp72;
+        pressingSave.achcomp73 = achcomp73;
+        pressingSave.achcomp74 = achcomp74;
+        pressingSave.achcomp75 = achcomp75;
+        pressingSave.achcomp76 = achcomp76;
         pressingSave.pressfuel = pressfuel;
         pressingSave.fuelcost0 = fuelcost0;
         pressingSave.prestigefuel = prestigefuel;
@@ -4603,6 +4611,12 @@ function loadCookie(){
         achcomp68 = saveLoading.achcomp68;
         achcomp69 = saveLoading.achcomp69;
         achcomp70 = saveLoading.achcomp70;
+        achcomp71 = saveLoading.achcomp71;
+        achcomp72 = saveLoading.achcomp72;
+        achcomp73 = saveLoading.achcomp73;
+        achcomp74 = saveLoading.achcomp74;
+        achcomp75 = saveLoading.achcomp75;
+        achcomp76 = saveLoading.achcomp76;
         pressfuel = saveLoading.pressfuel;
         fuelcost0 = saveLoading.fuelcost0;
         prestigefuel = saveLoading.prestigefuel;
@@ -4833,28 +4847,29 @@ function loadCookie(){
             cost6=0
         }
         if (ppstog==1 || autotog==1){
-        msawaycalc = (Date.now()-lastSave)
-        ppsgainoff=0
-        if (ppstog==0){
-        if (dimension==0){
-        if (challenge==2){
-        ppsgainoff=0
-        } else if (challenge==3 || challenge==4){
-        ppsgainoff=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msawaycalc/100)/100)*ppsoffbonus)
-        } else {
-        ppsgainoff=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msawaycalc/100)/100)*ppsoffbonus)
-        }
-        } else if (dimension==1){
-        ppsgainoff=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msawaycalc/10))
-        }
-        }
-        if (detailedoutput==1){
-        console.log("* USER CAME BACK *")
-        console.log("User came after "+((Math.trunc(msawaycalc/86400000)))+" days(s), "+((Math.trunc(msawaycalc/3600000))%24)+" hour(s). Presses increased by "+ppsgainoff+" pps presses.");
-        }
+        msawaycalc = (Date.now()-timeoff)
+        //ppsgainoff=0
+        //if (ppstog==0){
+        //if (dimension==0){
+        //if (challenge==2){
+        //ppsgainoff=0
+        //} else if (challenge==3 || challenge==4){
+        //ppsgainoff=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msawaycalc/100)/100)*ppsoffbonus)
+        //} else {
+        //ppsgainoff=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msawaycalc/100)/100)*ppsoffbonus)
+        //}
+        //} else if (dimension==1){
+        //ppsgainoff=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msawaycalc/10))
+        //}
+        //}
+        //if (detailedoutput==1){
+        //console.log("* USER CAME BACK *")
+        //console.log("User came after "+((Math.trunc(msawaycalc/86400000)))+" days(s), "+((Math.trunc(msawaycalc/3600000))%24)+" hour(s). Presses increased by "+ppsgainoff+" pps presses.");
+        //}
         if (autotog==1){
-        autocooldown+=((((Date.now()-lastSave)/10000)/100)*ppsoffbonus)
+        autocooldown+=((((Date.now()-timeoff)/10000)/100)*ppsoffbonus)
         }
+        if(dimension==0){
         if (ppstog==1){
         if (dimension==0){
         if (challenge==2){
@@ -4863,20 +4878,20 @@ function loadCookie(){
         console.log("chal "+challenge+"... no gain. (ppstog is "+ppstog+")")
         }
         } else if (challenge==3 || challenge == 4) {
-        pressesdec+=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msawaycalc/100)/100)*ppsoffbonus)
+        pressesdec+=((((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((mxpmul/chargexp)*0.001))*chargepress)*(msawaycalc/100)/100)*ppsoffbonus)
         if (detailedoutput==1){
-        console.log("chal "+challenge+". +"+((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msawaycalc/100)/100)*ppsoffbonus)+"!")
+        console.log("chal "+challenge+". +"+((((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((mxpmul/chargexp)*0.001))*chargepress)*(msawaycalc/100)/100)*ppsoffbonus)+"!")
         }
         } else {
-        pressesdec+=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msawaycalc/100)/100)*ppsoffbonus)
+        pressesdec+=((((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((mxpmul/chargexp)*0.001))*chargepress)*(msawaycalc/100)/100)*ppsoffbonus)
         if (detailedoutput==1){
-        console.log("chal "+challenge+". +"+((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(msawaycalc/100)/100)*ppsoffbonus)+"!")
+        console.log("chal "+challenge+". +"+((((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((mxpmul/chargexp)*0.001))*chargepress)*(msawaycalc/100)/100)*ppsoffbonus)+"!")
         }
         }
         } else if (dimension==1){
-        pressesdec+=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msaway2/100))
+        pressesdec+=(((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((axpmul/chargexp)*0.001))*chargepress)*(msawaycalc/100))
         if (detailedoutput==1){
-        console.log("anti-dimension. +"+((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*(axpmul*0.001))*(msaway2/10))+"!")
+        console.log("anti-dimension. +"+(((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((axpmul/chargexp)*0.001))*chargepress)*(msawaycalc/10))+"!")
         }
         }
         } else {
@@ -4889,6 +4904,9 @@ function loadCookie(){
         }
         if (autopres==1){
         autoresettimer+=((Date.now()-timeoff)/10)
+        }
+        if (charger==1){
+        charge+=(((pressfuel*prestigefuel*ascendfuel*antipressfuel*anonymityfuel*chargefuel)*0.1)*((Date.now()-timeoff)*0.01))
         }
         backwarning()
         }
@@ -5011,7 +5029,7 @@ function reset(){
     autosavetimer=60
     lastSave = Date.now()
     var pressingSave = {};
-        pressingSave.tutorialmode = 1;
+        pressingSave.tutorialmode = 0;//1
         pressingSave.presses = 0;
         pressingSave.antipresses = 0;
         pressingSave.pressesdec = 0;
@@ -6473,6 +6491,12 @@ pressingFile.achcomp67 = achcomp67;
 pressingFile.achcomp68 = achcomp68;
 pressingFile.achcomp69 = achcomp69;
 pressingFile.achcomp70 = achcomp70;
+pressingFile.achcomp71 = achcomp71;
+pressingFile.achcomp72 = achcomp72;
+pressingFile.achcomp73 = achcomp73;
+pressingFile.achcomp74 = achcomp74;
+pressingFile.achcomp75 = achcomp75;
+pressingFile.achcomp76 = achcomp76;
 pressingFile.pressfuel = pressfuel;
 pressingFile.fuelcost0 = fuelcost0;
 pressingFile.prestigefuel = prestigefuel;
@@ -6671,6 +6695,12 @@ pressingFile.achcomp67 = achcomp67;
 pressingFile.achcomp68 = achcomp68;
 pressingFile.achcomp69 = achcomp69;
 pressingFile.achcomp70 = achcomp70;
+pressingFile.achcomp71 = achcomp71;
+pressingFile.achcomp72 = achcomp72;
+pressingFile.achcomp73 = achcomp73;
+pressingFile.achcomp74 = achcomp74;
+pressingFile.achcomp75 = achcomp75;
+pressingFile.achcomp76 = achcomp76;
 pressingFile.pressfuel = pressfuel;
 pressingFile.fuelcost0 = fuelcost0;
 pressingFile.prestigefuel = prestigefuel;
@@ -6865,6 +6895,12 @@ pressingFile.achcomp67 = achcomp67;
 pressingFile.achcomp68 = achcomp68;
 pressingFile.achcomp69 = achcomp69;
 pressingFile.achcomp70 = achcomp70;
+pressingFile.achcomp71 = achcomp71;
+pressingFile.achcomp72 = achcomp72;
+pressingFile.achcomp73 = achcomp73;
+pressingFile.achcomp74 = achcomp74;
+pressingFile.achcomp75 = achcomp75;
+pressingFile.achcomp76 = achcomp76;
 pressingFile.pressfuel = pressfuel;
 pressingFile.fuelcost0 = fuelcost0;
 pressingFile.prestigefuel = prestigefuel;
@@ -6891,14 +6927,15 @@ var saveAsFile = base64encode(saveFile);
 document.getElementById("exportastext").innerText=saveAsFile
 }
 function importtext(){
-var decodeSave = document.getElementById("importtext").innerText
-document.getElementById("import").remove()
-document.getElementById("importBack").remove()
-var decodedSave = base64decode(decodeSave)
+//var decodeSave = document.getElementById("importtext").innerText
+var decodedSave = base64decode(document.getElementById("importtext").innerText)
 var saveLoadin1 = decodedSave
 var saveLoadin2 = saveLoadin1.split(';');
 var saveLoadin3 = saveLoadin2[0];
 var saveLoading = JSON.parse(saveLoadin3);
+console.log(saveLoading)
+document.getElementById("import").remove()
+document.getElementById("importBack").remove()
 tutorialmode = pressingFile.tutorialmode;
 presses = pressingFile.presses;
 antipresses = pressingFile.antipresses;
@@ -7064,6 +7101,12 @@ autoresettimer = pressingFile.autoresettimer;
         achcomp68 = pressingFile.achcomp68;
         achcomp69 = pressingFile.achcomp69;
         achcomp70 = pressingFile.achcomp70;
+        achcomp71 = pressingFile.achcomp71;
+        achcomp72 = pressingFile.achcomp72;
+        achcomp73 = pressingFile.achcomp73;
+        achcomp74 = pressingFile.achcomp74;
+        achcomp75 = pressingFile.achcomp75;
+        achcomp76 = pressingFile.achcomp76;
         pressfuel = pressingFile.pressfuel;
         fuelcost0 = pressingFile.fuelcost0;
         prestigefuel = pressingFile.prestigefuel;
