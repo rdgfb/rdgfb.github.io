@@ -14,6 +14,7 @@
 }
 </style>
 <body style="overflow: hidden">
+<div id="loadingscreen" style="opacity: 1; position: absolute; left: -100%; top: -100%; width: 300%; height: 300%; background-color: #333333; text-align: center; color: #FFFFFF; font-size: 200%; z-index: 2147483647;">Loading...</div>
 <div id="sun" style="opacity: 0; position: absolute; right: 48px; top: 18px;"><svg width="84" height="84"><path id="sunpath" d="M42 82A20 20 90 0042 2 20 20 90 0042 82Z" fill="#FFFF00" stroke="#000000" stroke-opacity="0" stroke-width="3"> </path></svg></div>
 <div id="moon" style="opacity: 0; position: absolute; right: 50px; top: 20px; "><svg width="80" height="80"><path id="moonpath" d="M40 80A20 20 90 0040 0 20 20 90 0040 80Z" fill="#FFFFFF"> </path></svg></div>
 <div id="debug4" style="position: absolute; bottom: 0px; right: 0px;"></div>
@@ -22,7 +23,7 @@
 <div style="position: absolute; left: 6px; top: 45px; color: #000000" id="chal"><a>Challenge: </a><b id="chalid">No Challenge</b></div>
 <div style="position: absolute; left: 0px; top: 0px; color: transparent; text-align: center;" id="eclipsewarn"><b>A </b><b id="eclipsetype" style="color: transparent">(null) eclipse </b><b>is happening!!!</b></div>
 <h2 id="second">Now I must ask you... Do you like buttons?</h2>
-<b><d id="Level">Level 0</d><a style="color: transparent; opacity: 0;">0</a></b><e><c style="position: absolute; height: 20px; width: 200px; background-color: #AAAAFF; border-color: #4444FF; text-align: center; overflow: cut; z-index: 1;"></c><d id="xpbar" style="position: absolute; left: 0px; height: 20px; width: 200px; background-color: #8888FF; text-align: center; z-index: 2;"></d><f style="position: absolute; height: 20px; width: 200px; background-color: transparent; border-color: transparent; text-align: center; overflow: cut; z-index: 3;"><a id="xpcount">0</a> / <a id="xpnext">1</a><e id="xpmultiplier" style="position: absolute; left: 200px;"> x1</e></f></e>
+<b><d id="Level">Level 0</d><a style="color: transparent; opacity: 0;">0</a></b><e><c style="position: absolute; height: 20px; width: 200px; background-color: #AAAAFF; border-color: #4444FF; text-align: center; overflow: cut; z-index: 1;"></c><d id="xpbar" style="position: absolute; height: 20px; width: 0px; background-color: #8888FF; text-align: center; z-index: 2;"></d><f style="position: absolute; height: 20px; width: 200px; background-color: transparent; border-color: transparent; text-align: center; overflow: cut; z-index: 3;"><a id="xpcount">0</a> / <a id="xpnext">1</a><e id="xpmultiplier" style="position: absolute; left: 200px;"> x1</e></f></e>
 <div id="debuggoeshereidiot"></div>
 <button id="pressing" onclick="buttonpress()" style="cursor: pointer;">Yes!</button><button id="shop" onclick="shop()" style="opacity: 0; cursor: default;">Shop</button><!----<button id="q1b2" style="opacity: 1; cursor: pointer;" onclick="q0102()">No!</button><button id="q2b2" style="opacity: 1; position: absolute; left: -50px; cursor: pointer;" onclick="q0102()">No!</button>--><div></div><button style="opacity: 1; cursor: pointer;" onclick="settings()">Settings</button><div></div><button style="opacity: 1; cursor: pointer;" id="prestige" onclick="prestigechoose()">?????????</button><a id="prestigegain"> Level 30 required.</a><div id="presinfo">What does this do?</div><button style="opacity: 1; cursor: pointer;" id="prestigeshop" onclick="prestigeshop()">???????? ????</button><div></div><button style="opacity: 1; cursor: pointer;" id="ascend" onclick="ascendchoose()">??????</button><a id="ascendgain"> Level 100 required.</a><div id="ascendinfo">This seems too powerful for now.</div><button style="opacity: 1; cursor: pointer;" id="ascendshop" onclick="ascendshop()">?????? ????</button><div></div><button style="opacity: 1; cursor: pointer;" id="dimension" onclick="changeDimension()">Dimension Hop</button><a id="dimenreq"> A certain upgrade required.</a><div id="dimeninfo">Hop to the next dimension.</div><button style="opacity: 1; cursor: pointer;" id="challenge" onclick="challenges()">??????????</button><div id="chalinfo">What does this do?</div>
 <div id="shopui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF; z-index: 1;"><div style="position: relative; text-align: left;">Teh Shop</div><div style="position: relative; top: 212px; text-align: center;" id="amt">You have 0 presses.</div><button onclick="upgradeshop()" style="position: absolute; top: 0px; right: 72px; cursor: pointer;">Upgrades</button><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit Shop</button><div style="overflow-y: scroll; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;"></div><a>Cursors</a><a id="item1count"> x0</a><div></div><button id="buyCursor" onclick="buyCursor()">+1</button><div id="shop1item1"> Cost: 15, short 15 presses.</div><button id="buyTenCursors" onclick="buyTenCursors()">+10</button><div id="shop10item1"> Cost: 371, short 371 presses.</div><a>Mothers</a><a id="item2count"> x0</a><div></div><button id="buyMother" onclick="buyMother()">+1</button><div id="shop1item2"> Cost: 100, short 100 presses.</div><button id="buyTenMothers" onclick="buyTenMothers()">+10</button><div id="shop10item2"> Cost: 1219, short 1219 presses.</div></div></div>
@@ -465,6 +466,7 @@ var achcomp75 = 0
 var achtitle76 = "75 achieved!"
 var achdesc76 = "Achieve it all. Time to touch Grass?"
 var achcomp76 = 0
+var loadedfade = 1
 /** no more achievements **/
 document.body.onload = function(){
     loadCookie();
@@ -3568,6 +3570,15 @@ var byebye = setInterval(function(){
     updateDebug()
     }
     checkAchievements()
+    if (loadedfade!=-1){
+    if (loadedfade!=0 && loadedfade>0){
+    loadedfade-=0.0025
+    document.getElementById("loadingscreen").style.opacity=loadedfade
+    } else {
+    document.getElementById("loadingscreen").remove()
+    loadedfade=-1
+    }
+    }
     }
 }, 10)
 var slowupdater = setInterval(function(){
