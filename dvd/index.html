@@ -3,22 +3,23 @@
 <div id="main" style="background-color: #000000; position: absolute; height: 100%; width: 100%; left: 0%; top: 0%;">
 <div class="topwall" style="width: 300%;position: absolute;height: 100%;top: -97%;left: -100%;background-color: #333333;"></div>
 <div class="bottomwall" style="width: 300%;position: absolute;height: 100%;bottom: -97%;left: -100%;background-color: #333333;"></div>
-<div class="leftwall" style="width: 100%;position: absolute;height: 300%;top: -100%;left: -83%;background-color: #333333;"></div>
-<div class="rightwall" style="width: 100%;position: absolute;height: 300%;bottom: -100%;right: -83%;background-color: #333333;"></div>
-<img id="luigi" style="position: absolute; right: 10px; bottom: 0px; width: 150px; height: 150px; filter: invert(100%)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/DVD_logo.svg/2560px-DVD_logo.svg.png">
+<div class="leftwall" style="width: 100%;position: absolute;height: 300%;top: -100%;left: -85%;background-color: #333333;"></div>
+<div class="rightwall" style="width: 100%;position: absolute;height: 300%;bottom: -100%;right: -85%;background-color: #333333;"></div>
+<img id="luigi" style="position: absolute; right: calc(50% - 50px); bottom: calc(50% - 37px); width: 100px; height: 75px; filter: invert(100%) brightness(0.5) sepia(1) saturate(10000%) hue-rotate(128deg);" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/DVD_logo.svg/2560px-DVD_logo.svg.png">
 </div></body>
 <script>
 var luigispin=0
-var luigix=50
-var luigiy=50
+var luigix=(((window.innerWidth)/2)-50);
+var luigiy=(((window.innerHeight)/2)-37);
 var luigixdir=1
-var luigiydir=1
+var luigiydir=-1
 var luigispeed=1
 var luigixsize=100
 var luigiysize=75
 var setting=0
 var dimensions=0
 var colorchange=0
+var bars=0
 var luigi = setInterval(function(){
 leftwall()
 rightwall()
@@ -36,6 +37,22 @@ luigiy-=luigispeed
 }
 document.getElementById("luigi").style="position: absolute; right: "+luigix+"px; bottom: "+luigiy+"px; width: "+luigixsize+"px; height: "+luigiysize+"px; filter: invert(100%) brightness(0.5) sepia(1) saturate(10000%) hue-rotate("+colorchange+"deg)"
 }, 10)
+function changebars(){
+if (bars==1){
+bars=0
+document.getElementById("topwall").style="width: 300%;position: absolute;height: 100%;top: -100%;left: -100%;background-color: #333333;"
+document.getElementById("bottomwall").style="width: 300%;position: absolute;height: 100%;bottom: -100%;left: -100%;background-color: #333333;"
+document.getElementById("leftwall").style="width: 100%;position: absolute;height: 300%;top: -100%;left: -100%;background-color: #333333;"
+document.getElementById("rightwall").style="width: 100%;position: absolute;height: 300%;bottom: -100%;right: -100%;background-color: #333333;"
+} else if (bars==0){
+bars=1
+document.getElementById("topwall").style="width: 300%;position: absolute;height: 100%;top: -97%;left: -100%;background-color: #333333;"
+document.getElementById("bottomwall").style="width: 300%;position: absolute;height: 100%;bottom: -97%;left: -100%;background-color: #333333;"
+document.getElementById("leftwall").style="width: 100%;position: absolute;height: 300%;top: -100%;left: -83%;background-color: #333333;"
+document.getElementById("rightwall").style="width: 100%;position: absolute;height: 300%;bottom: -100%;right: -83%;background-color: #333333;"
+}
+reportWindowSize()
+}
 var detectOverlap = (function () {
     function getPositions(elem) {
         var pos = elem.getBoundingClientRect();
@@ -77,7 +94,7 @@ function rightwall() {
     }
     if (touching.length) {
         luigixdir=-1
-        colorchange=Math.floor(Math.random() * 359);
+        colorchange=Math.floor((Math.random() * 89)*4);
         }
     }
     function leftwall() {
@@ -97,7 +114,7 @@ function rightwall() {
     }
     if (touching.length) {
         luigixdir=1
-        colorchange=Math.floor(Math.random() * 359);
+        colorchange=Math.floor((Math.random() * 89)*4);
         }
     }
     function topwall() {
@@ -117,7 +134,7 @@ function rightwall() {
     }
     if (touching.length) {
         luigiydir=-1
-        colorchange=Math.floor(Math.random() * 359);
+        colorchange=Math.floor((Math.random() * 89)*4);
         }
     }
     function bottomwall() {
@@ -137,13 +154,15 @@ function rightwall() {
     }
     if (touching.length) {
         luigiydir=1
-        colorchange=Math.floor(Math.random() * 359);
+        colorchange=Math.floor((Math.random() * 89)*4);
         }
     }
     function reportWindowSize() {
-        luigix = ((window.innerHeight/2)-50);
-        luigiy = ((window.innerWidth/2)-37);
+    luigix = (((window.innerWidth)/2)-50);
+    luigiy = (((window.innerHeight)/2)-37);
+    luigixdir=1
+    luigiydir=-1
+    //console.log("resized to ("+luigix+"x"+luigiy+")")
     }
-    window.onresize = reportWindowSize;
-    reportWindowSize()
+    window.addEventListener("resize", reportWindowSize);
     </script>
