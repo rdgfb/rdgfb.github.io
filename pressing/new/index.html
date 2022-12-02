@@ -16,6 +16,13 @@
 0%{opacity: 0;}
 100%{opacity: 1;}
 }
+@keyframes achievementslide{
+0%{right: -242px;}
+25%{right: -114px;}
+50%{right: -60px;}
+75%{right: -33px;}
+100%{right: 14px;}
+}
 </style>
 <body style="overflow: hidden">
 <div id="loadingscreen" style="opacity: 1; position: absolute; left: -100%; top: -100%; width: 300%; height: 300%; background-color: #333333; text-align: center; color: #FFFFFF; font-size: 200%; z-index: 2147483647;">Loading...</div>
@@ -36,7 +43,7 @@
 <div id="prestigeui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Teh Prestige</div><div style="position: relative; top: 212px; text-align: center;" id="pamt">You have 0 prestige points.</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit Shop</button><div style="overflow: scroll;  scrollbar-color: #FFFFFF; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;"></div><div>THESE UPGRADES WON'T RESET ON PRESTIGE</div><button id="buyAutoBuy" onclick="buyAutoBuy()">Shop Auto Buyer</button><a id="pitem0count"> Locked</a><div id="pitem0"> Cost: 100, short 100 prestige points.</div><button id="buyAutoUpgrade" onclick="buyAutoUpgrade()">Auto Upgrader</button><a id="pitem1count"> Locked</a><div id="pitem1"> Cost: 10000, short 10000 prestige points.</div><button id="buyPCpower" onclick="buyPCpower()">Prestige Click Power</button><a id="pitem2count"> lvl 1</a><div id="pitem2">Cost: 1, short 1 prestige points.</div><button id="buyPXPmult" onclick="buyPXPmult()">Prestige XP Multiplier</button><a id="pitem3count"> lvl 1</a><div id="pitem3"> Cost: 100, short 100 presses. UNLOCKS NEW BUILDING!</div><button id="buyAnti" onclick="buyAnti()">Anti Dimension</button><a id="pitem4count"> Locked</a><div id="pitem4"> Cost: 1000000, short 1000000 prestige points. UNLOCKS A NEW FEATURE!</div><button id="buyCostLowerer" onclick="buyCostLowerer()">Lower Cost</button><a id="pitem5count"> lvl 1</a><div id="pitem5"> Cost: 1000, short 1000 presses. Lowers cost of all button shop items by 1%.</div></div></div>
 <div id="ascendui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Underground Shop</div><div style="position: relative; top: 212px; text-align: center;" id="ascamt">You have 0 ascend points.</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit Shop</button><div style="overflow: scroll;  scrollbar-color: #FFFFFF; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;"></div><div>THESE UPGRADES WON'T RESET ON ASCEND/PRESTIGE</div><button id="buyascXP" onclick="buyascXP()">XP multiplier</button><a id="ascitem0count"> x0</a><div id="ascitem0"> Cost: 1, short 1 ascend points.</div></div></div>
 <div id="anonymityui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF; font-family: 'DSi'; font-size: 1.3em"><div style="position: relative; text-align: left;">Anonymous Tools</div><div style="position: relative; top: 212px; text-align: center;" id="aamt">You have 0 anonymity points.</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit quietly.</button><div style="overflow: scroll;  scrollbar-color: #FFFFFF; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;"></div><div>THESE UPGRADES WON'T RESET ON ANONYMITY</div><button id="buyPpower" onclick="buyPpower()">Prestige Power</button><a id="aitem0count"> lvl 1</a><div id="aitem0">Cost: 1, short 1 anonymity.</div><button id="buyCharge" onclick="buyCharge()" style="font-size: inherit; font-family: inherit">Charger</button><a id="aitem1count"> 0/1</a><div id="aitem1"> Cost: 1000, short 1000 anonymity. UNLOCKS NEW BUILDING!</div><button id="buyFreeBuy" onclick="buyFreeBuy()" style="font-size: inherit; font-family: inherit">Never Subtract Press</button><a id="aitem2count"> 0/1</a><div id="aitem2"> Cost: 100000, short 10000 anonymity.</div><button id="buyAutoPrestige" onclick="buyAutoPrestige()" style="font-size: inherit; font-family: inherit">Auto Prestige Gain</button><a id="aitem3count"> Locked</a><div id="aitem3"> Cost: 1M, short 1M anonymity.</div></div></div>
-<div id="settingsui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><button onclick="shop()" id="settingsshop" style="position: absolute; top: 0px; right: 0px; cursor: pointer; z-index: 1; font-size: inherit; font-family: inherit;">Save</button><div style="position: relative; text-align: left;">Settings and Stats</div><div style="background-color: inherit; overflow: scroll; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; background-color: #000000">Settings</div></div><div></div><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="createCookie()">Save</button><a id="autosave" style="color: inherit; text-align: left; font-size: inherit; font-family: inherit;"> Auto save: 0s</a><div></div><input style="width: 50px; font-size: inherit; font-family: inherit;" type="number" min="0" max="3600" id="autosav"> min 10, max 3600<div></div><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="resetwarning()">Wipe</button><div></div> Quality: <button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="qualitydown()">-</button><a id="qualitydisplay" style="color: inherit; text-align: left; font-size: inherit; font-family: inherit;">5</a><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="qualitydown()">+</button> (recommended: 3)<div></div><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="exportfilewarning()">Export (as file)</button><button style="opacity: 1; cursor: pointer;" onclick="exportwarning()">Export (as text)</button><div></div><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="importwarning()">Import</button><div></div><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="achievementlist()">Achievements</button><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Auto</div></div><div id="Set1" style="color: inherit; text-align: left;">Save timer: <button onclick="toggleASDM()" id="toggleASDM" style="font-size: inherit; font-family: inherit">Style 1: (ones)</button></div><div id="Set2" style="color: inherit; text-align: left;">Automatic pressing per second: <button onclick="togglePPS()" id="togglePPS" style="font-size: inherit; font-family: inherit">true</button></div><div id="Set3" style="color: inherit; text-align: left;">Automatic pressing: <button onclick="toggleAuto()" id="toggleAuto" style="font-size: inherit; font-family: inherit">true</button></div><div id="Set4" style="color: inherit; text-align: left;"><a id="Set4Name">Automatic buying: </a><button onclick="toggleAutoBuy()" id="toggleAutoBuy" style="font-size: inherit; font-family: inherit">true</button></div><div id="Set5" style="color: inherit; text-align: left;"><a id="Set5Name">Automatic upgrading: </a><button onclick="toggleAutoUpgrade()" id="toggleAutoUpgrade" style="font-size: inherit; font-family: inherit">true</button></div><div id="Set6" style="color: inherit; text-align: left;"><a id="Set6Name">Automatic Prestige Buying: </a><button onclick="toggleAutoPresBuy()" id="toggleAutoPresBuy" style="font-size: inherit; font-family: inherit">true</button></div><div id="Set7" style="color: inherit; text-align: left;"><a id="Set7Name">Automatic Prestige: </a><button onclick="toggleAutoPres()" id="toggleAutoPres" style="font-size: inherit; font-family: inherit">true</button></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Optimizations</div></div><div id="SetO0" style="color: inherit; text-align: left;">Planets visibility: <button onclick="togglePlanets()" id="togglePlanets" style="font-size: inherit; font-family: inherit">true</button></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Stats</div></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Time and Amounts</div></div><div id="statT0" style="color: inherit; text-align: left;"></div><div id="statR1" style="color: inherit; text-align: left;"></div><div id="statR2" style="color: inherit; text-align: left;"></div><div id="statR3" style="color: inherit; text-align: left;"></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Currently</div></div><div id="statC1" style="color: inherit; text-align: left;"></div><div id="statC2" style="color: inherit; text-align: left;"></div><div id="statC3" style="color: inherit; text-align: left;"></div><div id="statC4" style="color: inherit; text-align: left;"></div><div id="statC5" style="color: inherit; text-align: left;"></div><div id="statC6" style="color: inherit; text-align: left;"></div><div id="statC7" style="color: inherit; text-align: left;"></div><div id="statC8" style="color: inherit; text-align: left;"></div><div id="statC9" style="color: inherit; text-align: left;"></div><div id="statC10" style="color: inherit; text-align: left;"></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Records</div></div><div id="statB1" style="color: inherit; text-align: left;"></div><div id="statB2" style="color: inherit; text-align: left;"></div><div id="statB3" style="color: inherit; text-align: left;"></div><div id="statB4" style="color: inherit; text-align: left;"></div><div id="statB5" style="color: inherit; text-align: left;"></div><div id="statB6" style="color: inherit; text-align: left;"></div></div></div>
+<div id="settingsui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><button onclick="shop()" id="settingsshop" style="position: absolute; top: 0px; right: 0px; cursor: pointer; z-index: 1; font-size: inherit; font-family: inherit;">Save</button><div style="position: relative; text-align: left;">Settings and Stats</div><div style="background-color: inherit; overflow: scroll; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; background-color: #000000">Settings</div></div><div></div><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="createCookie()">Save</button><a id="autosave" style="color: inherit; text-align: left; font-size: inherit; font-family: inherit;"> Auto save: 0s</a><div></div><input style="width: 50px; font-size: inherit; font-family: inherit;" type="number" min="0" max="3600" id="autosav"> min 10, max 3600<div></div><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="resetwarning()">Wipe</button><div></div><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="exportfilewarning()">Export (as file)</button><button style="opacity: 1; cursor: pointer;" onclick="exportwarning()">Export (as text)</button><div></div><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="importwarning()">Import</button><div></div><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="achievementlist()">Achievements</button><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Auto</div></div><div id="Set1" style="color: inherit; text-align: left;">Save timer: <button onclick="toggleASDM()" id="toggleASDM" style="font-size: inherit; font-family: inherit">Style 1: (ones)</button></div><div id="Set2" style="color: inherit; text-align: left;">Automatic pressing per second: <button onclick="togglePPS()" id="togglePPS" style="font-size: inherit; font-family: inherit">true</button></div><div id="Set3" style="color: inherit; text-align: left;">Automatic pressing: <button onclick="toggleAuto()" id="toggleAuto" style="font-size: inherit; font-family: inherit">true</button></div><div id="Set4" style="color: inherit; text-align: left;"><a id="Set4Name">Automatic buying: </a><button onclick="toggleAutoBuy()" id="toggleAutoBuy" style="font-size: inherit; font-family: inherit">true</button></div><div id="Set5" style="color: inherit; text-align: left;"><a id="Set5Name">Automatic upgrading: </a><button onclick="toggleAutoUpgrade()" id="toggleAutoUpgrade" style="font-size: inherit; font-family: inherit">true</button></div><div id="Set6" style="color: inherit; text-align: left;"><a id="Set6Name">Automatic Prestige Buying: </a><button onclick="toggleAutoPresBuy()" id="toggleAutoPresBuy" style="font-size: inherit; font-family: inherit">true</button></div><div id="Set7" style="color: inherit; text-align: left;"><a id="Set7Name">Automatic Prestige: </a><button onclick="toggleAutoPres()" id="toggleAutoPres" style="font-size: inherit; font-family: inherit">true</button></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Optimizations</div></div><div id="SetO0" style="color: inherit; text-align: left;">Planets visibility: <button onclick="togglePlanets()" id="togglePlanets" style="font-size: inherit; font-family: inherit">true</button></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Stats</div></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Time and Amounts</div></div><div id="statT0" style="color: inherit; text-align: left;"></div><div id="statR1" style="color: inherit; text-align: left;"></div><div id="statR2" style="color: inherit; text-align: left;"></div><div id="statR3" style="color: inherit; text-align: left;"></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Currently</div></div><div id="statC1" style="color: inherit; text-align: left;"></div><div id="statC2" style="color: inherit; text-align: left;"></div><div id="statC3" style="color: inherit; text-align: left;"></div><div id="statC4" style="color: inherit; text-align: left;"></div><div id="statC5" style="color: inherit; text-align: left;"></div><div id="statC6" style="color: inherit; text-align: left;"></div><div id="statC7" style="color: inherit; text-align: left;"></div><div id="statC8" style="color: inherit; text-align: left;"></div><div id="statC9" style="color: inherit; text-align: left;"></div><div id="statC10" style="color: inherit; text-align: left;"></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Records</div></div><div id="statB1" style="color: inherit; text-align: left;"></div><div id="statB2" style="color: inherit; text-align: left;"></div><div id="statB3" style="color: inherit; text-align: left;"></div><div id="statB4" style="color: inherit; text-align: left;"></div><div id="statB5" style="color: inherit; text-align: left;"></div><div id="statB6" style="color: inherit; text-align: left;"></div></div></div>
 <div id="challengeui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Challenges</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit</button><div style="background-color: inherit; overflow: scroll; position: absolute; bottom: 1px; height: 227px; width: 250px;"><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div id="regchal" style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Regular Challenges</div></div><div id="vezchal" style="position: absolute; left: 1px; width: 248px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Very Easy</div><div></div><div style="position: relative; color: inherit; text-align: left;">No pps automation from shop. <button onclick="chal0()" id="chalno0">Challenge!</button><div>Goal: <a id="Goal0lvl">100</a> presses. <div></div><a id="Goal0don">0/1</a>. Reward: Unlock easy challenges.</div></div></div><div id="easychal" style="position: absolute; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Easy (no pressing perks apply)</div><div></div><div style="position: relative; color: inherit; text-align: left;" style="font-size: inherit; font-family: inherit">No pressing. <button onclick="chal1()" id="chalno1" style="font-size: inherit; font-family: inherit">Challenge!</button><div><div>Goal: Level <a id="Goal1lvl">10</a>. </div><div><a id="Goal1don">0/50</a>. Reward: +<a id="Goal1rew">100</a>% ppower added to pps.</div></div></div><div></div><div style="position: relative; color: inherit; text-align: left;">No automation. <button onclick="chal2()" id="chalno2" style="font-size: inherit; font-family: inherit">Challenge!</button><div>Goal: Level <a id="Goal2lvl">10</a>. </div><div><a id="Goal2don">0/50</a>. Reward: +<a id="Goal2rew">100</a>% pps</div></div></div><div id="medchal" style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Medium (no prestige perks or below)</div><div style="position: relative; color: inherit; text-align: left;">No Shop. <button onclick="chal3()" id="chalno3" style="font-size: inherit; font-family: inherit">Challenge!</button><div>Goal: Level <a id="Goal3lvl">10</a>. </div><div><a id="Goal3don">0/50</a>. Reward: +<a id="Goal3rew">100</a>% xp</div></div><div style="position: relative; color: inherit; text-align: left;">Prestige speedrun. <button onclick="chal4()" id="chalno4" style="font-size: inherit; font-family: inherit">Challenge!</button><div>Goal: Prestige in <a id="Goal4lvl">60</a> minutes. </div><div><a id="Goal4don">0/23</a>. Reward: +<a id="Goal4rew">25</a>% Prestige Points</div></div></div><div id="hardchal" style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Hard (no ascend perks or below)</div><div style="position: relative; color: inherit; text-align: left;">Sacrifice Speedrun. <button onclick="chal5()" id="chalno5" style="font-size: inherit; font-family: inherit">Challenge!</button><div>Goal: Dimension hop in <a id="Goal5lvl">720</a> minutes. <div></div><a id="Goal5don">0/10</a>. Reward: <a id="Goal5rew">+0% Sacrifice Points</a><div></div><a id="Goal5rew2">Dimension cost: 1M Prestige Points</a></div></div></div><div id="antichal" style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit; font-family: 'DSi'; font-size: 1.3em;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Anti Challenges</div></div><div id="easyantichal" style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit; font-family: 'DSi'; font-size: 1.3em;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Easy (no antipressing perks or below)</div><div style="position: relative; color: inherit; text-align: left;">No Anti-pressing. <button onclick="chal6()" id="chalno6" style="font-size: inherit; font-family: inherit">Challenge!</button><div>Goal: Level -<a id="Goal6lvl">10</a>. <div></div><a id="Goal6don">0/10</a>. Reward: Pressing x<a id="Goal6rew">2</a><div></div></div></div></div></div></div>
 <div id="charger" style="position: relative; height: 250px; width: 250px; top: 0px; left: -100%; background-color: #CCCC00; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; left: 1px; top: 1px; width: 248px; height: 56px; text-align: center; background-color: #FFFF00; color: #000000; text-align: center; font-size: inherit; font-family: inherit;">Charger</div><button onclick="fuelcharger()" id="fuelcharger" style="position: absolute; right: 0px; top: 0px; font-size: inherit; font-family: inherit">Fuel</button><div style="position: relative; left: 1px; top: -37px; width: 248px; height: 18px; text-align: center; background-color: transparent; color: #000000; font-size: inherit; font-family: inherit"><a id="chargr" style="font-size: inherit; font-family: inherit">0</a> Watts <a id="cps">(0/s)</a></div><div style="position: relative; left: 1px; top: -37px; width: 248px; height: 20px; text-align: center; background-color: transparent; color: #000000;">Charging: <select id="charging"><option value="None">None</option><option value="Spread">Spread</option><option value="Presses">Presses</option><option value="XP">XP</option><option value="Prestige">Prestige</option><option value="Ascend">Ascend</option><option value="Anonymity">Anonymity</option></select></div><div style="background-color: #000000; position: relative; left: 1px; top: -37px; overflow-y: scroll; overflow-x: clip; width: 248px; height: 192px; text-align: center;"><div id="cpressc" style="background-color: transparent;">Presses: x<a id="cpress">1</a></div><div id="cxpc" style="background-color: transparent;">XP: x<a id="cxp">1</a></div><div id="cprestc" style="background-color: transparent;">Prestige: x<a id="cprestige">1</a></div><div id="cascenc" style="background-color: transparent;">Ascend: x<a id="cascend">1</a></div><div id="canonyc" style="background-color: transparent;">Anonymity: x<a id="canonymity">1</a></div><div id="csqueec" style="background-color: transparent;">Squeeze: x<a id="csqueeze">1</a></div><div id="csquesc" style="background-color: transparent;">Squeeze Success Rate: +<a id="cschance">0</a>%</div><div id="csquebc" style="background-color: transparent;">Squeeze Oil Bonus: +<a id="csbonus">0</a>%</div></div></div><!--><div id="coverq1b2" style="position: absolute; left: -50px; top: 113px; height: 23px; width: 36px; background-color: transparent;"></div><!-->
 <div id="chargerui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left; font-size: inherit; font-family: inherit">Fuel Charger</div><div style="position: relative; top: 212px; text-align: center;font-size: inherit; font-family: inherit;" id="fuelmult">Fuel Mult: x1</div><button onclick="shop()" id="stopfuelbutton" style="position: absolute; top: 0px; right: 0px; cursor: pointer;font-size: inherit; font-family: inherit">Stop Fueling</button><div style="overflow: scroll;  scrollbar-color: #FFFFFF; position: absolute; bottom: 16px; height: 212px; width: 250px; font-size: inherit; font-family: inherit"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;font-size: inherit; font-family: inherit"></div><div>THESE UPGRADES WILL INCREASE CHARGE!</div><button id="buyPressFuel" onclick="buyPressFuel()" style="font-size: inherit; font-family: inherit">Pressing Fuel</button><a id="chargeritem0count"> x0</a><div id="chargeritem0"> Cost: 1, short 1 Presses.</div><button id="buyPrestigeFuel" onclick="buyPrestigeFuel()" style="font-size: inherit; font-family: inherit">Prestige Fuel</button><a id="chargeritem1count"> x0</a><div id="chargeritem1"> Cost: 1, short 1 Prestige Points.</div><button id="buyAscendFuel" onclick="buyAscendFuel()" style="font-size: inherit; font-family: inherit">Ascend Fuel</button><a id="chargeritem2count"> x0</a><div id="chargeritem2"> Cost: 1, short 1 Ascend Points.</div><button id="buyAntiPressFuel" onclick="buyAntiPressFuel()" style="font-size: inherit; font-family: inherit">Anti-pressing Fuel</button><a id="chargeritem3count"> x0</a><div id="chargeritem3"> Cost: 1, short 1 Anti-Presses.</div><button id="buyAnonymityFuel" onclick="buyAnonymityFuel()" style="font-size: inherit; font-family: inherit">Anonymity Fuel</button><a id="chargeritem4count"> x0</a><div id="chargeritem4"> Cost: 1, short 1 Anonymity Points.</div><button id="buyChargeFuel" onclick="buyChargeFuel()" style="font-size: inherit; font-family: inherit">Charge Fuel</button><a id="chargeritem5count"> x0</a><div id="chargeritem5"> Cost: 1, short 1 Charge.</div></div></div>
@@ -220,8 +227,6 @@ var chargesqueezebonus = 1;
 var nexteclipse=0
 var daycount=0
 var loadedfade = 1
-var quality = 0
-var qcooldown = 1000
 /** all achievements. for all, 0 achievements is none **/
 /* descriptions */
 /* presses */
@@ -944,7 +949,7 @@ document.body.onload = function(){
     console.warn("fuel was undefined or an invalid value!!! Old or corrupted data? Set to default. Sorry for the inconvenience!")
     }
     }
-    if (achcomp1 === undefined || achcomp1<0 || achcomp1>1 || achcomp2 === undefined || achcomp2<0 || achcomp2>1 || achcomp3 === undefined || achcomp3<0 || achcomp3>1 || achcomp4 === undefined || achcomp4<0 || achcomp4>1 || achcomp5 === undefined || achcomp5<0 || achcomp5>1 || achcomp6 === undefined || achcomp6<0 || achcomp6>1 || achcomp7 === undefined || achcomp7<0 || achcomp7>1 || achcomp8 === undefined || achcomp8<0 || achcomp8>1 || achcomp9 === undefined || achcomp9<0 || achcomp9>1 || achcomp10 === undefined || achcomp10<0 || achcomp10>1 || achcomp11 === undefined || achcomp11<0 || achcomp11>1 || achcomp12 === undefined || achcomp12<0 || achcomp12>1 || achcomp13 === undefined || achcomp13<0 || achcomp13>1 || achcomp14 === undefined || achcomp14<0 || achcomp14>1 || achcomp15 === undefined || achcomp15<0 || achcomp15>1 || achcomp16 === undefined || achcomp16<0 || achcomp16>1 || achcomp17 === undefined || achcomp17<0 || achcomp17>1 || achcomp18 === undefined || achcomp18<0 || achcomp18>1 || achcomp19 === undefined || achcomp19<0 || achcomp19>1 || achcomp20 === undefined || achcomp20<0 || achcomp20>1 || achcomp21 === undefined || achcomp21<0 || achcomp21>1 || achcomp22 === undefined || achcomp22<0 || achcomp22>1 || achcomp23 === undefined || achcomp23<0 || achcomp23>1 || achcomp24 === undefined || achcomp24<0 || achcomp24>1 || achcomp25 === undefined || achcomp25<0 || achcomp25>1 || achcomp26 === undefined || achcomp26<0 || achcomp26>1 || achcomp27 === undefined || achcomp27<0 || achcomp27>1 || achcomp28 === undefined || achcomp28<0 || achcomp28>1 || achcomp29 === undefined || achcomp29<0 || achcomp29>1 || achcomp30 === undefined || achcomp30<0 || achcomp30>1 || achcomp31 === undefined || achcomp31<0 || achcomp31>1 || achcomp32 === undefined || achcomp32<0 || achcomp32>1 || achcomp33 === undefined || achcomp33<0 || achcomp33>1 || achcomp34 === undefined || achcomp34<0 || achcomp34>1 || achcomp35 === undefined || achcomp35<0 || achcomp35>1 || achcomp36 === undefined || achcomp36<0 || achcomp36>1 || achcomp37 === undefined || achcomp37<0 || achcomp37>1 || achcomp38 === undefined || achcomp38<0 || achcomp38>1 || achcomp39 === undefined || achcomp39<0 || achcomp39>1 || achcomp40 === undefined || achcomp40<0 || achcomp40>1 || achcomp41 === undefined || achcomp41<0 || achcomp41>1 || achcomp42 === undefined || achcomp42<0 || achcomp42>1 || achcomp43 === undefined || achcomp43<0 || achcomp43>1 || achcomp44 === undefined || achcomp44<0 || achcomp44>1 || achcomp45 === undefined || achcomp45<0 || achcomp45>1 || achcomp46 === undefined || achcomp46<0 || achcomp46>1 || achcomp47 === undefined || achcomp47<0 || achcomp47>1 || achcomp48 === undefined || achcomp48<0 || achcomp48>1 || achcomp49 === undefined || achcomp49<0 || achcomp49>1 || achcomp50 === undefined || achcomp50<0 || achcomp50>1 || achcomp51 === undefined || achcomp51<0 || achcomp51>1 || achcomp52 === undefined || achcomp52<0 || achcomp52>1 || achcomp53 === undefined || achcomp53<0 || achcomp53>1 || achcomp54 === undefined || achcomp54<0 || achcomp54>1 || achcomp55 === undefined || achcomp55<0 || achcomp55>1 || achcomp56 === undefined || achcomp56<0 || achcomp56>1 || achcomp57 === undefined || achcomp57<0 || achcomp57>1 || achcomp58 === undefined || achcomp58<0 || achcomp58>1 || achcomp59 === undefined || achcomp59<0 || achcomp59>1 || achcomp60 === undefined || achcomp60<0 || achcomp60>1 || achcomp61 === undefined || achcomp61<0 || achcomp61>1 || achcomp62 === undefined || achcomp62<0 || achcomp62>1 || achcomp63 === undefined || achcomp63<0 || achcomp63>1 || achcomp64 === undefined || achcomp64<0 || achcomp64>1 || achcomp65 === undefined || achcomp65<0 || achcomp65>1 || achcomp66 === undefined || achcomp66<0 || achcomp66>1 || achcomp67 === undefined || achcomp67<0 || achcomp67>1 || achcomp68 === undefined || achcomp68<0 || achcomp68>1 || achcomp69 === undefined || achcomp69<0 || achcomp69>1 || achcomp70 === undefined || achcomp70<0 || achcomp70>1){
+    if (achcomp1 === undefined || achcomp1<0 || achcomp1>1 || achcomp2 === undefined || achcomp2<0 || achcomp2>1 || achcomp3 === undefined || achcomp3<0 || achcomp3>1 || achcomp4 === undefined || achcomp4<0 || achcomp4>1 || achcomp5 === undefined || achcomp5<0 || achcomp5>1 || achcomp6 === undefined || achcomp6<0 || achcomp6>1 || achcomp7 === undefined || achcomp7<0 || achcomp7>1 || achcomp8 === undefined || achcomp8<0 || achcomp8>1 || achcomp9 === undefined || achcomp9<0 || achcomp9>1 || achcomp10 === undefined || achcomp10<0 || achcomp10>1 || achcomp11 === undefined || achcomp11<0 || achcomp11>1 || achcomp12 === undefined || achcomp12<0 || achcomp12>1 || achcomp13 === undefined || achcomp13<0 || achcomp13>1 || achcomp14 === undefined || achcomp14<0 || achcomp14>1 || achcomp15 === undefined || achcomp15<0 || achcomp15>1 || achcomp16 === undefined || achcomp16<0 || achcomp16>1 || achcomp17 === undefined || achcomp17<0 || achcomp17>1 || achcomp18 === undefined || achcomp18<0 || achcomp18>1 || achcomp19 === undefined || achcomp19<0 || achcomp19>1 || achcomp20 === undefined || achcomp20<0 || achcomp20>1 || achcomp21 === undefined || achcomp21<0 || achcomp21>1 || achcomp22 === undefined || achcomp22<0 || achcomp22>1 || achcomp23 === undefined || achcomp23<0 || achcomp23>1 || achcomp24 === undefined || achcomp24<0 || achcomp24>1 || achcomp25 === undefined || achcomp25<0 || achcomp25>1 || achcomp26 === undefined || achcomp26<0 || achcomp26>1 || achcomp27 === undefined || achcomp27<0 || achcomp27>1 || achcomp28 === undefined || achcomp28<0 || achcomp28>1 || achcomp29 === undefined || achcomp29<0 || achcomp29>1 || achcomp30 === undefined || achcomp30<0 || achcomp30>1 || achcomp31 === undefined || achcomp31<0 || achcomp31>1 || achcomp32 === undefined || achcomp32<0 || achcomp32>1 || achcomp33 === undefined || achcomp33<0 || achcomp33>1 || achcomp34 === undefined || achcomp34<0 || achcomp34>1 || achcomp35 === undefined || achcomp35<0 || achcomp35>1 || achcomp36 === undefined || achcomp36<0 || achcomp36>1 || achcomp37 === undefined || achcomp37<0 || achcomp37>1 || achcomp38 === undefined || achcomp38<0 || achcomp38>1 || achcomp39 === undefined || achcomp39<0 || achcomp39>1 || achcomp40 === undefined || achcomp40<0 || achcomp40>1 || achcomp41 === undefined || achcomp41<0 || achcomp41>1 || achcomp42 === undefined || achcomp42<0 || achcomp42>1 || achcomp43 === undefined || achcomp43<0 || achcomp43>1 || achcomp44 === undefined || achcomp44<0 || achcomp44>1 || achcomp45 === undefined || achcomp45<0 || achcomp45>1 || achcomp46 === undefined || achcomp46<0 || achcomp46>1 || achcomp47 === undefined || achcomp47<0 || achcomp47>1 || achcomp48 === undefined || achcomp48<0 || achcomp48>1 || achcomp49 === undefined || achcomp49<0 || achcomp49>1 || achcomp50 === undefined || achcomp50<0 || achcomp50>1 || achcomp51 === undefined || achcomp51<0 || achcomp51>1 || achcomp52 === undefined || achcomp52<0 || achcomp52>1 || achcomp53 === undefined || achcomp53<0 || achcomp53>1 || achcomp54 === undefined || achcomp54<0 || achcomp54>1 || achcomp55 === undefined || achcomp55<0 || achcomp55>1 || achcomp56 === undefined || achcomp56<0 || achcomp56>1 || achcomp57 === undefined || achcomp57<0 || achcomp57>1 || achcomp58 === undefined || achcomp58<0 || achcomp58>1 || achcomp59 === undefined || achcomp59<0 || achcomp59>1 || achcomp60 === undefined || achcomp60<0 || achcomp60>1 || achcomp61 === undefined || achcomp61<0 || achcomp61>1 || achcomp62 === undefined || achcomp62<0 || achcomp62>1 || achcomp63 === undefined || achcomp63<0 || achcomp63>1 || achcomp64 === undefined || achcomp64<0 || achcomp64>1 || achcomp65 === undefined || achcomp65<0 || achcomp65>1 || achcomp66 === undefined || achcomp66<0 || achcomp66>1 || achcomp67 === undefined || achcomp67<0 || achcomp67>1 || achcomp68 === undefined || achcomp68<0 || achcomp68>1 || achcomp69 === undefined || achcomp69<0 || achcomp69>1 || achcomp70 === undefined || achcomp70<0 || achcomp70>1 || achcomp71 === undefined || achcomp71<0 || achcomp71>1 || achcomp72 === undefined || achcomp72<0 || achcomp72>1 || achcomp73=== undefined || achcomp73<0 || achcomp73>1 || achcomp74 === undefined || achcomp74<0 || achcomp74>1 || achcomp75 === undefined || achcomp75<0 || achcomp75>1 || achcomp76 === undefined || achcomp76<0 || achcomp76>1){
     achcomp1=0
     achcomp2=0
     achcomp3=0
@@ -1037,14 +1042,16 @@ document.body.onload = function(){
     alert("You tampered with the unimplemented squeeze reset things. Keep it the same as default for now! If you wish to mess around with this, please wait until v0.2's prototype!")
     }
     }
-    // use this check when implemented in v0.2 //if (oilywater === undefined || oilywater < 0 || water === undefined || water < 0 || oil === undefined || oil < 0){
-    //oilywater=0
-    //water=0
-    //oil=0
-    //if (detailedoutput==1){
-    //console.warn("oilywater, water, or oil was undefined!!! Old or corrupted data? Set to default. Sorry for the inconvenience!")
-    //}
-    //}
+    // use this check when implemented in v0.2
+    /** if (oilywater === undefined || oilywater < 0 || water === undefined || water < 0 || oil === undefined || oil < 0){
+    oilywater=0
+    water=0
+    oil=0
+    if (detailedoutput==1){
+    console.warn("oilywater, water, or oil was undefined!!! Old or corrupted data? Set to default. Sorry for the inconvenience!")
+    }
+    }
+    **/
     // replace if statement with this when implemented in v0.3 //if (galacticamt === undefined || lastgalactic === undefined || lastgalactic < firstLaunch || lastgalactic > firstLaunch && galacticamt == 0 || lastgalactic == firstLaunch && galacticamt>0){
     if (galacticamt !==0 || lastgalactic !== firstLaunch){
     galacticamt=0
@@ -1116,7 +1123,6 @@ function updatePlanets(){
     leclipse6 = 0
     if (achcomp70==0){
     accomplsh(achtitle70, achdesc70, 70);
-    }
     }
     //console.log("zero")
     } else if (((timePlayed/3600000)%8) >= ((29/30)+nexteclipse)){
@@ -1563,19 +1569,7 @@ function updateAutoSave(){
     timePlayed=Date.now()-firstLaunch;
     if (astmax!==0){
     if (autosavetimer>0){
-    	  if (quality==5){
-        autosavetimer-=0.01
-        } else if (quality==4){
-        autosavetimer-=0.05
-        } else if (quality==3){
-        autosavetimer-=0.1
-        } else if (quality==2){
-        autosavetimer-=0.25
-        } else if (quality==1){
-        autosavetimer-=0.5
-        } else if (quality==0){
         autosavetimer-=1
-        }
     } else {
         createCookie()
         autosavetimer=astmax
@@ -2292,33 +2286,9 @@ function updateLevelandAuto(){
     if (challenge==2){
     pressesdec=0
     } else if (challenge==3 || challenge==4){
-    if (quality==5){
     pressesdec+=((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((mxpmul/chargexp)*0.001))*chargepress)
-    } else if (quality==4){
-    pressesdec+=(((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((mxpmul/chargexp)*0.001))*chargepress)*5)
-    } else if (quality==3){
-    pressesdec+=(((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((mxpmul/chargexp)*0.001))*chargepress)*10)
-    } else if (quality==2){
-    pressesdec+=(((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((mxpmul/chargexp)*0.001))*chargepress)*25)
-    } else if (quality==1){
-    pressesdec+=(((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((mxpmul/chargexp)*0.001))*chargepress)*50)
-    } else if (quality==0){
-    pressesdec+=(((((((cursor*0.1)*0.01)+((mother*1)*0.01)+((goals1*(ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((mxpmul/chargexp)*0.001))*chargepress)*100)
-    }
     } else {
-    if (quality==5){
     pressesdec+=((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((mxpmul/chargexp)*0.001))*chargepress)
-    } else if (quality==4){
-    pressesdec+=(((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((mxpmul/chargexp)*0.001))*chargepress)*5)
-    } else if (quality==3){
-    pressesdec+=(((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((mxpmul/chargexp)*0.001))*chargepress)*10)
-    } else if (quality==2){
-    pressesdec+=(((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((mxpmul/chargexp)*0.001))*chargepress)*25)
-    } else if (quality==1){
-    pressesdec+=(((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((mxpmul/chargexp)*0.001))*chargepress)*50)
-    } else if (quality==0){
-    pressesdec+=(((((((((cursor*0.1)*0.01)*(cpower))+(((mother*1)*0.01)*(mpower)))+((goals1*(ppress*ppower))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((mxpmul/chargexp)*0.001))*chargepress)*100)
-    }
     }
     if (challenge==2){
     pps=0
@@ -2331,19 +2301,7 @@ function updateLevelandAuto(){
     pps=-1
     }
     } else if (dimension==1){
-    if (quality==5){
     pressesdec+=((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((axpmul/chargexp)*0.001))*chargepress)
-    } else if (quality==4){
-    pressesdec+=(((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((axpmul/chargexp)*0.001))*chargepress)*5)
-    } else if (quality==3){
-    pressesdec+=(((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((axpmul/chargexp)*0.001))*chargepress)*10)
-    } else if (quality==2){
-    pressesdec+=(((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((axpmul/chargexp)*0.001))*chargepress)*25)
-    } else if (quality==1){
-    pressesdec+=(((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((axpmul/chargexp)*0.001))*chargepress)*50)
-    } else if (quality==0){
-    pressesdec+=(((((((goals1*(antistrength))*0.01))*(goals2+1)*(Math.pow(2, goals6)))*((axpmul/chargexp)*0.001))*chargepress)*100)
-    }
     antipps=parseInt(((((((goals1*(antistrength)))*(goals2+1)*(Math.pow(2, goals6)))*((axpmul/chargexp)*0.001))*chargepress).toFixed(1)))
     }
     if (pressesdec>=1 && pressesdec<11){
@@ -3525,7 +3483,6 @@ function checkAchievements(){
     if (mother>=1000 && achcomp40==0){
     accomplish(achtitle40, achdesc40, 40)
     }
-    bobuxman
 		if (prestigeamt!=0 && achcomp61==0){
 		accomplish(achtitle61, achdesc61, 61)
 		}
@@ -3535,11 +3492,9 @@ function checkAchievements(){
     if (anonymityamt!=0 && achcomp63==0){
     accomplish(achtitle63, achdesc63, 63)
 		}
-    }
 }
 //oh look, the first function, the most important!! remains the same name, but it'ś the updater!
-function byebye(){
-setTimeout(function () {
+var byebye = setInterval(function () {
     if (loaded==2){
     updateAutoSave()
     updateLevelandAuto()
@@ -3557,19 +3512,7 @@ setTimeout(function () {
     checkAchievements()
     if (loadedfade!=-1){
     if (loadedfade!=0 && loadedfade>0){
-    if (quality==5){
     loadedfade-=0.005
-    } else if (quality==4){
-    loadedfade-=0.025
-    } else if (quality==3){
-    loadedfade-=0.05
-    } else if (quality==2){
-    loadedfade-=0.125
-    } else if (quality==1){
-    loadedfade-=0.25
-    } else if (quality==0){
-    loadedfade-=0.5
-    }
     document.getElementById("loadingscreen").style.opacity=loadedfade
     } else {
     document.getElementById("loadingscreen").remove()
@@ -3577,35 +3520,36 @@ setTimeout(function () {
     }
     }
     }
-}, qcooldown);
-}
-var slowupdater = setInterval(function(){
+}, 10);
+//this exists for things that do not really need quick updates, but still needs them frequently
+var slowupdater = setInterval(function () {
     if (loaded==2){
         if (autobuy==1 || autoupgrade==1 || autopresbuy==1){
             updateAuto()
         }
         updateCharger()
     }
-}, 100)
-//this exists for things that do not really need quick updates, but still needs them faster than 5s
-var slowerupdater = setInterval(function(){
+}, 100);
+//this exists for things that only needs to update time to time
+var slowerupdater = setInterval(function () {
     if (loaded==2){
         updateResets()
         if (inshop!==0){
         updateShop()
         }
     }
-}, 1000)
-//this exists for things that only needs to update time to time
-var slowestupdater = setInterval(function(){
+}, 1000);
+//this exists for things that only needs to update slowly
+var slowestupdater = setInterval(function () {
     if (loaded==2){
         updateBest()
         if (inshop==-2){
         updateSettings()
         }
     }
-}, 5000)
-var autoreset = setInterval(function(){
+}, 5000);
+//auto reset gain
+var autoresetcooldown = setInterval(function () {
     if (loaded==2){
         if (autopres==1 && dimension==0 && mlevel>=30){
             if (autoresettimer>=6000){
@@ -3616,7 +3560,7 @@ var autoreset = setInterval(function(){
             }
         }
     }
-}, 10)
+}, 10);
 function buttonpress(){
     updateXPmult()
     if (yes==0 && tutorialmode==1){
@@ -3818,18 +3762,20 @@ function buttonmillionpress(){
         }
     }
 }
-//function q0102(){
-    //no=1
-    //document.getElementById("q1b2").style="opacity: 0; animation-name: animation; animation-duration: 1s; cursor: disabled;";
-    //document.getElementById("coverq1b2").style="position: absolute; left: 50px; top: 113px; height: 23px; width: 36px; background-color: transparent; cursor: wait;";
-    //waiting=100
-//}
-//function q0202(){
-    //no=2
-    //document.getElementById("q2b2").style="opacity: 0; animation-name: animation; animation-duration: 1s; cursor: disabled;";
-    //document.getElementById("coverq1b2").style="position: absolute; left: 50px; top: 113px; height: 23px; width: 36px; background-color: transparent; cursor: wait;";
-    //waiting=100
-//}
+/**
+function q0102(){
+    no=1
+    document.getElementById("q1b2").style="opacity: 0; animation-name: animation; animation-duration: 1s; cursor: disabled;";
+    document.getElementById("coverq1b2").style="position: absolute; left: 50px; top: 113px; height: 23px; width: 36px; background-color: transparent; cursor: wait;";
+    waiting=100
+}
+function q0202(){
+    no=2
+    document.getElementById("q2b2").style="opacity: 0; animation-name: animation; animation-duration: 1s; cursor: disabled;";
+    document.getElementById("coverq1b2").style="position: absolute; left: 50px; top: 113px; height: 23px; width: 36px; background-color: transparent; cursor: wait;";
+    waiting=100
+}
+**/
 function shop(){
 updateShop()
 if (inshop==0 && dimension==0){
@@ -4981,10 +4927,9 @@ function loadCookie(){
         } else if (asdm==7){
         document.getElementById("toggleASDM").innerText="Style 2 (hundredths)";
         }
+    }
         autosavetimer=0
         loaded+=1
-        byebye()
-    }
 }
 function resetwarning(){
     var div = document.createElement("div")
@@ -5500,7 +5445,6 @@ cost6 = 4000;
 ppsoffbonus=0
 updateResets()
 }
-
 function autoprestigegain(){
 ppoint+=(((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)
 if (bestprestige<(((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)){
@@ -7213,8 +7157,6 @@ for (let i = 0; i < 10; ++i) {
 }
 base64abc.push("+");
 base64abc.push("/");
-
-
 const base64codes = [
         255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,
         255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,
@@ -7225,8 +7167,6 @@ const base64codes = [
         255, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
         41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51
 ];
-
-
 function getBase64Code(charCode) {
         if (charCode >= base64codes.length) {
                 throw new Error("Unable to parse base64 string.");
@@ -7237,8 +7177,6 @@ function getBase64Code(charCode) {
         }
         return code;
 }
-
-
 function bytesToBase64(bytes) {
         let result = '', i, l = bytes.length;
         for (i = 2; i < l; i += 3) {
@@ -7260,8 +7198,6 @@ function bytesToBase64(bytes) {
         }
         return result;
 }
-
-
 function base64ToBytes(str) {
         if (str.length % 4 !== 0) {
                 throw new Error("Unable to parse base64 string.");
@@ -7286,8 +7222,6 @@ function base64ToBytes(str) {
         }
         return result.subarray(0, result.length - missingOctets);
 }
-
-
 function base64encode(str, encoder = new TextEncoder()) {
         return bytesToBase64(encoder.encode(str));
 }
@@ -7348,28 +7282,106 @@ popups-=1
 }
 function achievemove(){
 // ach9: 542, ach8: 476, ach7: 410, ach6: 344, ach5: 278, ach4: 212, ach3: 146, ach2: 80, ach1: 14
+var passes=0
 if (document.body.contains(document.getElementById("achievement9")) == false && document.body.contains(document.getElementById("achievement8")) == true && document.body.contains(document.getElementById("achievement7")) == true && document.body.contains(document.getElementById("achievement6")) == true && document.body.contains(document.getElementById("achievement5")) == true && document.body.contains(document.getElementById("achievement4")) == true && document.body.contains(document.getElementById("achievement3")) == true && document.body.contains(document.getElementById("achievement2")) == true && document.body.contains(document.getElementById("achievement1")) == true && document.body.contains(document.getElementById("achievement0")) == true){
-var div9 = document.createElement(div9)
+var div9 = document.createElement(div)
 div9.id="achievement9"
-div9.style="position: absolute; bottom: "+(140)"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
+div9.style="position: absolute; bottom: "+(542)+"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
 div9.innerHTML=document.getElementById("achievement8").innerHTML
 document.getElementById("achievement8").remove()
 document.body.appendChild(div9)
+} else {
+passes+=1
 }
 if (document.body.contains(document.getElementById("achievement8")) == false && document.body.contains(document.getElementById("achievement7")) == true && document.body.contains(document.getElementById("achievement6")) == true && document.body.contains(document.getElementById("achievement5")) == true && document.body.contains(document.getElementById("achievement4")) == true && document.body.contains(document.getElementById("achievement3")) == true && document.body.contains(document.getElementById("achievement2")) == true && document.body.contains(document.getElementById("achievement1")) == true && document.body.contains(document.getElementById("achievement0")) == true){
-var div9 = document.createElement(div9)
-div9.id="achievement9"
-div9.style="position: absolute; bottom: "+(140)"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
-div9.innerHTML=document.getElementById("achievement8").innerHTML
-document.getElementById("achievement8").remove()
-document.body.appendChild(div9)
+var div8 = document.createElement(div)
+div8.id="achievement8"
+div8.style="position: absolute; bottom: "+(476)+"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
+div8.innerHTML=document.getElementById("achievement7").innerHTML
+document.getElementById("achievement7").remove()
+document.body.appendChild(div8)
+} else {
+passes+=1
+}
+if (document.body.contains(document.getElementById("achievement7")) == false && document.body.contains(document.getElementById("achievement6")) == true && document.body.contains(document.getElementById("achievement5")) == true && document.body.contains(document.getElementById("achievement4")) == true && document.body.contains(document.getElementById("achievement3")) == true && document.body.contains(document.getElementById("achievement2")) == true && document.body.contains(document.getElementById("achievement1")) == true && document.body.contains(document.getElementById("achievement0")) == true){
+var div7 = document.createElement(div)
+div7.id="achievement7"
+div7.style="position: absolute; bottom: "+(410)+"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
+div7.innerHTML=document.getElementById("achievement6").innerHTML
+document.getElementById("achievement6").remove()
+document.body.appendChild(div)
+} else {
+passes+=1
+}
+if (document.body.contains(document.getElementById("achievement6")) == false && document.body.contains(document.getElementById("achievement5")) == true && document.body.contains(document.getElementById("achievement4")) == true && document.body.contains(document.getElementById("achievement3")) == true && document.body.contains(document.getElementById("achievement2")) == true && document.body.contains(document.getElementById("achievement1")) == true && document.body.contains(document.getElementById("achievement0")) == true){
+var div6 = document.createElement(div)
+div6.id="achievement6"
+div6.style="position: absolute; bottom: "+(344)+"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
+div6.innerHTML=document.getElementById("achievement5").innerHTML
+document.getElementById("achievement5").remove()
+document.body.appendChild(div6)
+} else {
+passes+=1
+}
+if (document.body.contains(document.getElementById("achievement5")) == false && document.body.contains(document.getElementById("achievement4")) == true && document.body.contains(document.getElementById("achievement3")) == true && document.body.contains(document.getElementById("achievement2")) == true && document.body.contains(document.getElementById("achievement1")) == true && document.body.contains(document.getElementById("achievement0")) == true){
+var div5 = document.createElement(div)
+div5.id="achievement5"
+div5.style="position: absolute; bottom: "+(278)+"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
+div5.innerHTML=document.getElementById("achievement4").innerHTML
+document.getElementById("achievement4").remove()
+document.body.appendChild(div5)
+} else {
+passes+=1
+}
+if (document.body.contains(document.getElementById("achievement4")) == false && document.body.contains(document.getElementById("achievement3")) == true && document.body.contains(document.getElementById("achievement2")) == true && document.body.contains(document.getElementById("achievement1")) == true && document.body.contains(document.getElementById("achievement0")) == true){
+var div4 = document.createElement(div)
+div4.id="achievement4"
+div4.style="position: absolute; bottom: "+(212)+"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
+div4.innerHTML=document.getElementById("achievement3").innerHTML
+document.getElementById("achievement3").remove()
+document.body.appendChild(div4)
+} else {
+passes+=1
+}
+if (document.body.contains(document.getElementById("achievement3")) == false && document.body.contains(document.getElementById("achievement2")) == true && document.body.contains(document.getElementById("achievement1")) == true && document.body.contains(document.getElementById("achievement0")) == true){
+var div3 = document.createElement(div)
+div3.id="achievement3"
+div3.style="position: absolute; bottom: "+(146)+"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
+div3.innerHTML=document.getElementById("achievement2").innerHTML
+document.getElementById("achievement2").remove()
+document.body.appendChild(div3)
+} else {
+passes+=1
+}
+if (document.body.contains(document.getElementById("achievement2")) == false && document.body.contains(document.getElementById("achievement1")) == true && document.body.contains(document.getElementById("achievement0")) == true){
+var div2 = document.createElement(div2)
+div2.id="achievement2"
+div2.style="position: absolute; bottom: "+(80)+"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
+div2.innerHTML=document.getElementById("achievement1").innerHTML
+document.getElementById("achievement1").remove()
+document.body.appendChild(div2)
+} else {
+passes+=1
+}
+if (document.body.contains(document.getElementById("achievement1")) == false && document.body.contains(document.getElementById("achievement0")) == true){
+var div1 = document.createElement(div1)
+div1.id="achievement1"
+div1.style="position: absolute; bottom: "+(14)+"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
+div1.innerHTML=document.getElementById("achievement0").innerHTML
+document.getElementById("achievement0").remove()
+document.body.appendChild(div1)
+} else {
+passes+=1
+}
+if (passes!=9){
+achievemove()
 }
 }
 function autoachmove(){
 if (document.body.contains(document.getElementById("achievement9")) == true && document.body.contains(document.getElementById("achievement8")) == false){
 var div = document.createElement(div)
 div.id="achievement8"
-div.style="position: absolute; bottom: "+(476)"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
+div.style="position: absolute; bottom: "+(476)+"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
 div.innerHTML=document.getElementById("achievement9").innerHTML
 document.getElementById("achievement9").remove()
 document.body.appendChild(div)
@@ -7377,7 +7389,7 @@ document.body.appendChild(div)
 if (document.body.contains(document.getElementById("achievement8")) == true && document.body.contains(document.getElementById("achievement7")) == false){
 var div = document.createElement(div)
 div.id="achievement7"
-div.style="position: absolute; bottom: "+(410)"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
+div.style="position: absolute; bottom: "+(410)+"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
 div.innerHTML=document.getElementById("achievement8").innerHTML
 document.getElementById("achievement8").remove()
 document.body.appendChild(div)
@@ -7385,7 +7397,7 @@ document.body.appendChild(div)
 if (document.body.contains(document.getElementById("achievement7")) == true && document.body.contains(document.getElementById("achievement6")) == false){
 var div = document.createElement(div)
 div.id="achievement6"
-div.style="position: absolute; bottom: "+(344)"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
+div.style="position: absolute; bottom: "+(344)+"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
 div.innerHTML=document.getElementById("achievement7").innerHTML
 document.getElementById("achievement7").remove()
 document.body.appendChild(div)
@@ -7393,7 +7405,7 @@ document.body.appendChild(div)
 if (document.body.contains(document.getElementById("achievement6")) == true && document.body.contains(document.getElementById("achievement5")) == false){
 var div = document.createElement(div)
 div.id="achievement5"
-div.style="position: absolute; bottom: "+(278)"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
+div.style="position: absolute; bottom: "+(278)+"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
 div.innerHTML=document.getElementById("achievement6").innerHTML
 document.getElementById("achievement6").remove()
 document.body.appendChild(div)
@@ -7401,7 +7413,7 @@ document.body.appendChild(div)
 if (document.body.contains(document.getElementById("achievement5")) == true && document.body.contains(document.getElementById("achievement4")) == false){
 var div = document.createElement(div)
 div.id="achievement4"
-div.style="position: absolute; bottom: "+(212)"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
+div.style="position: absolute; bottom: "+(212)+"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
 div.innerHTML=document.getElementById("achievement5").innerHTML
 document.getElementById("achievement5").remove()
 document.body.appendChild(div)
@@ -7409,7 +7421,7 @@ document.body.appendChild(div)
 if (document.body.contains(document.getElementById("achievement4")) == true && document.body.contains(document.getElementById("achievement3")) == false){
 var div = document.createElement(div)
 div.id="achievement3"
-div.style="position: absolute; bottom: "+(146)"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
+div.style="position: absolute; bottom: "+(146)+"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
 div.innerHTML=document.getElementById("achievement4").innerHTML
 document.getElementById("achievement4").remove()
 document.body.appendChild(div)
@@ -7417,7 +7429,7 @@ document.body.appendChild(div)
 if (document.body.contains(document.getElementById("achievement3")) == true && document.body.contains(document.getElementById("achievement2")) == false){
 var div = document.createElement(div)
 div.id="achievement2"
-div.style="position: absolute; bottom: "+(80)"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
+div.style="position: absolute; bottom: "+(80)+"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
 div.innerHTML=document.getElementById("achievement3").innerHTML
 document.getElementById("achievement3").remove()
 document.body.appendChild(div)
@@ -7425,7 +7437,7 @@ document.body.appendChild(div)
 if (document.body.contains(document.getElementById("achievement2")) == true && document.body.contains(document.getElementById("achievement1")) == false){
 var div = document.createElement(div)
 div.id="achievement1"
-div.style="position: absolute; bottom: "+(14)"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
+div.style="position: absolute; bottom: "+(14)+"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
 div.innerHTML=document.getElementById("achievement2").innerHTML
 document.getElementById("achievement2").remove()
 document.body.appendChild(div)
@@ -7433,21 +7445,21 @@ document.body.appendChild(div)
 //if (document.body.contains(document.getElementById("achievement1")) == true && document.body.contains(document.getElementById("achievement0")) == false){
 //var div = document.createElement(div)
 //div.id="achievement0"
-//div.style="position: absolute; bottom: "+(14)"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
+//div.style="position: absolute; bottom: "+(14)+"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
 //div.innerHTML=document.getElementById("achievement1").innerHTML
 //document.getElementById("achievement1").remove()
 //document.body.appendChild(div)
 //}
 }
 function accomplish(title, desc, id){
-if (popups==0){
-popups+=1
+if (popups<=9){
 achcomp(id)=1
 var div = document.createElement(div)
-div.id="achievement"+popups
-div.style="position: absolute; bottom: "+(14+(14*(popups-1)))"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF"
+div.id="achievement0"
+div.style="position: absolute; bottom: "+(-52)+"px; right: 14px; height: 52px; width: 242px; border-color: #000000; border-style: double; background-color: #FFFFFF; animation-name: achievementslide; animation-duration: 1s;"
 div.innerHTML='<div style="position: absolute;left: -3px;top: -36px;width: 248px;height: 91px;background-color: transparent;z-index: 2;"></div><div style="position: absolute;bottom: 77px;right: -12px;height: 14px;width: 14px;border-color: #000000;border-style: double;background-color: #FFFFFF;font-weight: 750;font-family: monospace;text-align: center;z-index: 2;"><a style="position: absolute;top: -6px;left: 0px;font-size: 17px;">x</a><a style="position: absolute;top: -3px;left: -3px;background-color: transparent;height: 20px;width: 20px;cursor:pointer;" onclick="closeach('+popups+')"></a></div><div style="position: absolute;height: 89px;width: 1px;left: -2px;top: -35px;background-color:#FFFFFF;z-index: 1;"></div><div style="position: absolute;height: 56px;width: 1px;left: 53px;top: -2px; background-color:#FFFFFF"></div><div style="position: absolute;height: 1px;width: 191px;left: 53px;top: 18px;background-color:#FFFFFF; z-index: 1;"></div><div style="position: absolute;height: 89px;width: 1px;left: 243px;top: -35px;background-color:#FFFFFF;z-index: 1;"></div><div style="position: absolute;bottom: 55px;right: -3px;height: 30px;width: 242px;border-color: #000000;border-right-style: double;border-left-style: double;border-top-style: double;background-color: #FFFFFF;font-weight: 750;font-size: 19px;font-family: monospace; text-align: center; z-index: 0;"><a style="position: relative;text-align: center;top: 5px; z-index: 0;">Achievement achieved!</a></div><img src="https://media.tenor.com/1X2SyR0pGVAAAAAd/luigi-dancing.gif" style="width: 52px; height: 52px; left: 0px; top: 0px; position: absolute; border-color: #000000; border-right-style: double; z-index: 0;"><div style="position: absolute;left: 55px;top: 0px;height: 17px;width: 187px;background-color: transparent;overflow-y: clip;font-size: 15px;text-align: center;border-bottom-style: double;border-color: #000000; font-style: italic; z-index: 0;">'+title+'</div><div style="position: absolute;left: 57px;top: 19px;height: 33px;width: 183px;background-color: transparent;overflow-y: clip;font-size: 14px;text-align: center; z-index: 0;">'+desc+'</div>'
 document.body.appendChild(div)
+}
 }
 function buyPressFuel(){
 presses-=fuelcost0
