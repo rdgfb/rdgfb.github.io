@@ -39,7 +39,7 @@
 <div id="prestigeui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Teh Prestige</div><div style="position: relative; top: 212px; text-align: center;" id="pamt">You have 0 prestige points.</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit Shop</button><div style="overflow: scroll;  scrollbar-color: #FFFFFF; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;"></div><div>THESE UPGRADES WON'T RESET ON PRESTIGE</div><button style="font-size: inherit; font-family: inherit;" id="buyAutoBuy" onclick="buyAutoBuy()">Shop Auto Buyer</button><a id="pitem0count"> Locked</a><div id="pitem0"> Cost: 100, short 100 prestige points.</div><button style="font-size: inherit; font-family: inherit;" id="buyAutoUpgrade" onclick="buyAutoUpgrade()">Auto Upgrader</button><a id="pitem1count"> Locked</a><div id="pitem1"> Cost: 10000, short 10000 prestige points.</div><button style="font-size: inherit; font-family: inherit;" id="buyPCpower" onclick="buyPCpower()">Prestige Click Power</button><a id="pitem2count"> lvl 1</a><div id="pitem2">Cost: 1, short 1 prestige points.</div><button style="font-size: inherit; font-family: inherit;" id="buyPXPmult" onclick="buyPXPmult()">Prestige XP Multiplier</button><a id="pitem3count"> lvl 1</a><div id="pitem3"> Cost: 100, short 100 presses. UNLOCKS NEW BUILDING!</div><button style="font-size: inherit; font-family: inherit;" id="buyAnti" onclick="buyAnti()">Anti Dimension</button><a id="pitem4count"> Locked</a><div id="pitem4"> Cost: 1000000, short 1000000 prestige points. UNLOCKS A NEW FEATURE!</div><button style="font-size: inherit; font-family: inherit;" id="buyCostLowerer" onclick="buyCostLowerer()">Lower Cost</button><a id="pitem5count"> lvl 1</a><div id="pitem5"> Cost: 1000, short 1000 presses. Lowers cost of all button shop items by 1%.</div></div></div>
 <div id="ascendui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Underground Shop</div><div style="position: relative; top: 212px; text-align: center;" id="ascamt">You have 0 ascend points.</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit Shop</button><div style="overflow: scroll;  scrollbar-color: #FFFFFF; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;"></div><div>THESE UPGRADES WON'T RESET ON ASCEND/PRESTIGE</div><button style="font-size: inherit; font-family: inherit;" id="buyascXP" onclick="buyascXP()">XP multiplier</button><a id="ascitem0count"> x0</a><div id="ascitem0"> Cost: 1, short 1 ascend points.</div></div></div>
 <div id="anonymityui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF; font-family: 'DSi'; font-size: 1.3em"><div style="position: relative; text-align: left;">Anonymous Tools</div><div style="position: relative; top: 212px; text-align: center;" id="aamt">You have 0 anonymity points.</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit quietly.</button><div style="overflow: scroll;  scrollbar-color: #FFFFFF; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;"></div><div>THESE UPGRADES WON'T RESET ON ANONYMITY</div><button style="font-size: inherit; font-family: inherit;" id="buyPpower" onclick="buyPpower()">Prestige Power</button><a id="aitem0count"> lvl 0</a><div id="aitem0">Cost: 1, short 1 anonymity.</div><button id="buyCharge" onclick="buyCharge()" style="font-size: inherit; font-family: inherit">Charger</button><a id="aitem1count"> lvl 0</a><div id="aitem1"> Cost: 1000, short 1000 anonymity. UNLOCKS NEW BUILDING!</div><button id="buyFreeBuy" onclick="buyFreeBuy()" style="font-size: inherit; font-family: inherit">Never Subtract Press</button><a id="aitem2count"> lvl 0</a><div id="aitem2"> Cost: 100000, short 10000 anonymity.</div><button id="buyAutoPrestige" onclick="buyAutoPrestige()" style="font-size: inherit; font-family: inherit">Auto Prestige Gain</button><a id="aitem3count"> lvl 0</a><div id="aitem3"> Cost: 1M, short 1M anonymity.</div><button id="buyFreePresBuy" onclick="buyFreePresBuy()" style="font-size: inherit; font-family: inherit">Never Subtract Prestige</button><a id="aitem4count"> lvl 0</a><div id="aitem4"> Cost: 1B, short 1B anonymity.</div></div></div>
-<div id="settingsui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><button onclick="shop()" id="settingsshop" style="position: absolute; top: 0px; right: 0px; cursor: pointer; z-index: 1; font-size: inherit; font-family: inherit;">Save</button><div style="position: relative; text-align: left;">Settings and Stats</div><div style="background-color: inherit; overflow: scroll; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; background-color: #000000">Settings</div></div><div></div><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="createCookie()">Save</button><a id="autosave" style="color: inherit; text-align: left; font-size: inherit; font-family: inherit;"> Auto save: 0s</a><div></div><input style="width: 50px; font-size: inherit; font-family: inherit;" type="number" min="0" max="3600" id="autosav"> min 10, max 3600<div></div><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="resetwarning()">Wipe</button><div></div><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="exportfilewarning()">Export (as file)</button><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="exportwarning()">Export (as text)</button><div></div><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="importwarning()">Import</button><div></div><!--><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="achievementlist()">Achievements</button></!--><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="Credit()">Credit</button><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Auto</div></div><div id="Set1" style="color: inherit; text-align: left;">Save timer: <button onclick="toggleASDM()" id="toggleASDM" style="font-size: inherit; font-family: inherit">Style 1: (ones)</button></div><div id="Set2" style="color: inherit; text-align: left;">Automatic pressing per second: <button onclick="togglePPS()" id="togglePPS" style="font-size: inherit; font-family: inherit">true</button></div><div id="Set3" style="color: inherit; text-align: left;">Automatic pressing: <button onclick="toggleAuto()" id="toggleAuto" style="font-size: inherit; font-family: inherit">true</button></div><div id="Set4" style="color: inherit; text-align: left;"><a id="Set4Name">Automatic buying: </a><button onclick="toggleAutoBuy()" id="toggleAutoBuy" style="font-size: inherit; font-family: inherit">true</button></div><div id="Set5" style="color: inherit; text-align: left;"><a id="Set5Name">Automatic upgrading: </a><button onclick="toggleAutoUpgrade()" id="toggleAutoUpgrade" style="font-size: inherit; font-family: inherit">true</button></div><div id="Set6" style="color: inherit; text-align: left;"><a id="Set6Name">Automatic Prestige Buying: </a><button onclick="toggleAutoPresBuy()" id="toggleAutoPresBuy" style="font-size: inherit; font-family: inherit">true</button></div><div id="Set7" style="color: inherit; text-align: left;"><a id="Set7Name">Automatic Prestige: </a><button onclick="toggleAutoPres()" id="toggleAutoPres" style="font-size: inherit; font-family: inherit">true</button></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Optimizations</div></div><div id="SetO0" style="color: inherit; text-align: left;">Planets visibility: <button onclick="togglePlanets()" id="togglePlanets" style="font-size: inherit; font-family: inherit">true</button></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Stats</div></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Time and Amounts</div></div><div id="statT0" style="color: inherit; text-align: left;"></div><div id="statR1" style="color: inherit; text-align: left;"></div><div id="statR2" style="color: inherit; text-align: left;"></div><div id="statR3" style="color: inherit; text-align: left;"></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Currently</div></div><div id="statC1" style="color: inherit; text-align: left;"></div><div id="statC2" style="color: inherit; text-align: left;"></div><div id="statC3" style="color: inherit; text-align: left;"></div><div id="statC4" style="color: inherit; text-align: left;"></div><div id="statC5" style="color: inherit; text-align: left;"></div><div id="statC6" style="color: inherit; text-align: left;"></div><div id="statC7" style="color: inherit; text-align: left;"></div><div id="statC8" style="color: inherit; text-align: left;"></div><div id="statC9" style="color: inherit; text-align: left;"></div><div id="statC10" style="color: inherit; text-align: left;"></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Records</div></div><div id="statB1" style="color: inherit; text-align: left;"></div><div id="statB2" style="color: inherit; text-align: left;"></div><div id="statB3" style="color: inherit; text-align: left;"></div><div id="statB4" style="color: inherit; text-align: left;"></div><div id="statB5" style="color: inherit; text-align: left;"></div><div id="statB6" style="color: inherit; text-align: left;"></div></div></div>
+<div id="settingsui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><button onclick="shop()" id="settingsshop" style="position: absolute; top: 0px; right: 0px; cursor: pointer; z-index: 1; font-size: inherit; font-family: inherit;">Save</button><div style="position: relative; text-align: left;">Settings and Stats</div><div style="background-color: inherit; overflow: scroll; position: absolute; bottom: 16px; height: 212px; width: 250px;"><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; background-color: #000000">Settings</div></div><div></div><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="createCookie()">Save</button><a id="autosave" style="color: inherit; text-align: left; font-size: inherit; font-family: inherit;"> Auto save: 0s</a><div></div><input style="width: 50px; font-size: inherit; font-family: inherit;" type="number" min="0" max="3600" id="autosav"> min 10, max 3600<div></div><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="resetwarning()">Wipe</button><div></div><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="exportfilewarning()">Export (as file)</button><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="exportwarning()">Export (as text)</button><div></div><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="importwarning()">Import</button><div></div><!--><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="achievementlist()">Achievements</button></!--><button style="opacity: 1; cursor: pointer; font-size: inherit; font-family: inherit;" onclick="Credit()">Credit</button><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Auto</div></div><div id="Set1" style="color: inherit; text-align: left;">Save timer: <button onclick="toggleASDM()" id="toggleASDM" style="font-size: inherit; font-family: inherit">Style 1: (ones)</button></div><div id="Set2" style="color: inherit; text-align: left;">Automatic pressing per second: <button onclick="togglePPS()" id="togglePPS" style="font-size: inherit; font-family: inherit">true</button></div><div id="Set3" style="color: inherit; text-align: left;">Automatic pressing: <button onclick="toggleAuto()" id="toggleAuto" style="font-size: inherit; font-family: inherit">true</button></div><div id="Set4" style="color: inherit; text-align: left;"><a id="Set4Name">Automatic buying: </a><button onclick="toggleAutoBuy()" id="toggleAutoBuy" style="font-size: inherit; font-family: inherit">true</button></div><div id="Set5" style="color: inherit; text-align: left;"><a id="Set5Name">Automatic upgrading: </a><button onclick="toggleAutoUpgrade()" id="toggleAutoUpgrade" style="font-size: inherit; font-family: inherit">true</button></div><div id="Set6" style="color: inherit; text-align: left;"><a id="Set6Name">Automatic Prestige Buying: </a><button onclick="toggleAutoPresBuy()" id="toggleAutoPresBuy" style="font-size: inherit; font-family: inherit">true</button></div><div id="Set7" style="color: inherit; text-align: left;"><a id="Set7Name">Automatic Prestige: </a><button onclick="toggleAutoPres()" id="toggleAutoPres" style="font-size: inherit; font-family: inherit">true</button><a id="Set8Name">Challenge Completion: </a><button onclick="toggleChalMode()" id="toggleChalMode" style="font-size: inherit; font-family: inherit">Goal Met</button></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Optimizations</div></div><div id="SetO0" style="color: inherit; text-align: left;">Planets visibility: <button onclick="togglePlanets()" id="togglePlanets" style="font-size: inherit; font-family: inherit">true</button></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(75%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Stats</div></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Time and Amounts</div></div><div id="statT0" style="color: inherit; text-align: left;"></div><div id="statR1" style="color: inherit; text-align: left;"></div><div id="statR2" style="color: inherit; text-align: left;"></div><div id="statR3" style="color: inherit; text-align: left;"></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Currently</div></div><div id="statC1" style="color: inherit; text-align: left;"></div><div id="statC2" style="color: inherit; text-align: left;"></div><div id="statC3" style="color: inherit; text-align: left;"></div><div id="statC4" style="color: inherit; text-align: left;"></div><div id="statC5" style="color: inherit; text-align: left;"></div><div id="statC6" style="color: inherit; text-align: left;"></div><div id="statC7" style="color: inherit; text-align: left;"></div><div id="statC8" style="color: inherit; text-align: left;"></div><div id="statC9" style="color: inherit; text-align: left;"></div><div id="statC10" style="color: inherit; text-align: left;"></div><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit;">Records</div></div><div id="statB1" style="color: inherit; text-align: left;"></div><div id="statB2" style="color: inherit; text-align: left;"></div><div id="statB3" style="color: inherit; text-align: left;"></div><div id="statB4" style="color: inherit; text-align: left;"></div><div id="statB5" style="color: inherit; text-align: left;"></div><div id="statB6" style="color: inherit; text-align: left;"></div></div></div>
 <div id="challengeui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; text-align: left;">Challenges</div><button onclick="shop()" style="position: absolute; top: 0px; right: 0px; cursor: pointer;">Exit</button><div style="background-color: inherit; overflow: scroll; position: absolute; bottom: 1px; height: 227px; width: 250px;"><div style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div id="regchal" style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Regular Challenges</div></div><div id="vezchal" style="position: absolute; left: 1px; width: 248px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Very Easy</div><div></div><div style="position: relative; color: inherit; text-align: left;">No pps automation from shop. <button style="font-size: inherit; font-family: inherit;" onclick="chal0()" id="chalno0">Challenge!</button><div>Goal: <a id="Goal0lvl">100</a> presses. <div></div><a id="Goal0don">0/1</a>. Reward: Unlock easy challenges.</div></div></div><div id="easychal" style="position: absolute; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Easy (no pressing perks apply)</div><div></div><div style="position: relative; color: inherit; text-align: left;" style="font-size: inherit; font-family: inherit">No pressing. <button onclick="chal1()" id="chalno1" style="font-size: inherit; font-family: inherit">Challenge!</button><div><div>Goal: Level <a id="Goal1lvl">10</a>. </div><div><a id="Goal1don">0/50</a>. Reward: +<a id="Goal1rew">100</a>% click power and click power added to pps.</div></div></div><div></div><div style="position: relative; color: inherit; text-align: left;">No automation. <button onclick="chal2()" id="chalno2" style="font-size: inherit; font-family: inherit">Challenge!</button><div>Goal: Level <a id="Goal2lvl">10</a>. </div><div><a id="Goal2don">0/50</a>. Reward: +<a id="Goal2rew">100</a>% pps</div></div></div><div id="medchal" style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Medium (no prestige perks or below)</div><div style="position: relative; color: inherit; text-align: left;">No Shop. <button onclick="chal3()" id="chalno3" style="font-size: inherit; font-family: inherit">Challenge!</button><div>Goal: Level <a id="Goal3lvl">10</a>. </div><div><a id="Goal3don">0/50</a>. Reward: +<a id="Goal3rew">100</a>% xp</div></div><div style="position: relative; color: inherit; text-align: left;">Prestige speedrun. <button onclick="chal4()" id="chalno4" style="font-size: inherit; font-family: inherit">Challenge!</button><div>Goal: Prestige in <a id="Goal4lvl">60</a> minutes. </div><div><a id="Goal4don">0/24</a>. Reward: +<a id="Goal4rew">25</a>% Prestige Points</div></div></div><div id="hardchal" style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Hard (no ascend perks or below)</div><div style="position: relative; color: inherit; text-align: left;">Sacrifice Speedrun. <button onclick="chal5()" id="chalno5" style="font-size: inherit; font-family: inherit">Challenge!</button><div>Goal: Dimension hop in <a id="Goal5lvl">720</a> minutes. <div></div><a id="Goal5don">0/10</a>. Reward: <a id="Goal5rew">+0% pps added to click power</a><div></div><a>Only applies with manual presses!</a><div></div><a id="Goal5rew2">Dimension cost is 0% cheaper</a></div></div></div><div id="antichal" style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit; font-family: 'DSi'; font-size: 1.3em;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Anti Challenges</div></div><div id="easyantichal" style="position: relative; left: 1px; width: 248px; height: 18px; filter: invert(100%); text-align: center; background-color: inherit; color: inherit; font-family: 'DSi'; font-size: 1.3em;"><div style="color: inherit; height: 18px; background-color: inherit; filter: invert(100%);">Easy (no antipressing perks or below)</div><div style="position: relative; color: inherit; text-align: left;">No Anti-pressing. <button onclick="chal6()" id="chalno6" style="font-size: inherit; font-family: inherit">Challenge!</button><div>Goal: Level -<a id="Goal6lvl">10</a>. <div></div><a id="Goal6don">0/10</a>. Reward: Pressing x<a id="Goal6rew">2</a><div></div></div></div></div></div></div>
 <div id="charger" style="position: absolute; height: 250px; width: 250px; top: 0px; left: -100%; background-color: #CCCC00; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF;"><div style="position: relative; left: 1px; top: 1px; width: 248px; height: 62px; text-align: center; background-color: #FFFF00; color: #000000; text-align: center; font-size: inherit; font-family: inherit; font-size: 21px;">Charger</div><div style="position: relative; left: 1px; top: -37px; width: 248px; height: 18px; text-align: center; background-color: transparent; color: #000000; font-size: inherit; font-family: inherit"><a id="chargr" style="font-size: inherit; font-family: inherit">0</a> Watts <a id="cps">(0/s)</a></div><button onclick="fuelcharger()" id="fuelcharger" style="position: absolute; right: 0px; top: 0px; font-size: inherit; font-family: inherit">Fuel</button><div style="background-color: #000000; position: relative; left: 1px; top: -37px; overflow-y: scroll; overflow-x: clip; width: 248px; height: 192px; text-align: center;"><div id="cpressc" style="background-color: transparent;">Presses: x<a id="cpress">1</a></div><div id="cxpc" style="background-color: transparent;">XP: x<a id="cxp">1</a></div><div id="cprestc" style="background-color: transparent;">Prestige: x<a id="cprestige">1</a></div><div id="cascenc" style="background-color: transparent;">Ascend: x<a id="cascend">1</a></div><div id="canonyc" style="background-color: transparent;">Anonymity: x<a id="canonymity">1</a></div><div id="csqueec" style="background-color: transparent;">Squeeze: x<a id="csqueeze">1</a></div><div id="csquesc" style="background-color: transparent;">Squeeze Success Rate: +<a id="cschance">0</a>%</div><div id="csquebc" style="background-color: transparent;">Squeeze Oil Bonus: +<a id="csbonus">0</a>%</div></div><div style="background-color: #FFFF00;height: 110px;width: 33px;position: absolute;right: -34px;bottom: 126px;color: #000000;border-color: #CCCC00;border-width: 1px;border-style: solid;"><a style="transform: rotateZ(270deg);position: absolute;right: -33px;bottom: 36px;font-size: 2em;" onclick="if (charger==1){charger=2} else if (charger==2){charger=1}; document.getElementById('shoptog').style.zIndex='0';  document.getElementById('charger').style.zIndex='1'">Charger</a></div></div><!--><div id="coverq1b2" style="position: absolute; left: -50px; top: 113px; height: 23px; width: 36px; background-color: transparent;"></div><!-->
 <div id="chargerui" style="position: absolute; height: 250px; width: 250px; left: -100%; background-color: #000000; border-color: #FFFFFF; border-width: 1px; color: #FFFFFF; cursor: pointer;"><div style="position: relative; text-align: left; font-size: inherit; font-family: inherit">Fuel Charger</div><div style="position: relative; top: 212px; text-align: center;font-size: inherit; font-family: inherit;" id="fuelmult">Fuel Mult: x1</div><button onclick="shop()" id="stopfuelbutton" style="position: absolute; top: 0px; right: 0px; cursor: pointer;font-size: inherit; font-family: inherit">Stop Fueling</button><div style="overflow: scroll;  scrollbar-color: #FFFFFF; position: absolute; bottom: 16px; height: 212px; width: 250px; font-size: inherit; font-family: inherit"><div style="position: absolute; right: 0px; top: 0px; background-color: #FFFFFF; height: 300px; width: 11px;font-size: inherit; font-family: inherit"></div><div>THESE UPGRADES WILL INCREASE CHARGE!</div><button id="buyPressFuel" onclick="buyPressFuel()" style="font-size: inherit; font-family: inherit">Pressing Fuel</button><a id="chargeritem0count"> x0</a><div id="chargeritem0"> Cost: 1, short 1 Presses.</div><button id="buyPrestigeFuel" onclick="buyPrestigeFuel()" style="font-size: inherit; font-family: inherit">Prestige Fuel</button><a id="chargeritem1count"> x0</a><div id="chargeritem1"> Cost: 1, short 1 Prestige Points.</div><button id="buyAscendFuel" onclick="buyAscendFuel()" style="font-size: inherit; font-family: inherit">Ascend Fuel</button><a id="chargeritem2count"> x0</a><div id="chargeritem2"> Cost: 1, short 1 Ascend Points.</div><button id="buyAntiPressFuel" onclick="buyAntiPressFuel()" style="font-size: inherit; font-family: inherit">Anti-pressing Fuel</button><a id="chargeritem3count"> x0</a><div id="chargeritem3"> Cost: 1, short 1 Anti-Presses.</div><button id="buyAnonymityFuel" onclick="buyAnonymityFuel()" style="font-size: inherit; font-family: inherit">Anonymity Fuel</button><a id="chargeritem4count"> x0</a><div id="chargeritem4"> Cost: 1, short 1 Anonymity Points.</div><button id="buyChargeFuel" onclick="buyChargeFuel()" style="font-size: inherit; font-family: inherit">Charge Fuel</button><a id="chargeritem5count"> x0</a><div id="chargeritem5"> Cost: 1, short 1 Charge.</div></div></div>
@@ -260,6 +260,7 @@ var cheese6 = 0;
 var cheese7 = 0;
 var cheese8 = 0;
 var shoptog = 1;
+var challengemode = 2;
 /** all achievements. for all, 0 achievements is none, descriptions */
 /* presses */
 var achtitle1 = "The Legendary First!"
@@ -1311,6 +1312,13 @@ function updateSettings(){
     } else if (autoupgrade==2){
     document.getElementById("toggleAutoUpgrade").innerText="false"
     document.getElementById("mtoggleAutoUpgrade").innerText="false"
+    }
+    if (challengemode==1){
+    document.getElementById("toggleChallengeMode").innerText="On Goal Met"
+    //document.getElementById("mtoggleChallengeMode").innerText="Goal Met"
+    } else if (challengemode==2){
+    document.getElementById("toggleChallengeMode").innerText="On Reset"
+    //document.getElementById("mtoggleChallengeMode").innerText="On Reset"
     }
     if (autoupgrade!=0){
     document.getElementById("Set5Name").innerText="Automatic Upgrading "
@@ -3055,6 +3063,13 @@ function checkChallenge(){
     goals0+=1
     challenge=0
     }
+    if ((failtimer-(Date.now()))<=0 && challenge == 4){
+    challenge=0
+    }
+    if ((failtimer-(Date.now()))<=0 && challenge == 5){
+    challenge=0
+    }
+    if (challengemode==1){
     if (mlevel>=(10*(goals1+1)) && challenge==1){
     goals1+=1
     challenge=0
@@ -3068,15 +3083,10 @@ function checkChallenge(){
     challenge=0
     updateXPmult()
     }
-    if ((failtimer-(Date.now()))<=0 && challenge == 4){
-    challenge=0
-    }
-    if ((failtimer-(Date.now()))<=0 && challenge == 5){
-    challenge=0
-    }
     if (alevel>=(10*(goals6+1)) && challenge==6){
     goals6+=1
     challenge=0
+    }
     }
 }
 function updateLevelandAuto(){
@@ -6094,6 +6104,7 @@ function createCookie(){
         pressingSave.chargefuel = chargefuel;
         pressingSave.fuelcost5 = fuelcost5;
         pressingSave.shoptog = shoptog;
+        pressingSave.challengemode = challengemode;
     var jsonString = JSON.stringify(pressingSave);
     document.cookie = jsonString;
 };
@@ -6303,6 +6314,7 @@ function loadCookie(){
         chargefuel = saveLoading.chargefuel;
         fuelcost5 = saveLoading.fuelcost5;
         shoptog = saveLoading.shoptog;
+        challengemode = saveLoading.challengemode;
         if (detailedoutput==1){
         console.log(saveLoading)
         }
@@ -7026,6 +7038,7 @@ function reset(){
         pressingSave.chargefuel = 1;
         pressingSave.fuelcost5 = 1;
         pressingSave.shoptog = 1;
+        pressingSave.challengemode = 2;
     var jsonString = JSON.stringify(pressingSave);
     document.cookie = jsonString;
     window.location.reload()
@@ -7172,6 +7185,316 @@ ppsoffbonus=0
 charge=0
 }
 function prestige(){
+if (challengemode==2){
+    if (mlevel>=(500*(goals1+1)) && challenge==1){
+    goals1+=50
+    challenge=0
+    } else if (mlevel>=(490*(goals1+1)) && challenge==1){
+    goals1+=49
+    challenge=0
+    } else if (mlevel>=(480*(goals1+1)) && challenge==1){
+    goals1+=48
+    challenge=0
+    } else if (mlevel>=(470*(goals1+1)) && challenge==1){
+    goals1+=47
+    challenge=0
+    } else if (mlevel>=(460*(goals1+1)) && challenge==1){
+    goals1+=46
+    challenge=0
+    } else if (mlevel>=(450*(goals1+1)) && challenge==1){
+    goals1+=45
+    challenge=0
+    } else if (mlevel>=(440*(goals1+1)) && challenge==1){
+    goals1+=44
+    challenge=0
+    } else if (mlevel>=(430*(goals1+1)) && challenge==1){
+    goals1+=43
+    challenge=0
+    } else if (mlevel>=(420*(goals1+1)) && challenge==1){
+    goals1+=42
+    challenge=0
+    } else if (mlevel>=(410*(goals1+1)) && challenge==1){
+    goals1+=41
+    challenge=0
+    } else if (mlevel>=(400*(goals1+1)) && challenge==1){
+    goals1+=40
+    challenge=0
+    } else if (mlevel>=(390*(goals1+1)) && challenge==1){
+    goals1+=39
+    challenge=0
+    } else if (mlevel>=(380*(goals1+1)) && challenge==1){
+    goals1+=38
+    challenge=0
+    } else if (mlevel>=(370*(goals1+1)) && challenge==1){
+    goals1+=37
+    challenge=0
+    } else if (mlevel>=(360*(goals1+1)) && challenge==1){
+    goals1+=36
+    challenge=0
+    } else if (mlevel>=(350*(goals1+1)) && challenge==1){
+    goals1+=35
+    challenge=0
+    } else if (mlevel>=(340*(goals1+1)) && challenge==1){
+    goals1+=34
+    challenge=0
+    } else if (mlevel>=(330*(goals1+1)) && challenge==1){
+    goals1+=33
+    challenge=0
+    } else if (mlevel>=(320*(goals1+1)) && challenge==1){
+    goals1+=32
+    challenge=0
+    } else if (mlevel>=(310*(goals1+1)) && challenge==1){
+    goals1+=31
+    challenge=0
+    } else if (mlevel>=(300*(goals1+1)) && challenge==1){
+    goals1+=30
+    challenge=0
+    } else if (mlevel>=(290*(goals1+1)) && challenge==1){
+    goals1+=29
+    challenge=0
+    } else if (mlevel>=(280*(goals1+1)) && challenge==1){
+    goals1+=28
+    challenge=0
+    } else if (mlevel>=(270*(goals1+1)) && challenge==1){
+    goals1+=27
+    challenge=0
+    } else if (mlevel>=(260*(goals1+1)) && challenge==1){
+    goals1+=26
+    challenge=0
+    } else if (mlevel>=(250*(goals1+1)) && challenge==1){
+    goals1+=25
+    challenge=0
+    } else if (mlevel>=(240*(goals1+1)) && challenge==1){
+    goals1+=24
+    challenge=0
+    } else if (mlevel>=(230*(goals1+1)) && challenge==1){
+    goals1+=23
+    challenge=0
+    } else if (mlevel>=(220*(goals1+1)) && challenge==1){
+    goals1+=22
+    challenge=0
+    } else if (mlevel>=(210*(goals1+1)) && challenge==1){
+    goals1+=21
+    challenge=0
+    } else if (mlevel>=(200*(goals1+1)) && challenge==1){
+    goals1+=20
+    challenge=0
+    } else if (mlevel>=(190*(goals1+1)) && challenge==1){
+    goals1+=19
+    challenge=0
+    } else if (mlevel>=(180*(goals1+1)) && challenge==1){
+    goals1+=18
+    challenge=0
+    } else if (mlevel>=(170*(goals1+1)) && challenge==1){
+    goals1+=17
+    challenge=0
+    } else if (mlevel>=(160*(goals1+1)) && challenge==1){
+    goals1+=16
+    challenge=0
+    } else if (mlevel>=(150*(goals1+1)) && challenge==1){
+    goals1+=15
+    challenge=0
+    } else if (mlevel>=(140*(goals1+1)) && challenge==1){
+    goals1+=14
+    challenge=0
+    } else if (mlevel>=(130*(goals1+1)) && challenge==1){
+    goals1+=13
+    challenge=0
+    } else if (mlevel>=(120*(goals1+1)) && challenge==1){
+    goals1+=12
+    challenge=0
+    } else if (mlevel>=(110*(goals1+1)) && challenge==1){
+    goals1+=11
+    challenge=0
+    } else if (mlevel>=(100*(goals1+1)) && challenge==1){
+    goals1+=10
+    challenge=0
+    } else if (mlevel>=(90*(goals1+1)) && challenge==1){
+    goals1+=9
+    challenge=0
+    } else if (mlevel>=(80*(goals1+1)) && challenge==1){
+    goals1+=8
+    challenge=0
+    } else if (mlevel>=(70*(goals1+1)) && challenge==1){
+    goals1+=7
+    challenge=0
+    } else if (mlevel>=(60*(goals1+1)) && challenge==1){
+    goals1+=6
+    challenge=0
+    } else if (mlevel>=(50*(goals1+1)) && challenge==1){
+    goals1+=5
+    challenge=0
+    } else if (mlevel>=(40*(goals1+1)) && challenge==1){
+    goals1+=4
+    challenge=0
+    } else if (mlevel>=(30*(goals1+1)) && challenge==1){
+    goals1+=3
+    challenge=0
+    } else if (mlevel>=(20*(goals1+1)) && challenge==1){
+    goals1+=2
+    challenge=0
+    } else if (mlevel>=(10*(goals1+1)) && challenge==1){
+    goals1+=1
+    challenge=0
+    }
+    if (goals1>=50){
+    goals1=50
+    }
+    if (mlevel>=(500*(goals2+1)) && challenge==2){
+    goals2+=50
+    challenge=0
+    } else if (mlevel>=(490*(goals2+1)) && challenge==2){
+    goals2+=49
+    challenge=0
+    } else if (mlevel>=(480*(goals2+1)) && challenge==2){
+    goals2+=48
+    challenge=0
+    } else if (mlevel>=(470*(goals2+1)) && challenge==2){
+    goals2+=47
+    challenge=0
+    } else if (mlevel>=(460*(goals2+1)) && challenge==2){
+    goals2+=46
+    challenge=0
+    } else if (mlevel>=(450*(goals2+1)) && challenge==2){
+    goals2+=45
+    challenge=0
+    } else if (mlevel>=(440*(goals2+1)) && challenge==2){
+    goals2+=44
+    challenge=0
+    } else if (mlevel>=(430*(goals2+1)) && challenge==2){
+    goals2+=43
+    challenge=0
+    } else if (mlevel>=(420*(goals2+1)) && challenge==2){
+    goals2+=42
+    challenge=0
+    } else if (mlevel>=(410*(goals2+1)) && challenge==2){
+    goals2+=41
+    challenge=0
+    } else if (mlevel>=(400*(goals2+1)) && challenge==2){
+    goals2+=40
+    challenge=0
+    } else if (mlevel>=(390*(goals2+1)) && challenge==2){
+    goals2+=39
+    challenge=0
+    } else if (mlevel>=(380*(goals2+1)) && challenge==2){
+    goals2+=38
+    challenge=0
+    } else if (mlevel>=(370*(goals2+1)) && challenge==2){
+    goals2+=37
+    challenge=0
+    } else if (mlevel>=(360*(goals2+1)) && challenge==2){
+    goals2+=36
+    challenge=0
+    } else if (mlevel>=(350*(goals2+1)) && challenge==2){
+    goals2+=35
+    challenge=0
+    } else if (mlevel>=(340*(goals2+1)) && challenge==2){
+    goals2+=34
+    challenge=0
+    } else if (mlevel>=(330*(goals2+1)) && challenge==2){
+    goals2+=33
+    challenge=0
+    } else if (mlevel>=(320*(goals2+1)) && challenge==2){
+    goals2+=32
+    challenge=0
+    } else if (mlevel>=(310*(goals2+1)) && challenge==2){
+    goals2+=31
+    challenge=0
+    } else if (mlevel>=(300*(goals2+1)) && challenge==2){
+    goals2+=30
+    challenge=0
+    } else if (mlevel>=(290*(goals2+1)) && challenge==2){
+    goals2+=29
+    challenge=0
+    } else if (mlevel>=(280*(goals2+1)) && challenge==2){
+    goals2+=28
+    challenge=0
+    } else if (mlevel>=(270*(goals2+1)) && challenge==2){
+    goals2+=27
+    challenge=0
+    } else if (mlevel>=(260*(goals2+1)) && challenge==2){
+    goals2+=26
+    challenge=0
+    } else if (mlevel>=(250*(goals2+1)) && challenge==2){
+    goals2+=25
+    challenge=0
+    } else if (mlevel>=(240*(goals2+1)) && challenge==2){
+    goals2+=24
+    challenge=0
+    } else if (mlevel>=(230*(goals2+1)) && challenge==2){
+    goals2+=23
+    challenge=0
+    } else if (mlevel>=(220*(goals2+1)) && challenge==2){
+    goals2+=22
+    challenge=0
+    } else if (mlevel>=(210*(goals2+1)) && challenge==2){
+    goals2+=21
+    challenge=0
+    } else if (mlevel>=(200*(goals2+1)) && challenge==2){
+    goals2+=20
+    challenge=0
+    } else if (mlevel>=(190*(goals2+1)) && challenge==2){
+    goals2+=19
+    challenge=0
+    } else if (mlevel>=(180*(goals2+1)) && challenge==2){
+    goals2+=18
+    challenge=0
+    } else if (mlevel>=(170*(goals2+1)) && challenge==2){
+    goals2+=17
+    challenge=0
+    } else if (mlevel>=(160*(goals2+1)) && challenge==2){
+    goals2+=16
+    challenge=0
+    } else if (mlevel>=(150*(goals2+1)) && challenge==2){
+    goals2+=15
+    challenge=0
+    } else if (mlevel>=(140*(goals2+1)) && challenge==2){
+    goals2+=14
+    challenge=0
+    } else if (mlevel>=(130*(goals2+1)) && challenge==2){
+    goals2+=13
+    challenge=0
+    } else if (mlevel>=(120*(goals2+1)) && challenge==2){
+    goals2+=12
+    challenge=0
+    } else if (mlevel>=(110*(goals2+1)) && challenge==2){
+    goals2+=11
+    challenge=0
+    } else if (mlevel>=(100*(goals2+1)) && challenge==2){
+    goals2+=10
+    challenge=0
+    } else if (mlevel>=(90*(goals2+1)) && challenge==2){
+    goals2+=9
+    challenge=0
+    } else if (mlevel>=(80*(goals2+1)) && challenge==2){
+    goals2+=8
+    challenge=0
+    } else if (mlevel>=(70*(goals2+1)) && challenge==2){
+    goals2+=7
+    challenge=0
+    } else if (mlevel>=(60*(goals2+1)) && challenge==2){
+    goals2+=6
+    challenge=0
+    } else if (mlevel>=(50*(goals2+1)) && challenge==2){
+    goals2+=5
+    challenge=0
+    } else if (mlevel>=(40*(goals2+1)) && challenge==2){
+    goals2+=4
+    challenge=0
+    } else if (mlevel>=(30*(goals2+1)) && challenge==2){
+    goals2+=3
+    challenge=0
+    } else if (mlevel>=(20*(goals2+1)) && challenge==2){
+    goals2+=2
+    challenge=0
+    } else if (mlevel>=(10*(goals2+1)) && challenge==2){
+    goals2+=1
+    challenge=0
+    }
+    if (goals2>=50){
+    goals2=50
+    }
+}
 charge=0
 lastprestige=Date.now()
 prestigeamt+=1
@@ -7290,6 +7613,212 @@ bestprestige=(((mpgain*(1+(goals4*0.25)))*prespwr)*chargeprestige)
 }
 }
 function ascend(){
+if (challengemode==2){
+    if (mlevel>=(500*(goals3+1)) && challenge==3){
+    goals3+=50
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(490*(goals3+1)) && challenge==3){
+    goals3+=49
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(480*(goals3+1)) && challenge==3){
+    goals3+=48
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(470*(goals3+1)) && challenge==3){
+    goals3+=47
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(460*(goals3+1)) && challenge==3){
+    goals3+=46
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(450*(goals3+1)) && challenge==3){
+    goals3+=45
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(440*(goals3+1)) && challenge==3){
+    goals3+=44
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(430*(goals3+1)) && challenge==3){
+    goals3+=43
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(420*(goals3+1)) && challenge==3){
+    goals3+=42
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(410*(goals3+1)) && challenge==3){
+    goals3+=41
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(400*(goals3+1)) && challenge==3){
+    goals3+=40
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(390*(goals3+1)) && challenge==3){
+    goals3+=39
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(380*(goals3+1)) && challenge==3){
+    goals3+=38
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(370*(goals3+1)) && challenge==3){
+    goals3+=37
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(360*(goals3+1)) && challenge==3){
+    goals3+=36
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(350*(goals3+1)) && challenge==3){
+    goals3+=35
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(340*(goals3+1)) && challenge==3){
+    goals3+=34
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(330*(goals3+1)) && challenge==3){
+    goals3+=33
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(320*(goals3+1)) && challenge==3){
+    goals3+=32
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(310*(goals3+1)) && challenge==3){
+    goals3+=31
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(300*(goals3+1)) && challenge==3){
+    goals3+=30
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(290*(goals3+1)) && challenge==3){
+    goals3+=29
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(280*(goals3+1)) && challenge==3){
+    goals3+=28
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(270*(goals3+1)) && challenge==3){
+    goals3+=27
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(260*(goals3+1)) && challenge==3){
+    goals3+=26
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(250*(goals3+1)) && challenge==3){
+    goals3+=25
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(240*(goals3+1)) && challenge==3){
+    goals3+=24
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(230*(goals3+1)) && challenge==3){
+    goals3+=23
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(220*(goals3+1)) && challenge==3){
+    goals3+=22
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(210*(goals3+1)) && challenge==3){
+    goals3+=21
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(200*(goals3+1)) && challenge==3){
+    goals3+=20
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(190*(goals3+1)) && challenge==3){
+    goals3+=19
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(180*(goals3+1)) && challenge==3){
+    goals3+=18
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(170*(goals3+1)) && challenge==3){
+    goals3+=17
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(160*(goals3+1)) && challenge==3){
+    goals3+=16
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(150*(goals3+1)) && challenge==3){
+    goals3+=15
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(140*(goals3+1)) && challenge==3){
+    goals3+=14
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(130*(goals3+1)) && challenge==3){
+    goals3+=13
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(120*(goals3+1)) && challenge==3){
+    goals3+=12
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(110*(goals3+1)) && challenge==3){
+    goals3+=11
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(100*(goals3+1)) && challenge==3){
+    goals3+=10
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(90*(goals3+1)) && challenge==3){
+    goals3+=9
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(80*(goals3+1)) && challenge==3){
+    goals3+=8
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(70*(goals3+1)) && challenge==3){
+    goals3+=7
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(60*(goals3+1)) && challenge==3){
+    goals3+=6
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(50*(goals3+1)) && challenge==3){
+    goals3+=5
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(40*(goals3+1)) && challenge==3){
+    goals3+=4
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(30*(goals3+1)) && challenge==3){
+    goals3+=3
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(20*(goals3+1)) && challenge==3){
+    goals3+=2
+    challenge=0
+    updateXPmult()
+    } else if (mlevel>=(10*(goals3+1)) && challenge==3){
+    goals3+=1
+    challenge=0
+    updateXPmult()
+    }
+    if (goals3>=50){
+    goals3=50
+    }
+}
 charge=0
 lastascend=Date.now()
 ascendamt+=1
@@ -7507,6 +8036,42 @@ plowco = 1;
 updateResets()
 }
 function doAnonymity(){
+if (challengemode==2){
+if (mlevel>=(100*(goals6+1)) && challenge==6){
+    goals6+=10
+    challenge=0
+    } else if (mlevel>=(90*(goals6+1)) && challenge==6){
+    goals6+=9
+    challenge=0
+    } else if (mlevel>=(80*(goals6+1)) && challenge==6){
+    goals6+=8
+    challenge=0
+    } else if (mlevel>=(70*(goals6+1)) && challenge==6){
+    goals6+=7
+    challenge=0
+    } else if (mlevel>=(60*(goals6+1)) && challenge==6){
+    goals6+=6
+    challenge=0
+    } else if (mlevel>=(50*(goals6+1)) && challenge==6){
+    goals6+=5
+    challenge=0
+    } else if (mlevel>=(40*(goals6+1)) && challenge==6){
+    goals6+=4
+    challenge=0
+    } else if (mlevel>=(30*(goals6+1)) && challenge==6){
+    goals6+=3
+    challenge=0
+    } else if (mlevel>=(20*(goals6+1)) && challenge==6){
+    goals6+=2
+    challenge=0
+    } else if (mlevel>=(10*(goals6+1)) && challenge==6){
+    goals6+=1
+    challenge=0
+    }
+    if (goals6>=10){
+    goals6=10
+    }
+}
 antistrength=0
 charge=0
 lastanonymity=Date.now()
@@ -8425,6 +8990,7 @@ pressingFile.chargesqueezebonus = chargesqueezebonus;
 pressingFile.chargefuel = chargefuel;
 pressingFile.fuelcost5 = fuelcost5;
 pressingFile.shoptog = shoptog;
+pressingFile.challengemode = challengemode;
 var saveFile = JSON.stringify(pressingFile);
 var emergencySave = base64encode(saveFile);
 var uriContent = "data:application/octet-stream," + encodeURIComponent(emergencySave);
@@ -8636,6 +9202,7 @@ pressingFile.chargesqueezebonus = chargesqueezebonus;
 pressingFile.chargefuel = chargefuel;
 pressingFile.fuelcost5 = fuelcost5;
 pressingFile.shoptog = shoptog;
+pressingFile.challengemode = challengemode;
 var saveFile = JSON.stringify(pressingFile);
 var saveAsText = base64encode(saveFile);
 var uriContent = "data:application/octet-stream," + encodeURIComponent(saveAsText);
@@ -8843,6 +9410,7 @@ pressingFile.chargesqueezebonus = chargesqueezebonus;
 pressingFile.chargefuel = chargefuel;
 pressingFile.fuelcost5 = fuelcost5;
 pressingFile.shoptog = shoptog;
+pressingFile.challengemode = challengemode;
 var saveFile = JSON.stringify(pressingFile);
 var saveAsFile = base64encode(saveFile);
 //navigator.clipboard.writeText(saveAsFile);
@@ -9056,6 +9624,7 @@ autoresettimer = pressingFile.autoresettimer;
         chargefuel = pressingFile.chargefuel;
         fuelcost5 = pressingFile.fuelcost5;
         shoptog = pressingFile.shoptog;
+        challengemode = pressingFile.challengemode;
 }//base64 functions grabbed from gist.github.com/enepomnyaschih/72c423f727d395eeaa09697058238727, i didn't know how to. major thanks!
 const base64abc = [],A = "A".charCodeAt(0),a = "a".charCodeAt(0),n = "0".charCodeAt(0);
 for (let i = 0; i < 26; ++i) {base64abc.push(String.fromCharCode(A + i));}
