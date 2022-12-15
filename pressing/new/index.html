@@ -4610,40 +4610,40 @@ function updatePressing(){
         document.getElementById("shop").disabled=false;
     }
     if (challenge==1){
-    if (mlevel<((10*(goals1+1))-mlevel)){
+    if (mlevel<(10*(goals1+1))){
     document.getElementById("chalid").innerText="No manual pressing. "+((10*(goals1+1))-mlevel)+" level(s) to go!"
     } else {
-    document.getElementById("chalid").innerText="No manual pressing. Completed "+((((10*(goals1+1))-mlevel)*-0.1).toFixed(0))+" time(s)!"
+    document.getElementById("chalid").innerText="No manual pressing. Completed "+(Math.trunc(((10*(goals1+1))-mlevel)*-0.1))+" time(s)!"
     }
     document.getElementById("pressing").disabled=true
     }
     if (challenge==2){
-    if (mlevel<((10*(goals2+1))-mlevel)){
+    if (mlevel<(10*(goals2+1))){
     document.getElementById("chalid").innerText="No automatic pressing. "+((10*(goals2+1))-mlevel)+" level(s) to go!"
     } else {
-    document.getElementById("chalid").innerText="No automatic pressing. Completed "+((((10*(goals2+1))-mlevel)*-0.1).toFixed(0))+" time(s)!"
+    document.getElementById("chalid").innerText="No automatic pressing. Completed "+(Math.trunc(((10*(goals2+1))-mlevel)*-0.1))+" time(s)!"
     }
     }
     if (challenge==3){
-    if (mlevel<((10*(goals3+1))-mlevel)){
+    if (mlevel<(10*(goals3+1))){
     document.getElementById("chalid").innerText="No shop. "+((10*(goals3+1))-mlevel)+" level(s) to go!"
     } else {
-    document.getElementById("chalid").innerText="No shop. Completed "+((((10*(goals3+1))-mlevel)*-0.1).toFixed(0))+" time(s)!"
+    document.getElementById("chalid").innerText="No shop. Completed "+(Math.trunc(((10*(goals3+1))-mlevel)*-0.1))+" time(s)!"
     }
     document.getElementById("shop").disabled=true
     }
     if (challenge==4){
-    document.getElementById("chalid").innerText="Prestige Speedrun. You got "+(Math.trunc(((failtimer-(Date.now()))/1000)/60))+"m "+(Math.trunc(((failtimer-(Date.now()))/1000)%60))+"s left."
+    document.getElementById("chalid").innerText="Prestige Speedrun. You have "+(Math.trunc(((failtimer-(Date.now()))/1000)/60))+"m "+(Math.trunc(((failtimer-(Date.now()))/1000)%60))+"s left."
     }
     if (challenge==5){
-    document.getElementById("chalid").innerText="Ascend Speedrun. You got "+(Math.trunc(((failtimer-(Date.now()))/1000)/3600))+"h "+(Math.trunc((((failtimer-(Date.now()))/1000)/60)%60))+"m "+(Math.trunc(((failtimer-(Date.now()))/1000)%60))+"s left."
+    document.getElementById("chalid").innerText="Ascend Speedrun. You have "+(Math.trunc(((failtimer-(Date.now()))/1000)/3600))+"h "+(Math.trunc((((failtimer-(Date.now()))/1000)/60)%60))+"m "+(Math.trunc(((failtimer-(Date.now()))/1000)%60))+"s left."
     }
     //not challenge 1 copied and pasted no no!!!!
     if (challenge==6){
-    if (mlevel<((10*(goals6+1))-mlevel)){
+    if (alevel<(10*(goals6+1))){
     document.getElementById("chalid").innerText="No manual anti-pressing. "+((10*(goals6+1))-alevel)+" anti-level(s) to go!"
     } else {
-    document.getElementById("chalid").innerText="No manual anti-pressing. Completed "+((((10*(goals6+1))-alevel)*-0.1).toFixed(0))+" time(s)!"
+    document.getElementById("chalid").innerText="No manual anti-pressing. Completed "+(Math.trunc(((10*(goals6+1))-alevel)*-0.1))+" time(s)!"
     }
     document.getElementById("pressing").disabled=true
     }
