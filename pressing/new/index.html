@@ -4603,14 +4603,26 @@ function updatePressing(){
         document.getElementById("shop").disabled=false;
     }
     if (challenge==1){
-    document.getElementById("chalid").innerText="No manual pressing. "+((10*(goals1+1))-mlevel)+" levels to go!"
+    if (mlevel<((10*(goals1+1))-mlevel)){
+    document.getElementById("chalid").innerText="No manual pressing. "+((10*(goals1+1))-mlevel)+" level(s) to go!"
+    } else {
+    document.getElementById("chalid").innerText="No manual pressing. Completed "+((((10*(goals1+1))-mlevel)*-0.1).toFixed(0))+" time(s)!"
+    }
     document.getElementById("pressing").disabled=true
     }
     if (challenge==2){
-    document.getElementById("chalid").innerText="No automatic pressing. "+((10*(goals2+1))-mlevel)+" levels to go!"
+    if (mlevel<((10*(goals2+1))-mlevel)){
+    document.getElementById("chalid").innerText="No automatic pressing. "+((10*(goals2+1))-mlevel)+" level(s) to go!"
+    } else {
+    document.getElementById("chalid").innerText="No automatic pressing. Completed "+((((10*(goals2+1))-mlevel)*-0.1).toFixed(0))+" time(s)!"
+    }
     }
     if (challenge==3){
-    document.getElementById("chalid").innerText="No shop."+((10*(goals3+1))-mlevel)+" levels to go!"
+    if (mlevel<((10*(goals3+1))-mlevel)){
+    document.getElementById("chalid").innerText="No shop. "+((10*(goals3+1))-mlevel)+" level(s) to go!"
+    } else {
+    document.getElementById("chalid").innerText="No shop. Completed "+((((10*(goals3+1))-mlevel)*-0.1).toFixed(0))+" time(s)!"
+    }
     document.getElementById("shop").disabled=true
     }
     if (challenge==4){
@@ -4621,7 +4633,11 @@ function updatePressing(){
     }
     //not challenge 1 copied and pasted no no!!!!
     if (challenge==6){
-    document.getElementById("chalid").innerText="No manual anti-pressing. -"+((10*(goals6+1))-alevel)+" levels to go!"
+    if (mlevel<((10*(goals6+1))-mlevel)){
+    document.getElementById("chalid").innerText="No manual anti-pressing. "+((10*(goals6+1))-alevel)+" anti-level(s) to go!"
+    } else {
+    document.getElementById("chalid").innerText="No manual anti-pressing. Completed "+((((10*(goals6+1))-alevel)*-0.1).toFixed(0))+" time(s)!"
+    }
     document.getElementById("pressing").disabled=true
     }
     // when the game had a no option (it faded away)
