@@ -1313,6 +1313,13 @@ function updateSettings(){
     document.getElementById("toggleAutoUpgrade").innerText="false"
     document.getElementById("mtoggleAutoUpgrade").innerText="false"
     }
+    if (challenge==0){
+    document.getElementById("toggleChallengeMode").disabled=false
+    document.getElementById("Set8Name").style="opacity: 1;"
+    } else {
+    document.getElementById("toggleChallengeMode").disabled=true
+    document.getElementById("Set8Name").style="opacity: 0.5;"
+    }
     if (challengemode==1){
     document.getElementById("toggleChallengeMode").innerText="On Goal Met"
     //document.getElementById("mtoggleChallengeMode").innerText="On Goal Met"
@@ -10585,12 +10592,14 @@ if (shoptog==0){
 }
 }
 function toggleChallengeMode(){
+if (challenge==0){
 if (challengemode==1){
     challengemode=2
     document.getElementById("toggleChallengeMode").innerText="On Reset"
 } else {
     challengemode=1
     document.getElementById("toggleChallengeMode").innerText="On Goal Met"
+}
 }
 }
 </script>
