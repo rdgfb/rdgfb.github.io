@@ -1315,7 +1315,7 @@ function updateSettings(){
     }
     if (challengemode==1){
     document.getElementById("toggleChallengeMode").innerText="On Goal Met"
-    //document.getElementById("mtoggleChallengeMode").innerText="Goal Met"
+    //document.getElementById("mtoggleChallengeMode").innerText="On Goal Met"
     } else if (challengemode==2){
     document.getElementById("toggleChallengeMode").innerText="On Reset"
     //document.getElementById("mtoggleChallengeMode").innerText="On Reset"
@@ -10571,8 +10571,10 @@ if (shoptog==0){
 function toggleChallengeMode(){
 if (challengemode==1){
     challengemode=2
+    document.getElementById("toggleChallengeMode").innerText="On Reset"
 } else {
     challengemode=1
+    document.getElementById("toggleChallengeMode").innerText="On Goal Met"
 }
 }
 </script>
