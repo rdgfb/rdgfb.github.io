@@ -4613,7 +4613,7 @@ function updatePressing(){
     if (mlevel<(10*(goals1+1))){
     document.getElementById("chalid").innerText="No manual pressing. "+((10*(goals1+1))-mlevel)+" level(s) to go!"
     } else {
-    document.getElementById("chalid").innerText="No manual pressing. Completed "+(Math.trunc(((10*(goals1+1))-mlevel)*-0.1))+" time(s)!"
+    document.getElementById("chalid").innerText="No manual pressing. Completed "+((Math.trunc(((10*(goals1+1))-mlevel)*-0.1))+1)+" time(s)!"
     }
     document.getElementById("pressing").disabled=true
     }
@@ -4621,14 +4621,14 @@ function updatePressing(){
     if (mlevel<(10*(goals2+1))){
     document.getElementById("chalid").innerText="No automatic pressing. "+((10*(goals2+1))-mlevel)+" level(s) to go!"
     } else {
-    document.getElementById("chalid").innerText="No automatic pressing. Completed "+(Math.trunc(((10*(goals2+1))-mlevel)*-0.1))+" time(s)!"
+    document.getElementById("chalid").innerText="No automatic pressing. Completed "+((Math.trunc(((10*(goals2+1))-mlevel)*-0.1))+1)+" time(s)!"
     }
     }
     if (challenge==3){
     if (mlevel<(10*(goals3+1))){
     document.getElementById("chalid").innerText="No shop. "+((10*(goals3+1))-mlevel)+" level(s) to go!"
     } else {
-    document.getElementById("chalid").innerText="No shop. Completed "+(Math.trunc(((10*(goals3+1))-mlevel)*-0.1))+" time(s)!"
+    document.getElementById("chalid").innerText="No shop. Completed "+((Math.trunc(((10*(goals3+1))-mlevel)*-0.1))+1)+" time(s)!"
     }
     document.getElementById("shop").disabled=true
     }
@@ -4643,7 +4643,7 @@ function updatePressing(){
     if (alevel<(10*(goals6+1))){
     document.getElementById("chalid").innerText="No manual anti-pressing. "+((10*(goals6+1))-alevel)+" anti-level(s) to go!"
     } else {
-    document.getElementById("chalid").innerText="No manual anti-pressing. Completed "+(Math.trunc(((10*(goals6+1))-alevel)*-0.1))+" time(s)!"
+    document.getElementById("chalid").innerText="No manual anti-pressing. Completed "+((Math.trunc(((10*(goals6+1))-alevel)*-0.1))+1)+" time(s)!"
     }
     document.getElementById("pressing").disabled=true
     }
@@ -8684,22 +8684,40 @@ inshop=-3
 inshop=-3
 }
 shop()
-if (dimension==1){
+if (dimension==1 || goals0==1){
 document.getElementById("chalno0").disabled=true
-document.getElementById("chalno1").disabled=true
-document.getElementById("chalno2").disabled=true
-document.getElementById("chalno3").disabled=true
-document.getElementById("chalno4").disabled=true
-document.getElementById("chalno5").disabled=true
-document.getElementById("chalno6").disabled=false
-} else if (dimension==0){
+} else {
 document.getElementById("chalno0").disabled=false
+}
+if (dimension==1 || goals1==50){
+document.getElementById("chalno1").disabled=true
+} else {
 document.getElementById("chalno1").disabled=false
+}
+if (dimension==1 || goals2==50){
+document.getElementById("chalno2").disabled=true
+} else {
 document.getElementById("chalno2").disabled=false
+}
+if (dimension==1 || goals3==50){
+document.getElementById("chalno3").disabled=true
+} else {
 document.getElementById("chalno3").disabled=false
+}
+if (dimension==1 || goals4==24){
+document.getElementById("chalno4").disabled=true
+} else {
 document.getElementById("chalno4").disabled=false
+}
+if (dimension==1 || goals5==10){
+document.getElementById("chalno5").disabled=true
+} else {
 document.getElementById("chalno5").disabled=false
+}
+if (dimension==0 || goals6==10){
 document.getElementById("chalno6").disabled=true
+} else {
+document.getElementById("chalno6").disabled=false
 }
 document.getElementById("regchal").style="position: relative; opacity: 1; left: 0px; width: 248px; text-align: center; background-color: #FF40FF; color: #000000;"
 document.getElementById("vezchal").style="position: relative; opacity: 1; left: 1px; width: 248px; text-align: center; background-color: inherit; color: inherit;"
