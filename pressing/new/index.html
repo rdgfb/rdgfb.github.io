@@ -5191,7 +5191,7 @@ var slowupdater = setInterval(function () {
         if (autobuy==1 || autoupgrade==1 || autopresbuy==1){
             updateAuto()
         }
-        if (away==0){
+        if (away==0 && charger!==0){
         updateCharger()
         }
     }
@@ -5259,12 +5259,34 @@ function buttonpress(){
             }
         } else {
         if (dimension==0){
+	    if (goals1==0 && goals6==0){
+            presses+=(((((ppress*ppower)*1)*chargepress)*1)+(pps*((goals5)/1000)));
+            totalpresses+=(((((ppress*ppower)*1)*chargepress)*1)+(pps*((goals5)/1000)));
+	    } else if (goals1==1 && goals6==0){
+            presses+=(((((ppress*ppower)*1)*chargepress)*goals1)+(pps*((goals5)/1000)));
+            totalpresses+=(((((ppress*ppower)*1)*chargepress)*goals1)+(pps*((goals5)/1000)));
+	    } else if (goals1==0 && goals6==1){
+            presses+=(((((ppress*ppower)*(Math.pow(2, goals6)))*chargepress)*1)+(pps*((goals5)/1000)));
+            totalpresses+=(((((ppress*ppower)*(Math.pow(2, goals6)))*chargepress)*1)+(pps*((goals5)/1000)));
+	    } else if (goals1==1 && goals6==1){
             presses+=(((((ppress*ppower)*(Math.pow(2, goals6)))*chargepress)*goals1)+(pps*((goals5)/1000)));
             totalpresses+=(((((ppress*ppower)*(Math.pow(2, goals6)))*chargepress)*goals1)+(pps*((goals5)/1000)));
+	    }
             mxppts+=mxpmul
         } else if (dimension==1){
-            antipresses+=(((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)+(antipps*((goals5)/1000)))
-            totalantipresses+=(((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)+(antipps*((goals5)/1000)))
+	    if (goals1==0 && goals6==0){
+            antipresses+=((((((antistrength*0.25)+1)*1)*chargepress)*1)+(antipps*((goals5)/1000)))
+            totalantipresses+=((((((antistrength*0.25)+1)*1)*chargepress)*1)+(antipps*((goals5)/1000)))
+	    } else if (goals1==1 && goals6==0){
+            antipresses+=((((((antistrength*0.25)+1)*1)*chargepress)*goals1)+(antipps*((goals5)/1000)))
+            totalantipresses+=((((((antistrength*0.25)+1)*1)*chargepress)*goals1)+(antipps*((goals5)/1000)))
+	    } else if (goals1==0 && goals6==1){
+            antipresses+=((((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)*1)+(antipps*((goals5)/1000)))
+            totalantipresses+=((((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)*1)+(antipps*((goals5)/1000)))
+	    } else if (goals1==1 && goals6==1){
+            antipresses+=((((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)*goals1)+(antipps*((goals5)/1000)))
+            totalantipresses+=((((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)*goals1)+(antipps*((goals5)/1000)))
+	    }
             axppts+=axpmul
         }
         firstpress=0;
@@ -5274,25 +5296,58 @@ function buttonpress(){
     } else {
         if (dimension==0){
             if (challenge!==3 && challenge!==4 && challenge!==5){
+            if (goals1==0 && goals6==0){
+            presses+=(((((ppress*ppower)*1)*chargepress)*1)+(pps*((goals5)/1000)));
+            totalpresses+=(((((ppress*ppower)*1)*chargepress)*1)+(pps*((goals5)/1000)));
+	    } else if (goals1==1 && goals6==0){
+            presses+=(((((ppress*ppower)*1)*chargepress)*goals1)+(pps*((goals5)/1000)));
+            totalpresses+=(((((ppress*ppower)*1)*chargepress)*goals1)+(pps*((goals5)/1000)));
+	    } else if (goals1==0 && goals6==1){
+            presses+=(((((ppress*ppower)*(Math.pow(2, goals6)))*chargepress)*1)+(pps*((goals5)/1000)));
+            totalpresses+=(((((ppress*ppower)*(Math.pow(2, goals6)))*chargepress)*1)+(pps*((goals5)/1000)));
+	    } else if (goals1==1 && goals6==1){
             presses+=(((((ppress*ppower)*(Math.pow(2, goals6)))*chargepress)*goals1)+(pps*((goals5)/1000)));
             totalpresses+=(((((ppress*ppower)*(Math.pow(2, goals6)))*chargepress)*goals1)+(pps*((goals5)/1000)));
+	    }
             if (pps*0.0000000005>1){
             mxppts+=((((ppress*ppower)*mxpmul)*chargepress)*(pps*0.0000000005))
             } else {
             mxppts+=(((ppress*ppower)*mxpmul)*chargepress)
             }
             } else {
-            presses+=((((ppower*(Math.pow(2, goals6)))*chargepress)*goals1)+(pps*((goals5)/1000)));
-            totalpresses+=((((ppower*(Math.pow(2, goals6)))*chargepress)*goals1)+(pps*((goals5)/1000)))
+	    if (goals1==0 && goals6==0){
+            presses+=(((((ppower)*1)*chargepress)*1)+(pps*((goals5)/1000)));
+            totalpresses+=(((((ppower)*1)*chargepress)*1)+(pps*((goals5)/1000)));
+	    } else if (goals1==1 && goals6==0){
+            presses+=(((((ppower)*1)*chargepress)*goals1)+(pps*((goals5)/1000)));
+            totalpresses+=(((((ppower)*1)*chargepress)*goals1)+(pps*((goals5)/1000)));
+	    } else if (goals1==0 && goals6==1){
+            presses+=(((((ppower)*(Math.pow(2, goals6)))*chargepress)*1)+(pps*((goals5)/1000)));
+            totalpresses+=(((((ppower)*(Math.pow(2, goals6)))*chargepress)*1)+(pps*((goals5)/1000)));
+	    } else if (goals1==1 && goals6==1){
+            presses+=(((((ppower)*(Math.pow(2, goals6)))*chargepress)*goals1)+(pps*((goals5)/1000)));
+            totalpresses+=(((((ppower)*(Math.pow(2, goals6)))*chargepress)*goals1)+(pps*((goals5)/1000)));
+	    }
             if (pps*0.0000000005>1){
             mxppts+=((((ppower)*mxpmul)*chargepress)*(pps*0.0000000005))
             } else {
-            mxppts+=(((ppress)*mxpmul)*chargepress)
+            mxppts+=(((ppower)*mxpmul)*chargepress)
             }
             }
         } else if (dimension==1){
-            antipresses+=(((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)+(antipps*((goals5)/1000)));
-            totalantipresses+=(((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)+(antipps*((goals5)/1000)));
+	    if (goals1==0 && goals6==0){
+            antipresses+=((((((antistrength*0.25)+1)*1)*chargepress)*1)+(antipps*((goals5)/1000)))
+            totalantipresses+=((((((antistrength*0.25)+1)*1)*chargepress)*1)+(antipps*((goals5)/1000)))
+	    } else if (goals1==1 && goals6==0){
+            antipresses+=((((((antistrength*0.25)+1)*1)*chargepress)*goals1)+(antipps*((goals5)/1000)))
+            totalantipresses+=((((((antistrength*0.25)+1)*1)*chargepress)*goals1)+(antipps*((goals5)/1000)))
+	    } else if (goals1==0 && goals6==1){
+            antipresses+=((((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)*1)+(antipps*((goals5)/1000)))
+            totalantipresses+=((((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)*1)+(antipps*((goals5)/1000)))
+	    } else if (goals1==1 && goals6==1){
+            antipresses+=((((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)*goals1)+(antipps*((goals5)/1000)))
+            totalantipresses+=((((((antistrength*0.25)+1)*(Math.pow(2, goals6)))*chargepress)*goals1)+(antipps*((goals5)/1000)))
+	    }
             axppts+=((((((antistrength*0.25)+1)*axpmul)*chargepress))*goals1)
         }
     }
