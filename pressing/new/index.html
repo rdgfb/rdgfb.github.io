@@ -1097,13 +1097,8 @@ document.body.onload = function(){
     alert("You tampered with the unimplemented galactic reset. Keep it the same as default for now! If you wish to mess around with this, please wait until v0.3's prototype!")
     }
     }
-    if (version 1== "v0.3"){
     lastversion=version
     version=currentVersion
-    } else {
-    lastversion=version
-    version=currentVersion
-    }
     loaded+=1
 }
 function togglePlanets(){
@@ -7176,7 +7171,7 @@ function closeback(){
     document.getElementById("pressingarea").style.pointerEvents="none"
     document.getElementById("backWarn").remove()
     if (lastversion===undefined){
-    Update()
+    UpdatePopup1()
     }
 }
 function closeexportfile(){
@@ -10687,7 +10682,7 @@ document.body.appendChild(divb)
 }
 }
 }
-function Update(){
+function UpdatePopup1(){
 if (dimension==0){
 var div = document.createElement("div")
 div.style="z-index: 2147483647; position: absolute; top: calc(50% - 138px); left: calc(50% - 128px); height: 271px; width: 251px; background-color: #000000; border-width: 5px; border-color: #FF8800 #000000 #000000; border-style: solid; animation-name: popup5; animation-duration: 0.25s; animation-timing-function: linear;"
