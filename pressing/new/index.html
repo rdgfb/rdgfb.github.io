@@ -160,7 +160,7 @@ var prespwr = 1
 var acost1 = 1000;
 var charger = 0;
 var acost2 = 100000;
-var subpress = 1;
+var subpress = 0;
 var acost3 = 1000000;
 var autopres = 0;
 var charge = 0;
@@ -4034,7 +4034,7 @@ function updateShop(){
     document.getElementById("item8count").innerText=" lvl "+pressxpamt
     document.getElementById("item6count").innerText=" lvl "+mpoweramt
     document.getElementById("item5count").innerText=" lvl "+cpoweramt
-    document.getElementById("aitem2count").innerText=" lvl "+subpress
+    document.getElementById("aitem2count").innerText=" Tier 1"
     if (autopresbuy==2){
     document.getElementById("antiitem2count").innerText=" x1"
     } else if (autopresbuy==0 || autopresbuy==1) {
@@ -4045,7 +4045,7 @@ function updateShop(){
     document.getElementById("antiitem0count").innerText=" x"+antistrength
     document.getElementById("antiitem1count").innerText=" x"+antixp
     document.getElementById("aitem3count").innerText=" x"+autopres
-    document.getElementById("aitem4count").innerText=" lvl "+(subpress-1)
+    document.getElementById("aitem4count").innerText=" Tier 2"
     if (presses>=(Math.trunc(calcc1)) && challenge!==2 && challenge!==3){
     document.getElementById("shop10item1").innerText=" Cost: "+(Math.trunc(costnew1))+", will be left with "+(presses-(Math.trunc(costnew1)))+" presses. "
     document.getElementById("buyTenCursors").disabled=false;
@@ -4331,6 +4331,7 @@ function updateShop(){
     document.getElementById("buyFreeBuy").disabled=true;
     }
     if (anonymity>=(Math.trunc(acost3)) && autopres<60){
+    document.getElementById("buyAutoPrestige").disabled=false;
     var acost3text = "0"
     if ((Math.trunc(acost3))>=1 && (Math.trunc(acost3))<1000){
     acost3text=(Math.trunc(acost3))
@@ -4488,6 +4489,9 @@ function updateShop(){
     document.getElementById("buyAutoPrestige").disabled=true;
     }
     if (anonymity>=1000000000 && subpress==1){
+    document.getElementById("buyFreePresBuy").style="font-size: inherit; font-family: inherit"
+    document.getElementById("aitem4count").style=""
+    document.getElementById("aitem4").style=""
     if (anonymity>=1000000000 && anonymity<1000001000){
     document.getElementById("aitem4").innerText=" Cost: 1B, will be left with "+(((anonymity/1)-(1000000000)).toFixed(3))+" Anonymity Points."
     } else if (anonymity>=1000001000 && anonymity<1001000000){
@@ -4503,6 +4507,9 @@ function updateShop(){
     }
     document.getElementById("buyFreePresBuy").disabled=false;
     } else if (subpress==1) {
+    document.getElementById("buyFreePresBuy").style="font-size: inherit; font-family: inherit"
+    document.getElementById("aitem4count").style=""
+    document.getElementById("aitem4").style=""
     if (anonymity>=1000000000 && anonymity<1000){
     document.getElementById("aitem4").innerText=" Cost: 1B, short "+((((anonymity/1)-(1000000000))*-1).toFixed(3))+" Anonymity Points."
     } else if (anonymity>=1000 && anonymity<1000000){
@@ -4510,14 +4517,18 @@ function updateShop(){
     } else if (anonymity>=1000000 && anonymity<1000000000){
     document.getElementById("aitem4").innerText=" Cost: 1B, short "+((((anonymity/1000000)-(1000))*-1).toFixed(3))+"M Anonymity Points."
     } else {
-    document.getElementById("aitem4").innerText=" This message should not appear. If it does, I'll cry."
+    document.getElementById("aitem4").innerText=" visible? cry."
+    //document.getElementById("aitem4").innerText=" This message should not appear. If it does, I'll cry."
     }
     document.getElementById("buyFreePresBuy").disabled=true;
     } else if (subpress==2) {
     document.getElementById("aitem4").innerText=" Maxed!";
     document.getElementById("buyFreePresBuy").disabled=true;
     } else if (subpress<1 && subpress>2) {
-    document.getElementById("aitem4").innerText=" Locked";
+    document.getElementById("buyFreePresBuy").style="position: absolute; left: -100%; opacity: 0; font-size: inherit; font-family: inherit"
+    document.getElementById("aitem4count").style="position: absolute; left: -100%; opacity: 0;"
+    document.getElementById("aitem4").style="position: absolute; left: -100%; opacity: 0;"
+    document.getElementById("aitem4").innerText=" visible? cry."
     document.getElementById("buyFreePresBuy").disabled=true;
     }
     if (antipresses>=(Math.trunc(anticost0))){
@@ -6984,7 +6995,7 @@ function reset(){
         pressingSave.acost1 = 1000;
         pressingSave.charger = 0;
         pressingSave.acost2 = 100000;
-        pressingSave.subpress = 1;
+        pressingSave.subpress = 0;
         pressingSave.acost3 = 1000000;
         pressingSave.autopres = 0;
         pressingSave.charge = 0;
