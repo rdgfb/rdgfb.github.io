@@ -1304,17 +1304,49 @@ function updatePlanets(){
     }   
 }
 function updateSettings(){
-    if (firstLaunch<1671215649312){
-    document.getElementById("joinVersion").innerText="Beta Release v0.3"
+    if (firstLaunch==1667837374767){
+    document.getElementById("joinVersion").innerText="\"DEV v0.1\" "
+    document.getElementById("joinnote").innerHTML="<div></div>nice save file lol"
+    }
+    if (firstLaunch<1660924140000){
+    document.getElementById("joinVersion").innerText="Cannot determine."
+    document.getElementById("joinnote").innerHTML="<div></div>Time isn't right. Did you change variables or the computer's time?"
+    document.getElementById("joinnote").style="color: #FF0000"
+    } else if (firstLaunch>1660924140000 && firstLaunch<=1671215649312){
+    document.getElementById("joinVersion").innerText="Beta Testing v0.3"
     document.getElementById("joinnote").innerHTML="<div></div>Thanks for testing!"
     } else if (firstLaunch>=1671215649312 && firstLaunch<1671926400000){
     document.getElementById("joinVersion").innerText="Soft Release v0.3"
-    document.getElementById("joinnote").innerHTML="<div></div>Thanks for playing early!"
+    document.getElementById("joinnote").innerHTML="<div></div>You're an early player!"
     } else if (firstLaunch>=1671926400000){
     document.getElementById("joinVersion").innerText="v0.3"
     }
     document.getElementById("joinYear").innerText=((new Date(firstLaunch)).getFullYear())
-    document.getElementById("joinMonth").innerText=((new Date(firstLaunch)).getMonth())
+    if (((new Date(firstLaunch)).getMonth())==0){
+    document.getElementById("joinMonth").innerText="Jan"
+    } else if (((new Date(firstLaunch)).getMonth())==1){
+    document.getElementById("joinMonth").innerText="Feb"
+    } else if (((new Date(firstLaunch)).getMonth())==2){
+    document.getElementById("joinMonth").innerText="Mar"
+    } else if (((new Date(firstLaunch)).getMonth())==3){
+    document.getElementById("joinMonth").innerText="Apr"
+    } else if (((new Date(firstLaunch)).getMonth())==4){
+    document.getElementById("joinMonth").innerText="May"
+    } else if (((new Date(firstLaunch)).getMonth())==5){
+    document.getElementById("joinMonth").innerText="Jun"
+    } else if (((new Date(firstLaunch)).getMonth())==6){
+    document.getElementById("joinMonth").innerText="Jul"
+    } else if (((new Date(firstLaunch)).getMonth())==7){
+    document.getElementById("joinMonth").innerText="Aug"
+    } else if (((new Date(firstLaunch)).getMonth())==8){
+    document.getElementById("joinMonth").innerText="Sep"
+    } else if (((new Date(firstLaunch)).getMonth())==9){
+    document.getElementById("joinMonth").innerText="Oct"
+    } else if (((new Date(firstLaunch)).getMonth())==10){
+    document.getElementById("joinMonth").innerText="Nov"
+    } else if (((new Date(firstLaunch)).getMonth())==11){
+    document.getElementById("joinMonth").innerText="Dec"
+    }
     document.getElementById("joinDay").innerText=((new Date(firstLaunch)).getDate())
     //Soft Release Date: Dec 16th 2022 (1671215649312)
     
