@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<head>
+<title>Platformer Test v0.2 PUBLIC TEST 2</title>
+</head>
+<body style="overflow: hidden; background-color: #000000; height: 101500px;">
+<div class="playarea" id="playarea" style="z-index: 0; display: inline-block; width: 10000px; height: 2500px; background-color: #FFFFFF; position: absolute; left: 0px; top: 3000px;"></div>
+<a id="game" style="position: absolute; left: 0px; top: 0px;">
+<div class="collision" style="z-index: 3; display: inline-block; width: 500px; height: 20px; background-color: #C8C8C8; position: absolute; left: 4802px; top: 3590px;"><div class="hitbox" style="opacity: 0; z-index: 1001; position: absolute; width: 100%; height: 100%; background-color: transparent; border: 1px #FF0000 solid; left: -1px; top: -1px;"></div></div>
+<div style="position: absolute; left: 4980px; top: 5001px; " id="playerspawn"><div style="z-index: 999999; display: inline-block; width: 30px; height: 30px; background-color: #666666; position: absolute; left: 7px; top: 57px; opacity: 66%;"></div><div class="collision" id="spawnground" style="z-index: 3; display: inline-block; width: 40px; height: 3px; background-color: #222222; position: absolute; left: 2px; top: 87px;"><div class="hitbox" style="opacity: 0; z-index: 1001; position: absolute; width: 100%; height: 100%; background-color: transparent; border: 1px #FF0000 solid; left: -1px; top: -1px;"></div></div><div class="collision" id="spawnceiling" style="z-index: 3; display: inline-block; width: 30px; height: 5px; background-color: #222222; position: absolute; left: 7px; top: 52px;"><div class="hitbox" style="opacity: 0; z-index: 1001; position: absolute; width: 100%; height: 100%; background-color: transparent; border: 1px #FF0000 solid; left: -1px; top: -1px;"></div></div></div>
+<div class="portal" style="position: absolute; left: 4900px; top: 5001px;" id="playerportal1"><div id="noteleport1spam" style="z-index: 999999; display: inline-block; width: 30px; height: 30px; background-color: #4444AA; position: absolute; left: 7px; top: 57px; opacity: 66%;"></div><div class="teleportera" id="portalno1a" style="z-index: 3; display: inline-block; width: 2px; height: 20px; background-color: #4444AA; position: absolute; left: 30px; top: 67px; opacity: 66%;"></div><div class="teleporterb" id="portalno1b" style="z-index: 3; display: inline-block; width: 2px; height: 20px; background-color: #4444AA; position: absolute; left: 12px; top: 67px; opacity: 66%;"></div><div class="collision" id="portal1ground" style="z-index: 3; display: inline-block; width: 40px; height: 3px; background-color: #000066; position: absolute; left: 2px; top: 87px;"><div class="hitbox" style="opacity: 0; z-index: 1001; position: absolute; width: 100%; height: 100%; background-color: transparent; border: 1px #FF0000 solid; left: -1px; top: -1px;"></div></div><div class="collision" id="portal1ceiling" style="z-index: 3; display: inline-block; width: 30px; height: 5px; background-color: #000066; position: absolute; left: 7px; top: 52px;"><div class="hitbox" style="opacity: 0; z-index: 1001; position: absolute; width: 100%; height: 100%; background-color: transparent; border: 1px #FF0000 solid; left: -1px; top: -1px;"></div></div><button id="firstspawn" onclick="spawn()" style="display: inline-block; width: 80px; left: 0px; position: relative; top: -162px; left: -30px; text-align: center; ">spawn</button></div>
+<div class="portal" style="position: absolute; left: 5030px; top: 3500px;" id="playerportal2"><div id="noteleport2spam" style="z-index: 999999; display: inline-block; width: 30px; height: 30px; background-color: #AA4444; position: absolute; left: 7px; top: 57px; opacity: 66%;"></div><div class="teleportera" id="portalno2a" style="display: inline-block; width: 2px; height: 20px; background-color: #AA4444; position: absolute; left: 30px; top: 67px; opacity: 66%;"></div><div class="teleporterb" id="portalno2b" style="display: inline-block; width: 2px; height: 20px; background-color: #AA4444; position: absolute; left: 12px; top: 67px; opacity: 66%;"></div><div class="collision" id="portal2ground" style="z-index: 3; display: inline-block; width: 40px; height: 3px; background-color: #660000; position: absolute; left: 2px; top: 87px;"><div class="hitbox" style="opacity: 0; z-index: 1001; position: absolute; width: 100%; height: 100%; background-color: transparent; border: 1px #FF0000 solid; left: -1px; top: -1px;"></div></div><div class="collision" id="portal2ceiling" style="z-index: 3; display: inline-block; width: 30px; height: 5px; background-color: #660000; position: absolute; left: 7px; top: 52px;"><div class="hitbox" style="opacity: 0; z-index: 1001; position: absolute; width: 100%; height: 100%; background-color: transparent; border: 1px #FF0000 solid; left: -1px; top: -1px;"></div></div></div>
+<a id="player" style="margin: 0 auto; z-index: 999; display: inline-block; width: 20px; height: 20px; background-color: transparent; position: absolute; left: -20px; top: -20px;"><div id="playerleftcollision" style="pointer-events: none; display: block; width: 5px; height: 15px; background-color: #FF0000; position: absolute; left: 0px; top: 2px"></div><div class="hitbox2" id="hitting" style="opacity: 0; pointer-events: none; display: block; width: 10px; height: 5px; background-color: #0088FF; left: 5px; position: absolute; top: 0px"></div><div id="playerrightcollision" style="pointer-events: none; display: inline-block; width: 5px; height: 15px; background-color: #FF0000; right: 0px; position: absolute; top: 2px"></div><div id="playergroundcollision" style="pointer-events: none; display: block; width:18px; height: 4px; background-color: #0088FF; left: 1px; position: absolute; bottom: 1px"></div><div id="playerceilingcollision" style="pointer-events: none; display: block; width: 18px; height: 5px; background-color: #0088FF; left: 1px; position: absolute; top: 0px"></div><div id="playerwalkcollision" style="pointer-events: none; opacity: 0; z-index: unset; display: block; width: 19px; height: 3px; background-color: #00FF00; left: 0.5px; position: absolute; bottom: -3px;"></div><div id="playerfloorcollision" style="pointer-events: none; opacity: 0; z-index: unset; display: block; width: 18px; height: 1px; background-color: #00FF00; left: 1px; position: absolute; bottom: 0.5px;"></div><div id="playerwatercollision" style="pointer-events: none; opacity: 0; z-index: unset; display: block; width: 16px; height: 16px; background-color: #0000FF; left: 2px; position: absolute; top: 2px;"></div><div id="playeraircollision" style="pointer-events: none; opacity: 1; z-index: unset; display: block; width: 16px; height: 8px; background-color: #8888FF; left: 2px; position: absolute; bottom: 10px;"></div><div id="detectportal" style="pointer-events: none; opacity: 1; border: 1px solid transparent; position: absolute; z-index: 1000; opacity: 50%; display: block; width: 18px; height: 18px; position: absolute; left: 0px; top: 0px;"></div><div id="halo" style="pointer-events: none; display: none; position: absolute; left: 5000px; top: 5000px;"><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: 0px; top: 0px; width: 10px; height: 3px;"></a><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: -1px; top: 1px; width: 3px; height: 3px;"></a><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: -2px; top: 2px; width: 3px; height: 3px;"></a><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: -3px; top: 3px; width: 3px; height: 4px;"></a><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: -2px; top: 5px; width: 3px; height: 3px;"></a><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: -1px; top: 6px; width: 3px; height: 3px;"></a><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: 0px; top: 7px; width: 10px; height: 3px;"></a><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: 8px; top: 1px; width: 3px; height: 3px;"></a><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: 9px; top: 2px; width: 3px; height: 3px;"></a><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: 10px; top: 3px; width: 3px; height: 4px;"></a><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: 9px; top: 5px; width: 3px; height: 3px;"></a><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: 8px; top: 6px; width: 3px; height: 3px;"></a></div></a>
+<a id="deadplayer" style="margin: 0 auto; z-index: 999; display: inline-block; width: 20px; height: 20px; background-color: transparent; position: absolute; left: -20px; top: -20px;"><div class="pushdeadleft" id="deadleftcollision" style="opacity: 0; pointer-events: none; display: block; width: 5px; height: 15px; background-color: #FF0000; position: absolute; left: 0px; top: 2px"></div><div class="pushdeadright" id="deadrightcollision" style="opacity: 0; pointer-events: none; display: inline-block; width: 5px; height: 15px; background-color: #FF0000; right: 0px; position: absolute; top: 2px"></div><div class="pushdeadup" id="deadgroundcollision" style="opacity: 0; pointer-events: none; display: block; width:18px; height: 4px; background-color: #0088FF; left: 1px; position: absolute; bottom: 1px"></div><div class="pushdeaddown" id="deadceilingcollision" style="opacity: 0; pointer-events: none; display: block; width: 18px; height: 5px; background-color: #0088FF; left: 1px; position: absolute; top: 0px"></div><div class="hitbox" id="standdead" style="opacity: 0; pointer-events: none; display: block; width: 10px; height: 5px; background-color: transparent; left: 5px; position: absolute; top: 0px"></div><div id="deadfloorcollision" style="pointer-events: none; opacity: 0; z-index: unset; display: block; width: 18px; height: 1px; background-color: #00FF00; left: 1px; position: absolute; bottom: 0.5px;"></div><div id="deadwatercollision" style="pointer-events: none; opacity: 0; z-index: unset; display: block; width: 16px; height: 16px; background-color: #0000FF; left: 2px; position: absolute; top: 2px;"></div><div id="deadhalo" style="pointer-events: none; display: none; position: absolute; left: 5000px; top: 5000px;"><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: 0px; top: 0px; width: 10px; height: 3px;"></a><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: -1px; top: 1px; width: 3px; height: 3px;"></a><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: -2px; top: 2px; width: 3px; height: 3px;"></a><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: -3px; top: 3px; width: 3px; height: 4px;"></a><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: -2px; top: 5px; width: 3px; height: 3px;"></a><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: -1px; top: 6px; width: 3px; height: 3px;"></a><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: 0px; top: 7px; width: 10px; height: 3px;"></a><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: 8px; top: 1px; width: 3px; height: 3px;"></a><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: 9px; top: 2px; width: 3px; height: 3px;"></a><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: 10px; top: 3px; width: 3px; height: 4px;"></a><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: 9px; top: 5px; width: 3px; height: 3px;"></a><a style="pointer-events: none; background-color: #FFFF00; position: absolute; z-index: 999; left: 8px; top: 6px; width: 3px; height: 3px;"></a></div></a>
+<button id="respawn" onclick="spawn()" style="display: none; width: 80px; position: fixed; top: 0px; left: 75px; text-align: center;">Respawn</button>
+<div class="water" style="z-index: 1000; display: block; width: 240px; height: 90px; position: absolute; left: 5000px; top: 5095px;"><a class="water" style="z-index: 1000; display: inline-block; width: 45px; height: 42px; opacity: 0; position: absolute; left: -45px; top: 48px;"></a><a style="z-index: 1000; display: inline-block; width: 110px; height: 85px; opacity: 0.25; background-color: #0044FF; position: absolute; left: 120px; top: 0px;"></a><a style="z-index: 1000; display: inline-block; width: 9.5px; height: 30px; opacity: 0.25; background-color: #0044FF; position: absolute; left: 110.5px; top: 5px;"></a><a style="z-index: 1000; display: inline-block; width: 10px; height: 30px; opacity: 0.25; background-color: #0044FF; position: absolute; left: 70px; top: 55px;"></a><a style="z-index: 1000; display: inline-block; width: 11px; height: 30px; opacity: 0.25; background-color: #0044FF; position: absolute; left: 30px; top: 5px;"></a><a style="z-index: 1000; display: inline-block; width: 10px; height: 30px; opacity: 0.25; background-color: #0044FF; position: absolute; left: -10px; top: 55px;"></a><a style="z-index: 1000; display: inline-block; width: 30.5px; height: 35px; opacity: 0.25; background-color: #0044FF; position: absolute; left: -40px; top: 50px;"></a><a style="z-index: 1000; display: inline-block; width: 30px; height: 80px; opacity: 0.25; background-color: #0044FF; position: absolute; left: 0px; top: 5px;"></a><a style="z-index: 1000; display: inline-block; width: 30px; height: 80px; opacity: 0.25; background-color: #0044FF; position: absolute; left: 40.5px; top: 5px;"></a><a style="z-index: 1000; display: inline-block; width: 30.5px; height: 80px; opacity: 0.25; background-color: #0044FF; position: absolute; left: 80px; top: 5px;"></a></div><div class="collision" style="z-index: 2; display: inline-block; width: 240px; height: 10px; background-color: #C8C8C8; position: absolute; left: 4880px; top: 5090px;"><div class="hitbox" style="opacity: 0; z-index: 1001; position: absolute; width: 100%; height: 100%; background-color: transparent; border: 1px #FF0000 solid; left: -1px; top: -1px;"></div></div><div class="collision" style="z-index: 2; display: inline-block; width: 60px; height: 10px; background-color: #C8C8C8; position: absolute; left: 4720px; top: 5090px;"><div class="hitbox" style="opacity: 0; z-index: 1001; position: absolute; width: 100%; height: 100%; background-color: transparent; border: 1px #FF0000 solid; left: -1px; top: -1px;"></div></div><div class="collision" style="z-index: 2; display: inline-block; width: 60px; height: 10px; background-color: #C8C8C8; position: absolute; left: 4570px; top: 5090px;"><div class="hitbox" style="opacity: 0; z-index: 1001; position: absolute; width: 100%; height: 100%; background-color: transparent; border: 1px #FF0000 solid; left: -1px; top: -1px;"></div></div><div class="collision" style="z-index: 2; display: inline-block; width: 60px; height: 10px; background-color: #C8C8C8; position: absolute; left: 4420px; top: 5090px;"><div class="hitbox" style="opacity: 0; z-index: 1001; position: absolute; width: 100%; height: 100%; background-color: transparent; border: 1px #FF0000 solid; left: -1px; top: -1px;"></div></div><div class="collision" style="z-index: 2; display: inline-block; width: 200px; height: 10px; background-color: #C8C8C8; position: absolute; left: 4130px; top: 5090px;"><div class="hitbox" style="opacity: 0; z-index: 1001; position: absolute; width: 100%; height: 100%; background-color: transparent; border: 1px #FF0000 solid; left: -1px; top: -1px;"></div></div><div class="collision" style="z-index: 2; display: inline-block; width: 360px; height: 10px; background-color: #C8C8C8; position: absolute; left: 4880px; top: 5180px;"><div class="hitbox" style="opacity: 0; z-index: 1001; position: absolute; width: 100%; height: 100%; background-color: transparent; border: 1px #FF0000 solid; left: -1px; top: -1px;"></div></div><div class="collision" style="z-index: 2; display: inline-block; width: 10px; height: 90px; background-color: #C8C8C8; position: absolute; left: 5230px; top: 5090px;"><div class="hitbox" style="opacity: 0; z-index: 1001; position: absolute; width: 100%; height: 100%; background-color: transparent; border: 1px #FF0000 solid; left: -1px; top: -1px;"></div></div><div class="collision" style="z-index: 2; display: inline-block; width: 10px; height: 50px; background-color: #C8C8C8; position: absolute; left: 4990px; top: 5100px;"><div class="hitbox" style="opacity: 0; z-index: 1001; position: absolute; width: 100%; height: 100%; background-color: transparent; border: 1px #FF0000 solid; left: -1px; top: -1px;"></div></div><div class="collision" style="z-index: 2; display: inline-block; width: 10px; height: 50px; background-color: #C8C8C8; position: absolute; left: 5030px; top: 5130px;"><div class="hitbox" style="opacity: 0; z-index: 1001; position: absolute; width: 100%; height: 100%; background-color: transparent; border: 1px #FF0000 solid; left: -1px; top: -1px;"></div></div><div class="collision" style="z-index: 2; display: inline-block; width: 10px; height: 50px; background-color: #C8C8C8; position: absolute; left: 5110px; top: 5130px;"><div class="hitbox" style="opacity: 0; z-index: 1001; position: absolute; width: 100%; height: 100%; background-color: transparent; border: 1px #FF0000 solid; left: -1px; top: -1px;"></div></div><div class="collision" style="z-index: 2; display: inline-block; width: 10px; height: 50px; background-color: #C8C8C8; position: absolute; left: 5070px; top: 5100px;"><div class="hitbox" style="opacity: 0; z-index: 1001; position: absolute; width: 100%; height: 100%; background-color: transparent; border: 1px #FF0000 solid; left: -1px; top: -1px;"></div></div><div class="collision" style="z-index: 2; display: inline-block; width: 35px; height: 40px; background-color: #C8C8C8; position: absolute; left: 4880px; top: 5100px;"><div class="hitbox" style="opacity: 0; z-index: 1001; position: absolute; width: 100%; height: 100%; background-color: transparent; border: 1px #FF0000 solid; left: -1px; top: -1px;"></div></div><a><div class="collision" style="z-index: 2; display: inline-block; width: 80px; height: 40px; background-color: #C8C8C8; position: absolute; left: 4880px; top: 5140px;"><div class="hitbox" style="opacity: 0; z-index: 1001; position: absolute; width: 100%; height: 100%; background-color: transparent; border: 1px #FF0000 solid; left: -1px; top: -1px;"></div></div><div style="z-index: 998; display: inline-block; width: 31px; height: 5px; background-color: #C8C8C8; position: absolute; left: 4960px; top: 5140px;"></div><div style="z-index: 1000; display: inline-block; width: 31px; height: 5px; background-color: #C8C8C8; position: absolute; left: 4960px; top: 5145px;"></div><div class="fakewall" style="z-index: 1000; display: inline-block; width: 30px; height: 30px; background-color: #C8C8C8; position: absolute; left: 4960px; top: 5150px;"></div><div class="fakewall" style="z-index: 1000; display: inline-block; width: 10px; height: 30px; background-color: #C8C8C8; position: absolute; left: 4990px; top: 5150px;"></div><div class="fakewall" style="z-index: 1000; display: inline-block; width: 30px; height: 80px; background-color: #C8C8C8; position: absolute; left: 5000px; top: 5100px;"></div><div class="fakewall" style="z-index: 1000; display: inline-block; width: 10px; height: 30px; background-color: #C8C8C8; position: absolute; left: 5030px; top: 5100px;"></div><div class="fakewall" style="z-index: 1000; display: inline-block; width: 30px; height: 80px; background-color: #C8C8C8; position: absolute; left: 5040px; top: 5100px;"></div><div class="fakewall" style="z-index: 1000; display: inline-block; width: 10px; height: 30px; background-color: #C8C8C8; position: absolute; left: 5070px; top: 5150px;"></div><div class="fakewall" style="z-index: 1000; display: inline-block; width: 30px; height: 80px; background-color: #C8C8C8; position: absolute; left: 5080px; top: 5100px;"></div><div class="fakewall" style="z-index: 1000; display: inline-block; width: 5px; height: 34px; background-color: #C8C8C8; position: absolute; left: 5110px; top: 5098px;"></div><div style="z-index: 0; display: inline-block; width: 360px; height: 98px; background-color: #959595; position: absolute; left: 4880px; top: 5092px;"></div><div style="z-index: 1000; display: inline-block; width: 5px; height: 34px; background-color: #C8C8C8; position: absolute; left: 5115px; top: 5098px;"></div></a><div class="fakewall" style="z-index: 1000; display: inline-block; width: 150px; height: 40px; background-color: #C8C8C8; position: absolute; left: 4960px; top: 5145px;"></div><div style="z-index: 1000; display: inline-block; width: 5px; height: 34px; background-color: #C8C8C8; position: absolute; left: 5115px; top: 5098px;"></div><div class="fakewall" style="z-index: 1000; display: inline-block; width: 120px; height: 90px; background-color: #C8C8C8; position: absolute; left: 4995px; top: 5095px;"></div>
+</a>
+<a style="pointer-events: none; ">
+<div style="pointer-events: none; position: fixed; z-index: 999999;" id="healthbar">
+<svg id="HEART1" fill="#000000" style="position: fixed; top: 0px; left: 0px; "><path d="m 12 4.248 c -3.148 -5.402 -12 -3.825 -12 2.944 c 0 3.661 2 4.9 3 6 l 9 0 z"></path></svg><svg id="HEART4" fill="#000000" style="position: fixed; top: 0px; left: 0px;"><path d="m 12 4.248 c 3.148 -5.402 12 -3.825 12 2.944 c 0 3.661 -2 4.9 -3 6 l -9 0 z "></path></svg><svg id="HEART2" fill="#000000" style="position: fixed; top: 13px; left: 2px;"><path d="m 10 0 m -9 0 L 10 0 l 0 7 z"></path></svg><svg id="HEART3" fill="#000000" style="position: fixed; top: 13px; left: 2px;"><path d="m 10 0 m 9 0 L 10 0 l 0 7 z"></path></svg></div>
+<div style="position: fixed; z-index: 999999;"><svg id="HEART5" fill="#000000" style="position: fixed; top: 0px; left: 25px; "><path d="m 12 4.248 c -3.148 -5.402 -12 -3.825 -12 2.944 c 0 3.661 2 4.9 3 6 l 9 0 z"></path></svg><svg id="HEART8" fill="#000000" style="position: fixed; top: 0px; left: 25px;"><path d="m 12 4.248 c 3.148 -5.402 12 -3.825 12 2.944 c 0 3.661 -2 4.9 -3 6 l -9 0 z "></path></svg><svg id="HEART6" fill="#000000" style="position: fixed; top: 13px; left: 27px;"><path d="m 10 0 m -9 0 L 10 0 l 0 7 z"></path></svg><svg id="HEART7" fill="#000000" style="position: fixed; top: 13px; left: 27px;"><path d="m 10 0 m 9 0 L 10 0 l 0 7 z"></path></svg></div>
+<div style="position: fixed; z-index: 999999;"><svg id="HEART9" fill="#000000" style="position: fixed; top: 0px; left: 50px; "><path d="m 12 4.248 c -3.148 -5.402 -12 -3.825 -12 2.944 c 0 3.661 2 4.9 3 6 l 9 0 z"></path></svg><svg id="HEART12" fill="#000000" style="position: fixed; top: 0px; left: 50px;"><path d="m 12 4.248 c 3.148 -5.402 12 -3.825 12 2.944 c 0 3.661 -2 4.9 -3 6 l -9 0 z "></path></svg><svg id="HEART10" fill="#000000" style="position: fixed; top: 13px; left: 52px;"><path d="m 10 0 m -9 0 L 10 0 l 0 7 z"></path></svg><svg id="HEART11" fill="#000000" style="position: fixed; top: 13px; left: 52px;"><path d="m 10 0 m 9 0 L 10 0 l 0 7 z"></path></svg></div>
+<div style="position: fixed; z-index: 999999;"><svg id="ABSHEART1" fill="transparent" style="position: fixed; top: 0px; left: 75px; "><path d="m 12 4.248 c -3.148 -5.402 -12 -3.825 -12 2.944 c 0 3.661 2 4.9 3 6 l 9 0 z"></path></svg><svg id="ABSHEART4" fill="transparent" style="position: fixed; top: 0px; left: 75px;"><path d="m 12 4.248 c 3.148 -5.402 12 -3.825 12 2.944 c 0 3.661 -2 4.9 -3 6 l -9 0 z "></path></svg><svg id="ABSHEART2" fill="transparent" style="position: fixed; top: 13px; left: 77px;"><path d="m 10 0 m -9 0 L 10 0 l 0 7 z"></path></svg><svg id="ABSHEART3" fill="transparent" style="position: fixed; top: 13px; left: 77px;"><path d="m 10 0 m 9 0 L 10 0 l 0 7 z"></path></svg></div>
+<div style="position: fixed; z-index: 999999;"><svg id="ABSHEART5" fill="transparent" style="position: fixed; top: 0px; left: 100px; "><path d="m 12 4.248 c -3.148 -5.402 -12 -3.825 -12 2.944 c 0 3.661 2 4.9 3 6 l 9 0 z"></path></svg><svg id="ABSHEART8" fill="transparent" style="position: fixed; top: 0px; left: 100px;"><path d="m 12 4.248 c 3.148 -5.402 12 -3.825 12 2.944 c 0 3.661 -2 4.9 -3 6 l -9 0 z "></path></svg><svg id="ABSHEART6" fill="transparent" style="position: fixed; top: 13px; left: 102px;"><path d="m 10 0 m -9 0 L 10 0 l 0 7 z"></path></svg><svg id="ABSHEART7" fill="transparent" style="position: fixed; top: 13px; left: 102px;"><path d="m 10 0 m 9 0 L 10 0 l 0 7 z"></path></svg></div>
+<div style="position: fixed; z-index: 999999;"><svg id="ABSHEART9" fill="transparent" style="position: fixed; top: 0px; left: 125px; "><path d="m 12 4.248 c -3.148 -5.402 -12 -3.825 -12 2.944 c 0 3.661 2 4.9 3 6 l 9 0 z"></path></svg><svg id="ABSHEART12" fill="transparent" style="position: fixed; top: 0px; left: 125px;"><path d="m 12 4.248 c 3.148 -5.402 12 -3.825 12 2.944 c 0 3.661 -2 4.9 -3 6 l -9 0 z "></path></svg><svg id="ABSHEART10" fill="transparent" style="position: fixed; top: 13px; left: 127px;"><path d="m 10 0 m -9 0 L 10 0 l 0 7 z"></path></svg><svg id="ABSHEART11" fill="transparent" style="position: fixed; top: 13px; left: 127px;"><path d="m 10 0 m 9 0 L 10 0 l 0 7 z"></path></svg></div></a>
+<a id="airtotal" style="z-index: 999999; display: inline-block; position: fixed; height: 5px; overflow: hidden; width: 75px; top: 20px; left: 0px; background-color: #000000"><a id="airamount" style="z-index: 9999999; display: inline-block; position: fixed; height: 5px; overflow: hidden; width: 75px; top: 20px; left: -75px; background-color: #008FFF"></a></a>
+<a id="timer123" style="z-index: 999999"></a>
+<a style="z-index: 999999; position: fixed; right: 0px; top: 0px; text-align: right;">
+<div id="debug0"></div><div id="debug1"></div><div id="debug2"></div><div id="debug9"></div><div id="debug3"></div><div id="debug4"></div><div id="debug5"></div><div id="debug6"></div><div id="debug7"></div><div id="debug8"></div>
+</a>
+<button id="mobileleft" style="opacity: 0; z-index: 696969; position: fixed; width: 10%; height: 17.5%; left: 5px; bottom: 5px; font-size: 250%; text-align: center;">&#60;</button>
+<button id="mobileright" style="opacity: 0; z-index: 696969; position: fixed; width: 10%; height: 17.5%; left: calc(10% + 10px); bottom: 5px; font-size: 250%; text-align: center;">&#62;</button>
+<button id="mobileshift" style="opacity: 0; z-index: 696969; position: fixed; width: 10%; height: 17.5%; right: 5px; bottom: calc(17.5% + 10px); font-size: 200%; text-align: center;">↙</button>
+<button id="mobilejump" onclick="mobileJump()" style="opacity: 0; z-index: 696969; position: fixed; width: 10%; height: 17.5%; right: 5px; bottom: 5px; font-size: 200%; text-align: center;">↗</button>
+<a class="abheal" id="abheal" style="z-index: 99999; pointer-events: none; position: absolute; top: 5050px; left: 4170px; width: 24px; height: 24px;"><svg fill="#FFFF00"><path d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"></path></svg></a>
+<a class="heal" id="heal" style="z-index: 99999; pointer-events: none; position: absolute; top: 5050px; left: 4220px; width: 24px; height: 24px;"><svg fill="#FF0000"><path d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"></path></svg></a>
+<a id="autoheal" class="autoheal" style="z-index: 99999; pointer-events: none; position: absolute; top: 5110px; left: 4926px; width: 24px; height: 24px;"><svg fill="#FF0000"><path d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"></path></svg><c style="position: absolute; color: #000000; width: 24px; height: 24px; left: 17px; top: 12px; text-border: color;">+</c></a>
+</body>
+<script>
+//M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402m5.726-20.583c-2.203 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248-3.183 0-6.281 2.187-6.281 6.191 0 4.661 5.571 9.429 12 15.809 6.43-6.38 12-11.148 12-15.809 0-4.011-3.095-6.181-6.274-6.181
+
+//debug
+var debug=0           //DEBUG: shows collision.
+var values=0          //DEBUG: shows values
+var playerheld=0      //DEBUG: is player being held?
+var autospawn=0       //DEBUG: automatically spawn after death
+var nograv=0          //DEBUG: force no gravity.
+var debugspeed=25     //DEBUG: set speed lol sonic (higher=slower, do NOT EVER set to 0)
+var pickposx=0         //DEBUG: pickup x position
+var pickposy=0         //DEBUG: pickup y position
+var cursorx=0         //DEBUG: cursor x pos
+var cursory=0         //DEBUG: cursor y pos
+var freecam=0         //DEBUG: enables freecam button!
+var scrolld=0         //DEBUG: direction of camera movement
+var neverdie=0        //DEBUG: never ever die again! because dying is for LOSERS!!! (literally)
+var gills=0           //DEBUG: you must stay in water
+var noairnoprob=0     //DEBUG: no more drowning
+var freecammode=0     //DEBUG: move camera freely! (use arrows!)
+var flight=0          //DEBUG: flight!
+var ultimatedebug=2   //ULTIMATE DEBUG: neverdie + noairnoprob + freecam + flight + autospawn (if you instantly die)!
+var camsnaptoggle=0   //DEBUG: always snap.
+
+//player core (messing with this gives major changes! careful!)
+var playerx=0         //player x pos
+var playery=0         //player y pos
+var dead=0            //if died ONCE
+var deadx=0           //dead player x pos
+var deady=0           //dead player y pos
+var deadxchange=0     //dead player x change
+var deadychange=0     //dead player y change
+var spawns=0          //how many spawns?
+var playersize=1      //changes your size.
+var playeropps=1      //inverse of above
+var playerw=0         //player width
+var playerh=0         //player height
+var tempcamsnap=1     //snap camera to position UNTIL RESPAWN
+var camsnap=0         //snap camera to position ONCE
+var campos=0          //get cam pos once
+//player other properties
+var healthcounter=0   //regen
+var air=0             //drown
+var inwater=0         //can i swim
+var deadwater=0       //can i swim dead
+var breathing=1       //can i breathe
+var canheal=0         //can i heal
+var portaltouched=0   //which portal touched?
+var justteleported=0  //did i just teleport?!?
+var fullyinsidewall=0 //are you entirely inside a wall? if not, MOVE!
+var keynumb=0         //what key pressed
+var gravity=0         //gravity force (no longer) multiplier
+var died=1            //die
+var screenh=0          //how tall is the screen
+var screenw=0          //how wide is the screen
+var voider=0           //are ya dyin in the void?
+var justdied=0         //did you just die.
+//player movement properties
+var isjumping=0       //am i jumping?
+var canjump=0         //can i jump yet?
+var playerxchange=0   //change in x
+var playerychange=0   //change in y
+var flighty=0         //flying vertically
+var flightx=0         //flying horisontally
+var movement=0        //does movement
+var moving=0          //is moving? 1 for right, -1 for left
+var momentum=0        //horizontal speed
+var jumpgrav=0        //jumping, duh
+//player collision properties
+var reveal1=0         //SHOW THYSELF!
+var playercolliding=0 //is colliding with collision?
+var playerinair=0     //is NOT colliding?
+var lasttouched="none"//last element touched
+var leftinwall=0      //left collision in wall
+var rightinwall=0     //right collision in wall
+var deadleftinwall=0  //dead left collision in wall
+var deadrightinwall=0 //dead right collision in wall
+var upinwall=0        //up collision in wall
+var downinwall=0      //down collision in wall
+var walking=0         //are ya on ground
+var flooring=0        //lol best name evar
+var walking2=0         //are ya on ground again?
+var flooring2=0        //lol best name evar THE SEQUEL!!
+//teleport stuff
+var spawnx=0          //spawn x pos
+var spawny=0          //spawn y pos
+var teleporta=0       //left side?
+var teleportb=0       //right side?
+var teleportto=0      //teleport to where?
+var portal1x=0        //where is the first teleporter x
+var portal1y=0        //where is the first teleporter y
+var portal2x=0        //where is the second teleporter x
+var portal2y=0        //where is the second teleporter y
+//math
+var scroll1=0         //debugging (scroll /2 then /2)
+var plyxchg=0         //x change, for scroll check
+var plyychg=0         //x change, for scroll check
+var plylasx=0         //player last x pos since scroll check
+var plylasy=0         //player last x pos since scroll check
+var debuginvert=0     //name says it all no need
+var bubbley=0         //where is this?
+var bubblefreq=2500   //how often?
+//scrolling
+var scrollqx=0        //scroll pos x queue
+var scrollqy=0        //scroll pos y queue
+var freezemost=0      //freeze most things if 1
+var scrollx=0         //scroll pos x
+var scrolly=0         //scroll pos y
+var scrollxc=0         //scroll pos x
+var scrollyc=0         //scroll pos y
+var scrollf=0         //freecam scroll pos x
+var scrollp=0         //freecam scroll pos y
+var scrollc=0         //scroll current pos
+var collidables = document.querySelectorAll('.collision'); //for debug
+//mobile
+var mobileshift=document.getElementById("mobileshift")
+var mobilejump=document.getElementById("mobilejump")
+var mobileleft=document.getElementById("mobileleft")
+var mobileright=document.getElementById("mobileright")
+var mobile=0          //is on mobile?
+var checksout=0       //checks out?
+//health (from an older project)
+var hp=0 //Health! Reach 0 and you die! Never gain health yet!
+var abhp=0 //Absorption! Temporary extra health!
+var poisontimer=0 //Poison Timer, in sec. If below is 0, subs 1 from here and hurts. If 0, no more hurting!
+var poisonmstimer=60 //Poison Timer, in ms. 
+//i think that's all
+//oh wait, i forgot this one
+var version="v0.2 PUBLIC TEST 2"
+//for real, no more variables
+function mobileJump(){
+if (inwater==0 && walking==1 && flight==0){
+jumpgrav=2
+isjumping=1
+}else if (inwater==1 && flight==0){
+jumpgrav=2
+}
+}
+var drown = setInterval(function(){
+if (air==-1){
+if (abhp>0){
+abhp=abhp-1
+} else {
+air=0
+if (abhp<0){
+abhp+=1
+hp-=1
+healthcounter=-1000
+}
+hp=hp-1
+healthcounter=-1000
+if (hp==0){
+died=1
+}
+}
+}
+}, 1)
+function spawn(){
+playerychange=0
+playerxchange=0
+air=75
+died=-1
+justdied=0
+hp=12
+document.getElementById("airamount").style.left="0px"
+spawns=spawns+1
+teleportto=0
+justteleported=0
+document.getElementById("respawn").style="display: none; width: 80px; position: fixed; top: 0px; left: 75px; text-align: center;"
+document.getElementById("firstspawn").style="display: none; width: 80px; left: 0px; position: relative; top: 28px; left: 62px; text-align: center;"
+tempcamsnap=0
+camsnap=1
+}
+var gamezoom = setInterval(function(){
+document.getElementById("playarea").style = "z-index: 0; display: inline-block; width: "+10000+"px; height: "+2500+"px; background-color: #FFFFFF; position: absolute; left: 0px; top: 3000px;"
+}, 1000)
+var checks = setInterval(function(){
+if (died==1 && justdied==0){
+spawndeadplayer()
+justdied=1
+}
+if (scrollxc==scrollqx && scrollyc==scrollqy){
+freezemost=0
+} else {
+freezemost=1
+}
+if (tempcamsnap==1 || camsnaptoggle==1){
+if (camsnaptoggle==1){
+campos=1
+camsnaptoggle=2
+} else if (tempcamsnap==1){
+campos=1
+tempcamsnap=2
+}
+}
+document.getElementById("detectportal").style.opacity=debug
+if (mobile==1){
+if (flight==0){
+document.getElementById("mobileshift").style.opacity=0
+} else {
+document.getElementById("mobileshift").style.opacity=1
+}
+document.getElementById("mobileleft").style.opacity=1
+document.getElementById("mobileright").style.opacity=1
+document.getElementById("mobilejump").style.opacity=1
+} else {
+document.getElementById("mobileshift").style.opacity=0
+document.getElementById("mobileleft").style.opacity=0
+document.getElementById("mobileright").style.opacity=0
+document.getElementById("mobilejump").style.opacity=0
+}
+if (ultimatedebug==1){
+neverdie=1
+flight=1
+noairnoprob=1
+freecammode=1
+autospawn=1
+} else if (ultimatedebug==0){
+ultimatedebug=2
+neverdie=0
+flight=0
+noairnoprob=0
+freecammode=0
+autospawn=0
+}
+if (reveal1==1){
+fakewallz = document.querySelectorAll('.fakewall');
+fakewallz.forEach(existingelement => {
+  existingelement.style.opacity=0
+  });
+} else if (reveal1==0) {
+fakewallz = document.querySelectorAll('.fakewall');
+fakewallz.forEach(existingelement => {
+  existingelement.style.opacity=1
+  });
+}
+if (playerxchange>1 && inwater==1){
+if (playerxchange>1 && walking==1){
+momentum=0
+playerxchange=1
+} else if (playerxchange>1 && walking2==1){
+momentum=0
+playerxchange=1
+} else {
+momentum=0
+playerxchange=1
+}
+} else if (playerxchange<-1 && inwater==1){
+if (playerxchange<-1 && walking==1){
+momentum=0
+playerxchange=-1
+} else if (playerxchange<-1 && walking2==1){
+momentum=0
+playerxchange=-1
+} else {
+momentum=0
+playerxchange=-1
+}
+}
+if (playerychange>2 && inwater==1){
+playerychange=2
+} else if (playerychange<-4 && inwater==1){
+playerychange=-4
+}
+if (playerychange>=5 && nograv==0){
+playerychange=5
+} else if (playerychange<=-5 && nograv==0){
+playerychange=-5
+}
+playeropps=(playersize/((playersize)/(playersize/(playersize*playersize))))
+if (playery>=11500){
+playery=50
+if (died==-1){
+camsnap=1
+}
+}
+if (playery<=0){
+playery=11450
+if (died==-1){
+camsnap=1
+}
+}
+if (scrolld==-1){
+scrollf=scrollf-4
+window.scrollTo(((scrollxc-(screenw/2))+scrollf), ((scrollyc-(screenh/2))+scrollp))
+}
+if (scrolld==1){
+scrollf=scrollf+4
+window.scrollTo(((scrollxc-(screenw/2))+scrollf), ((scrollyc-(screenh/2))+scrollp))
+} 
+if (scrolld==-2){
+scrollp=scrollp-4
+window.scrollTo(((scrollxc-(screenw/2))+scrollf), ((scrollyc-(screenh/2))+scrollp))
+} 
+if (scrolld==2){
+scrollp=scrollp+4
+window.scrollTo(((scrollxc-(screenw/2))+scrollf), ((scrollyc-(screenh/2))+scrollp))
+}
+screenw=document.documentElement.clientWidth 
+screenh=document.documentElement.clientHeight
+portal1x=document.getElementById("playerportal1").offsetLeft
+portal1y=document.getElementById("playerportal1").offsetTop
+portal2x=document.getElementById("playerportal2").offsetLeft
+portal2y=document.getElementById("playerportal2").offsetTop
+spawnx=document.getElementById("playerspawn").offsetLeft
+spawny=document.getElementById("playerspawn").offsetTop
+if (justteleported==0 && teleporta==1 && teleportb==1){
+if (portaltouched=="portalno1a" || portaltouched=="portalno1b"){
+teleportto=2
+justteleported=1
+freezemost=1
+} else if (portaltouched=="portalno2a" || portaltouched=="portalno2b"){
+teleportto=1
+justteleported=1
+freezemost=1
+}
+} else if (teleporta==0 && teleportb==0){
+justteleported=0
+}
+if (teleportto==0){
+playerx=(spawnx+12)
+playery=(spawny+(77-(10*playersize)))
+teleportto=-1
+} else if (teleportto==1){
+playerx=portal1x+(12)
+playery=portal1y+((77-(10*playersize)))
+teleportto=-1
+} else if (teleportto==2){
+playerx=portal2x+(12)
+playery=portal2y+((77-(10*playersize)))
+teleportto=-1
+}
+if (jumpgrav==0){
+isjumping=0
+}
+if (playerheld==1){
+nograv=1
+playerychange=0
+moving=0
+momentum=0
+playerxchange=0
+}
+if (died==1){
+if (tempcamsnap==0){
+tempcamsnap=1
+}
+if (neverdie==0){
+moving=0
+momentum=0
+if (spawns!=0) {
+document.getElementById("respawn").style="display: block; width: 80px; position: fixed; top: 0px; left: 75px; text-align: center;"
+}
+if (autospawn==1 && spawns==0){
+spawn()
+}
+}
+} else {
+gravity=(1*(playersize*1.25))
+}
+if (spawns==0){
+document.getElementById("firstspawn").style="display: inline-block; width: 80px; left: 0px; position: relative; top: 28px; left: 62px; text-align: center;"
+}
+if (values==1){
+document.getElementById("debug1").style.opacity=1
+document.getElementById("debug2").style.opacity=1
+document.getElementById("debug3").style.opacity=1
+document.getElementById("debug4").style.opacity=1
+document.getElementById("debug5").style.opacity=1
+document.getElementById("debug6").style.opacity=1
+document.getElementById("debug7").style.opacity=1
+document.getElementById("debug8").style.opacity=1
+document.getElementById("debug9").style.opacity=1
+} else {
+document.getElementById("debug1").style.opacity=0
+document.getElementById("debug2").style.opacity=0
+document.getElementById("debug3").style.opacity=0
+document.getElementById("debug4").style.opacity=0
+document.getElementById("debug5").style.opacity=0
+document.getElementById("debug6").style.opacity=0
+document.getElementById("debug7").style.opacity=0
+document.getElementById("debug8").style.opacity=0
+document.getElementById("debug9").style.opacity=0
+}
+if (debug==1){
+document.getElementById("portalno1a").style.opacity=1
+document.getElementById("portalno1b").style.opacity=1
+document.getElementById("portalno2a").style.opacity=1
+document.getElementById("portalno2b").style.opacity=1
+document.getElementById("playerleftcollision").style.opacity=1
+document.getElementById("playerrightcollision").style.opacity=1
+document.getElementById("playergroundcollision").style.opacity=1
+document.getElementById("playerceilingcollision").style.opacity=1
+document.getElementById("playerwalkcollision").style.opacity=1
+document.getElementById("playerwatercollision").style.opacity=1
+document.getElementById("playeraircollision").style.opacity=1
+collidables = document.querySelectorAll('.hitbox');
+collidables.forEach(existingelement => {
+  existingelement.style.opacity=1
+})
+} else {
+document.getElementById("portalno1a").style.opacity=0
+document.getElementById("portalno1b").style.opacity=0
+document.getElementById("portalno2a").style.opacity=0
+document.getElementById("portalno2b").style.opacity=0
+document.getElementById("playerleftcollision").style.opacity=0
+document.getElementById("playerrightcollision").style.opacity=0
+document.getElementById("playergroundcollision").style.opacity=0
+document.getElementById("playerceilingcollision").style.opacity=0
+document.getElementById("playerwalkcollision").style.opacity=0
+document.getElementById("playerwatercollision").style.opacity=0
+document.getElementById("playeraircollision").style.opacity=0
+collidables = document.querySelectorAll('.hitbox');
+collidables.forEach(existingelement => {
+  existingelement.style.opacity=0
+  });
+}
+}, 10)
+
+var pageScroll = setInterval(function() {
+if (tempcamsnap==0 && camsnaptoggle==0 || campos==1){
+if (plylasx != playerx && playerheld==0){
+scrollx=((scrollx)-(10*(playersize)))
+plyxchg=0
+plyxchg=playerx-plylasx
+plylasx=playerx
+scrollx=(((scrollx+plyxchg))+(10*(playersize)))
+scrollqx=scrollx
+}
+if (plylasy != playery && playerheld==0){
+scrolly=((scrolly)-(10*(playersize)))
+plyychg=0
+plyychg=playery-plylasy
+plylasy=playery
+scrolly=((scrolly+plyychg)+(10*(playersize)))
+scrollqy=scrolly
+}
+if (campos==1){
+campos=0
+}
+}
+if (tempcamsnap==0 && camsnaptoggle==0){
+if (scrollxc>=(scrollqx+10)){
+scrollxc-=10
+} else if (scrollxc<=(scrollqx-10)){
+scrollxc+=10
+} else {
+scrollxc=scrollqx
+}
+if (scrollyc>=(scrollqy+6)){
+scrollyc-=6
+} else if (scrollyc<=(scrollqy-6)){
+scrollyc+=6
+} else {
+scrollyc=scrollqy
+}
+}
+if (camsnap==1){
+scrollxc=scrollqx
+scrollyc=scrollqy
+camsnap=0
+window.scrollTo(((scrollxc-(screenw/2))+scrollf), ((scrollyc-(screenh/2))+scrollp))
+}
+if (tempcamsnap==2 || camsnaptoggle==2){
+scrollxc=scrollqx
+scrollyc=scrollqy
+window.scrollTo(((scrollxc-(screenw/2))+scrollf), ((scrollyc-(screenh/2))+scrollp))
+}
+window.scrollTo(((scrollxc-(screenw/2))+scrollf), ((scrollyc-(screenh/2))+scrollp))
+}, 1)
+var gravmath = setInterval (function(){
+if (deadwater==1){
+if (deadychange<0){
+deadychange=deadychange+(0.0025*gravity)
+} else {
+deadychange=deadychange+(0.125*gravity)
+}
+} else {
+deadychange=deadychange+(0.125*gravity)
+}
+if (playerychange>-64 && nograv==0 && flight==0){
+if (flooring==0 || jumpgrav!=0){
+playerychange=playerychange+((0.125*gravity)-jumpgrav)
+} else {
+playerychange=0
+}
+if (jumpgrav!=0){
+jumpgrav=jumpgrav-1
+}
+} else if (playerychange<=-64){
+playerychange=-64
+}
+}, 25)
+var xychange = setInterval (function(){
+playerw=document.getElementById("player").clientWidth
+playerh=document.getElementById("player").clientHeight
+deadx=deadx+deadxchange
+deady=deady+deadychange
+if (freezemost==0){
+playerx=playerx+playerxchange
+playery=playery+playerychange
+}
+//if (screenh>playery){
+//document.getElementById("playerinvdown").style="position: fixed; z-index: 1000000; left: "+playerx+"px; top: "+playery+"px;"
+//} else {
+//document.getElementById("playerinvdown").style="position: fixed; z-index: -1000000; left: "+playerx+"px; top: "+playery+"px;"
+//}
+if (spawns!=0){
+document.getElementById("player").style="transform: scale("+playersize+", "+playersize+"); z-index: 999; opacity: "+(died*-1)+"; display: inline-block; width: 20px; height: 20px; background-color: #000000; position: absolute; left: "+playerx+"px; top: "+playery+"px;"
+document.getElementById("deadplayer").style="z-index: 999; display: inline-block; width: 20px; height: 20px; opacity: "+dead+"; background-color: #000000; position: absolute; left: "+deadx+"px; top: "+deady+"px;"
+document.getElementById("deadhalo").style="z-index: 999; display: block; position: absolute; left: "+(deadx+5)+"px; top: "+(deady-6)+"px;"
+//document.getElementById("detectportal").style="border: 1px solid #FFFF00; opacity: "+(0-debug)+"; position: absolute; z-index: 1000; opacity: 50%; display: inline-block; width: 18px; height: 18px; position: absolute; left: "+playerx+"px; top: "+(playery-((10*playersize)-(10/(playeropps/playersize))))+"px;"
+document.getElementById("detectportal").style.opacity=debug
+} else if (spawns>=0){
+document.getElementById("player").style="transform: scale("+playersize+", "+playersize+"); z-index: 1000; opacity: "+(died*-1)+"; display: inline-block; width: 20px; height: 20px; background-color: transparent; position: absolute; left: "+playerx+"px; top: "+playery+"px;"
+//document.getElementById("detectportal").style="border: 1px solid #FFFF00; position: absolute; z-index: 1000; opacity: 50%; display: inline-block; width: 18px; height: 18px; position: absolute; left: "+playerx+"px; top: "+(playery-((10*playersize)-(10/(playeropps/playersize))))+"px;"
+document.getElementById("detectportal").style.opacity=debug
+}
+}, 10)
+var detectOverlap = (function () {
+    function getPositions(elem) {
+        var pos = elem.getBoundingClientRect();
+        return [[pos.left, pos.right], [pos.top, pos.bottom]];
+    }
+
+    function comparePositions(p1, p2) {
+        var r1, r2;
+        if (p1[0] < p2[0]) {
+          r1 = p1;
+          r2 = p2;
+        } else {
+          r1 = p2;
+          r2 = p1;
+        }
+        return r1[1] > r2[0] || r1[0] === r2[0];
+    }
+
+    return function (a, b) {
+        var pos1 = getPositions(a),
+            pos2 = getPositions(b);
+        return comparePositions(pos1[0], pos2[0]) && comparePositions(pos1[1], pos2[1]);
+    };
+})();
+var boxes = document.querySelectorAll('.collision');
+var player = document.getElementById("player")
+function clickHandler2(e) {
+    
+    var elem     = e,
+        elems    = document.querySelectorAll('.playarea'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+    		voider=0
+        } else {
+        if (playerheld==0){
+        if (neverdie==0){
+        voider=1
+        }
+        }
+        }
+    }
+function clickHandlerleftwall() {
+    
+    var elem     = document.getElementById("playerleftcollision"),
+        elems    = document.querySelectorAll('.hitbox'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+    		leftinwall=1
+        } else {
+        leftinwall=0
+        }
+    }
+function clickHandlerdeadleftwall() {
+    
+    var elem     = document.getElementById("deadleftcollision"),
+        elems    = document.querySelectorAll('.hitbox'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+    		deadxchange=0
+				deadx+=1
+        }
+    }
+    function clickHandlerfakewall() {
+    
+    var elem     = document.getElementById("player"),
+        elems    = document.querySelectorAll('.fakewall'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+    		reveal1=1
+        } else {
+        reveal1=0
+        }
+    }
+function clickHandlerrightwall() {
+    
+    var elem     = document.getElementById("playerrightcollision"),
+        elems    = document.querySelectorAll('.hitbox'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+    		rightinwall=1
+        } else {
+        rightinwall=0
+        }
+    }
+function clickHandlerpushright() {
+    
+    var elem     = document.getElementById("playerleftcollision"),
+        elems    = document.querySelectorAll('.pushdeadright'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+    		deadrightinwall=1
+        } else {
+        deadrightinwall=0
+        }
+    }
+function clickHandlerpushleft() {
+    
+    var elem     = document.getElementById("playerrightcollision"),
+        elems    = document.querySelectorAll('.pushdeadleft'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+    		deadleftinwall=1
+        } else {
+        deadleftinwall=0
+        }
+    }
+function clickHandlerdeadrightwall() {
+    
+    var elem     = document.getElementById("deadrightcollision"),
+        elems    = document.querySelectorAll('.hitbox'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+    		deadxchange=0
+				deadx-=1
+        }
+    }
+function clickHandlerground() {
+    
+    var elem     = document.getElementById("playergroundcollision"),
+        elems    = document.querySelectorAll('.hitbox'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+    		downinwall=1
+        } else {
+        downinwall=0
+        }
+    }
+function clickHandlerdeadground() {
+    
+    var elem     = document.getElementById("deadgroundcollision"),
+        elems    = document.querySelectorAll('.hitbox'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+				deadychange=0
+				deady-=0.5
+        }
+    }
+    
+function clickHandlerdeadground2() {
+    
+    var elem     = document.getElementById("deadgroundcollision"),
+        elems    = document.querySelectorAll('.hitbox2'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+        deadychange=-1.5
+        }
+        }
+function clickHandlerceiling() {
+    
+    var elem     = document.getElementById("playerceilingcollision"),
+        elems    = document.querySelectorAll('.hitbox'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+    		upinwall=1
+        jumpgrav=0
+        playerychange=0
+        } else {
+        upinwall=0
+        }
+    }
+function clickHandlerdeadceiling() {
+    
+    var elem     = document.getElementById("deadceilingcollision"),
+        elems    = document.querySelectorAll('.hitbox'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+    		if (touching != "standdead"){
+        deadychange=0
+        }
+    }
+    }
+    function clickHandlerwalk() {
+    
+    var elem     = document.getElementById("playerwalkcollision"),
+        elems    = document.querySelectorAll('.hitbox'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+    		walking=1
+        } else {
+        walking=0
+        }
+    }
+    function clickHandlerfloor() {
+    
+    var elem     = document.getElementById("playerfloorcollision"),
+        elems    = document.querySelectorAll('.hitbox'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+    		flooring=1
+        } else {
+        flooring=0
+        }
+    }
+    function clickHandlerwater() {
+    
+    var elem     = document.getElementById("playerwatercollision"),
+        elems    = document.querySelectorAll('.water'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+    	  inwater=1
+        } else {
+        if (flight==0){
+        if (playerychange<=-4 && inwater==1){
+        playerychange=(playerychange*0.1875)
+        } else if (playerychange>-4 && playerychange<-2 && inwater==1){
+        playerychange=(playerychange*0.375)
+        } else if (playerychange<1 && playerychange>-2 && inwater==1){
+        playerychange=(playerychange*0.75)
+        }
+        }
+        inwater=0
+        }
+    }
+    function clickHandlerdeadfloat() {
+    
+    var elem     = document.getElementById("deadwatercollision"),
+        elems    = document.querySelectorAll('.water'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+        deadwater=1
+        } else {
+        deadwater=0
+        }
+    }
+    function clickHandlerair() {
+    
+    var elem     = document.getElementById("playeraircollision"),
+        elems    = document.querySelectorAll('.water'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+    	  breathing=0
+        } else {
+        breathing=1
+        }
+    }
+    function clickHandlerregen() {
+    
+    var elem     = document.getElementById("player"),
+        elems    = document.querySelectorAll('.autoheal'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+    	  canheal=1
+        document.getElementById("autoheal").remove()
+        }
+    }
+    function clickHandleradd() {
+    
+    var elem     = document.getElementById("player"),
+        elems    = document.querySelectorAll('.heal'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+    	  if (hp<12){
+        hp+=1
+        }
+        if (hp<12){
+        hp+=1
+        }
+        if (hp<12){
+        hp+=1
+        }
+        if (hp<12){
+        hp+=1
+        }
+        document.getElementById("heal").remove()
+        }
+    }
+    function clickHandleraddab() {
+    
+    var elem     = document.getElementById("player"),
+        elems    = document.querySelectorAll('.abheal'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+    	  if (hp<12 && abhp==0){
+        hp+=1
+        } else if (abhp<12){
+        abhp+=1
+        }
+        if (hp<12 && abhp==0){
+        hp+=1
+        } else if (abhp<12){
+        abhp+=1
+        }
+        if (hp<12 && abhp==0){
+        hp+=1
+        } else if (abhp<12){
+        abhp+=1
+        }
+        if (hp<12 && abhp==0){
+        hp+=1
+        } else if (abhp<12){
+        abhp+=1
+        }
+        document.getElementById("abheal").remove()
+        }
+    }
+    function clickHandlerbubble(e) {
+    
+    var elem     = e,
+        elems    = document.querySelectorAll('.water'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+        } else {
+        elem.remove()
+        }
+    }
+    function jumpornope(e) {
+    
+    var elem     = document.getElementById("playerwalkcollision"),
+        elems    = document.querySelectorAll('.collision'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+            touching.left
+            lasttouched="document.getElementById('"+touching+"')"
+        }
+    }
+    if (touching.length) {
+    		canjump=1
+        } else {
+        if (touching=="water"){
+        canjump=1
+        } else {
+        canjump=0
+        }
+        }
+    }
+    function clickHandler(e) {
+    
+    var elem     = e,
+        elems    = document.querySelectorAll('.collision'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+            touching.left
+            lasttouched="document.getElementById('"+touching+"')"
+        }
+    }
+    if (touching.length) {
+    		playercolliding=1
+        playerinair=0
+        } else {
+        if (touching=="water"){
+        playercolliding=1
+        playerinair=0
+        } else {
+        playercolliding=0
+        playerinair=1
+        }
+        }
+    }
+    function portalaHandler() {
+    
+    var elem     = document.getElementById("detectportal"),
+        elems    = document.querySelectorAll('.teleportera'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+            touching.left
+            portaltouched=touching
+        }
+    }
+    if (touching.length) {
+        teleporta=1
+        } else {
+				teleporta=0
+        }
+    }
+    function portalbHandler() {
+    
+    var elem     = document.getElementById("detectportal"),
+        elems    = document.querySelectorAll('.teleporterb'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+            touching.left
+            portaltouched=touching
+        }
+    }
+    if (touching.length) {
+        teleportb=1
+        } else {
+				teleportb=0
+        }
+    }
+document.body.addEventListener('mousemove', cursorpos);
+document.body.addEventListener('mousedown', holdplayer);
+document.body.addEventListener('mouseup', dropplayer);
+document.body.addEventListener('keydown', momentumon1);
+document.body.addEventListener('keyup', momentumoff);
+function cursorpos(e){
+  cursorx = e.clientX;
+  cursory = e.clientY;
+}
+function holdplayer(e){
+if (e.target.id=="player" && debug == 1){
+pickposx=playerx
+pickposy=playery
+nograv=1
+playerheld=1
+}
+}
+function dropplayer(e){
+if (e.target.id=="player"){
+pickposx=0
+pickposy=0
+nograv=0
+playerheld=0
+}
+}
+function momentumon1(e){
+if (freezemost==0){
+if (e.keyCode==65 && died==-1 && playerheld==0){
+if (flight==0){
+moving=-1
+} else if (flightx!=1) {
+flightx=-1
+}
+} else if (e.keyCode==68 && died==-1 && playerheld==0){
+if (flight==0){
+moving=1
+} else if (flightx!=-1) {
+flightx=1
+}
+} else if (e.keyCode==87 && died==-1 && playerheld==0){
+if (flight==1 && flightx!=1){
+flighty=-1
+}
+} else if (e.keyCode==83 && died==-1 && playerheld==0){
+if (flight==1 && flightx!=-1){
+flighty=1
+}
+} else if (e.keyCode==32 && died==-1 && playerheld==0){
+if (isjumping==0 || inwater==1){
+if (canjump==1 || inwater==1){
+if (inwater==1){
+jumpgrav=2
+isjumping=0
+} else {
+jumpgrav=2
+isjumping=1
+}
+}
+}
+} else if (e.keyCode==37 && freecammode==1){
+scrolld=-1
+} else if (e.keyCode==38 && freecammode==1){
+scrolld=-2
+} else if (e.keyCode==39 && freecammode==1){
+scrolld=1
+} else if (e.keyCode==40 && freecammode==1){
+scrolld=2
+} else {
+}
+}
+}
+function momentumoff(e){
+if (e.keyCode==65 && died==-1 && playerheld==0){
+moving=0
+if (flightx!=1){
+flightx=0
+}
+} else if (e.keyCode==87 && died==-1 && playerheld==0){
+if (flight==1 && flightx!=1){
+flighty=0
+}
+} else if (e.keyCode==83 && died==-1 && playerheld==0){
+if (flight==1 && flightx!=-1){
+flighty=0
+}
+} else if (e.keyCode==68 && died==-1 && playerheld==0){
+moving=0
+if (flightx!=-1){
+flightx=0
+}
+} else if (e.keyCode==37){
+scrolld=0
+} else if (e.keyCode==38){
+scrolld=0
+} else if (e.keyCode==39){
+scrolld=0
+} else if (e.keyCode==40){
+scrolld=0
+}
+}
+var momentumcalc = setInterval(function(){
+if (freezemost==0){
+playerxchange=playerxchange + (momentum/(debugspeed/playersize))
+}
+}, 10)
+var momentumtime = setInterval(function(){
+if (freezemost==0){
+if (moving==1 && momentum < 0.5){
+momentum+=(0.5/(inwater+1))
+} else if (moving==-1 && momentum > -0.5){
+momentum-=(0.5/(inwater+1))
+} else if (moving==0 && momentum > 0.5){
+momentum-=(0.5/(inwater+1))
+} else if (moving==0 && momentum < -0.5){
+momentum+=(0.5/(inwater+1))
+} else if (moving==0) {
+momentum=0
+if (died==-1){
+if (playerxchange>0.1 && playerxchange != 0 && moving==0){
+playerxchange=playerxchange-(0.1/(inwater+1))
+} else if (playerxchange<-0.1 && playerxchange != 0 && moving==0){
+playerxchange=playerxchange+(0.1/(inwater+1))
+}
+} else {
+if (walking==1 && playerxchange>0.1){
+playerxchange-=0.1
+} else if (walking==1 && playerxchange<-0.1){
+playerxchange+=0.1
+} else if (walking2==1 && playerxchange>0.1){
+playerxchange-=0.1
+} else if (walking2==1 && playerxchange<-0.1){
+playerxchange+=0.1
+}
+}
+if (playerxchange<=0.1 && playerxchange>=-0.1 && moving==0){
+playerxchange=0
+}
+}
+}
+}, 25)
+var collidetime = setInterval(function(){
+if (playercolliding==1 && playerinair==0){
+gravity=0
+} else {
+gravity=(1*(playersize*1.25))
+}
+}, 1)
+var collisioncheck = setInterval(function(){
+clickHandlerair()
+clickHandlerwater()
+clickHandlerdeadfloat()
+clickHandlerregen()
+clickHandleradd()
+clickHandleraddab()
+portalaHandler()
+portalbHandler()
+jumpornope()
+clickHandlerwalk()
+clickHandlerfloor()
+clickHandler(player)
+clickHandler2(player)
+clickHandlerfakewall()
+if (flight==0){
+if (upinwall==1 && downinwall==1 && leftinwall==1 && rightinwall==1){
+fullyinsidewall=1
+} else {
+fullyinsidewall=0
+if (upinwall==1 && playerheld==0){
+playerychange=0
+playery+=0.1
+jumpgrav=0
+}
+if (downinwall==1 && playerheld==0){
+playerychange=0
+playery-=0.1
+jumpgrav=0
+}
+if (leftinwall==1 && playerheld==0){
+playerxchange=0
+playerx+=0.1
+momentum=0
+}
+if (rightinwall==1 && playerheld==0){
+playerxchange=0
+playerx-=0.1
+momentum=0
+}
+}
+}
+clickHandlerrightwall()
+clickHandlerceiling()
+clickHandlerground()
+clickHandlerpushleft()
+clickHandlerpushright()
+clickHandlerleftwall()
+clickHandlerdeadrightwall()
+clickHandlerdeadceiling()
+clickHandlerdeadground()
+clickHandlerdeadground2()
+clickHandlerdeadleftwall()
+if (deadleftinwall==1){
+deadxchange=0
+deadx+=0.25
+playerx-=0.25
+if (playerxchange>0.25){
+playerxchange=0.25
+}
+momentum=0
+}
+if (deadrightinwall==1){
+deadxchange=0
+deadx-=0.25
+playerx+=0.25
+if (playerxchange<-0.25){
+playerxchange=-0.25
+}
+momentum=0
+}
+}, 1)
+var playercursor = setInterval(function(){
+if (playerheld==1){
+playerx=((pickposx-(10*playersize))+cursorx)+scrollf
+playery=((pickposy-(10*playersize))+cursory)+scrollp
+}
+}, 1)
+var perish = setInterval(function failure(){
+if (died==1){
+poisontimer=0
+poisonmstimer=0
+hp=0
+document.getElementById("ABSHEART12").style.fill="transparent"
+document.getElementById("ABSHEART11").style.fill="transparent"
+document.getElementById("ABSHEART10").style.fill="transparent"
+document.getElementById("ABSHEART9").style.fill="transparent"
+document.getElementById("ABSHEART8").style.fill="transparent"
+document.getElementById("ABSHEART7").style.fill="transparent"
+document.getElementById("ABSHEART6").style.fill="transparent"
+document.getElementById("ABSHEART5").style.fill="transparent"
+document.getElementById("ABSHEART4").style.fill="transparent"
+document.getElementById("ABSHEART3").style.fill="transparent"
+document.getElementById("ABSHEART2").style.fill="transparent"
+document.getElementById("ABSHEART1").style.fill="transparent"
+document.getElementById("HEART12").style.fill="#000000"
+document.getElementById("HEART11").style.fill="#000000"
+document.getElementById("HEART10").style.fill="#000000"
+document.getElementById("HEART9").style.fill="#000000"
+document.getElementById("HEART8").style.fill="#000000"
+document.getElementById("HEART7").style.fill="#000000"
+document.getElementById("HEART6").style.fill="#000000"
+document.getElementById("HEART5").style.fill="#000000"
+document.getElementById("HEART4").style.fill="#000000"
+document.getElementById("HEART3").style.fill="#000000"
+document.getElementById("HEART2").style.fill="#000000"
+document.getElementById("HEART1").style.fill="#000000"
+}
+}, 1)
+var debughealth = setInterval(function debug(){
+if (abhp>10 && abhp<=12){
+document.getElementById("timer123").style="z-index: 999999; position: fixed; left: 149px; top: 2px;"
+} else if (abhp>8 && abhp<=10){
+document.getElementById("timer123").style="z-index: 999999; position: fixed; left: 137px; top: 2px;"
+} else if (abhp>6 && abhp<=8){
+document.getElementById("timer123").style="z-index: 999999; position: fixed; left: 125px; top: 2px;"
+} else if (abhp>4 && abhp<=6){
+document.getElementById("timer123").style="z-index: 999999; position: fixed; left: 113px; top: 2px;"
+} else if (abhp>2 && abhp<=4){
+document.getElementById("timer123").style="z-index: 999999; position: fixed; left: 101px; top: 2px;"
+} else if (abhp>0 && abhp<=2){
+document.getElementById("timer123").style="z-index: 999999; position: fixed; left: 89px; top: 2px;"
+} else {
+document.getElementById("timer123").style="z-index: 999999; position: fixed; left: 77px; top: 2px;"
+}
+document.getElementById("debug0").innerText=version
+document.getElementById("debug1").innerText=hp+"/12"
+document.getElementById("debug2").innerText=abhp+"/12"
+document.getElementById("debug4").innerText=walking
+document.getElementById("debug7").innerText="("+Math.round(playerx)+", "+Math.round(playery)+")"
+if (playerxchange>0 && playerychange>0){
+document.getElementById("debug8").innerText="↑"+Math.round(playerxchange)+"x, ↑"+Math.round(playerychange)+"y"
+}
+if (playerxchange<0 && playerychange>0){
+document.getElementById("debug8").innerText="↓"+Math.round(playerxchange*-1)+"x, ↑"+Math.round(playerychange)+"y"
+}
+if (playerxchange==0 && playerychange>0){
+document.getElementById("debug8").innerText="↕"+Math.round(playerxchange)+"x, ↑"+Math.round(playerychange)+"y"
+}
+if (playerxchange==0 && playerychange<0){
+document.getElementById("debug8").innerText="↕"+Math.round(playerxchange)+"x, ↓"+Math.round(playerychange*-1)+"y"
+}
+if (playerxchange>0 && playerychange<0){
+document.getElementById("debug8").innerText="↑"+Math.round(playerxchange)+"x, ↓"+Math.round(playerychange*-1)+"y"
+}
+if (playerxchange>0 && playerychange==0){
+document.getElementById("debug8").innerText="↑"+Math.round(playerxchange)+"x, ↕"+Math.round(playerychange)+"y"
+}
+if (playerxchange<0 && playerychange==0){
+document.getElementById("debug8").innerText="↓"+Math.round(playerxchange*-1)+"x, ↕"+Math.round(playerychange)+"y"
+}
+if (playerxchange<0 && playerychange<0){
+document.getElementById("debug8").innerText="↓"+Math.round(playerxchange*-1)+"x, ↓"+Math.round(playerychange*-1)+"y"
+}
+if (playerxchange==0 && playerychange==0){
+document.getElementById("debug8").innerText="↕"+Math.round(playerxchange)+"x, ↕"+Math.round(playerychange)+"y"
+}
+if (poisontimer !== 0){
+document.getElementById("timer123").innerText="Poison: "+poisontimer+"s"
+document.getElementById("debug5").innerText="true"
+document.getElementById("debug6").innerText=poisonmstimer+"x"+poisontimer
+} else {
+document.getElementById("timer123").innerText=""
+document.getElementById("debug5").innerText="false"
+document.getElementById("debug6").innerText=""
+}
+if (inwater==1 || air!=75){
+document.getElementById("debug9").innerText=Math.round(air)+"/75"
+} else {
+document.getElementById("debug9").innerText=""
+}
+if (canheal==1){
+document.getElementById("debug3").innerText=healthcounter
+} else {
+document.getElementById("debug3").innerText=""
+}
+}, 1)
+var poison = setInterval(function poisoned(){
+if (poisontimer!=0 && poisonmstimer>=1){
+poisonmstimer=poisonmstimer-1
+}
+if (poisonmstimer<1 && poisontimer>0){
+poisontimer=poisontimer-1
+poisonmstimer=60
+if (abhp!=0){
+abhp=abhp-1
+} else {
+hp=hp-1
+healthcounter=-1000
+if (hp==0){
+died=1
+poisontimer=0
+poisonmstimer=60
+}
+}
+} else if (poisontimer==0){
+document.getElementById("timer123").innerText=""
+}
+}, 1)
+var health = setInterval(function (){
+if (hp>=12){
+document.getElementById("HEART12").style.fill="#FF0000"
+document.getElementById("HEART11").style.fill="#FF0000"
+document.getElementById("HEART10").style.fill="#FF0000"
+document.getElementById("HEART9").style.fill="#FF0000"
+document.getElementById("HEART8").style.fill="#FF0000"
+document.getElementById("HEART7").style.fill="#FF0000"
+document.getElementById("HEART6").style.fill="#FF0000"
+document.getElementById("HEART5").style.fill="#FF0000"
+document.getElementById("HEART4").style.fill="#FF0000"
+document.getElementById("HEART3").style.fill="#FF0000"
+document.getElementById("HEART2").style.fill="#FF0000"
+document.getElementById("HEART1").style.fill="#FF0000"
+} else if (hp==11){
+document.getElementById("HEART12").style.fill="#000000"
+document.getElementById("HEART11").style.fill="#FF0000"
+document.getElementById("HEART10").style.fill="#FF0000"
+document.getElementById("HEART9").style.fill="#FF0000"
+document.getElementById("HEART8").style.fill="#FF0000"
+document.getElementById("HEART7").style.fill="#FF0000"
+document.getElementById("HEART6").style.fill="#FF0000"
+document.getElementById("HEART5").style.fill="#FF0000"
+document.getElementById("HEART4").style.fill="#FF0000"
+document.getElementById("HEART3").style.fill="#FF0000"
+document.getElementById("HEART2").style.fill="#FF0000"
+document.getElementById("HEART1").style.fill="#FF0000"
+} else if (hp==10){
+document.getElementById("HEART12").style.fill="#000000"
+document.getElementById("HEART11").style.fill="#000000"
+document.getElementById("HEART10").style.fill="#FF0000"
+document.getElementById("HEART9").style.fill="#FF0000"
+document.getElementById("HEART8").style.fill="#FF0000"
+document.getElementById("HEART7").style.fill="#FF0000"
+document.getElementById("HEART6").style.fill="#FF0000"
+document.getElementById("HEART5").style.fill="#FF0000"
+document.getElementById("HEART4").style.fill="#FF0000"
+document.getElementById("HEART3").style.fill="#FF0000"
+document.getElementById("HEART2").style.fill="#FF0000"
+document.getElementById("HEART1").style.fill="#FF0000"
+} else if (hp==9){
+document.getElementById("HEART12").style.fill="#000000"
+document.getElementById("HEART11").style.fill="#000000"
+document.getElementById("HEART10").style.fill="#000000"
+document.getElementById("HEART9").style.fill="#FF0000"
+document.getElementById("HEART8").style.fill="#FF0000"
+document.getElementById("HEART7").style.fill="#FF0000"
+document.getElementById("HEART6").style.fill="#FF0000"
+document.getElementById("HEART5").style.fill="#FF0000"
+document.getElementById("HEART4").style.fill="#FF0000"
+document.getElementById("HEART3").style.fill="#FF0000"
+document.getElementById("HEART2").style.fill="#FF0000"
+document.getElementById("HEART1").style.fill="#FF0000"
+} else if (hp==8){
+document.getElementById("HEART12").style.fill="#000000"
+document.getElementById("HEART11").style.fill="#000000"
+document.getElementById("HEART10").style.fill="#000000"
+document.getElementById("HEART9").style.fill="#000000"
+document.getElementById("HEART8").style.fill="#FF0000"
+document.getElementById("HEART7").style.fill="#FF0000"
+document.getElementById("HEART6").style.fill="#FF0000"
+document.getElementById("HEART5").style.fill="#FF0000"
+document.getElementById("HEART4").style.fill="#FF0000"
+document.getElementById("HEART3").style.fill="#FF0000"
+document.getElementById("HEART2").style.fill="#FF0000"
+document.getElementById("HEART1").style.fill="#FF0000"
+} else if (hp==7){
+document.getElementById("HEART12").style.fill="#000000"
+document.getElementById("HEART11").style.fill="#000000"
+document.getElementById("HEART10").style.fill="#000000"
+document.getElementById("HEART9").style.fill="#000000"
+document.getElementById("HEART8").style.fill="#000000"
+document.getElementById("HEART7").style.fill="#FF0000"
+document.getElementById("HEART6").style.fill="#FF0000"
+document.getElementById("HEART5").style.fill="#FF0000"
+document.getElementById("HEART4").style.fill="#FF0000"
+document.getElementById("HEART3").style.fill="#FF0000"
+document.getElementById("HEART2").style.fill="#FF0000"
+document.getElementById("HEART1").style.fill="#FF0000"
+} else if (hp==6){
+document.getElementById("HEART12").style.fill="#000000"
+document.getElementById("HEART11").style.fill="#000000"
+document.getElementById("HEART10").style.fill="#000000"
+document.getElementById("HEART9").style.fill="#000000"
+document.getElementById("HEART8").style.fill="#000000"
+document.getElementById("HEART7").style.fill="#000000"
+document.getElementById("HEART6").style.fill="#FF0000"
+document.getElementById("HEART5").style.fill="#FF0000"
+document.getElementById("HEART4").style.fill="#FF0000"
+document.getElementById("HEART3").style.fill="#FF0000"
+document.getElementById("HEART2").style.fill="#FF0000"
+document.getElementById("HEART1").style.fill="#FF0000"
+} else if (hp==5){
+document.getElementById("HEART12").style.fill="#000000"
+document.getElementById("HEART11").style.fill="#000000"
+document.getElementById("HEART10").style.fill="#000000"
+document.getElementById("HEART9").style.fill="#000000"
+document.getElementById("HEART8").style.fill="#000000"
+document.getElementById("HEART7").style.fill="#000000"
+document.getElementById("HEART6").style.fill="#000000"
+document.getElementById("HEART5").style.fill="#FF0000"
+document.getElementById("HEART4").style.fill="#FF0000"
+document.getElementById("HEART3").style.fill="#FF0000"
+document.getElementById("HEART2").style.fill="#FF0000"
+document.getElementById("HEART1").style.fill="#FF0000"
+} else if (hp==4){
+document.getElementById("HEART12").style.fill="#000000"
+document.getElementById("HEART11").style.fill="#000000"
+document.getElementById("HEART10").style.fill="#000000"
+document.getElementById("HEART9").style.fill="#000000"
+document.getElementById("HEART8").style.fill="#000000"
+document.getElementById("HEART7").style.fill="#000000"
+document.getElementById("HEART6").style.fill="#000000"
+document.getElementById("HEART5").style.fill="#000000"
+document.getElementById("HEART4").style.fill="#FF0000"
+document.getElementById("HEART3").style.fill="#FF0000"
+document.getElementById("HEART2").style.fill="#FF0000"
+document.getElementById("HEART1").style.fill="#FF0000"
+} else if (hp==3){
+document.getElementById("HEART12").style.fill="#000000"
+document.getElementById("HEART11").style.fill="#000000"
+document.getElementById("HEART10").style.fill="#000000"
+document.getElementById("HEART9").style.fill="#000000"
+document.getElementById("HEART8").style.fill="#000000"
+document.getElementById("HEART7").style.fill="#000000"
+document.getElementById("HEART6").style.fill="#000000"
+document.getElementById("HEART5").style.fill="#000000"
+document.getElementById("HEART4").style.fill="#000000"
+document.getElementById("HEART3").style.fill="#FF0000"
+document.getElementById("HEART2").style.fill="#FF0000"
+document.getElementById("HEART1").style.fill="#FF0000"
+} else if (hp==2){
+document.getElementById("HEART12").style.fill="#000000"
+document.getElementById("HEART11").style.fill="#000000"
+document.getElementById("HEART10").style.fill="#000000"
+document.getElementById("HEART9").style.fill="#000000"
+document.getElementById("HEART8").style.fill="#000000"
+document.getElementById("HEART7").style.fill="#000000"
+document.getElementById("HEART6").style.fill="#000000"
+document.getElementById("HEART5").style.fill="#000000"
+document.getElementById("HEART4").style.fill="#000000"
+document.getElementById("HEART3").style.fill="#000000"
+document.getElementById("HEART2").style.fill="#FF0000"
+document.getElementById("HEART1").style.fill="#FF0000"
+} else if (hp==1){
+document.getElementById("HEART12").style.fill="#000000"
+document.getElementById("HEART11").style.fill="#000000"
+document.getElementById("HEART10").style.fill="#000000"
+document.getElementById("HEART9").style.fill="#000000"
+document.getElementById("HEART8").style.fill="#000000"
+document.getElementById("HEART7").style.fill="#000000"
+document.getElementById("HEART6").style.fill="#000000"
+document.getElementById("HEART5").style.fill="#000000"
+document.getElementById("HEART4").style.fill="#000000"
+document.getElementById("HEART3").style.fill="#000000"
+document.getElementById("HEART2").style.fill="#000000"
+document.getElementById("HEART1").style.fill="#FF0000"
+} else if (hp==0){
+document.getElementById("HEART12").style.fill="#000000"
+document.getElementById("HEART11").style.fill="#000000"
+document.getElementById("HEART10").style.fill="#000000"
+document.getElementById("HEART9").style.fill="#000000"
+document.getElementById("HEART8").style.fill="#000000"
+document.getElementById("HEART7").style.fill="#000000"
+document.getElementById("HEART6").style.fill="#000000"
+document.getElementById("HEART5").style.fill="#000000"
+document.getElementById("HEART4").style.fill="#000000"
+document.getElementById("HEART3").style.fill="#000000"
+document.getElementById("HEART2").style.fill="#000000"
+document.getElementById("HEART1").style.fill="#000000"
+}
+if (abhp==12){
+document.getElementById("ABSHEART12").style.fill="#FFFF00"
+document.getElementById("ABSHEART11").style.fill="#FFFF00"
+document.getElementById("ABSHEART10").style.fill="#FFFF00"
+document.getElementById("ABSHEART9").style.fill="#FFFF00"
+document.getElementById("ABSHEART8").style.fill="#FFFF00"
+document.getElementById("ABSHEART7").style.fill="#FFFF00"
+document.getElementById("ABSHEART6").style.fill="#FFFF00"
+document.getElementById("ABSHEART5").style.fill="#FFFF00"
+document.getElementById("ABSHEART4").style.fill="#FFFF00"
+document.getElementById("ABSHEART3").style.fill="#FFFF00"
+document.getElementById("ABSHEART2").style.fill="#FFFF00"
+document.getElementById("ABSHEART1").style.fill="#FFFF00"
+} else if (abhp==11){
+document.getElementById("ABSHEART12").style.fill="transparent"
+document.getElementById("ABSHEART11").style.fill="#FFFF00"
+document.getElementById("ABSHEART10").style.fill="#FFFF00"
+document.getElementById("ABSHEART9").style.fill="#FFFF00"
+document.getElementById("ABSHEART8").style.fill="#FFFF00"
+document.getElementById("ABSHEART7").style.fill="#FFFF00"
+document.getElementById("ABSHEART6").style.fill="#FFFF00"
+document.getElementById("ABSHEART5").style.fill="#FFFF00"
+document.getElementById("ABSHEART4").style.fill="#FFFF00"
+document.getElementById("ABSHEART3").style.fill="#FFFF00"
+document.getElementById("ABSHEART2").style.fill="#FFFF00"
+document.getElementById("ABSHEART1").style.fill="#FFFF00"
+} else if (abhp==10){
+document.getElementById("ABSHEART12").style.fill="transparent"
+document.getElementById("ABSHEART11").style.fill="transparent"
+document.getElementById("ABSHEART10").style.fill="#FFFF00"
+document.getElementById("ABSHEART9").style.fill="#FFFF00"
+document.getElementById("ABSHEART8").style.fill="#FFFF00"
+document.getElementById("ABSHEART7").style.fill="#FFFF00"
+document.getElementById("ABSHEART6").style.fill="#FFFF00"
+document.getElementById("ABSHEART5").style.fill="#FFFF00"
+document.getElementById("ABSHEART4").style.fill="#FFFF00"
+document.getElementById("ABSHEART3").style.fill="#FFFF00"
+document.getElementById("ABSHEART2").style.fill="#FFFF00"
+document.getElementById("ABSHEART1").style.fill="#FFFF00"
+} else if (abhp==9){
+document.getElementById("ABSHEART12").style.fill="transparent"
+document.getElementById("ABSHEART11").style.fill="transparent"
+document.getElementById("ABSHEART10").style.fill="transparent"
+document.getElementById("ABSHEART9").style.fill="#FFFF00"
+document.getElementById("ABSHEART8").style.fill="#FFFF00"
+document.getElementById("ABSHEART7").style.fill="#FFFF00"
+document.getElementById("ABSHEART6").style.fill="#FFFF00"
+document.getElementById("ABSHEART5").style.fill="#FFFF00"
+document.getElementById("ABSHEART4").style.fill="#FFFF00"
+document.getElementById("ABSHEART3").style.fill="#FFFF00"
+document.getElementById("ABSHEART2").style.fill="#FFFF00"
+document.getElementById("ABSHEART1").style.fill="#FFFF00"
+} else if (abhp==8){
+document.getElementById("ABSHEART12").style.fill="transparent"
+document.getElementById("ABSHEART11").style.fill="transparent"
+document.getElementById("ABSHEART10").style.fill="transparent"
+document.getElementById("ABSHEART9").style.fill="transparent"
+document.getElementById("ABSHEART8").style.fill="#FFFF00"
+document.getElementById("ABSHEART7").style.fill="#FFFF00"
+document.getElementById("ABSHEART6").style.fill="#FFFF00"
+document.getElementById("ABSHEART5").style.fill="#FFFF00"
+document.getElementById("ABSHEART4").style.fill="#FFFF00"
+document.getElementById("ABSHEART3").style.fill="#FFFF00"
+document.getElementById("ABSHEART2").style.fill="#FFFF00"
+document.getElementById("ABSHEART1").style.fill="#FFFF00"
+} else if (abhp==7){
+document.getElementById("ABSHEART12").style.fill="transparent"
+document.getElementById("ABSHEART11").style.fill="transparent"
+document.getElementById("ABSHEART10").style.fill="transparent"
+document.getElementById("ABSHEART9").style.fill="transparent"
+document.getElementById("ABSHEART8").style.fill="transparent"
+document.getElementById("ABSHEART7").style.fill="#FFFF00"
+document.getElementById("ABSHEART6").style.fill="#FFFF00"
+document.getElementById("ABSHEART5").style.fill="#FFFF00"
+document.getElementById("ABSHEART4").style.fill="#FFFF00"
+document.getElementById("ABSHEART3").style.fill="#FFFF00"
+document.getElementById("ABSHEART2").style.fill="#FFFF00"
+document.getElementById("ABSHEART1").style.fill="#FFFF00"
+} else if (abhp==6){
+document.getElementById("ABSHEART12").style.fill="transparent"
+document.getElementById("ABSHEART11").style.fill="transparent"
+document.getElementById("ABSHEART10").style.fill="transparent"
+document.getElementById("ABSHEART9").style.fill="transparent"
+document.getElementById("ABSHEART8").style.fill="transparent"
+document.getElementById("ABSHEART7").style.fill="transparent"
+document.getElementById("ABSHEART6").style.fill="#FFFF00"
+document.getElementById("ABSHEART5").style.fill="#FFFF00"
+document.getElementById("ABSHEART4").style.fill="#FFFF00"
+document.getElementById("ABSHEART3").style.fill="#FFFF00"
+document.getElementById("ABSHEART2").style.fill="#FFFF00"
+document.getElementById("ABSHEART1").style.fill="#FFFF00"
+} else if (abhp==5){
+document.getElementById("ABSHEART12").style.fill="transparent"
+document.getElementById("ABSHEART11").style.fill="transparent"
+document.getElementById("ABSHEART10").style.fill="transparent"
+document.getElementById("ABSHEART9").style.fill="transparent"
+document.getElementById("ABSHEART8").style.fill="transparent"
+document.getElementById("ABSHEART7").style.fill="transparent"
+document.getElementById("ABSHEART6").style.fill="transparent"
+document.getElementById("ABSHEART5").style.fill="#FFFF00"
+document.getElementById("ABSHEART4").style.fill="#FFFF00"
+document.getElementById("ABSHEART3").style.fill="#FFFF00"
+document.getElementById("ABSHEART2").style.fill="#FFFF00"
+document.getElementById("ABSHEART1").style.fill="#FFFF00"
+} else if (abhp==4){
+document.getElementById("ABSHEART12").style.fill="transparent"
+document.getElementById("ABSHEART11").style.fill="transparent"
+document.getElementById("ABSHEART10").style.fill="transparent"
+document.getElementById("ABSHEART9").style.fill="transparent"
+document.getElementById("ABSHEART8").style.fill="transparent"
+document.getElementById("ABSHEART7").style.fill="transparent"
+document.getElementById("ABSHEART6").style.fill="transparent"
+document.getElementById("ABSHEART5").style.fill="transparent"
+document.getElementById("ABSHEART4").style.fill="#FFFF00"
+document.getElementById("ABSHEART3").style.fill="#FFFF00"
+document.getElementById("ABSHEART2").style.fill="#FFFF00"
+document.getElementById("ABSHEART1").style.fill="#FFFF00"
+} else if (abhp==3){
+document.getElementById("ABSHEART12").style.fill="transparent"
+document.getElementById("ABSHEART11").style.fill="transparent"
+document.getElementById("ABSHEART10").style.fill="transparent"
+document.getElementById("ABSHEART9").style.fill="transparent"
+document.getElementById("ABSHEART8").style.fill="transparent"
+document.getElementById("ABSHEART7").style.fill="transparent"
+document.getElementById("ABSHEART6").style.fill="transparent"
+document.getElementById("ABSHEART5").style.fill="transparent"
+document.getElementById("ABSHEART4").style.fill="transparent"
+document.getElementById("ABSHEART3").style.fill="#FFFF00"
+document.getElementById("ABSHEART2").style.fill="#FFFF00"
+document.getElementById("ABSHEART1").style.fill="#FFFF00"
+} else if (abhp==2){
+document.getElementById("ABSHEART12").style.fill="transparent"
+document.getElementById("ABSHEART11").style.fill="transparent"
+document.getElementById("ABSHEART10").style.fill="transparent"
+document.getElementById("ABSHEART9").style.fill="transparent"
+document.getElementById("ABSHEART8").style.fill="transparent"
+document.getElementById("ABSHEART7").style.fill="transparent"
+document.getElementById("ABSHEART6").style.fill="transparent"
+document.getElementById("ABSHEART5").style.fill="transparent"
+document.getElementById("ABSHEART4").style.fill="transparent"
+document.getElementById("ABSHEART3").style.fill="transparent"
+document.getElementById("ABSHEART2").style.fill="#FFFF00"
+document.getElementById("ABSHEART1").style.fill="#FFFF00"
+} else if (abhp==1){
+document.getElementById("ABSHEART12").style.fill="transparent"
+document.getElementById("ABSHEART11").style.fill="transparent"
+document.getElementById("ABSHEART10").style.fill="transparent"
+document.getElementById("ABSHEART9").style.fill="transparent"
+document.getElementById("ABSHEART8").style.fill="transparent"
+document.getElementById("ABSHEART7").style.fill="transparent"
+document.getElementById("ABSHEART6").style.fill="transparent"
+document.getElementById("ABSHEART5").style.fill="transparent"
+document.getElementById("ABSHEART4").style.fill="transparent"
+document.getElementById("ABSHEART3").style.fill="transparent"
+document.getElementById("ABSHEART2").style.fill="transparent"
+document.getElementById("ABSHEART1").style.fill="#FFFF00"
+} else if (abhp==0){
+document.getElementById("ABSHEART12").style.fill="transparent"
+document.getElementById("ABSHEART11").style.fill="transparent"
+document.getElementById("ABSHEART10").style.fill="transparent"
+document.getElementById("ABSHEART9").style.fill="transparent"
+document.getElementById("ABSHEART8").style.fill="transparent"
+document.getElementById("ABSHEART7").style.fill="transparent"
+document.getElementById("ABSHEART6").style.fill="transparent"
+document.getElementById("ABSHEART5").style.fill="transparent"
+document.getElementById("ABSHEART4").style.fill="transparent"
+document.getElementById("ABSHEART3").style.fill="transparent"
+document.getElementById("ABSHEART2").style.fill="transparent"
+document.getElementById("ABSHEART1").style.fill="transparent"
+}
+}, 1)
+function bubblemaker(){
+if (died==-1 && gills==0 && inwater==1){
+var bubbl = document.createElement("a")
+bubbl.setAttribute('class', 'bubble')
+bubblerand=(Math.floor(Math.random() * (playerw)))
+bubbl.style="position: absolute; width: 8px; height: 8px; left: "+((playerx+bubblerand)-(playerw/(2*playeropps)))+"px; top:"+playery+"px; border: 2px solid #0088FF; border-radius: 100%;"
+document.body.appendChild(bubbl)
+}
+}
+//function playerclone(){var clone = document.createElement("a"); clone.innerHTML='<a id="player2" style="z-index: 999; display: inline-block; width: 20px; height: 20px; background-color: transparent; position: absolute; left: -20px; top: -20px;"><div id="playerleftcollision2" style="display: inline-block; width: 1px; height: 15px; background-color: #FF0000; position: relative; left: 0px; top: 2px"></div><div id="playerrightcollision2" style="display: inline-block; width: 1px; height: 15px; background-color: #FF0000; left: 18px; position: relative; top: 2px"></div><div id="playergroundcollision2" style="display: inline-block; width: 20px; height: 1px; background-color: #0088FF; left: 0px; position: relative; top: -13px"></div><div id="playerceilingcollision2" style="display: inline-block; width: 18px; height: 1px; background-color: #0088FF; left: 1px; position: relative; top: -50px"></div>';document.body.appendChild(clone);}
+var bubblefreqthing = function() {
+	bubblemaker()
+  bubblefreq=((2250*(air/75))+250)
+  timeout = setTimeout(bubblefreqthing, bubblefreq);
+}
+var timeout = setTimeout(bubblefreqthing, bubblefreq);
+var bubblemover = setInterval(function(){
+bubbleexist = document.querySelectorAll('.bubble');
+bubbleexist.forEach(existingelement => {
+  bubbley=existingelement.offsetTop
+  existingelement.style.top=(bubbley-1)+"px"
+  bubbley=0
+  clickHandlerbubble(existingelement)
+})
+}, 25)
+var flying = setInterval(function(){
+if (flighty==-1){
+playery+=-1
+}
+if (flighty==1){
+playery+=1
+}
+if (flightx==-1){
+playerx+=-1
+}
+if (flightx==1){
+playerx+=1
+}
+}, 1)
+var breathe = setInterval(function(){
+if (died==-1 && freezemost==0){
+if (breathing==0 && gills==0 || fullyinsidewall==1 || breathing==1 && gills==1){
+if (noairnoprob==0){
+air=air-0.25
+}
+} else if (breathing==1 && air<75 && gills==0 || breathing==0 && air<75 && gills==1 || fullyinsidewall==1 && air<75){
+if (air<0){
+air=0
+} else if (died==-1){
+air=air+2.5
+if (air>75){
+air=75
+}
+}
+}
+} else {
+if (air!=0 && died==1){
+air=air-2.5
+}
+}
+document.getElementById("airamount").style="z-index: 9999999; display: inline-block; position: fixed; height: 5px; overflow: hidden; width: 75px; top: 20px; left: "+(air-75)+"px; background-color: #008FFF"
+}, 50)
+function MobileDetectr(){
+iOS(checksout)
+if (checksout=="iPad" || checksout=="iPhone" || checksout=="iPod"){
+mobile=1
+} else {
+mobile=0
+}
+}
+function iOS() {
+  return [
+    'iPad Simulator',
+    'iPhone Simulator',
+    'iPod Simulator',
+    'iPad',
+    'iPhone',
+    'iPod'
+  ].includes(navigator.platform)
+  // iPad on iOS 13 detection
+  || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+}
+mobileshift.onpointerdown = function() {
+	if (flight==1){
+  flighty=1
+  }
+}
+mobileshift.onpointerup = function() {
+	if (flighty==1){
+  flighty=0
+  }
+}
+mobilejump.onpointerdown = function() {
+	if (flight==1){
+  flighty=-1
+  }
+}
+mobilejump.onpointerup = function() {
+	if (flighty==-1){
+  flighty=0
+  }
+}
+mobileleft.onpointerdown = function() {
+	if (flight==0){
+  moving=-1
+  } else if (flightx!=1) {
+  flightx=-1
+  }
+}
+mobileleft.onpointerup = function() {
+  moving=0
+  if (flightx!=1){
+  flightx=0
+  }
+}
+mobileright.onpointerdown = function() {
+	if (flight==0){
+  moving=1
+  } else if (flightx!=-1) {
+  flightx=1
+  }
+}
+mobileright.onpointerup = function() {
+  moving=0
+  if (flightx!=-1){
+  flightx=0
+  }
+}
+MobileDetectr()
+var voiddamage = setInterval(function(){
+if (died==-1 && voider==1 && freezemost==0){
+if (abhp!=0){
+abhp-=1
+} else if (hp>1) {
+hp-=1
+healthcounter=-1000
+} else {
+hp-=1
+healthcounter=-1000
+died=1
+}
+}
+}, 777)
+var regen = setInterval(function(){
+if (died==-1 && hp<12 && breathing==1 && canheal==1){
+if (healthcounter>=250){
+hp=hp+1
+healthcounter-=250
+} else {
+healthcounter+=1
+}
+} else {
+healthcounter=-1000
+}
+}, 10)
+function spawndeadplayer(){
+if (died==1 && spawns !== 0){
+if (dead==0){
+deadx=playerx
+deady=playery
+deadxchange=playerxchange
+deadychange=playerychange
+document.getElementById("deadplayer").opacity=0
+dead=1
+} else {
+deadx=playerx
+deady=playery
+deadxchange=playerxchange
+deadychange=playerychange
+document.getElementById("deadplayer").opacity=0
+}
+}
+}
+</script>
