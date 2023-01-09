@@ -8,8 +8,8 @@
 </div></body>
 <script>
 var luigispin=0
-var luigix=(((window.innerWidth)/2)-50);
-var luigiy=(((window.innerHeight)/2)-37);
+var luigix=((Math.floor(Math.random() * (window.innerWidth-75)))+76);
+var luigiy=((Math.floor(Math.random() * (window.innerHeight-100)))+101);
 var luigixdir=1
 var luigiydir=-1
 var luigispeed=1
@@ -19,6 +19,14 @@ var setting=0
 var dimensions=0
 var colorchange=0
 var bars=0
+luigixdir=(Math.random() * 2)
+if (luigixdir==0){
+luigixdir=-1
+}
+luigiydir=(Math.random() * 2)
+if (luigiydir==0){
+luigiydir=-1
+}
 var luigi = setInterval(function(){
 leftwall()
 rightwall()
@@ -157,10 +165,16 @@ function rightwall() {
         }
     }
     function reportWindowSize() {
-    //luigix = (((window.innerWidth)/2)-50);
-    //luigiy = (((window.innerHeight)/2)-37);
-    //luigixdir=1
-    //luigiydir=-1
+    luigix = ((Math.floor(Math.random() * (window.innerWidth-75)))+76);
+    luigiy = ((Math.floor(Math.random() * (window.innerHeight-100)))+101);
+    luigixdir=(Math.random() * 2)
+    if (luigixdir==0){
+    luigixdir=-1
+    }
+    luigiydir=(Math.random() * 2)
+    if (luigiydir==0){
+    luigiydir=-1
+    }
     //console.log("resized to ("+luigix+"x"+luigiy+")")
     }
     window.addEventListener("resize", reportWindowSize);
