@@ -1,0 +1,168 @@
+<body style="overflow: hidden">
+<button style="position:absolute; bottom: 0px; right: 0px; width: 100%;" onclick="settings()">Luigi Settings</button>
+<div id="main" style="background-color: transparent; position: absolute; height: 100%; width: 100%; left: 0%; top: 0%;">
+<div class="topwall" style="width: 300%;position: absolute;height: 100%;top: -100%;left: -100%;background-color: #333333;"></div>
+<div class="bottomwall" style="width: 300%;position: absolute;height: 100%;bottom: -100%;left: -100%;background-color: #333333;"></div>
+<div class="leftwall" style="width: 100%;position: absolute;height: 300%;top: -100%;left: -100%;background-color: #333333;"></div>
+<div class="rightwall" style="width: 100%;position: absolute;height: 300%;bottom: -100%;right: -100%;background-color: #333333;"></div>
+<img id="luigi" style="position: absolute; right: calc(50% - 50px); bottom: calc(50% - 37px); width: 100px; height: 75px; filter: invert(100%) brightness(0.5) sepia(1) saturate(10000%) hue-rotate(128deg);" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/DVD_logo.svg/2560px-DVD_logo.svg.png">
+</div></body>
+<script>
+var luigispin=0
+var luigix=(((window.innerWidth)/2)-50);
+var luigiy=(((window.innerHeight)/2)-37);
+var luigixdir=1
+var luigiydir=-1
+var luigispeed=1
+var luigixsize=100
+var luigiysize=75
+var setting=0
+var dimensions=0
+var colorchange=0
+var bars=0
+var luigi = setInterval(function(){
+leftwall()
+rightwall()
+topwall()
+bottomwall()
+if (luigixdir==1){
+luigix-=luigispeed
+} else if (luigixdir==-1){
+luigix+=luigispeed
+}
+if (luigiydir==1){
+luigiy+=luigispeed
+} else if (luigiydir==-1){
+luigiy-=luigispeed
+}
+document.getElementById("luigi").style="position: absolute; right: "+luigix+"px; bottom: "+luigiy+"px; width: "+luigixsize+"px; height: "+luigiysize+"px; filter: invert(100%) brightness(0.5) sepia(1) saturate(10000%) hue-rotate("+colorchange+"deg)"
+}, 10)
+function changebars(){
+if (bars==1){
+bars=0
+document.getElementById("topwall").style="width: 300%;position: absolute;height: 100%;top: -100%;left: -100%;background-color: #333333;"
+document.getElementById("bottomwall").style="width: 300%;position: absolute;height: 100%;bottom: -100%;left: -100%;background-color: #333333;"
+document.getElementById("leftwall").style="width: 100%;position: absolute;height: 300%;top: -100%;left: -100%;background-color: #333333;"
+document.getElementById("rightwall").style="width: 100%;position: absolute;height: 300%;bottom: -100%;right: -100%;background-color: #333333;"
+} else if (bars==0){
+bars=1
+document.getElementById("topwall").style="width: 300%;position: absolute;height: 100%;top: -97%;left: -100%;background-color: #333333;"
+document.getElementById("bottomwall").style="width: 300%;position: absolute;height: 100%;bottom: -97%;left: -100%;background-color: #333333;"
+document.getElementById("leftwall").style="width: 100%;position: absolute;height: 300%;top: -100%;left: -83%;background-color: #333333;"
+document.getElementById("rightwall").style="width: 100%;position: absolute;height: 300%;bottom: -100%;right: -83%;background-color: #333333;"
+}
+reportWindowSize()
+}
+var detectOverlap = (function () {
+    function getPositions(elem) {
+        var pos = elem.getBoundingClientRect();
+        return [[pos.left, pos.right], [pos.top, pos.bottom]];
+    }
+
+    function comparePositions(p1, p2) {
+        var r1, r2;
+        if (p1[0] < p2[0]) {
+          r1 = p1;
+          r2 = p2;
+        } else {
+          r1 = p2;
+          r2 = p1;
+        }
+        return r1[1] > r2[0] || r1[0] === r2[0];
+    }
+
+    return function (a, b) {
+        var pos1 = getPositions(a),
+            pos2 = getPositions(b);
+        return comparePositions(pos1[0], pos2[0]) && comparePositions(pos1[1], pos2[1]);
+    };
+})();
+function rightwall() {
+    
+    var elem     = document.getElementById("luigi"),
+        elems    = document.querySelectorAll('.rightwall'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+        luigixdir=-1
+        colorchange=Math.floor((Math.random() * 89)*4);
+        }
+    }
+    function leftwall() {
+    
+    var elem     = document.getElementById("luigi"),
+        elems    = document.querySelectorAll('.leftwall'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+        luigixdir=1
+        colorchange=Math.floor((Math.random() * 89)*4);
+        }
+    }
+    function topwall() {
+    
+    var elem     = document.getElementById("luigi"),
+        elems    = document.querySelectorAll('.topwall'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+        luigiydir=-1
+        colorchange=Math.floor((Math.random() * 89)*4);
+        }
+    }
+    function bottomwall() {
+    
+    var elem     = document.getElementById("luigi"),
+        elems    = document.querySelectorAll('.bottomwall'),
+        elemList = Array.prototype.slice.call(elems),
+        within   = elemList.indexOf(elem),
+        touching = [];
+    if (within !== -1) {
+        elemList.splice(within, 1);
+    }
+    for (var i = 0; i < elemList.length; i++) {
+        if (detectOverlap(elem, elemList[i])) {
+            touching.push(elemList[i].id);
+        }
+    }
+    if (touching.length) {
+        luigiydir=1
+        colorchange=Math.floor((Math.random() * 89)*4);
+        }
+    }
+    function reportWindowSize() {
+    luigix = (((window.innerWidth)/2)-50);
+    luigiy = (((window.innerHeight)/2)-37);
+    luigixdir=1
+    luigiydir=-1
+    //console.log("resized to ("+luigix+"x"+luigiy+")")
+    }
+    window.addEventListener("resize", reportWindowSize);
+    </script>
