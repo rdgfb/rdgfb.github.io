@@ -19,11 +19,11 @@ var setting=0
 var dimensions=0
 var colorchange=0
 var bars=0
-luigixdir=(Math.random() * 2)
+luigixdir=(Math.random() * 2).toFixed(0)
 if (luigixdir==0){
 luigixdir=-1
 }
-luigiydir=(Math.random() * 2)
+luigiydir=(Math.random() * 2).toFixed(0)
 if (luigiydir==0){
 luigiydir=-1
 }
@@ -168,11 +168,11 @@ function rightwall() {
     function reportWindowSize() {
     luigix = ((Math.floor(Math.random() * (window.innerWidth-75)))+76);
     luigiy = ((Math.floor(Math.random() * (window.innerHeight-100)))+101);
-    luigixdir=(Math.random() * 2)
+    luigixdir=(Math.random() * 2).toFixed(0)
     if (luigixdir==0){
     luigixdir=-1
     }
-    luigiydir=(Math.random() * 2)
+    luigiydir=(Math.random() * 2).toFixed(0)
     if (luigiydir==0){
     luigiydir=-1
     }
