@@ -8,8 +8,8 @@
 </div></body>
 <script>
 var luigispin=0
-var luigix=((Math.floor(Math.random() * (window.innerWidth-75)))+76);
-var luigiy=((Math.floor(Math.random() * (window.innerHeight-100)))+101);
+var luigix=(Math.floor(Math.random() * (window.innerWidth-100)));
+var luigiy=(Math.floor(Math.random() * (window.innerHeight-75)));
 var luigixdir=1
 var luigiydir=-1
 var luigispeed=1
@@ -19,11 +19,11 @@ var setting=0
 var dimensions=0
 var colorchange=0
 var bars=0
-luigixdir=(Math.random() * 2).toFixed(0)
+luigixdir=(Math.random() * 1).toFixed(0)
 if (luigixdir==0){
 luigixdir=-1
 }
-luigiydir=(Math.random() * 2).toFixed(0)
+luigiydir=(Math.random() * 1).toFixed(0)
 if (luigiydir==0){
 luigiydir=-1
 }
@@ -166,13 +166,13 @@ function rightwall() {
         }
     }
     function reportWindowSize() {
-    luigix = ((Math.floor(Math.random() * (window.innerWidth-75)))+76);
-    luigiy = ((Math.floor(Math.random() * (window.innerHeight-100)))+101);
-    luigixdir=(Math.random() * 2).toFixed(0)
+    luigix = (Math.floor(Math.random() * (window.innerWidth-100)));
+    luigiy = (Math.floor(Math.random() * (window.innerHeight-75)));
+    luigixdir=(Math.random() * 1).toFixed(0)
     if (luigixdir==0){
     luigixdir=-1
     }
-    luigiydir=(Math.random() * 2).toFixed(0)
+    luigiydir=(Math.random() * 1).toFixed(0)
     if (luigiydir==0){
     luigiydir=-1
     }
