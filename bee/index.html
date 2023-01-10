@@ -1398,6 +1398,11 @@ fade-=0.01
 } else {
 document.getElementById("timerthing").style.opacity=0
 }
+if (fade==0){
+document.body.style="animation-name: rainbowback; animation-duration: "+timer+"s; animation-iteration-count: 999999999;animation-timing-function: linear;"
+document.getElementById("marquee").style="animation-name: rainbowcolor; animation-duration: "+timer+"s; animation-timing-function: linear; white-space: pre;text-align: center;width: 100%;height:27260px;position: absolute;left: 0px;bottom: 0px; animation-iteration-count: 999999999;"
+document.getElementById("marquee").scrollAmount=speed
+}
 }, 10)
 function apply(){
 if (selection==1){
@@ -1432,9 +1437,6 @@ document.getElementById("valleft").style.color="#888888"
 document.getElementById("valleft").style.color="#FFFFFF"
 }
 }
-document.body.style="animation-name: rainbowback; animation-duration: "+timer+"s; animation-iteration-count: 999999999;animation-timing-function: linear;"
-document.getElementById("marquee").style="animation-name: rainbowcolor; animation-duration: "+timer+"s; animation-timing-function: linear; white-space: pre;text-align: center;width: 100%;height:27260px;position: absolute;left: 0px;bottom: 0px; animation-iteration-count: 999999999;"
-document.getElementById("marquee").scrollAmount=speed
 fade=2
 }
 document.addEventListener("keydown", (event) => {changeSpeed(event.keyCode)});
