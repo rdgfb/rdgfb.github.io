@@ -14,10 +14,10 @@ record=letters
 if (document.getElementById("wpmmeter") !== null && document.getElementById("wpm") !== null){
 if (letters!==0 || record==0){
 document.getElementById("wpmtext").innerText="current"
-document.getElementById("wpm").innerText=((letters/6).toFixed(0))+" WPM"
+document.getElementById("wpm").innerText=((letters/5).toFixed(0))+" WPM"
 } else {
 document.getElementById("wpmtext").innerText="record"
-document.getElementById("wpm").innerText=((record/6).toFixed(0))+" WPM"
+document.getElementById("wpm").innerText=((record/5).toFixed(0))+" WPM"
 }
 }
 }, 10)
