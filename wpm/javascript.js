@@ -33,10 +33,10 @@ down=0
 }
 }
 function wpmvis(){
-letters+=6
+letters+=5
 setTimeout(function(){
-letters-=6
-}, 10000);
+letters-=5
+}, 12000);
 }
 document.addEventListener("keydown", keydown);
 document.addEventListener("keyup", keyup);
