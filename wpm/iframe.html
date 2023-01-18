@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+</body>
+<script>
+var letters=0
+var down=0
+var record=0
+var typingoff=0
+var div = document.createElement("div")
+div.id="wpmmeter"
+div.innerHTML='<a id="wpm" style="left: 0px; bottom: 2px; position: absolute; width: 76px; text-align: center;">0 WPM</a><a id="wpmtext" style="left: 0px; bottom: 20px; position: absolute; width: 76px;">current</a>'
+div.style="color: rgb(255, 255, 255); text-align: center;border-radius: 45px; background-color: rgb(0, 0, 0); opacity: 0.5; position: absolute; left: 0px; bottom: 0px; width: 76px; height: 40px; pointer-events: none;"
+document.body.appendChild(div)
+var wpm=setInterval(function(){
+if (letters>record){
+record=letters
+}
+if (document.getElementById("wpmmeter") !== null && document.getElementById("wpm") !== null){
+if (letters!==0 || record==0){
+document.getElementById("wpmtext").innerText="current"
+document.getElementById("wpm").innerText=((letters/5).toFixed(0))+" WPM"
+} else {
+document.getElementById("wpmtext").innerText="record"
+document.getElementById("wpm").innerText=((record/5).toFixed(0))+" WPM"
+}
+}
+}, 10)
+function keydown(){
+if (down!==1){
+down=1
+wpmvis()
+}
+}
+function keyup(){
+if (down!==0){
+down=0
+}
+}
+function wpmvis(){
+letters+=5
+setTimeout(function(){
+letters-=5
+}, 12000);
+}
+document.addEventListener("keydown", keydown);
+document.addEventListener("keyup", keyup);
+</script>
+</html>
