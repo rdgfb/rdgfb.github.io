@@ -1,7 +1,7 @@
 # rdgfb.github.io
 ## the site that is rarily updated!
 ## a lot of things here are probably being developed on.
-## i guess this is where developing projects of mine exist
+## i guess this is where developing projects (that need public testing) of mine exist
 
 # official link section, because advertising
 https://www.github.com/rdgfb/
