@@ -1,0 +1,316 @@
+<html>
+<head>
+<title>Progress #2: Stage 1/5</title>
+</head>
+<style>
+@keyframes selection{
+    0%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 0.25;
+    }
+}
+@keyframes reselect{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0.75;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes unselect{
+    0%{
+        opacity: 0.125;
+    }
+    50%{
+        opacity: 0.375;
+    }
+    100%{
+        opacity: 0.125;
+    }
+}
+@keyframes unselect2{
+    0%{
+        opacity: 0.25;
+        filter: saturate(0.75);
+    }
+    50%{
+        opacity: 0.75;
+        filter: saturate(0.375);
+    }
+    100%{
+        opacity: 0.25;
+        filter: saturate(0.75);
+    }
+}
+@keyframes money{
+    0%{
+        transform: rotateY(0deg);
+    }
+    100%{
+        transform: rotateY(180deg);
+    }
+}
+@keyframes gameoverfade{
+    0%{
+        transform: scale(90) translate(-50%, -50%);
+    }
+    100%{
+        transform: scale(1) translate(-50%, -50%);
+    }
+}
+.animempty{
+    opacity: 0.125;
+    animation: unselect 3s linear infinite 1.25s;
+    transition: opacity 1.25s ease-in-out;
+}
+.animlessempty{
+    opacity: 0.5;
+    animation: unselect2 3s linear infinite 1.25s;
+    transition: opacity 1.25s ease-in-out;
+}
+.animfill{
+    opacity: 1;
+    animation: reselect 3s linear infinite 1.25s;
+    transition: opacity 1.25s ease-in-out;
+}
+.ladderin{
+    background: linear-gradient(90deg, #C3785BFF 0%, #985f49FF 10%, #985f4900 10%, #985f4900 90%, #985f4900 90%, #C3785B00 90%, #985f49FF 90%, #C3785BFF 100%), repeating-linear-gradient(0deg, #985f4900 6%, #985f4900 23%, #985f49FF 23%, #E79570FF 32%, #E7957000 32%, #E7957000 40%);
+    transform: rotateY(45deg);
+    width: 100%;
+    height: 100%;
+}
+.block1{
+    background-color: #4444CC;
+    z-index: 4;
+}
+.block2{
+    background: #AAAAAA;
+    z-index: 4;
+}
+.block3{
+    background: #004488;
+    z-index: 4;
+}
+.block4{
+    background: linear-gradient(0deg, #FF0000FF 0px, #FF0000FF 3px, #FF000000 3px);
+    z-index: 0;
+}
+.block5{
+    background: linear-gradient(0deg, #CCCC00FF 0px, #CCCC00FF 3px, #CCCC0000 3px);
+    z-index: 0;
+}
+.block6{
+    background-color: #CC44CC;
+    z-index: 0;
+}
+.block7{
+    background-color: #CC44CC;
+    z-index: 4;
+}
+.block8{
+    background: radial-gradient(circle at 50% 60%, #CCCC00FF 20%, #CCCC00FF 22.5%, #EEEE22FF 22.5%, #EEEE22FF 40%, #EEEE2200 40%);
+    animation: money 0.625s cubic-bezier(0.5, 0.2, 0.5, 0.80) infinite;
+    border-radius: 100%;
+    z-index: 1;
+}
+.block9{
+    background: radial-gradient(#CCCC00FF 40%, #CCCC00FF 42.5%, #EEEE22FF 42.5%, #EEEE22FF 60%, #EEEE2200 60%);
+    animation: money 0.775s cubic-bezier(0.4, 0.2, 0.6, 0.80) infinite;
+    border-radius: 100%;
+    z-index: 1;
+}
+.blocka{
+    background: linear-gradient(90deg, #985f4900 0%, #985f4900 0%, #985f49FF 0%, #985f49FF 10%, #985f4900 10%, #985f4900 90%, #985f4900 90%, #985f4900 90%, #985f49FF 90%, #985f49FF 100%, #985f4900 100%), linear-gradient(0deg, #673F2F00 74%, #673F2F00 91%, #673F2FFF 91%, #8E5842FF 100%, #673F2F00 100%, #673F2F00 100%), linear-gradient(45deg, #57332500 29%, #57332500 46%, #573325FF 46%, #573325FF 55%, #57332500 55%, #57332500 62%), linear-gradient(135deg, #57332500 29%, #57332500 46%, #573325FF 46%, #573325FF 55%, #57332500 55%, #57332500 62%);
+    opacity: 1;
+    z-index: 2;
+}
+.blockb{
+    background: linear-gradient(90deg, #985f4900 0%, #985f4900 0%, #985f49FF 0%, #985f49FF 10%, #985f4900 10%, #985f4900 90%, #985f4900 90%, #985f4900 90%, #985f49FF 90%, #985f49FF 100%, #985f4900 100%), linear-gradient(0deg, #673F2F00 74%, #673F2F00 91%, #673F2FFF 91%, #8E5842FF 100%, #673F2F00 100%, #673F2F00 100%), linear-gradient(45deg, #57332500 29%, #57332500 46%, #573325FF 46%, #573325FF 55%, #57332500 55%, #57332500 62%), linear-gradient(135deg, #57332500 29%, #57332500 46%, #573325FF 46%, #573325FF 55%, #57332500 55%, #57332500 62%);
+    opacity: 1;
+    z-index: 2;
+}
+.blockc{
+    background: linear-gradient(90deg, #985f4900 0%, #985f4900 0%, #985f49FF 0%, #985f49FF 10%, #985f4900 10%, #985f4900 90%, #985f4900 90%, #985f4900 90%, #985f49FF 90%, #985f49FF 100%, #985f4900 100%), linear-gradient(0deg, #673F2F00 74%, #673F2F00 91%, #673F2FFF 91%, #8E5842FF 100%, #673F2F00 100%, #673F2F00 100%), linear-gradient(45deg, #57332500 29%, #57332500 46%, #573325FF 46%, #573325FF 55%, #57332500 55%, #57332500 62%), linear-gradient(135deg, #57332500 29%, #57332500 46%, #573325FF 46%, #573325FF 55%, #57332500 55%, #57332500 62%);
+    opacity: 1;
+    animation: reselect 3s linear infinite 1.25s;
+    transition: opacity 1.25s ease-in-out;
+    z-index: 2;
+    filter: grayscale(1);
+}
+.blockd{
+    background: linear-gradient(45deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%), linear-gradient(135deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%);
+    border-radius: 100%;
+    z-index: 19742;
+}
+.blocke{
+    background: linear-gradient(45deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%), linear-gradient(135deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%);
+    border-radius: 100%;
+    z-index: 19742;
+}
+.blockf{
+    background: linear-gradient(45deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%), linear-gradient(135deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%);
+    border-radius: 100%;
+    z-index: 19742;
+}
+.blockg{
+    background: linear-gradient(45deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%), linear-gradient(135deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%);
+    border-radius: 100%;
+    z-index: 19742;
+}
+.blockh{
+    background: linear-gradient(45deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%), linear-gradient(135deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%);
+    border-radius: 100%;
+    z-index: 19742;
+}
+.blocki{
+    background: linear-gradient(45deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%), linear-gradient(135deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%);
+    border-radius: 100%;
+    z-index: 19742;
+}
+.blockj{
+    background: linear-gradient(45deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%), linear-gradient(135deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%);
+    border-radius: 100%;
+    z-index: 19742;
+}
+.blockk{
+    background: linear-gradient(45deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%), linear-gradient(135deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%);
+    border-radius: 100%;
+    z-index: 19742;
+}
+.blockl{
+    background: linear-gradient(45deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%), linear-gradient(135deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%);
+    border-radius: 100%;
+    z-index: 19742;
+}
+.blockm{
+    background: linear-gradient(45deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%), linear-gradient(135deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%);
+    border-radius: 100%;
+    z-index: 19742;
+}
+.blockn{
+    background: linear-gradient(45deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%), linear-gradient(135deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%);
+    border-radius: 100%;
+    z-index: 19742;
+}
+.blocko{
+    background: linear-gradient(45deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%), linear-gradient(135deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%);
+    border-radius: 100%;
+    z-index: 19742;
+}
+.blockp{
+    background: linear-gradient(45deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%), linear-gradient(135deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%);
+    border-radius: 100%;
+    z-index: 19742;
+}
+.blockq{
+    background: linear-gradient(45deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%), linear-gradient(135deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%);
+    border-radius: 100%;
+    z-index: 19742;
+}
+.blockr{
+    background: linear-gradient(45deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%), linear-gradient(135deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%);
+    border-radius: 100%;
+    z-index: 19742;
+}
+.blocks{
+    background: linear-gradient(45deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%), linear-gradient(135deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%);
+    border-radius: 100%;
+    z-index: 19742;
+}
+.blockt{
+    background: linear-gradient(45deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%), linear-gradient(135deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%);
+    border-radius: 100%;
+    z-index: 19742;
+}
+.blocku{
+    background: linear-gradient(45deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%), linear-gradient(135deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%);
+    border-radius: 100%;
+    z-index: 19742;
+}
+.blockv{
+    background: linear-gradient(45deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%), linear-gradient(135deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%);
+    border-radius: 100%;
+    z-index: 19742;
+}
+.blockw{
+    background: linear-gradient(45deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%), linear-gradient(135deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%);
+    border-radius: 100%;
+    z-index: 19742;
+}
+.blockx{
+    background: linear-gradient(45deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%), linear-gradient(135deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%);
+    border-radius: 100%;
+    z-index: 19742;
+}
+.blocky{
+    background: linear-gradient(45deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%), linear-gradient(135deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%);
+    border-radius: 100%;
+    z-index: 19742;
+}
+.blockz{
+    background: linear-gradient(45deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%), linear-gradient(135deg, #FF000000 29%, #FF000000 46%, #FF0000FF 46%, #FF0000FF 55%, #FF000000 55%, #FF000000 62%);
+    border-radius: 100%;
+    z-index: 19742;
+}
+.entity0{
+    background-color: #FF0000;
+    z-index: 3;
+}
+.particle0{
+    z-index: 3;
+}
+</style>
+<body>
+<div style="position: absolute; left: 0px; top: 0px; font-family: monospace; opacity: 0.5; user-select: none; pointer-events: none;">prototype build id 1.<br>entities still don't work, but level building does.<br>send me some levels!<br>might be tweaked and put into <b>the final game</b><br> bugs are likely to occur!<br>Found one? email rdgfberfdh@gmail.com</div>
+<div style="position: absolute; left: calc(50% - 130px); top: calc(50% - 130px); width: 256px; height: 256px; border: #000000 2px solid;user-select: none;"><button id="stopplay" onclick="if(spawnends[0]>=1 && spawnends[1]==true){if (entities.length>0){runlevel(false);this.innerHTML='Start';}else{runlevel(true);this.innerHTML='Stop';}}" style="position: absolute; top: -24px; right: 0px; font-family: monospace;">Start</button><button id="dbgbuildmode" onclick="buildmodething();this.innerHTML='isbuild: '+buildmode;" style="position: absolute; bottom: -24px; right: 0px; font-family: monospace;">isbuild: true</button><c id="blockamt" style="position: absolute; top: -16px; left: 0px; font-family: monospace;">Blocks: 0, Ladders: 0</c><div id="playarea" style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; overflow: hidden; background: linear-gradient(0deg, #98C8D0 0%, #C8FFFF 100%;"><div id="selbox" style="position: absolute; left: 0%; top: 0%; width: 6.25%; height: 6.25%; pointer-events: none; display: none; transition: left 0.2s cubic-bezier(0.1, 1, 0.5, 1), top 0.2s  cubic-bezier(0.1, 1, 0.5, 1), opacity 0.1s linear; z-index: 1001;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M 0 4 L 0 0 L 4 0 L 4 1 L 1 1 L 1 4 L 0 4 M 12 0 L 16 0 L 16 4 L 15 4 L 15 1 L 12 1 L 12 0 M 16 12 L 16 16 L 12 16 L 12 15 L 15 15 L 15 12 L 16 12 M 4 15 L 4 16 L 0 16 L 0 12 L 1 12 L 1 15 L 4 15" fill="#000000"></path></svg></div><div id="selbox2" style="position: absolute; left: 0%; top: 0%; width: 6.25%; height: 6.25%; pointer-events: none; display: none; opacity: 0.5; animation: selection 0.8s linear(0 0%, 1 50%, 0 100%) infinite; z-index: 1000; backdrop-filter: invert(0.5);"></div></div>
+<div id="blocksel" style="position: absolute;right: calc(-25% - 4px);top: -2px;width: 25%;height: 100%;overflow-x: hidden;overflow-y: scroll;border: #000000 solid;border-width: 2px 2px 2px 0px;"><div id="selbox3" style="position: absolute;left: 20%;top: 4.99%;width: 60%;height: 6.25%;pointer-events: none;display: block;transition: left 0.2s cubic-bezier(0.1, 1, 0.5, 1), top 0.2s  cubic-bezier(0.1, 1, 0.5, 1), opacity 0.1s linear;z-index: 20000;filter: invert(0.75) sepia(1) hue-rotate(125deg);"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M 0 4 L 0 0 L 4 0 L 4 1 L 1 1 L 1 4 L 0 4 M 12 0 L 16 0 L 16 4 L 15 4 L 15 1 L 12 1 L 12 0 M 16 12 L 16 16 L 12 16 L 12 15 L 15 15 L 15 12 L 16 12 M 4 15 L 4 16 L 0 16 L 0 12 L 1 12 L 1 15 L 4 15" fill="#000000"></path></svg></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;margin-top:18%;"><div onmouseover="buildmodeblock('0')" ><div style="position: absolute;width: 100%;height:100%;background-color: #FF0000;cursor: pointer;border-radius: 100%;"></div><div style="position: absolute;left: 5px;top: 5px;width: calc(100% - 10px);height: calc(100% - 10px);background-color: #FFFFFF;cursor: pointer;border-radius: 100%;"><div style="position: absolute;left: calc(50% - 3px);top: 0px;width: 5px;height: 100%;background-color: #FF0000;cursor: pointer;transform: rotate(45deg);"></div></div></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id 0</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Remove</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('1')" class="block1"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id 1</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Block</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('2')" class="block2"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id 2</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Spikes</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('3')" class="block3"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id 3</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Teleporter</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('4')" class="block4"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id 4</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Player Spawn</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('5')" class="block5"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id 5</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Goal</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('6')" class="block6 animempty"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id 6</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Modifiable Air</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('7')" class="block7 animfull"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id 7</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Modifiable Block</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('8')" class="block8"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id 8</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Coin</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('9')" class="block9"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id 9</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">LargeCoin</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('a')" class="blocka"><div class="ladderin animlessempty"></div></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id a</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Modifiable Air (Ladder)</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('b')" class="blockb"><div class="ladderin animfull"></div></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id b</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Modifiable Ladder</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('c')" class="blockc"><div class="ladderin" style="filter: grayscale(1) brightness(1.5);"></div></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id c</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Ladder</c></div>
+<div id="showplaceholders">
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('d')" class="blockd"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id d</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Placeholder</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('e')" class="blocke"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id e</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Placeholder</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('f')" class="blockf"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id f</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Placeholder</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('g')" class="blockg"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id g</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Placeholder</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('h')" class="blockh"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id h</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Placeholder</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('i')" class="blocki"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id i</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Placeholder</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('j')" class="blockj"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id j</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Placeholder</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('k')" class="blockk"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id k</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Placeholder</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('l')" class="blockl"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id l</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Placeholder</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('m')" class="blockm"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id m</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Placeholder</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('n')" class="blockn"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id n</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Placeholder</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('o')" class="blocko"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id o</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Placeholder</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('p')" class="blockp"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id p</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Placeholder</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('q')" class="blockq"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id q</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Placeholder</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('r')" class="blockr"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id r</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Placeholder</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('s')" class="blocks"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id s</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Placeholder</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('t')" class="blockt"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id t</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Placeholder</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('u')" class="blocku"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id u</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Placeholder</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('v')" class="blockv"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id v</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Placeholder</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('w')" class="blockw"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id w</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Placeholder</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('x')" class="blockx"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id x</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Placeholder</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('y')" class="blocky"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id y</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Placeholder</c></div>
+<div style="position: relative;height:15%;margin: 20% 20%;user-select: none;"><div style="position: absolute;width: 100%;height:100%;cursor: pointer;" onmouseover="buildmodeblock('z')" class="blockz"></div><c style="position: absolute;right: -25%;top: -25%;transform: rotate(20deg);z-index: 20001;">id z</c><c style="position: absolute;right: -33%;bottom: -15%;width: 165%;text-align: center;z-index: 20001;">Placeholder</c></div>
+</div>
+</div>
+<div id="settings" style="position: absolute;right: calc(-25% - 4px);top: -50px;width: 25%;height: 48px;overflow-x: hidden;overflow-y: scroll;border: #000000 solid;border-width: 2px 2px 0px 2px;font-family: monospace;display: inline-flex;justify-content: center;align-items: center;align-content: center;flex-wrap: wrap;">
+<button onmousedown="buildmodestart(0)">-</button><c id="buildstartblocks" style="position: relative;width: 16px;display: inline-block;text-align: center;">0</c><button onmousedown="buildmodestart(1)">+</button><br><button onmousedown="buildmodestart(2)">-</button><c id="buildstartladders" style="position: relative;width: 16px;display: inline-block;text-align: center;">0</c><button onmousedown="buildmodestart(3)">+</button>
+</div></div>
+</body>
+<script src="puzzle.js"></script>
+</html>
