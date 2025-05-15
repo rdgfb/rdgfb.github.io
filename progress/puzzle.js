@@ -830,4 +830,3 @@ a.id="gameover"
 a.style="position: absolute;left: "+(entity[2]+2.5)+"%;top: "+(entity[3]+2.5)+"%;width: 200%;height: 200%;%;pointer-events: none;display: block;z-index: 99999;background: radial-gradient(#00000000 0%, #00000000 calc(2.5%), #000000FF calc(2.5% + "+(scale*10)+"px));opacity: 0.5;transform: scale(1) translate(-50%, -50%);animation: gameoverfade 0.5s ease-out;transform-origin: 0% 0%;"
 document.getElementById("playarea").append(a)
 }
-function
